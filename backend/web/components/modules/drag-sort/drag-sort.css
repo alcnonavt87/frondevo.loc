@@ -1,0 +1,23 @@
+[draggable] {
+    -moz-user-select: none !important;
+    -webkit-user-select: none !important;
+    -o-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    -webkit-user-drag: element !important;
+    -khtml-user-drag: element !important;
+    -moz-user-drag: element !important;
+    -o-user-drag: element !important;
+    user-drag: element !important;
+    cursor: -webkit-grab !important;
+    cursor: grab !important;
+}
+
+[draggable]:active {
+    cursor: -webkit-grabbing !important;
+    cursor: grabbing !important;
+}
+
+.sort-drag-and-drop__over, [draggable].over {
+    outline: 2px dashed #000;
+}

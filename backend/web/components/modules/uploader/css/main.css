@@ -1,0 +1,261 @@
+@charset "utf-8";
+
+.fa__uploader {
+    overflow: hidden;
+    padding: 30px 0 30px 0;
+    position: relative;
+}
+
+.fa__uploader.dragover {
+    background-color: #D3E4F1;
+}
+
+.content__menu-item_upload {
+    background-image: url(../img/uploader-icon.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    float: left;
+}
+
+.fa__uploader .content__menu-item {
+    width: 140px;
+    height: 140px;
+    padding: 0;
+}
+
+.fa__file-list {
+    margin-left: 190px;
+    list-style-type: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.fa__file {
+    display: block;
+    width: 100px;
+    margin: 0 0 16px 16px;
+    float: left;
+    overflow: hidden;
+    color: #0081b5;
+    text-decoration: none;
+    font-size: 12px;
+    border: 1px solid #0081b5;
+    position: relative;
+    background-color: #fff;
+
+    -webkit-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.fa__file a {
+    text-decoration: none;
+    position: relative;
+    display: block;
+}
+
+    .fa__file:hover {
+        border-color: #ec9913;
+    }
+
+    .fa__file:hover .fa__file-title {
+        background: #ec9913;
+    }
+
+    .fa__file:hover .button {
+        display: block;
+    }
+
+.fa__file-img {
+    display: block;
+    height: 100px;
+    overflow: hidden;
+}
+
+.fa__file-cell {
+    display: table-cell;
+    width: 100px;
+    height: 100px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.fa__file-cell img {
+    display: block;
+}
+
+.fa__file-cell audio {
+    width: 44px;
+}
+
+.fa__file_docs .fa__file-cell {
+    background: url('../img/file-docs-icon.png') center no-repeat;
+    background-size: contain;
+}
+
+.fa__file_docs .fa__file-cell img {
+    display: none;
+}
+
+.fa__file-title {
+    width: 100px;
+    height: 16px;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    overflow: hidden;
+    background: #0081b5;
+    color: #fff;
+    position: relative;
+}
+
+.fa__file .button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-indent: -9999px;
+    display: block;
+    -webkit-transition: box-shadow 0.2s;
+    -moz-transition: box-shadow 0.2s;
+    -ms-transition: box-shadow 0.2s;
+    -o-transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s;
+    display: none;
+    z-index: 1;
+}
+
+.fa__file .button:hover {
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.fa__file .button_small {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    left: 1px;
+    top: 1px;
+}
+
+.fa__file .button_edit {
+    background-image: url(../img/edit-icon.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.fa__file .button_delete {
+    left: auto;
+    right: 1px;
+    background: url(../img/delete-icon.png) center no-repeat #F56969;
+}
+
+.progress {
+    height: 5px;
+    border: 1px solid #0081b5;
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+    text-align: center;
+    padding: 1px;
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    right: 30px;
+    display: none;
+}
+
+.progress-bar {
+    width: 0;
+    height: 5px;
+    background: #0081b5;
+    color: #fff;
+}
+
+
+.fa__file-edit-wrap {
+    width: 500px;
+    clear: both;
+    padding: 10px 0 0 0;
+}
+
+.fa__uploader .fa__file-edit-wrap {
+    display: none;
+}
+
+.fa__file-edit-wrap.short {
+    width: 402px;
+}
+
+.fa__file-edit-wrap.short .fa__file-edit-list {
+    height: auto;
+}
+
+.fa__file-edit-wrap.short .fa__file-edit-wrap {
+    width: 402px;
+}
+
+.fa__file-edit-list {
+    height: 300px;
+    overflow: hidden;
+    overflow-y: auto;
+    margin: 30px 1px;
+    list-style-type: none;
+}
+
+.fa__edit-file {
+    width: auto;
+    display: block;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.fa__edit-file .fa__file-img {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #0081b5;
+    margin-right: 10px;
+}
+
+.fa__edit-file .fa__file-cell {
+    width: 50px;
+    height: 50px;
+}
+
+.fa__edit-file_docs .fa__file-img {
+    background: url('../img/file-docs-icon.png') center no-repeat;
+    background-size: contain;
+}
+
+.fa__edit-file_docs .fa__file-cell {
+    display: none;
+}
+
+.fa__edit-input {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.fa__edit-input .input-row {
+    padding: 0 0 10px 0;
+    display: block;
+    border: none;
+}
+
+.fa__file-edit-btns {
+    text-align: center;
+}
+
+.fa__file-edit-btns .button {
+    margin: 0 10px;
+}
+
+.cancel {
+    background: #f05458;
+}
+
+.cancel:hover {
+    background: #d94d51;
+}

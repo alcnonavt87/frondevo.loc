@@ -1,0 +1,112 @@
+<PUBLIC:COMPONENT lightWeight="true">
+<PUBLIC:ATTACH EVENT="oncontentready" FOR="element" ONEVENT="init()" />
+<PUBLIC:ATTACH EVENT="ondocumentready" FOR="element" ONEVENT="init()" />
+<PUBLIC:ATTACH EVENT="ondetach" FOR="element" ONEVENT="cleanup()" />
+
+<script type="text/javascript">
+
+    var el = element,
+        doc = element.document,
+        checkbox = window['checkbox'];
+
+    var core = {
+        /**
+         * Has class in element
+         *
+         * @private
+         * @method hasClass
+         * @param {Object} obj DOM element
+         * @param {String} className Class name
+         */
+        hasClass: function(obj, className) {
+            var checkClassName = className.replace(/\s/g, ''),
+                    classList = obj.className.split(' ');
+
+            for (var i = 0, classListLength = classList.length; i < classListLength; i++) {
+
+                if (classList[i].replace(/\s/g, '') === checkClassName) {
+                    return true;
+                }
+
+            }
+
+            return false;
+        },
+
+        /**
+         * Remove class from element
+         *
+         * @private
+         * @method removeClass
+         * @param {Object} obj DOM element
+         * @param {String} className Class name
+         */
+        removeClass: function(obj, className) {
+
+            while (obj.className.indexOf(className) > -1) {
+                obj.className = obj.className.replace(className, '');
+                obj.className = obj.className.replace(/\s/g, '');
+            }
+
+        },
+
+        /**
+         * Add class to element
+         *
+         * @private
+         * @method addClass
+         * @param {Object} obj DOM element
+         * @param {String} className Class name
+         */
+        addClass: function(obj, className) {
+
+            if (!core.hasClass(obj, className)) {
+                obj.className += ' ' + className;
+            }
+
+        }
+    };
+
+    el.onpropertychange = function() {
+
+        if (event.propertyName == "checked") {
+            if (el.checked) {
+                core.addClass(el, 'checked');
+                el.blur();
+            }
+            else {
+                core.removeClass(el, 'checked');
+                el.blur();
+            }
+        }
+
+    };
+
+    function init() {
+
+        if (doc.media !== 'print' ) {
+            checkbox = window[ 'checkbox' ];
+            if( checkbox ) {
+                checkbox['attach']( el );
+            }
+        }
+
+    }
+
+    function cleanup() {
+        if (doc.media !== 'print') {
+            checkbox = window['checkbox'];
+
+            if (checkbox) {
+                checkbox['detach'](el);
+                el = 0;
+            }
+        }
+    }
+
+    if( el.readyState === 'complete' ) {
+        init();
+    }
+
+</script>
+</PUBLIC:COMPONENT>

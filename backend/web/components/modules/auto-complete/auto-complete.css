@@ -1,0 +1,38 @@
+.form-autocomplete-wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 2;
+    overflow: hidden;
+    border: 1px solid #3395d7;
+    border-top-color: #fff;
+    border-radius: 0 0 3px 3px;
+    margin-left: 0px;
+    margin-top: -1px;
+    font-size: 13px;
+}
+
+.form-autocomplete__list {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.form-autocomplete__list-item {
+    padding: 5px 17px 5px 10px;
+    cursor: pointer
+}
+
+.form-autocomplete__list-item.active {
+    background-color: #3395d7;
+    color: #fff
+}
+
+.form-autocomplete__list-item:hover {
+    background-color: #3395d7;
+    color: #fff
+}
+
+.form-search__autocomplete-modif .form-autocomplete__list-item {
+    padding-left: 18px
+}

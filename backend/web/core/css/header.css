@@ -1,0 +1,65 @@
+/* header ------------------------------- */
+/* line 2, ../sass/header.scss */
+.header {
+  height: 40px;
+  background: #0081b5;
+  position: relative;
+  z-index: 2;
+}
+
+/* line 8, ../sass/header.scss */
+.header__logo {
+  position: absolute;
+  top: 0;
+  left: 60px;
+  line-height: 40px;
+  font-size: 20px;
+  padding-left: 10px;
+  color: #fff;
+  font-weight: normal;
+}
+
+/* line 19, ../sass/header.scss */
+.header__logo a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* line 24, ../sass/header.scss */
+.logo__txt {
+  font-size: 16px;
+}
+
+/* line 27, ../sass/header.scss */
+.header__user-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 40px;
+}
+
+/* line 33, ../sass/header.scss */
+.user {
+  font-size: 14px;
+  color: #fff;
+  margin-right: 5px;
+}
+
+/* line 38, ../sass/header.scss */
+.logout {
+  display: inline-block;
+  vertical-align: top;
+  height: 40px;
+  width: 40px;
+  background: url(../img/logout.png) no-repeat center;
+  border-left: 1px solid #fff;
+}
+
+/* line 46, ../sass/header.scss */
+.logout:hover {
+  background-color: #ec9913;
+}
+
+/* /header ------------------------------- */
+
+/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,317 @@
+/* sidebar ------------------------------- */
+/* line 2, ../sass/sidebar.scss */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 265px;
+  background-color: #D3E4F1;
+  padding: 40px 0 0 0;
+  -webkit-transition: width 0.4s;
+  -moz-transition: width 0.4s;
+  -ms-transition: width 0.4s;
+  -o-transition: width 0.4s;
+  transition: width 0.4s;
+  z-index: 1;
+}
+
+/* line 18, ../sass/sidebar.scss */
+.sidebar__menu {
+  padding-top: 30px;
+}
+
+/* line 21, ../sass/sidebar.scss */
+.sidebar-menu__item {
+  background: #3293d8;
+  position: relative;
+  color: #fff;
+  border-top: 1px solid #fff;
+  cursor: pointer;
+  font-size: 16px;
+  letter-spacing: 0;
+}
+/* line 30, ../sass/sidebar.scss */
+.sidebar-menu__item .fa {
+  position: absolute;
+  left: 0;
+  width: 50px;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+}
+/* line 38, ../sass/sidebar.scss */
+.sidebar-menu__item .fa:before {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 43, ../sass/sidebar.scss */
+.sidebar-menu__item .fa:after {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0;
+  height: 100%;
+}
+
+/* line 53, ../sass/sidebar.scss */
+.sidebar-menu__item a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 13px 0 13px 70px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* line 63, ../sass/sidebar.scss */
+.sidebar-menu__item:first-child {
+  border-top: none;
+}
+
+/* line 66, ../sass/sidebar.scss */
+.sidebar-menu__item:hover {
+  background: #e5b730;
+}
+
+/* line 69, ../sass/sidebar.scss */
+.sidebar-menu__item:active {
+  background: #fba603;
+}
+
+/* line 73, ../sass/sidebar.scss */
+.sidebar-menu__item:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  border-right: 1px solid #fff;
+  background-color: #0081b5;
+}
+
+/* line 84, ../sass/sidebar.scss */
+.sidebar_right .sidebar-menu__item:before {
+  left: auto;
+  right: 0;
+}
+
+/* line 89, ../sass/sidebar.scss */
+.sidebar-menu__item-catalogue:before {
+  background: url(../img/catalogue.png) no-repeat #0081b5 center;
+}
+
+/* line 92, ../sass/sidebar.scss */
+.sidebar-menu__item-text:before {
+  background: url(../img/text.png) no-repeat #0081b5 center;
+}
+
+/* line 95, ../sass/sidebar.scss */
+.sidebar-menu__item-blog:before {
+  background: url(../img/blog.png) no-repeat #0081b5 center;
+}
+
+/* line 98, ../sass/sidebar.scss */
+.sidebar-menu__item-news:before {
+  background: url(../img/news.png) no-repeat #0081b5 center;
+}
+
+/* line 101, ../sass/sidebar.scss */
+.sidebar-menu__item-order:before {
+  background: url(../img/order.png) no-repeat #0081b5 center;
+}
+
+/* line 104, ../sass/sidebar.scss */
+.sidebar-menu__item-setting:before {
+  background: url(../img/setting.png) no-repeat #0081b5 center;
+}
+
+/* line 108, ../sass/sidebar.scss */
+.sidebar-menu__item-gallery:before {
+  background: url(../img/photo-ico.png) no-repeat #0081b5 center;
+}
+
+/* line 112, ../sass/sidebar.scss */
+.sidebar-menu__item-private-office:before {
+  background: url(../img/admin-ico.png) no-repeat #0081b5 center;
+}
+
+/* line 116, ../sass/sidebar.scss */
+.sidebar-menu__item-package:before {
+  background: url(../img/menu-package.png) no-repeat #0081b5 center;
+}
+
+/* line 120, ../sass/sidebar.scss */
+.sidebar-menu__item-question:before {
+  background: url(../img/menu-question.png) no-repeat #0081b5 center;
+}
+
+/* line 124, ../sass/sidebar.scss */
+.sidebar-menu__item-service:before {
+  background: url(../img/menu-settings.png) no-repeat #0081b5 center;
+}
+
+/* line 128, ../sass/sidebar.scss */
+.sidebar-menu__item-remove {
+  background-color: #f05458;
+}
+
+/* line 132, ../sass/sidebar.scss */
+.sidebar-menu__item-remove:before {
+  background: url(../img/remove-ico.png) no-repeat #d94d51 center;
+}
+
+/* line 136, ../sass/sidebar.scss */
+.sidebar-menu__item-remove:hover {
+  background-color: #d94d51;
+}
+
+/* line 140, ../sass/sidebar.scss */
+.sidebar-menu__item-remove:hover:before {
+  background-color: #da3135 !important;
+}
+
+/* line 144, ../sass/sidebar.scss */
+.sidebar-menu__item-remove:active {
+  background-color: #da3135;
+}
+
+/* line 148, ../sass/sidebar.scss */
+.sidebar-menu__item-remove:active:before {
+  background-color: #BD3235 !important;
+}
+
+/* line 152, ../sass/sidebar.scss */
+.sidebar-menu__item-save {
+  background-color: #2ecc71;
+}
+
+/* line 156, ../sass/sidebar.scss */
+.sidebar-menu__item-save:before {
+  background: url(../img/save-ico.png) no-repeat #2eaf5b center;
+}
+
+/* line 160, ../sass/sidebar.scss */
+.sidebar-menu__item-save:hover {
+  background-color: #0DBD58;
+}
+
+/* line 164, ../sass/sidebar.scss */
+.sidebar-menu__item-save:hover:before {
+  background-color: #0DA04C !important;
+}
+
+/* line 168, ../sass/sidebar.scss */
+.sidebar-menu__item-save:active {
+  background-color: #0DA04C;
+}
+
+/* line 172, ../sass/sidebar.scss */
+.sidebar-menu__item-save:active:before {
+  background-color: #268F4B !important;
+}
+
+/* line 176, ../sass/sidebar.scss */
+.sidebar-menu__item-preview:before {
+  background: url(../img/preview-ico.png) no-repeat #0081b5 center;
+}
+
+/* line 180, ../sass/sidebar.scss */
+.sidebar-menu__item-copy:before {
+  background: url(../img/copy-ico.png) no-repeat #0081b5 center;
+}
+
+/* line 184, ../sass/sidebar.scss */
+.sidebar-menu__item-project:before {
+  background: url(../img/project-ico.png) no-repeat #0081b5 center;
+}
+
+/* line 188, ../sass/sidebar.scss */
+.sidebar-menu__item-wallpapers:before {
+  background: url(../img/wallpapers-ico.png) no-repeat #0081b5 center;
+}
+
+/* line 192, ../sass/sidebar.scss */
+.sidebar-menu__item-base-ico:before {
+  background: url(../img/ico-base-ico.png) no-repeat #0081b5 center;
+}
+
+/* line 196, ../sass/sidebar.scss */
+.sidebar-menu__item-banners-ico:before {
+  background: url(../img/banners-ico.png) no-repeat #0081b5 center;
+}
+
+/* line 200, ../sass/sidebar.scss */
+.sidebar-menu__item-product-ico:before {
+  background: url(../img/product-ico.png) no-repeat #0081b5 center;
+}
+
+/* line 204, ../sass/sidebar.scss */
+.sidebar-menu__item-difficulty:before {
+  background: url(../img/difficulty-ico.png) no-repeat #0081b5 center;
+}
+
+/* line 208, ../sass/sidebar.scss */
+.sidebar-menu__item:hover:before {
+  background-color: #ec9913;
+}
+
+/* line 212, ../sass/sidebar.scss */
+.sidebar-menu__item-active:before {
+  background-color: #ec9913;
+}
+
+/* line 216, ../sass/sidebar.scss */
+.menu__count {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  right: 15px;
+  min-width: 14px;
+  background: #f05458;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  padding: 2px 4px;
+  letter-spacing: normal;
+}
+
+/* /sidebar ------------------------------- */
+/* line 231, ../sass/sidebar.scss */
+.sidebar_right {
+  left: auto;
+  right: 0;
+  width: 205px;
+}
+
+/* line 237, ../sass/sidebar.scss */
+.sidebar_right .sidebar-menu__item {
+  padding: 13px 60px 13px 19px;
+}
+
+/* line 241, ../sass/sidebar.scss */
+.sidebar_select {
+  margin: 0 0 32px;
+  padding: 0;
+}
+
+/* line 246, ../sass/sidebar.scss */
+.sidebar_select .select {
+  width: 197px;
+}
+
+/* line 250, ../sass/sidebar.scss */
+.sidebar-menu__item_select:before {
+  content: none;
+}
+
+@media (max-width: 1024px) {
+  /* line 255, ../sass/sidebar.scss */
+  .sidebar_right {
+    position: absolute;
+  }
+}
+
+/*# sourceMappingURL=sidebar.css.map */

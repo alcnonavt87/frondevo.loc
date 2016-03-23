@@ -1,0 +1,141 @@
+/* ----------------------------------------------- content__table --------------------------------------------------- */
+.content__table {
+    text-align: center;
+    max-width: 700px;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 26px;
+    font-size: 14px;
+    border-left: 2px solid #3293d8;
+    border-bottom: 2px solid #3293d8;
+    border-right: 2px solid #3293d8;
+    max-width: 1121px;
+}
+
+.content__table_filter {
+    background-color: #fff;
+    padding: 26px 24px;
+    max-width: 100%;
+}
+
+.content__table_filter .table {
+    margin-bottom: 0;
+}
+
+.table tr {
+    cursor: pointer;
+}
+
+.table thead th {
+    color: #fff;
+    background: #3293d8;
+    height: 35px;
+    padding: 0 20px;
+    border-left: 1px solid #fff;
+    font-weight: normal;
+}
+.table thead th:first-child {
+    border-left: none;
+}
+.table tbody td,
+.table tbody th {
+    color: #000;
+    padding: 0 20px;
+    vertical-align: middle;
+    height: 40px;
+}
+
+.table tbody td {
+    background-color: #f5f5f5;
+}
+
+.table tbody tr:nth-child(2n) td,
+.table tbody tr:nth-child(2n) th {
+    background: #fff;
+}
+.table__col-left {
+    text-align: left;
+}
+
+/*.table tbody td:last-child,*/
+/*.table tbody th:last-child {*/
+/*padding: 0;*/
+/*}*/
+
+.table tbody tr:hover td {
+    background: #0081b5;
+    color: #fff;
+}
+
+.table tbody tr a {
+    text-decoration: none;
+    color: #000;
+    border-bottom: 1px dashed #000;
+}
+
+.table tbody tr:hover td a {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+.table tbody tr td a:hover {
+    border-bottom-color: transparent;
+}
+
+.table tbody tr td.td__edit-cell a {
+    border-bottom: none;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.table .td__edit-cell {
+    table-layout: fixed;
+    width: 138px;
+    padding: 0;
+    text-align: right;
+}
+
+.table .td__edit-cell2 {
+    table-layout: fixed;
+    padding: 0;
+    width: 92px;
+}
+
+.table .td__remove-button-cell {
+    table-layout: fixed;
+    width: 45px;
+    padding: 0;
+}
+
+.tablesorter-header {
+    cursor: pointer;
+}
+
+.tablesorter-header.sorter-false {
+    cursor: default;
+}
+
+.table thead .tablesorter-headerDesc {
+    background-image: url(img/table-sort-duration-bottom-ico.png);
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+
+}
+
+.table thead .tablesorter-headerAsc {
+    background-image: url(img/table-sort-duration-top-ico.png);
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+}
+
+.width-110 {
+    width: 74px;
+}
+
+[data-sort='without'] th {
+    cursor: default;
+}
+
+/* -----------------------------------------------/content__table --------------------------------------------------- */

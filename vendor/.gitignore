@@ -1,0 +1,11 @@
+# composer vendor dir
+/bin
+/bower
+/cebe
+/composer
+/ezyang
+/fzaninotto
+/phpspec
+/swiftmailer
+/yiisoft
+autoload.php

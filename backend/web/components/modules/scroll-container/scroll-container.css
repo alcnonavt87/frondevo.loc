@@ -1,0 +1,33 @@
+/* ----------------------------------------------- scroll container ------------------------------------------------- */
+
+.scroll-container {
+    max-height: 400px;
+    overflow: hidden;
+    margin: 0 0 15px;
+    padding: 0 20px;
+    position: relative;
+}
+
+
+.scroll-container .iScrollVerticalScrollbar,
+.scroll-container .iScrollVerticalScrollbarV {
+    width: 12px;
+    position: absolute;
+    z-index: 100;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    background-color: rgb(73, 89, 99);
+}
+
+.scroll-container .iScrollIndicator,
+.scroll-container .iScrollVerticalScrollbarV > div {
+    background-color: #4F8ED1;
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 100;
+    width: 6px;
+    left: 3px;
+}
+
+/* -----------------------------------------------/scroll container ------------------------------------------------- */

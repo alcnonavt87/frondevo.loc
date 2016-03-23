@@ -1,0 +1,225 @@
+/* ---------------------------------------- input elements :: select ------------------------------------------------ */
+
+.select-wrap {
+    padding: 20px 20px 20px 15px;
+    border-left: 5px solid transparent;
+    -moz-transition: border-left-color 0.5s, box-shadow 0.5s, background-color 0.5s;
+    -o-transition: border-left-color 0.5s, box-shadow 0.5s, background-color 0.5s;
+    -webkit-transition: border-left-color 0.5s, box-shadow 0.5s, background-color 0.5s;
+    transition: border-left-color 0.5s, box-shadow 0.5s, background-color 0.5s;
+    position: relative;
+    margin: 0 0 3px;
+}
+
+.select-wrap.focus {
+    border-left-color: #3498db;
+    background-color: #f0f0f0;
+    box-shadow: inset 0 0 3px rgba(0,0,0,.1);
+}
+
+.select-wrap.inline {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 20px 3px 0;
+}
+
+.select {
+    width: 400px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.select__image {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 10px 0 0;
+    height: 38px;
+    overflow: hidden;
+}
+
+.select__image img {
+    vertical-align: middle;
+}
+
+.select__image-text {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.select[required] {
+    border-left: 1px solid #f05458;
+}
+
+.select:focus {
+    outline: none;
+}
+
+.select:focus .select__current > span {
+
+}
+
+.select__current {
+    position: relative;
+    margin: 0 0 1px;
+}
+
+.select__current > span,
+.ui-selectmenu-status {
+    background-color: #3395d7;
+    display: block;
+    height: 39px;
+    margin: 0 40px 0 0;
+    color: #fff;
+    padding: 0 14px 0 14px;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 39px;
+    cursor: pointer;
+}
+
+.ui-selectmenu-status {
+    border:  none;
+    line-height: 33px;
+}
+
+.select__button,
+.ui-state-default .ui-icon {
+    position: absolute;
+    right: 0;
+    height: 39px;
+    width: 39px;
+    top: 0;
+    background: url(img/combobox-arrow.png) no-repeat center center #3395d7;
+    cursor: pointer;
+}
+
+.select__button:hover {
+    background-color: #e5b730;
+}
+
+.select__button:active {
+    background-color: #fba603;
+}
+
+.select__content,
+.ui-selectmenu-menu ul {
+    position: absolute;
+    min-width: 100%;
+    visibility: hidden;
+    max-height: 156px;
+    overflow: hidden;
+    background-color: #FCFAFA;
+    z-index: 2;
+}
+
+.ui-selectmenu-menu ul {
+    visibility: visible;
+    overflow-y: auto;
+}
+
+.init-complete {
+    visibility: visible;
+    display: none;
+}
+
+.select.active .select__content {
+    display: block;
+}
+
+.select__option,
+.select__opgroup,
+.ui-selectmenu-menu li {
+    background-color: #3395d7;
+    height: 38px;
+    line-height: 38px;
+    color: #fff;
+    padding: 0 14px 1px 14px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+    display: block;
+    text-decoration: none;
+}
+
+.select__option.in-group {
+    padding: 0 0 0 30px;
+}
+
+.select__opgroup {
+    background-color: #0C67A5;
+}
+
+.select__option:after,
+.ui-selectmenu-menu li:after,
+.select__opgroup:after {
+    position: absolute;
+    background-color: #82C4F8;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    content: '';
+}
+
+.ui-selectmenu-menu li a {
+    color: #fff;
+    padding: 0;
+    line-height: 35px;
+}
+
+.select__option:hover,
+.ui-selectmenu-menu li:hover  {
+    background-color: #e5b730;
+}
+
+.select__option:active,
+.ui-selectmenu-menu li:active {
+    background-color: #fba603;
+}
+
+.select__option.active,
+.ui-selectmenu-menu li.active {
+    background-color: #fba603;
+    cursor: default;
+}
+
+.select .iScrollVerticalScrollbar,
+.select .iScrollVerticalScrollbarV {
+    width: 12px;
+    position: absolute;
+    z-index: 100;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    background-color: rgb(73, 89, 99);
+}
+
+.select .iScrollIndicator,
+.select .iScrollVerticalScrollbarV > div {
+    background-color: #4F8ED1;
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 100;
+    width: 6px;
+    left: 3px;
+}
+
+.select-wrap__inline {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 0 10px;
+}
+
+.select-wrap__inline:first-child {
+    margin-left: 0;
+}
+
+/* ----------------------------------------/input elements :: select ------------------------------------------------ */

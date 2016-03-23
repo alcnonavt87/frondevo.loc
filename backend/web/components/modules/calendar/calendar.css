@@ -1,0 +1,103 @@
+
+/* ---------------------------------------- input elements :: calendar ---------------------------------------------- */
+
+.calendar-wrap {
+    background-color: #2da5da;
+    width: 248px;
+    position: relative;
+    padding: 0 0 14px;
+}
+
+.input-row .calendar-wrap {
+    position: absolute;
+    z-index: 1;
+}
+
+.calendar__change-period {
+    font-size: 14px;
+    color: #fff;
+    height: 51px;
+}
+
+.calendar__change-period-left {
+    background: url(img/calendar-left-button.png) no-repeat center center;
+    width: 25px;
+    height: 25px;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.calendar__change-period-left.active {
+
+}
+
+.calendar__change-period-right {
+    background: url(img/calendar-right-button.png) no-repeat center center;
+    width: 25px;
+    height: 25px;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.calendar__change-period-right.active {
+
+}
+
+.calendar__current-week {
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    top: 14px;
+    text-align: center;
+}
+
+.calendar-table {
+    color: #fff;
+    width: 100%;
+}
+
+.calendar-table-head {
+
+}
+
+.calendar-table-head-th {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.calendar-table-body {
+
+}
+
+.calendar-table-tr {
+
+}
+
+.calendar-table-td {
+    text-align: center;
+    cursor: pointer;
+    vertical-align: middle;
+    padding: 7px;
+    font-size: 12px;
+}
+
+.calendar-table-td.active {
+    background: url(img/calendar-active-day.png) no-repeat center center;
+}
+
+.calendar-table-td-disabled {
+    color: #71caf1;
+    cursor: default;
+}
+
+.calendar-table-td-value {
+
+}
+
+/* ----------------------------------------/input elements :: calendar ---------------------------------------------- */
