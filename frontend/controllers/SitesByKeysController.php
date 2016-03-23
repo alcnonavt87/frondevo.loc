@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\Root;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -22,6 +23,7 @@ class SitesByKeysController extends CommonController
 		parent::init();
 		$this->myWorks = new Works($this->lang);
 		$this->myFilters = new Filters($this->lang);
+		$this->myRoot = new Root($this->lang);
 	}
 	
 	/**
@@ -41,9 +43,10 @@ class SitesByKeysController extends CommonController
 		$data['pageData'] = $pageData;
 
 
+
 		$data = [];
         $forLayout = [];
-		
+
 		$data = array_merge($this->data, $data);
 		$forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($data);echo '</pre>';exit;
 		// Языковое меню
@@ -74,6 +77,12 @@ class SitesByKeysController extends CommonController
 				'text' => 'Рус'
 		];
 		$forLayout['langMenu'] = $langMenu;
+
+		$pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], [
+				'section1'
+		], []);
+		$data['pageData'] = $pageData;
+
 		return [
             'view' => 'sitesbykeys',
             'data' => $data,

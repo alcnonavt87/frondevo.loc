@@ -107,8 +107,9 @@ class Root extends Model
 				$result[$multiimageItem] = $this->getMultiImageData($multiimageItem, $result['id']);
 			}
 		}
-        
+
 		return $result;
+
     }
 	
     public function getPagesContent($params=[]) {
