@@ -33,7 +33,14 @@ class SitesByKeysController extends CommonController
         if ($this->secondUri) {
 			return $this->actionInner();
 		}
-		
+		// Добираем статические данные страницы
+
+		$pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], [
+				'section1'
+		], []);
+		$data['pageData'] = $pageData;
+
+
 		$data = [];
         $forLayout = [];
 		

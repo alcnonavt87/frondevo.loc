@@ -9,3 +9,4 @@
 ?>
 template for page sitesbykeys<br>
 <?php echo $pH1; ?>
+<?php echo $pageData['section1']; ?>
