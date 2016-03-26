@@ -46,3 +46,6 @@ template for basic layout<br>
 </ul>
 
 <?php echo $menu; ?><br>
+<?php echo $settings['copyright']; ?><br>
+<?php echo $settings['address']; ?><br>
+

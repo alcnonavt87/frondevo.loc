@@ -104,6 +104,10 @@ class RootController extends Controller
 		$menu = new Menu($lang, 'main', $options);
 		$mainMenu = $menu->create();
 		$forLayout['menu'] = $mainMenu;
+
+        // Настройки сайта
+        $settings = $myCommon->getSettings($lang);
+        $forLayout['settings'] = $settings;
 		
 		//echo '<pre>';print_r($forLayout);echo '</pre>';exit;
 		Yii::$app->params['forLayout'] = $forLayout;

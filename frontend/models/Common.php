@@ -110,4 +110,12 @@ class Common extends Model
     public function getDbIndexUri() {
         return 'index';
     }
+	/**
+	 * Получить настройки
+	 */
+	public function getSettings($lang) {
+		$mySettings = new \backend\models\settings\settings\Mysettings();
+		$settings = $mySettings->getSettings($lang);
+		return $settings;
+	}
 }
