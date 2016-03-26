@@ -12,16 +12,20 @@ return [
 		'en',
 		
 	],
-	
-    'pics' => [ //конфигурация картинок
-		'module1' => [ //модуль1
-			'path' => 'p/module1/',
-			'sizes' => [
-				'preview' => [
-					'width' => 250,
-					'height' => 250,
+
+		'pics' => [ //конфигурация картинок
+				'works' => [ //работы
+						'path' => 'frontend/web/p/works/',
+						'sizes' => [
+								'general' => [
+										'width' => 1024,
+										'height' => 640,
+								],
+								'preview' => [
+										'width' => 1920,
+										'height' => 343,
+								],
+						],
 				],
 			],
-		],
-	],
 ];

@@ -42,7 +42,7 @@ class SimpleModuleUrlProvider extends UrlProvider
 		$worksUrl = $this->textPagesUrlProvider->getPortfolioUrl();
 		$worksItemUri = $this->getWorksItemUri($params);
 		$url = $worksUrl.$worksItemUri;
-		
+
 		return $url;
 	}
 	

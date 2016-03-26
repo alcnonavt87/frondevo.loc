@@ -31,7 +31,7 @@ template for basic layout<br>
 			<li><a href="<?php echo $linkUrl; ?>"><?php echo $link['title']; ?></a></li>
 		<?php } ?>
 	<?php } ?><br>
-	
+
 	<?php foreach ($langMenu as $menuItemLang => $menuItem) {
 		$sameLang = ($menuItemLang == $lang);
 	?>
@@ -45,4 +45,4 @@ template for basic layout<br>
 	<?php } ?>
 </ul>
 
-<?php echo $menu; ?>
+<?php echo $menu; ?><br>

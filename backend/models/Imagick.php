@@ -11,6 +11,7 @@ use yii\base\Model;
 Class Imagick extends Model
 {
 
+
     public function getСropedImg($newWidth, $newHeight, $image)
     {
         // Опрделяем размеры изображения
@@ -275,7 +276,7 @@ Class Imagick extends Model
             $geometryToMin[1]
         ];
     }
-	
+
     /**
      * Получить новую размерность "по меньшей стороне" для дальнейшего масштабирования
      */
@@ -303,5 +304,5 @@ Class Imagick extends Model
                 $widthToMin,
                 $heightToMin
         ];
-    } 
+    }
 }

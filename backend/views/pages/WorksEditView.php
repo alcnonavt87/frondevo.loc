@@ -59,7 +59,61 @@ foreach ($filters as $item) {
 	}
 
 	$filtersOptions .= '<option value="'.$item['id'].'" >'.$item['title'].'</option>';
-}/* UpdateCode */
+}
+
+
+
+// Вывод одного изображения "Одиночное изображение" НАЧАЛО
+$imageOne = '<fieldset class="catalog__section">'.
+$this->createHeader('Одиночное изображение');
+if ($worksItem['image'] <> '') {
+	$imageOne .= '<div class="fa__uploader single" id="uploader0-image" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">
+					<div class="fa__file">
+						<a href="/frontend/web/p/works/original-'.$worksItem['image'].'" title="'.$worksItem['imageTitle'].'" class="cboxElement" rel="uploader0">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/frontend/web/p/works/preview-'.$worksItem['image'].'" width="100%" height="auto" alt="'.$worksItem['imageTitle'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[image-one][imgTitle]" value="'.$this->getCodeStr($worksItem['imageTitle']).'">
+								<input class="item-deleted" type="hidden" name="images[image-one][deleted]" value="0">
+							</span>
+							<span class="fa__file-title">'.$worksItem['imageTitle'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>
+				</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+} else {
+	$imageOne .= '<div class="fa__uploader single" id="uploader0-image" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+}
+$imageOne .= '</fieldset>';
+// Вывод одного изображения "Одиночное изображение" КОНЕЦ/* UpdateCode */
 
 
 
@@ -85,6 +139,7 @@ $content .= '<!-- sectionPageData --><fieldset class="catalog__section">
 	<div class="catalog__section-data">
 		<!-- description -->'.$this->createTextArea(['id'=> 'description', 'text' => 'Описание', 'width' => '400x100', 'name' => 'content[description]', 'value' => $worksItem['description'], 'attr' => '']).'<!-- /description -->
 		<!-- filters -->'.$this->createSelect(['id'=> 'idFilters', 'text' => 'Фильтр', 'width' => 400,  'name' => 'base[idFilters]', 'value' => $filtersOptions, 'attr' => '']).'<!-- /filters -->
+		<!-- image -->'.$imageOne.'<!-- /image -->
 	</div>
 </fieldset><!-- /commonData --><!-- /createFinish -->
 

@@ -64,7 +64,7 @@ class Works extends Model
 		$join .= $criteria['join'];
 		$where .= $criteria['where'];
 		$pUrl .= $criteria['pUrl'];
-		
+
 		// сортировка
 		if (isset($params['sorting'])) {
 			if ($params['sorting'] == 'createdDesc') { //по убыванию даты добавления
@@ -89,6 +89,9 @@ class Works extends Model
 		// запрос
 		$query = Yii::$app->db->createCommand('SELECT
             `w`.`id`, `w`.`pUrl` as url, `w`.`dateCreated`,
+            IF(`w`.`image` <> "", CONCAT("/'.Yii::$app->params['pics']['works']['path'].'preview-", `w`.`image`), "") as imgPath,
+			`w`.`imageWidth2` as imgW, `w`.`imageHeight2` as imgH, `wc`.`imageTitle` as imgT,
+
 			`wc`.`pH1` as title, `wc`.`description`
 			'.$fields.'
 		FROM
@@ -122,14 +125,15 @@ class Works extends Model
 		$join = '';
 		$where = '';
 		$pUrl = '';
-		
+
 		// работы в пределах фильтра
 		if (isset($params['filter'])) {
 			$join .= ' JOIN `filters` `f`
 				ON `f`.`id` = `w`.`idFilters` AND `f`.`url` = :pUrl';
 			$pUrl = $params['filter'];
+
 		}
-		
+
 		return [
 			'fields' => $fields,
 			'join' => $join,
@@ -137,7 +141,7 @@ class Works extends Model
 			'pUrl' => $pUrl,
 		];
 	}
-	
+
 	/**
 	 * Единица работы
 	 */
@@ -145,7 +149,10 @@ class Works extends Model
 		// запрос
 		$query = Yii::$app->db->createCommand('SELECT
             `w`.`id`, `w`.`pUrl` as url, `w`.`dateCreated` as publishDate,
+            IF(`w`.`image` <> "", CONCAT("/'.Yii::$app->params['pics']['works']['path'].'general-", `w`.`image`), "") as imgPath,
+			`w`.`imageWidth` as imgW, `w`.`imageHeight` as imgH, `wc`.`imageTitle` as imgT,
             `wc`.`pTitle`, `wc`.`pDescription`, `wc`.`pH1`, `wc`.`pContent` as content
+
         FROM
             `works` `w`, `works_content` `wc`
         WHERE
@@ -154,9 +161,9 @@ class Works extends Model
 			`wc`.`lang` = :lang')
         ->bindValue(':pUrl', $pUrl)
         ->bindValue(':lang', $this->lang);
-        
+
         $result = $query->queryOne();
-        
+
 		return $result;
     }
 	

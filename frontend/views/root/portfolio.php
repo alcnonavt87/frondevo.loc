@@ -1,14 +1,14 @@
 <?php
-	// 
+	//
 	// Шаблон страницы для Портфолио
-	// 
+	//
 	// Принимаемые переменные:
 	// $alias - алиас страницы
 	// $pH1 - заголовок h1
 	// $works - список работ
 	// $filters - список фильтров
 	// $filterUri - uri текущего фильтра
-	// 
+	//
 ?>
 <?php
 use frontend\models\Common;
@@ -41,10 +41,12 @@ template for page portfolio<br>
 </ul>
 <ul>
 	<?php foreach ($works as $work) { ?>
+
 		<?php
 			$params['item'] = $work;
 			$workUrl = $simpleModuleUrlProvider->geteWorksItemUrl($params);
 		?>
-		<li><a href="<?php echo $workUrl; ?>"><?php echo $work['title']; ?></a> <?php echo $work['description']; ?></li>
+		    <li><a href="<?php echo $workUrl; ?>"><?php echo $work['title']; ?><img src="<?php echo $work['imgPath']; ?>" alt=" " width="<?php echo $work['imgW']?>" height="<?php echo $work['imgH'] ?>" </a> <?php echo $work['description']; ?>
+			 </li>
 	<?php } ?>
 </ul>

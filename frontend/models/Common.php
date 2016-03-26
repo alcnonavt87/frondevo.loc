@@ -45,7 +45,7 @@ class Common extends Model
 			$secondUri = Yii::$app->request->get('id2', '');
 			$thirdUri = Yii::$app->request->get('id3', '');
 		}
-        
+
         return [
 			$firstUri,
 			$secondUri,
