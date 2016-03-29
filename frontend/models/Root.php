@@ -129,8 +129,9 @@ class Root extends Model
 			`c`.`pageId` = `p`.`id` AND
 			`c`.`lang` = :lang'.$where)
         ->bindValue(':lang', $this->lang);
-        
+
         $result = $query->queryAll();
+
 		
 		$pagesContent = [];
 		foreach ($result as $item) {

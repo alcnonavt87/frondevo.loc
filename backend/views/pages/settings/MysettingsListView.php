@@ -26,7 +26,7 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$settingsPage
                     '.$this->createInput(array('id'=> 'address', 'text' => 'Адрес', 'width' => 400, 'name' => 'address', 'value' => $mySettings['address'], 'attr' => '')).'
                     </div>
                     <div class="catalog__section-data">
-                    '.$this->createInput(array('id'=> 'copyright', 'text' => 'Копирайт для футтера', 'width' => 400, 'name' => 'copyright', 'value' => $mySettings['copyright'], 'attr' => '')).'
+                    '.$this->createInput(array('id'=> 'copyright', 'text' => 'Копирайт для футера', 'width' => 400, 'name' => 'copyright', 'value' => $mySettings['copyright'], 'attr' => '')).'
                     </div>
 
 

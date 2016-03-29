@@ -24,6 +24,8 @@ $menu = [
 			'index',
 			'sitesbykeys',
 			'portfolio',
+			'commercial',
+			'contacts'
 		]
 	],
 ];

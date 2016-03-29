@@ -50,7 +50,26 @@ class TextPagesUrlProvider extends UrlProvider
 		$url = $this->indexUrl.$sitesbykeysUri;
 		return $url;
 	}
-	
+	/**
+	 * Get commercial url.
+	 */
+	public function getCommercialUrl($params=[]) {
+		$commercialUri = $this->getCommercialUri();
+		$url = $this->indexUrl.$commercialUri;
+		return $url;
+	}
+
+	/**
+	 * Get contacts url.
+	 */
+	public function getContactsUrl($params=[]) {
+		$commercialUri = $this->getContactslUri();
+		$url = $this->indexUrl.$commercialUri;
+		return $url;
+	}
+
+
+
 	/**
 	 * Get works url.
 	 */
@@ -76,6 +95,26 @@ class TextPagesUrlProvider extends UrlProvider
 	////////////////////////////////////////////////////// URIS //////////////////////////////////////////////////////
 	
 	/**
+	 * Get commercial uri.
+	 */
+	public function getCommercialUri($params=[]) {
+		$alias = 'commercial';
+		$uri = '/'.$this->pagesUrls[$alias];
+		return $uri;
+	}
+	/**
+	 * Get commercial uri.
+	 */
+	public function getContactslUri($params=[]) {
+		$alias = 'contacts';
+		$uri = '/'.$this->pagesUrls[$alias];
+		return $uri;
+	}
+
+
+
+
+	/**
 	 * Get sitesbykeys uri.
 	 */
 	public function getSitesbykeysUri($params=[]) {
@@ -83,7 +122,6 @@ class TextPagesUrlProvider extends UrlProvider
 		$uri = '/'.$this->pagesUrls[$alias];
 		return $uri;
 	}
-	
 	/**
 	 * Get portfolio uri
 	 */

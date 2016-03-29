@@ -202,8 +202,12 @@ class SitesByKeysController extends CommonController
             'layout' => $this->layout,
             'forLayout' => $forLayout,
         ];
+		/*Посадочная страница*/
     }
-
+	public function actionLandingpage() {
+		// Проверяем является ли uri третьего уровня uri фильтра
+		echo "privet";
+		}
 	/**
 	 * Страница единицы работы
 	 */
@@ -229,10 +233,10 @@ class SitesByKeysController extends CommonController
 
 		// Языковое меню для страницы одной новости
 		$langMenu = [];
-		$pagesContent = $this->myWorks->getItem($this->thirdUri);
+
 		$params = [];
 		$params['joinUris'] = 1;
-		$params['item'] = $pagesContent;
+		$params['item'] = $pageContent;
 
 		// укр
 		$urlProvider = new SimpleModuleUrlProvider('ua',$params);
