@@ -1,0 +1,73 @@
+.main-wrap {
+  background-color: #fdfaf3; }
+
+.inner-category {
+  overflow: hidden; }
+
+/* .ic-main-section ========================================= */
+.ic-main-section {
+  padding-top: 32px;
+  padding-bottom: 10px; }
+  .ic-main-section .ic-header {
+    overflow: hidden;
+    position: relative;
+    text-align: center; }
+  .ic-main-section .ic-header-content {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+    line-height: 430px; }
+  .ic-main-section .ic-title {
+    font-size: 39px;
+    line-height: normal;
+    display: block;
+    vertical-align: middle;
+    padding: 34px 0;
+    font-weight: normal;
+    position: relative;
+    margin: 0 auto 100px auto;
+    color: #323e26; }
+    .ic-main-section .ic-title:before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 1px;
+      background: #323e26;
+      left: 50%;
+      bottom: 0;
+      margin-left: -60px; }
+  .ic-main-section .icmcp-list {
+    text-align: center; }
+    .ic-main-section .icmcp-list .icmcp-item {
+      width: 500px;
+      display: inline-block;
+      vertical-align: top;
+      overflow: hidden;
+      text-align: left;
+      margin: 0 5px 74px 5px; }
+      .ic-main-section .icmcp-list .icmcp-item .icmcp-img-wrap {
+        width: 236px;
+        float: left;
+        overflow: hidden;
+        text-align: right; }
+      .ic-main-section .icmcp-list .icmcp-item .icmcp-info {
+        padding-top: 4px;
+        margin-left: 260px;
+        overflow: hidden;
+        font-size: 14px;
+        line-height: 16px; }
+        .ic-main-section .icmcp-list .icmcp-item .icmcp-info .icmcp-title {
+          font-size: 22px;
+          font-weight: normal;
+          margin-bottom: 9px; }
+        .ic-main-section .icmcp-list .icmcp-item .icmcp-info a {
+          color: #3c320f;
+          text-decoration: underline; }
+          .ic-main-section .icmcp-list .icmcp-item .icmcp-info a:hover {
+            text-decoration: none; }
+        .ic-main-section .icmcp-list .icmcp-item .icmcp-info p {
+          margin-bottom: 11px; }

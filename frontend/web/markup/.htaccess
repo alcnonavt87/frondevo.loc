@@ -1,0 +1,12 @@
+AddType text/x-component .htc
+AddDefaultCharset utf-8
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    ExpiresByType image/gif "access plus 2 months"
+    ExpiresByType image/jpeg "access plus 2 months"
+    ExpiresByType image/png "access plus 2 months"
+</IfModule>
+<FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf|js|css|pdf|svg)$">
+  Header set Cache-Control "max-age=2592000"
+</FilesMatch>

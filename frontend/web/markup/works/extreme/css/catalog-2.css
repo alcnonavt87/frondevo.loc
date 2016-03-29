@@ -1,0 +1,157 @@
+.index-category {
+  overflow: hidden;
+  margin-bottom: 50px; }
+  .index-category .ic-header {
+    height: 525px;
+    overflow: hidden;
+    position: relative; }
+  .index-category .ic-wrap {
+    position: relative;
+    height: 525px; }
+    .index-category .ic-wrap .ic-img {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin: 0 0 0 -990px; }
+  .index-category .ic-header-content {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    text-align: center;
+    color: #fff; }
+  .index-category .ic-title {
+    font-size: 39px;
+    text-transform: uppercase;
+    padding-bottom: 26px;
+    background: url(../img/ic-title-bg.png) center bottom no-repeat;
+    font-weight: normal; }
+  .index-category .ic-list {
+    width: 696px;
+    margin: 0 auto;
+    position: relative;
+    text-align: justify;
+    font-size: 14px;
+    font-style: italic;
+    padding: 70px 0 0 30px; }
+    .index-category .ic-list:before {
+      content: "";
+      width: 65px;
+      height: 65px;
+      position: absolute;
+      top: 32px;
+      left: 50%;
+      margin-left: -33px;
+      background: url(../img/ic-list-icons.png) no-repeat; }
+    .index-category .ic-list:after {
+      content: "";
+      width: 100%;
+      display: inline-block; }
+    .index-category .ic-list .ic-item {
+      display: inline-block;
+      padding-left: 30px;
+      width: 260px;
+      vertical-align: top;
+      text-align: left;
+      position: relative;
+      margin-bottom: 5px; }
+      .index-category .ic-list .ic-item:before {
+        content: "";
+        width: 15px;
+        height: 14px;
+        position: absolute;
+        top: 3px;
+        left: 0;
+        background: url(../img/ic-item-bullit.png) no-repeat; }
+  .index-category .ic-content {
+    font-size: 15px;
+    padding: 50px;
+    position: relative; }
+    .index-category .ic-content .ic-columns {
+      max-width: 1000px;
+      margin: 0 auto;
+      -webkit-column-count: 2;
+      -webkit-column-gap: 50px;
+      -o-column-count: 2;
+      -o-column-gap: 50px;
+      -ms-column-count: 2;
+      -ms-column-gap: 50px;
+      -moz-column-count: 2;
+      -moz-column-gap: 50px;
+      column-count: 2;
+      column-gap: 50px; }
+
+.er-tours {
+  margin: 0 auto;
+  padding: 0 50px;
+  color: #38472a; }
+  .er-tours .ert-list-column {
+    text-align: center; }
+  .er-tours .ert-title {
+    font-size: 35px;
+    text-transform: uppercase;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 40px; }
+  .er-tours .ert-list {
+    margin: 0 auto; }
+    .er-tours .ert-list .ert-item {
+      width: 500px;
+      text-align: center;
+      display: inline-block;
+      margin: 0 25px 47px 25px;
+      vertical-align: top; }
+      .er-tours .ert-list .ert-item .ert-img-wrap {
+        display: block;
+        margin-bottom: 3px;
+        position: relative; }
+        .er-tours .ert-list .ert-item .ert-img-wrap img {
+          width: 100%;
+          height: auto; }
+        .er-tours .ert-list .ert-item .ert-img-wrap:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          background: url(../img/ert-img-icon.png) center no-repeat;
+          opacity: 0;
+          -webkit-transition: opacity 0.3s ease-in-out;
+          -moz-transition: opacity 0.3s ease-in-out;
+          -ms-transition: opacity 0.3s ease-in-out;
+          -o-transition: opacity 0.3s ease-in-out;
+          transition: opacity 0.3s ease-in-out; }
+      .er-tours .ert-list .ert-item .ert-lnk {
+        color: #38472a;
+        text-decoration: none; }
+        .er-tours .ert-list .ert-item .ert-lnk:hover .ert-img-wrap:before {
+          opacity: 1; }
+      .er-tours .ert-list .ert-item .ert-name {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 20px;
+        font-weight: normal;
+        margin-bottom: 13px; }
+      .er-tours .ert-list .ert-item .ert-info {
+        font-size: 17px;
+        font-weight: bold;
+        position: relative; }
+        .er-tours .ert-list .ert-item .ert-info:before {
+          content: "";
+          width: 160px;
+          height: 1px;
+          background: #38472a;
+          position: absolute;
+          top: -10px;
+          left: 50%;
+          margin-left: -80px; }
+    @media screen and (max-width: 1366px) {
+      .er-tours .ert-list .ert-item {
+        width: 400px; } }
+    @media screen and (max-width: 1280px) {
+      .er-tours .ert-list .ert-item {
+        width: 320px; } }
