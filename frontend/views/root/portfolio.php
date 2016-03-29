@@ -46,7 +46,7 @@ template for page portfolio<br>
 			$params['item'] = $work;
 			$workUrl = $simpleModuleUrlProvider->geteWorksItemUrl($params);
 		?>
-		    <li><a href="<?php echo $workUrl; ?>"><?php echo $work['title']; ?><img src="<?php echo $work['imgPath']; ?>" alt=" " width="<?php echo $work['imgW']?>" height="<?php echo $work['imgH'] ?>" </a> <?php echo $work['description']; ?>
+		    <li><a href="<?php echo $workUrl; ?>"><?php echo $work['title']; ?><img src="/frontend/web/markup2/cycle-bg.jpg " alt=" " width="<?php echo $work['imgW']?>" height="<?php echo $work['imgH'] ?>" </a> <?php echo $work['description']; ?>
 			 </li>
 	<?php } ?>
 </ul>
