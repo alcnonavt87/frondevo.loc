@@ -1,0 +1,83 @@
+/* .ic-main-section ========================================= */
+.ic-main-section {
+  padding-top: 32px;
+  padding-bottom: 49px; }
+  .ic-main-section .ic-header {
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 46px; }
+  .ic-main-section .ic-header-content {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+    line-height: 430px; }
+  .ic-main-section .ic-title {
+    font-size: 39px;
+    line-height: normal;
+    display: block;
+    vertical-align: middle;
+    font-weight: normal;
+    position: relative;
+    margin: 0 auto 20px auto;
+    color: #323e26;
+    text-transform: uppercase; }
+    .ic-main-section .ic-title > span {
+      display: inline-block;
+      position: relative;
+      padding: 34px 0; }
+      .ic-main-section .ic-title > span:before {
+        content: "";
+        position: absolute;
+        height: 1px;
+        background: #323e26;
+        left: 36px;
+        right: 36px;
+        bottom: 0; }
+  .ic-main-section .ic-content {
+    width: 800px;
+    margin: 0 auto;
+        /*.ic-title2 {
+            text-align: center;
+            display: none;
+            color: #323e26;
+            font-size: 26px;
+            margin-bottom: 20px;
+            font-weight: normal;
+
+        }*/ }
+    .ic-main-section .ic-content address {
+      font-style: normal;
+      text-align: center; }
+    .ic-main-section .ic-content .ic-list {
+      display: inline-block;
+      width: 290px;
+      margin: 0 50px;
+      overflow: hidden;
+      vertical-align: top; }
+      .ic-main-section .ic-content .ic-list > dt {
+        color: #323e26;
+        font-size: 26px;
+        margin-bottom: 10px; }
+      .ic-main-section .ic-content .ic-list > dd {
+        font-size: 16px;
+        margin-bottom: 30px; }
+      .ic-main-section .ic-content .ic-list a {
+        color: #3c320f; }
+      .ic-main-section .ic-content .ic-list dl {
+        overflow: hidden; }
+        .ic-main-section .ic-content .ic-list dl > dt {
+          font-weight: bold;
+          float: left;
+          margin-right: 4px;
+          margin-bottom: 10px; }
+        .ic-main-section .ic-content .ic-list dl > dd {
+          margin-bottom: 10px; }
+    .ic-main-section .ic-content .ya-map {
+      width: 800px;
+      height: 400px; }

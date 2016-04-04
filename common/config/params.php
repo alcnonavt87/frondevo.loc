@@ -22,8 +22,16 @@ return [
 										'height' => 640,
 								],
 								'preview' => [
-										'width' => 1920,
-										'height' => 343,
+										'width' => 297,
+										'height' => 381,
+								],
+								'bigsbk' => [
+										'width' => 940,
+										'height' => 275,
+								],
+								'mediumsbk' => [
+										'width' => 461,
+										'height' => 275,
 								],
 						],
 				],

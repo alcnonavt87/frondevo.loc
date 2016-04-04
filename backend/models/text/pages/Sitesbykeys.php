@@ -16,7 +16,7 @@ Class Sitesbykeys extends Model
             `a`.`id`, `a`.`pShow`, `a`.`pUrl`,
             `b`.`pTitle`, `b`.`pDescription`, `b`.`pKeyWords`, `b`.`pH1`,
             `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`
-			, `section1`/*get*/
+			,  `section1`, `image`,`section2`,`section3`, `section4`, `section5`, `idWorks`/*get*/
         FROM
             `pages` `a`, `content` `b`
         WHERE

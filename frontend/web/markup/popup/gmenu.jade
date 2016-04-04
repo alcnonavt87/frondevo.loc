@@ -1,0 +1,29 @@
+- var lmenu = [['en', false, './'], ['ua', true], ['ru', false, './ru/']];
+- var pmenu = [['Главная', true, '/'], ['Разработка сайтов', false, '#'], ['наши работы', false, '#'], ['контактная информация', false, '#'], ['запросить коммерческое предложение', false, '#']];
+div.fd__pmenu
+    div.fd__pmenu-cell.queue-wrap.queueFromLeft.popup-column
+        div
+            div.fd__pmenu-logo.queue.queue1
+                img(src="img/frondevo.png" width="80" height="80" alt='')
+            div.fd__menu.header-lang.g_menu.queue.queue2
+                each val, i in lmenu
+                    if (val[1])
+                        div(class="m-item active queue queue#{lmenu.length - i + 1}")=val[0]
+                    else
+                        div(class="m-item queue queue#{lmenu.length - i + 1}")
+                            a(href=val[2])=val[0]
+    .queue-wrap.popup-column
+        div.fd__stripe.tEndElement
+
+    div.fd__pmenu-cell.queue-wrap.queueFromRight.popup-column
+        div.fd__pmenu-list
+            div.fd__menu.g_menu
+                each val, i in pmenu
+                    if (val[1])
+                        div(class="m-item active queue queue#{i + 1}")=val[0]
+                    else
+                        div(class="m-item queue queue#{i + 1}")
+                            a(href=val[2])=val[0]
+
+    .queue-wrap.popup-column
+        div.fd__stripe.fd__stripe2.tEndElement

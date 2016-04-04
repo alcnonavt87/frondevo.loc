@@ -1,0 +1,27 @@
+{
+    "title": {"ru": "Экстрим-рейс", "uk": "Екстрім-рейс", "en": "Extreme-race"},
+    "pages": [
+        {
+            "data": {
+                "page": "index.html",
+                "html": "index.html",
+                "css": "css/index.css",
+                "js": "js/jquery.main.js"
+            }
+        },
+        {
+            "data": {
+                "page": "partners.html",
+                "html": "partners.html",
+                "css": "css/partners.css"
+            }
+        },
+        {
+            "data": {
+                "page": "reports.html",
+                "html": "reports.html",
+                "css": "css/reports.css"
+            }
+        }
+    ]
+}

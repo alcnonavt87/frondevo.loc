@@ -43,7 +43,13 @@ class SitesbykeysEditController extends \backend\controllers\AdminController {
 
                 //Хлебные крошки
                 $pageGroupData = $myOthers->getPageGroupData($id1Uri);
-                $textPageHeader = $myOthers->getTextPageHeader($idPage, $defLang);/* UpdateCode */
+                $textPageHeader = $myOthers->getTextPageHeader($idPage, $defLang);
+
+			;   
+
+				// Группа чекбоксов "Отображаемые работы"
+				$works = $myOthers->getChGrSourceIdsMultiLangs('works', 'id', $pageLang);
+				$worksIds = $myOthers->getChGrTargetIds('pages_works', 'idPages', 'idWorks', $idRecord);/* UpdateCode */
 
                 $content = '';
                 $navMenu = '';

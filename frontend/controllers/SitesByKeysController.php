@@ -11,6 +11,7 @@ use frontend\models\Works;
 use frontend\models\Filters;
 use vendor\UrlProvider\TextPagesUrlProvider;
 use vendor\UrlProvider\SimpleModuleUrlProvider;
+use vendor\pagination\Pagination;
 /**
  * SitesByKeysController controller
  */
@@ -35,18 +36,10 @@ class SitesByKeysController extends CommonController
         if ($this->secondUri) {
 			return $this->actionInner();
 		}
-		// Добираем статические данные страницы
-
-		$pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], [
-				'section1'
-		], []);
-		$data['pageData'] = $pageData;
-
-
 
 		$data = [];
         $forLayout = [];
-
+		$params = [];
 		$data = array_merge($this->data, $data);
 		$forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($data);echo '</pre>';exit;
 		// Языковое меню
@@ -77,12 +70,19 @@ class SitesByKeysController extends CommonController
 				'text' => 'Рус'
 		];
 		$forLayout['langMenu'] = $langMenu;
+		// Список ссылок для плашки сссылок в футере
+		$links = $this->myWorks->getLinks($this->pageContent['alias']);
+		$forLayout['links'] = $links;
+
+		// Добираем статические данные страницы
 
 		$pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], [
-				'section1'
+				'section1','section2'
 		], []);
 		$data['pageData'] = $pageData;
-
+		// Работы отобаржаемые на текстовой странице
+		$works = $this->myWorks->getListForTextPages($this->pageContent['alias']);//echo '<pre>';print_r($works);echo '</pre>';exit;
+		$data['works'] = $works;
 		return [
             'view' => 'sitesbykeys',
             'data' => $data,
@@ -159,9 +159,14 @@ class SitesByKeysController extends CommonController
 		$works = $this->myWorks->getList($params);//echo '<pre>';print_r($works);echo '</pre>';exit;
 		$data['works'] = $works;
 
+		$pagination = new Pagination($worksCount ,$pageNum ,$limit,'?page=');
+		$data['pagination']=$pagination;
+
 		// Список ссылок для плашки сссылок в футере
 		$links = $this->myWorks->getLinks($this->pageContent['alias']);
 		$forLayout['links'] = $links;
+
+		$data["portfolioUri"]=$this->secondUri;
 
 		// Языковое меню
 		$langMenu = [];
@@ -201,13 +206,11 @@ class SitesByKeysController extends CommonController
             'data' => $data,
             'layout' => $this->layout,
             'forLayout' => $forLayout,
+
         ];
 		/*Посадочная страница*/
     }
-	public function actionLandingpage() {
-		// Проверяем является ли uri третьего уровня uri фильтра
-		echo "privet";
-		}
+
 	/**
 	 * Страница единицы работы
 	 */
@@ -261,6 +264,9 @@ class SitesByKeysController extends CommonController
 		];
 		$forLayout['langMenu'] = $langMenu;
 
+		// Список ссылок для плашки сссылок в футере
+		$links = $this->myWorks->getLinks($this->pageContent['alias']);
+		$forLayout['links'] = $links;
 		$data = array_merge($this->data, $data);
 		$forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($forLayout);echo '</pre>';exit;
 

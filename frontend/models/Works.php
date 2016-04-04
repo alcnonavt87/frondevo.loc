@@ -116,7 +116,7 @@ class Works extends Model
 		
 		return $result;
     }
-	
+
 	/**
 	 * Формирование условий
 	 */
@@ -196,4 +196,30 @@ class Works extends Model
 		
 		return $result;
     }
+
+	/*Список работ для вывода на текстовых страницах*/
+	public function getListForTextPages($alias, $params=[]) {
+		// запрос
+		$query = Yii::$app->db->createCommand('SELECT
+		   `w`.`id`, `w`.`pUrl` as url,
+            IF(`w`.`image` <> "", CONCAT("/'.Yii::$app->params['pics']['works']['path'].'mediumsbk-", `w`.`image`), "") as imgPath,
+			`w`.`imageWidth2` as imgW, `w`.`imageHeight2` as imgH, `wc`.`imageTitle` as imgT,
+
+			`wc`.`pH1` as title, `wc`.`description`
+		FROM
+			`works` `w`
+			LEFT JOIN `works_content` `wc`
+				ON `wc`.`idWorks` = `w`.`id` AND `wc`.`lang` = :lang
+		    JOIN `pages_works` `pw`
+				ON `w`.`id`=`pw`.`idWorks`
+		    JOIN `pages` `p`
+				ON `p`.`id` = `pw`.`idPages`AND `p`.`pAlias` = :alias')
+				->bindValue(':lang', $this->lang)
+				->bindValue(':alias', $alias);
+		//echo '<pre>';print_r($query);echo '</pre>';exit;
+		$result = $query->queryAll();
+
+		return $result;
+	}
+
 }

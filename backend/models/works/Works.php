@@ -120,7 +120,7 @@ Class Works extends Model
 	public function get($id, $lang) {
 		$query = Yii::$app->db->createCommand('SELECT
 			`id`, `pH1`, `pTitle`, `pUrl`, `pDescription`, `pKeyWords`, `pBreadCrumbs`, `show`, `pContent`
-			, `description`, `idFilters`, `image`, `imageTitle`/*get*/
+			, `description`, `idFilters`, `image`, `imageTitle`, `image`, `imageTitle`, `image`, `imageTitle`, `image`, `imageTitle`, `image`, `imageTitle`/*get*/
 		FROM
 			`works`, `works_content`
 		WHERE
@@ -136,7 +136,7 @@ Class Works extends Model
 	public function getEmpty() {
 		$result = [
 			'pH1' => '', 'pTitle' => '', 'pUrl' => '', 'pDescription' => '', 'pKeyWords' => '', 'pBreadCrumbs' => '', 'show' => 0, 'pContent' => '',
-			 'description' => '', 'idFilters' => 0, 'image' => '',/*getEmpty*/
+			 'description' => '', 'idFilters' => 0, 'image' => '', 'image' => '', 'image' => '', 'image' => '', 'image' => '',/*getEmpty*/
 		];
 		
 		return $result;
@@ -174,7 +174,7 @@ Class Works extends Model
 	public function delete($id) {
 		// удаляем с диска одиночные изображения
 		$imagesOne = [
-			 '`image`',/*deleteImagesOne*/
+			 '`image`', '`image`', '`image`', '`image`', '`image`',/*deleteImagesOne*/
 		];
 		$imagesOne = array_unique($imagesOne);
 		if ($imagesOne) {

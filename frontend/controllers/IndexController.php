@@ -12,11 +12,15 @@ use vendor\UrlProvider\TextPagesUrlProvider;
  */
 class IndexController extends CommonController
 {
+
+
+
     public function init() {
 		parent::init();
 	}
-	
+
     public function actionIndex() {
+        $this->layout='index';
         $data = [];
         $forLayout = [];
 		

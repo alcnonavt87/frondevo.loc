@@ -874,6 +874,29 @@ class AdminOthers extends Model
 
             return $query->queryAll();
     }
+    public function getSelectTextpagesOptionsMultiLangs($table, $field, $lang, $moreFields=[]) {
+        if (!empty($moreFields)) {
+            $moreFieldsStr = '';
+            foreach ($moreFields as $moreField) {
+                $moreFieldsStr .= ', `'.$moreField.'`';
+            }
+        } else {
+            $moreFieldsStr = '';
+        }
+
+        $query = Yii::$app->db->createCommand('SELECT
+                    `id`, `'.$field.'`'.$moreFieldsStr.'
+            FROM
+					`pages`, `content`
+			WHERE
+					`pageId` = `id` AND
+					`lang` = :lang
+			ORDER BY
+				`id`')
+            ->bindValue(':lang', $lang);
+
+        return $query->queryAll();
+    }
     public function getSelectOptionsBrandsMultiLangs($table, $field, $lang, $order=0) {
             $order = $order ? 'ORDER BY `order`' : '';
 			

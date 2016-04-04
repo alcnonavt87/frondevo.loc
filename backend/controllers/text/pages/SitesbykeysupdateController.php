@@ -212,7 +212,11 @@ class SitesbykeysupdateController extends \backend\controllers\AdminController {
 						}
 					}
 				}
-			}/* UpdateCodeBottom */
+			}
+
+			// Группа чекбоксов "Отображаемые работы"
+			$worksIds = ArrayHelper::getValue($_POST, 'worksIds', []);
+			$myOthers->updateChGrIds('pages_works', 'idPages', 'idWorks', $idRecord, $worksIds);/* UpdateCodeBottom */
             
 			// отправляем ответ
             echo $json_data;

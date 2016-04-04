@@ -3,7 +3,7 @@ return [
 		'adminEmail' => 'admin@example.com',
 
 		'works' => [
-				'countPerPage' => 2, //кол-во предложений на страницу (пагинация)
+				'countPerPage' =>2, //кол-во предложений на страницу (пагинация)
 		],
 
 		'viewsParts' => [ //месторасположение частей отображений
@@ -12,7 +12,7 @@ return [
 		],
 
 		'emails' => [ //конфигурация почты
-				'from' => 'from@project.com.ua',
+				'from' => 'from@frondevo.com.ua',
 				'to' => [
 						'kanonir2012@gmail.com',
 						'to2@com.ua',
