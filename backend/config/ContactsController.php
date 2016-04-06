@@ -66,7 +66,7 @@ class ContactsController extends CommonController
         $data['pageData'] = $pageData;
 
         return [
-            'view' => 'contacts',
+            'view' => 'Contacts',
             'data' => $data,
             'layout' => $this->layout,
             'forLayout' => $forLayout,
