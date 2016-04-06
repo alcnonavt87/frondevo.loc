@@ -260,6 +260,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                     $workUrl = $simpleModuleUrlProvider->geteWorksItemUrl($params);
                     ?>
                     <?php if ($key == 0) { ?>
+                        <!--/(index === 0 ? long : ) -->
                         <li class="long">
                             <a href="<?php echo $workUrl; ?>"><img
                                     src="<?php echo '/frontend/web/p/works/bigsbk-' . $work['id'] . '-image.jpg' ?>"
@@ -269,7 +270,9 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                                 </div>
                             </a>
                         </li>
+                        <!--/(index === 0 ? long : ) -->
                     <?php } else if ($key <= 2) { ?>
+                        <!--/(index === 0 ? long : ) -->
                         <li>
                             <a href="<?php echo $workUrl; ?>"><img src="<?php echo $work['imgPath'] ?>" alt="">
                                 <div>
@@ -277,6 +280,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                                 </div>
                             </a>
                         </li>
+                        <!--/(index === 0 ? long : ) -->
                     <?php } ?>
                 <?php } ?>
             </ul>
@@ -287,6 +291,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                     $workUrl = $simpleModuleUrlProvider->geteWorksItemUrl($params);
                     ?>
                     <?php if ($key >= 3) { ?>
+                        <!--/(index === 0 ? long : ) -->
                         <li>
                             <a href="<?php echo $workUrl; ?>"><img src="<?php echo $work['imgPath'] ?>" alt="">
                                     <div>
@@ -294,110 +299,13 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                                     </div>
                             </a>
                         </li>
+                        <!--/(index === 0 ? long : ) -->
                     <?php } ?>
                 <?php } ?>
             </ul>
 
 
-            <ul>
 
-                <!-- (index === 0 ? long : ) -->
-                <li class="long">
-
-                    <!-- # -->
-                    <a href="#"><img src="/frontend/web/markup/pic/our-works/teksan.jpg" alt="">
-
-                        <div>
-                            <span>Качественно выделяющийся b2b сайт среди конкурентов</span>
-                        </div>
-                    </a>
-                    <!--/# -->
-
-                </li>
-                <!--/(index === 0 ? long : ) -->
-
-
-                <!-- (index === 0 ? long : ) -->
-                <li>
-
-                    <!-- # -->
-                    <a href="#"><img src="/frontend/web/markup/pic/our-works/sergey.jpg" alt="">
-
-                        <div>
-                            <span>Персональный сайт с нестандартным дизайном</span>
-                        </div>
-                    </a>
-                    <!--/# -->
-
-                </li>
-                <!--/(index === 0 ? long : ) -->
-
-
-                <!-- (index === 0 ? long : ) -->
-                <li>
-
-                    <!-- # -->
-                    <a href="#"><img src="/frontend/web/markup/pic/our-works/gitnew.jpg" alt="">
-
-                        <div>
-                            <span>Иммиджевый сайт, после посещения которого сложно удержаться от похода в магазин за пивом</span>
-                        </div>
-                    </a>
-                    <!--/# -->
-
-                </li>
-                <!--/(index === 0 ? long : ) -->
-            </ul>
-            <ul>
-                <li>
-
-                    <!-- # -->
-                    <a href="#"><img src="/frontend/web/markup/pic/our-works/unrecognized.jpg" alt="">
-
-                        <div>
-                            <span>Качественно выделяющийся b2b сайт среди конкурентов</span>
-                        </div>
-                    </a>
-                    <!--/# -->
-
-                </li>
-                <li>
-
-                    <!-- # -->
-                    <a href="#"><img src="/frontend/web/markup/pic/our-works/js-funride.jpg" alt="">
-
-                        <div>
-                            <span>Персональный сайт с нестандартным дизайном</span>
-                        </div>
-                    </a>
-                    <!--/# -->
-
-                </li>
-                <li>
-
-                    <!-- # -->
-                    <a href="#"><img src="/frontend/web/markup/pic/our-works/folio.jpg" alt="">
-
-                        <div>
-                            <span>Иммиджевый сайт, после посещения которого сложно удержаться от похода в магазин за пивом</span>
-                        </div>
-                    </a>
-                    <!--/# -->
-
-                </li>
-                <li>
-
-                    <!-- # -->
-                    <a href="#"><img src="/frontend/web/markup/pic/our-works/girl.jpg" alt="">
-
-                        <div>
-                            <span>Качественно выделяющийся b2b сайт среди конкурентов</span>
-                        </div>
-                    </a>
-                    <!--/# -->
-
-                </li>
-            </ul>
         </div>
         <!--/our works  wrap -->
 
@@ -513,7 +421,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
     </div>
     <!--/approach -->
-
+    <?php /*echo htmlspecialchars_decode($pageData['section1'])*/ ?>
 
     <!-- stages -->
     <div id="indicators1" class="stages hor-indicators">

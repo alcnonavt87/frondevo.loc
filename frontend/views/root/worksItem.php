@@ -98,6 +98,6 @@
 
 
 
-<?php echo $worksItem['pH1']; ?>
+<?php /*echo $worksItem['pH1']; */?><!--
 
-<img src="<?=$worksItem['imgPath']; ?>" alt="" width="<?= $worksItem['imgW']?>" height="<?=$worksItem['imgH']; ?>">
+<img src="<?/*=$worksItem['imgPath']; */?>" alt="" width="<?/*= $worksItem['imgW']*/?>" height="<?/*=$worksItem['imgH']; */?>">-->

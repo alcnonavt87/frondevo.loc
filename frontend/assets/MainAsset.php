@@ -23,6 +23,14 @@ class MainAsset extends AssetBundle
     public $js = [
         'frontend/web/markup/js/lib/lib.min.js',
         'frontend/web/markup/js/main.min.js',
+        'frontend/web/markup/js/lib/site.lib.min.js',
+        'frontend/web/markup/js/site.min.js',
+        'frontend/web/markup/js/lib/project.lib.min.js',
+        'frontend/web/markup/js/project.min.js',
+        'frontend/web/markup/js/form.min.js',
+        'frontend/web/markup/js/projects.min.js',
+        'frontend/web/markup/js/lib/works-view.lib.min.js',
+        'frontend/web/markup/js/works-view.min.js',
     ];
     public $jsOptions = [
         'position' =>  View::POS_HEAD,

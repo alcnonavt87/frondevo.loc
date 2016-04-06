@@ -51,6 +51,14 @@ class TextPagesUrlProvider extends UrlProvider
 		return $url;
 	}
 	/**
+	 * Get landing page url.
+	 */
+	public function getLandingpageUrl ($params=[]) {
+		$landingpageUri = $this->getLandingPageUri();
+		$url = $this->indexUrl.$landingpageUri;
+		return $url;
+	}
+	/**
 	 * Get commercial url.
 	 */
 	public function getCommercialUrl($params=[]) {
@@ -119,6 +127,14 @@ class TextPagesUrlProvider extends UrlProvider
 	 */
 	public function getSitesbykeysUri($params=[]) {
 		$alias = 'sitesbykeys';
+		$uri = '/'.$this->pagesUrls[$alias];
+		return $uri;
+	}
+	/**
+	 * Get landing page uri.
+	 */
+	public function getLandingPageUri($params=[]) {
+		$alias = 'landingpage';
 		$uri = '/'.$this->pagesUrls[$alias];
 		return $uri;
 	}

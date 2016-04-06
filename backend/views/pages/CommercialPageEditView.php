@@ -17,22 +17,7 @@ $content = '<ul class="crumbs">
                 <li class="crumbs__item"><a href="/'.$id1Uri.'/'.$defLang.'" data-href="formlist">'.$pageGroupData[0]['groupName'].'</a></li>
                 <li class="crumbs__item crumbs__item-active">'.$textPageHeader.'</li>
             </ul>';
-//Хлебные крошки КОНЕЦ//
-
-
-
-// Группа чекбоксов "Отображаемые работы"
-$worksList = [];
-foreach ($works as $key => $item) {
-	$checked = '';
-	
-	if (in_array($item['id'], $worksIds)) {
-		$checked = 'checked="checked"';
-	}
-	
-	$worksList[] = ['id'=> 'works'.$key, 'text' => $item['id'], 'width' => 400, 'name' => 'worksIds[]', 'value' => $item['id'], 'attr' => $checked];
-}/* UpdateCode */
-
+//Хлебные крошки КОНЕЦ/* UpdateCode */
 
 $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'].'/'.$pageLang, 'post', ['id'=>"form-edit-content"]).
                 '<!-- sectionPageData --><fieldset class="catalog__section">
@@ -50,39 +35,5 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
                 <fieldset class="catalog__section">
                 '.$this->createHeader('Редактирование контента страницы').'
                 <!-- pContent -->'.$this->createTextArea(['id'=> 'pContent', 'text' => '', 'width' => '400x100', 'name' => 'pContent', 'value' => $page[0]['pContent'], 'attr' => 'data-module="tinymce"']).'<!-- /pContent -->
-                </fieldset><!-- /sectionPageData --><!-- /createFinish -->
-
-<!-- section1 --><fieldset class="catalog__section">
-	'.$this->createHeader('Секция1').'
-	<div class="catalog__section-data">
-		<!-- section1 -->'.$this->createTextArea(['id'=> 'section1', 'text' => 'Секция1', 'width' => '400x100', 'name' => 'content[section1]', 'value' => $pagesItem['section1'], 'attr' => 'data-module="tinymce"']).'<!-- /section1 -->
-
-<!-- section2 --><fieldset class="catalog__section">
-	'.$this->createHeader('Секция2').'
-	<div class="catalog__section-data">
-		<!-- section2 -->'.$this->createTextArea(['id'=> 'section2', 'text' => 'Секция2', 'width' => '400x100', 'name' => 'content[section2]', 'value' => $pagesItem['section2'], 'attr' => 'data-module="tinymce"']).'<!-- /section2 -->
-		 '.$this->createHeader('ID работ которые будут отображаться на странице ').'
-		<!-- works -->'.$this->createCheckBoxGroup(['list' => $worksList]).'<!-- /works -->
-</fieldset><!-- /section2 -->
-
-<!-- section3 --><fieldset class="catalog__section">
-	'.$this->createHeader('Секция3').'
-	<div class="catalog__section-data">
-		<!-- section3 -->'.$this->createTextArea(['id'=> 'section3', 'text' => 'Секция3', 'width' => '400x100', 'name' => 'content[section3]', 'value' => $pagesItem['section3'], 'attr' => 'data-module="tinymce"']).'<!-- /section3 -->
-</fieldset><!-- /section3 -->
-
-<!-- section4 --><fieldset class="catalog__section">
-	'.$this->createHeader('Секция4').'
-	<div class="catalog__section-data">
-		<!-- section4 -->'.$this->createTextArea(['id'=> 'section4', 'text' => 'Секция4', 'width' => '400x100', 'name' => 'content[section4]', 'value' => $pagesItem['section4'], 'attr' => 'data-module="tinymce"']).'<!-- /section4 -->
-
-</fieldset><!-- /section4 -->
-
-<!-- section5 --><fieldset class="catalog__section">
-	'.$this->createHeader('Секция5').'
-	<div class="catalog__section-data">
-		<!-- section5 -->'.$this->createTextArea(['id'=> 'section5', 'text' => 'Секция5', 'width' => '400x100', 'name' => 'content[section5]', 'value' => $pagesItem['section5'], 'attr' => 'data-module="tinymce"']).'<!-- /section5 -->
-</fieldset><!-- /section5 -->
-
-'.
+                </fieldset><!-- /sectionPageData --><!-- /createFinish -->'.
             Html::endForm();

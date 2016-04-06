@@ -1,4 +1,9 @@
-
+<?php
+use frontend\models\Common;
+use vendor\UrlProvider\SimpleModuleUrlProvider;
+use vendor\UrlProvider\TextPagesUrlProvider;
+$textPagesUrlProvider = new TextPagesUrlProvider($lang);
+?>
 
 <!-- full height -->
 <div class="full-height mesh index">
@@ -25,7 +30,7 @@
                     <div class="button-wrap">
 
                         <!-- # -->
-                        <a href="#" class="button dark hidden">
+                        <a href="<?php echo $textPagesUrlProvider->getSitesByKeysUrl()?>" class="button dark hidden">
                             <span>разработка сайтов</span>
                         </a>
                         <!--/# -->

@@ -13,7 +13,7 @@
                 <h2>запрос коммерческого предложения на разработку сайта</h2>
 
                 <!-- action form -->
-                <form id="form-application" action="http://frondevo.loc/email/commercial" method="post" autocomplete="off" data-ajax novalidate class="action-form">
+                <form id="form-application" action="email/commercial" method="post" autocomplete="on" data-ajax novalidate class="action-form">
 
                     <!-- row -->
                     <div class="row">
@@ -65,7 +65,7 @@
                         <!-- input wrap -->
                         <div class="input-wrap text">
                             <label for="input-desk">каким вы видите свой будущий сайт?</label>
-                            <textarea placeholder="кратко опишите в какой сфере работаете, какие цели ставите, что и почему хотелось бы видеть на своей сайте" name="desk"></textarea>
+                            <textarea placeholder="кратко опишите в какой сфере работаете, какие цели ставите, что и почему хотелось бы видеть на своей сайте" name="desc"></textarea>
                         </div>
                         <!--/input wrap -->
 

@@ -25,7 +25,7 @@ class EmailController extends CommonController
 	protected $lang;
 	protected $firstUri;
 
-	const DEBUGGING = 1;
+	const DEBUGGING = 0;
 	
 	public function init() {
 		parent::init();
@@ -118,14 +118,14 @@ class EmailController extends CommonController
 		$status= $message->send();
 		
 		$result = array(
-			'status' => isset($status) ? $status : 0,
-			'answer' => $answer
+			//'status' => isset($status) ? $status : 0,
+			'message' => $answer
 		);
 		
 		// возвращаемся на страницу объекта
-		if (!self::DEBUGGING) {
+		/*if (!self::DEBUGGING) {
 			return $this->redirect($referrer);
-		}
+		}*/
 		
 		$result = json_encode($result);
 		echo $result;
