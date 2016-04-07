@@ -94,7 +94,7 @@ class SitesByKeysController extends CommonController
 
 			// Работы отобаржаемые на текстовой странице
 			// Работы отобаржаемые на текстовой странице
-			$works = $this->myWorks->getListForTextPages($this->pageContent['alias']);//echo '<pre>';print_r($works);echo '</pre>';exit;
+			$works = $this->myWorks->getListForSitesByKeys($this->pageContent['alias']);//echo '<pre>';print_r($works);echo '</pre>';exit;
 			$data['works'] = $works;
 		return [
             'view' => 'sitesbykeys',
@@ -218,7 +218,7 @@ class SitesByKeysController extends CommonController
 		// смещение записей (в зависимости от страницы)
 		$offset = $limit * ($pageNum - 1);
 		$params['offset'] = $offset;
-		$works = $this->myWorks->getList($params);//echo '<pre>';print_r($works);echo '</pre>';exit;
+		$works = $this->myWorks->getListForPortfolio($params);//echo '<pre>';print_r($works);echo '</pre>';exit;
 		$data['works'] = $works;
 
 		$pagination = new Pagination($worksCount ,$pageNum ,$limit,'?page=');

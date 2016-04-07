@@ -1,4 +1,20 @@
 <?php
+//
+// Базовый шаблон сайта
+//
+// Принимаемые переменные:
+// $hostName - имя хоста
+// $lang - язык
+// $indexUrl - урл главной страницы
+// $pTitle - мета-заголовок страницы
+// $pDescription - мета-описание страницы
+// $indexPage - флаг главной страницы
+// $menu - контент меню
+// $content - контент внутренней страницы
+//
+?>
+
+<?php
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use vendor\UrlProvider\TextPagesUrlProvider;

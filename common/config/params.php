@@ -33,7 +33,13 @@ return [
 										'width' => 461,
 										'height' => 275,
 								],
+								'generalprtf' => [
+										'width' => 1920,
+										'height' => 345,
+								],
 						],
+
 				],
+
 			],
 ];

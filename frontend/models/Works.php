@@ -49,7 +49,7 @@ class Works extends Model
     }
 	
 	/**
-	 * Список новостей
+	 * Список работ
 	 */
     public function getList($params=[]) {
 		$fields = '';
@@ -197,8 +197,8 @@ class Works extends Model
 		return $result;
     }
 
-	/*Список работ для вывода на текстовых страницах*/
-	public function getListForTextPages($alias, $params=[]) {
+	/*Список работ для вывода на странице Sites by keys*/
+	public function getListForSitesByKeys($alias, $params=[]) {
 		// запрос
 		$query = Yii::$app->db->createCommand('SELECT
 		   `w`.`id`, `w`.`pUrl` as url,
@@ -221,5 +221,95 @@ class Works extends Model
 
 		return $result;
 	}
+	/*Список работ для вывода на странице Portfolio*/
+	public function getListForPortfolio($params=[]) {
+		$fields = '';
+		$join = '';
+		$where = '';
+		$orderBy = '`w`.`id`';
+		$pUrl = '';
 
+		// условия
+		$criteria = $this->getCriteria($params);
+		$fields .= $criteria['fields'];
+		$join .= $criteria['join'];
+		$where .= $criteria['where'];
+		$pUrl .= $criteria['pUrl'];
+
+		// сортировка
+		if (isset($params['sorting'])) {
+			if ($params['sorting'] == 'createdDesc') { //по убыванию даты добавления
+				$orderBy = '`w`.`dateCreated` DESC';
+			}
+		}
+
+		// лимит
+		if (isset($params['limit'])) {
+			$limit = ' LIMIT '.$params['limit'];
+		} else {
+			$limit = '';
+		}
+
+		// оффсет
+		if (isset($params['offset'])) {
+			$offset = ' OFFSET '.$params['offset'];
+		} else {
+			$offset = '';
+		}
+
+		// запрос
+		$query = Yii::$app->db->createCommand('SELECT
+            `w`.`id`, `w`.`pUrl` as url, `w`.`dateCreated`,
+            IF(`w`.`image` <> "", CONCAT("/'.Yii::$app->params['pics']['works']['path'].'generalprtf-", `w`.`imageprtf`), "") as imgPath,
+			`w`.`imageWidth2` as imgW, `w`.`imageHeight2` as imgH, `wc`.`imageTitle` as imgT,
+
+			`wc`.`pH1` as title, `wc`.`description`
+			'.$fields.'
+		FROM
+			`works` `w`
+			LEFT JOIN `works_content` `wc`
+				ON `wc`.`idWorks` = `w`.`id` AND `wc`.`lang` = :lang
+			'.$join.'
+		WHERE
+			`w`.`show` <> 0'.$where.'
+		ORDER BY
+			'.$orderBy
+				.$limit
+				.$offset)
+				->bindValue(':lang', $this->lang);
+
+		if ($pUrl) {
+			$query->bindValue(':pUrl', $pUrl);
+		}
+
+		//echo '<pre>';print_r($query);echo '</pre>';exit;
+		$result = $query->queryAll();
+
+		return $result;
+	}
+
+	/**
+	 * Формирование условий
+	 */
+	public function getCriteriaForPortfolio($params=[]) {
+		$fields = '';
+		$join = '';
+		$where = '';
+		$pUrl = '';
+
+		// работы в пределах фильтра
+		if (isset($params['filter'])) {
+			$join .= ' JOIN `filters` `f`
+				ON `f`.`id` = `w`.`idFilters` AND `f`.`url` = :pUrl';
+			$pUrl = $params['filter'];
+
+		}
+
+		return [
+				'fields' => $fields,
+				'join' => $join,
+				'where' => $where,
+				'pUrl' => $pUrl,
+		];
+	}
 }

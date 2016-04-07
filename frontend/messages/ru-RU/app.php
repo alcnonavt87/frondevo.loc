@@ -13,7 +13,7 @@ return [
 	'New objects' => 'Новые поступления',
 	'Company news' => 'Новости компании',
 	'All news' => 'Все новости',
-	
+	'All' => 'Все',
     // объекты
 	'All objects' => 'Все объекты',
 	'Leave request' => 'Оставить заявку',

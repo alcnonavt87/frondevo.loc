@@ -24,48 +24,54 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
             </address>
 
             <!-- fd  menu -->
-            <ul class="fd__menu fd__menu_line">
-                <?php
-                $AllActive = (Yii::$app->request->getAbsoluteUrl() == $textPagesUrlProvider->getPortfolioUrl());
-                if ($AllActive) {
-                    ?>
-                    <li class="m-item active">
-                         <span> Все <span>
-                    </li>
-                <?php } else { ?>
-                    <li class='m-item'>
-                        <a href="<?php echo($textPagesUrlProvider->getPortfolioUrl()) ?>" target="_parent"
-                           rel="nofollow "><span>Все</span></a>
-                    </li>
-                <?php } ?>
-                <!-- m item -->
+            <div data-module="projectsfilter" data-filter-list="filter1" class="fd__menu filter-menu fd__menu_line">
+                <div>
+
+                    <ul class="fd__menu fd__menu_line">
+                        <?php
+                        $AllActive = (Yii::$app->request->getAbsoluteUrl() == $textPagesUrlProvider->getPortfolioUrl());
+                        if ($AllActive) {
+                            ?>
+                            <li class="m-item active">
+                         <span> <?php echo Yii::t('app', 'All'); ?> <span>
+                            </li>
+                        <?php } else { ?>
+                            <li class='m-item'>
+                                <a href="<?php echo($textPagesUrlProvider->getPortfolioUrl()) ?>" target="_parent"
+                                   rel="nofollow "><span><?php echo Yii::t('app', 'All'); ?></span></a>
+                            </li>
+                        <?php } ?>
+                        <!-- m item -->
 
 
-                <!--/m item -->
+                        <!--/m item -->
 
 
-                <?php foreach ($filters as $filter) { ?>
-                    <?php
-                    $params['item'] = $filter;
-                    $filterUrl = $textPagesUrlProvider->geteFilterUrl($params);
-                    ?>
+                        <?php foreach ($filters as $filter) { ?>
+                            <?php
+                            $params['item'] = $filter;
+                            $filterUrl = $textPagesUrlProvider->geteFilterUrl($params);
+                            ?>
 
-                    <?php
-                    $filterActive = ($filter['url'] == $filterUri);
-                    if ($filterActive) {
-                        ?>
-                        <li class="m-item active">
+                            <?php
+                            $filterActive = ($filter['url'] == $filterUri);
+                            if ($filterActive) {
+                                ?>
+                                <li class="m-item active">
                          <span><?php echo $filter['title']; ?><span>
-                        </li>
-                    <?php } else { ?>
-                        <li class="m-item">
-                            <a href="<?php echo $filterUrl; ?>" target="_parent"
-                               rel="nofollow "><?php echo $filter['title']; ?></a>
-                        </li>
-                    <?php } ?>
-                <?php } ?>
+                                </li>
+                            <?php } else { ?>
+                                <li class="m-item">
+                                    <a href="<?php echo $filterUrl; ?>" target="_parent"
+                                       rel="nofollow "><?php echo $filter['title']; ?></a>
+                                </li>
+                            <?php } ?>
+                        <?php } ?>
 
-            </ul>
+                    </ul>
+
+                </div>
+            </div>
             <!--/fd  menu -->
 
         </div>
@@ -78,118 +84,63 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 <!--/black layout -->
 
 
-<!-- main wrap -->
-<div class="main-wrap">
+<!-- fd  project list -->
+<div class="fd__project-list">
 
-    <!-- our works -->
-    <div class="our-works our-works_type2 our-works_vert our-works_notitle">
+    <!-- pl list -->
+    <div data-filter-id="filter1" data-module="listscroll" class="pl-list hidden">
+        <?php foreach ($works as $work) { ?>
+        <?php
+        $params['item'] = $work;
+        $workUrl = $simpleModuleUrlProvider->geteWorksItemUrl($params);
+        ?>
+        <!-- pl item -->
+        <section data-listscroll-item="true" data-project-type="sites" class="pl-item visible no-animation">
 
-        <!-- our works  wrap -->
-        <div class="our-works__wrap">
-            <ul>
+            <!-- pl cell -->
+            <div class="pl-cell">
 
-                <?php foreach ($works as $work) { ?>
+                <!-- pl cell wrap -->
+                <div class="pl-cell-wrap">
 
-                    <li>
-                        <?php
-                        $params['item'] = $work;
-                        $workUrl = $simpleModuleUrlProvider->geteWorksItemUrl($params);
-                        ?>
-                        <a href="<?php echo $workUrl; ?>"><img src="<?php echo $work['imgPath']; ?>" alt="">
+                    <!-- pl header -->
+                    <div class="pl-header">
+                        <h2 class="pl-title"><?php echo $work['title']; ?></h2>
 
-                            <div>
-                                <!-- our works  descr -->
-                                <div class="our-works__descr">
-                                    <span> <?php echo $work['description']; ?></span>
-                                </div>
-                                <!--/our works  descr -->
-                            </div>
+                        <div class="pl-description g_text"><?php echo $work['description']; ?></div>
+                    </div>
+                    <!--/pl header -->
+
+
+                    <!-- pl btns set -->
+                    <div class="pl-btns-set">
+
+                        <!-- button -->
+                        <a href="<?php echo $workUrl; ?>" class="button dark">
+                            <span>Детали</span>
                         </a>
-                    </li>
-                <?php } ?>
-            </ul>
-            -->
-        </div>
-        <!--/our works  wrap -->
+                        <!--/button -->
 
-        <?php echo $pagination->get() ?>
+                        <!--span.pl-btns-set-rowa.btn(href="project-inner.html") Детали
+                        -->
+                        <!--span.pl-btns-set-rowa.btn(href="#") Посмотреть демо
+                        -->
+                    </div>
+                    <!--/pl btns set -->
 
-        <!--/pager -->
+                </div>
+                <!--/pl cell wrap -->
 
+            </div>
+            <!--/pl cell -->
+
+            <div class="pl-image-wrap"><img src="<?php echo $work['imgPath']; ?>" alt="<?php echo $work['title']; ?>" data-fd-object-fit></div>
+        </section>
+        <!--/pl item -->
+
+        <!--/pl list -->
+        <?php } ?>
     </div>
-    <!--/our works -->
-
-
-    <!-- offer -->
-    <div class="offer mesh">
-
-        <!-- layout -->
-        <div class="layout fd_align-center">
-
-            <!-- button -->
-            <a href="<?php echo($textPagesUrlProvider->getCommercialUrl()) ?>" class="button dark">
-                <span>Заказать бесплатную консультацию и оценку вашего проекта</span>
-            </a>
-            <!--/button -->
-
-        </div>
-        <!--/layout -->
-
-    </div>
-    <!--/offer -->
+    <!--/fd  project list -->
 
 </div>
-<!--/main wrap -->
-
-<?php
-//
-// Шаблон страницы для Портфолио
-//
-// Принимаемые переменные:
-// $alias - алиас страницы
-// $pH1 - заголовок h1
-// $works - список работ
-// $filters - список фильтров
-// $filterUri - uri текущего фильтра
-//
-/**/ ?><!--
-<?php
-/*use frontend\models\Common;
-use vendor\UrlProvider\SimpleModuleUrlProvider;
-use vendor\UrlProvider\TextPagesUrlProvider;
-
-$options['joinUris'] = 1;
-$simpleModuleUrlProvider = new SimpleModuleUrlProvider($lang, $options);
-$textPagesUrlProvider = new TextPagesUrlProvider($lang);
-*/ ?>
-template for page portfolio<br>
-<?php /*echo $pH1; */ ?>
-<ul>
-	<?php /*foreach ($filters as $filter) { */ ?>
-		<?php
-/*			$params['item'] = $filter;
-			$filterUrl = $textPagesUrlProvider->geteFilterUrl($params);
-		*/ ?>
-		<li>
-			<?php
-/*				$filterActive = ($filter['url'] == $filterUri);
-				if ($filterActive) {
-			*/ ?>
-				<?php /*echo $filter['title']; */ ?>
-			<?php /*} else { */ ?>
-				<a href="<?php /*echo $filterUrl; */ ?>"><?php /*echo $filter['title']; */ ?></a>
-			<?php /*} */ ?>
-		</li>
-	<?php /*} */ ?>
-</ul>
-<ul>
-	<?php /*foreach ($works as $work) { */ ?>
-
-		<?php
-/*			$params['item'] = $work;
-			$workUrl = $simpleModuleUrlProvider->geteWorksItemUrl($params);
-		*/ ?>
-		    <li><a href="<?php /*echo $workUrl; */ ?>"><?php /*echo $work['title']; */ ?><img src=" <?php /*echo $work['imgPath']; */ ?>" alt=" " width="<?php /*echo $work['imgW']*/ ?>" height="<?php /*echo $work['imgH'] */ ?>" </a> <?php /*echo $work['description']; */ ?>
-			 </li>
-	<?php /*} */ ?>
-</ul>-->

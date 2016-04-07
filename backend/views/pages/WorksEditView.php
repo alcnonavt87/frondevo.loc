@@ -113,7 +113,61 @@ if ($worksItem['image'] <> '') {
 		</div>';
 }
 $imageOne .= '</fieldset>';
-// Вывод одного изображения "Одиночное изображение" КОНЕЦ/* UpdateCode */
+// Вывод одного изображения "Одиночное изображение" КОНЕЦ
+
+
+
+// Вывод одного изображения "Одиночное изображение для страницы портфолио" НАЧАЛО
+$imageprtfOne = '<fieldset class="catalog__section">'.
+$this->createHeader('Одиночное изображение для страницы портфолио');
+if ($worksItem['imageprtf'] <> '') {
+	$imageprtfOne .= '<div class="fa__uploader single" id="uploader0-imageprtf" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">
+					<div class="fa__file">
+						<a href="/p/works/original-'.$worksItem['imageprtf'].'" title="'.$worksItem['imageprtfTitle'].'" class="cboxElement" rel="uploader0">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/frontend/web/p/works/generalprtf-'.$worksItem['imageprtf'].'" width="100%" height="auto" alt="'.$worksItem['imageprtfTitle'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[imageprtf-one][imgTitle]" value="'.$this->getCodeStr($worksItem['imageprtfTitle']).'">
+								<input class="item-deleted" type="hidden" name="images[imageprtf-one][deleted]" value="0">
+							</span>
+							<span class="fa__file-title">'.$worksItem['imageprtfTitle'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>
+				</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+} else {
+	$imageprtfOne .= '<div class="fa__uploader single" id="uploader0-imageprtf" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+}
+$imageprtfOne .= '</fieldset>';
+// Вывод одного изображения "Одиночное изображение для страницы портфолио" КОНЕЦ/* UpdateCode */
 
 
 
@@ -140,6 +194,7 @@ $content .= '<!-- sectionPageData --><fieldset class="catalog__section">
 		<!-- description -->'.$this->createTextArea(['id'=> 'description', 'text' => 'Описание', 'width' => '400x100', 'name' => 'content[description]', 'value' => $worksItem['description'], 'attr' => '']).'<!-- /description -->
 		<!-- filters -->'.$this->createSelect(['id'=> 'idFilters', 'text' => 'Фильтр', 'width' => 400,  'name' => 'base[idFilters]', 'value' => $filtersOptions, 'attr' => '']).'<!-- /filters -->
 		<!-- image -->'.$imageOne.'<!-- /image -->
+		<!-- imageprtf -->'.$imageprtfOne.'<!-- /imageprtf -->
 	</div>
 </fieldset><!-- /commonData --><!-- /createFinish -->
 
