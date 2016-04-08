@@ -10,7 +10,7 @@ return [
     'listIPs' => [
         ['127.0.0.1'],
     ],
-    'defLang' => 'ua',
+    'defLang' => 'ru',
     'hostName' => 'http://frondevo.loc',
     
     'nameDB' => [

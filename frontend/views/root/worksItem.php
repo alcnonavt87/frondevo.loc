@@ -1,99 +1,160 @@
+<?php
+use frontend\models\Common;
+use vendor\UrlProvider\SimpleModuleUrlProvider;
+use vendor\UrlProvider\TextPagesUrlProvider;
 
+$options['joinUris'] = 1;
+$simpleModuleUrlProvider = new SimpleModuleUrlProvider($lang, $options);
+$textPagesUrlProvider = new TextPagesUrlProvider($lang);
+?>
 
+<!-- full height -->
+<div class="full-height inner mesh">
+    <picture>
+        <source srcset="<?php echo $worksItem['imgPathbg']?>" media="(min-height: 900px)">
+        <source srcset="<?php echo $worksItem['imgPathbgmd']?>" media="(min-height: 736px)">
+        <source srcset="<?php echo $worksItem['imgPathbgsm']?>" media="(min-height: 480px)"><img src=""<?php echo $worksItem['imgPathbgsm']?>" alt="" data-fit="cover">
+    </picture>
 
-    <!-- black layout -->
-    <div data-fd-work data-fd-work-url="http://demo1.frondevo.com/frondevo/works/extreme/" class="black-layout work-layout">
+    <!-- full height  layout -->
+    <div class="full-height__layout">
 
-        <!-- full height  layout -->
-        <div class="full-height__layout">
-
-            <!-- middle text -->
-            <div class="middle-text">
-                <h1 data-fd-project-title></h1>
-                <ul data-fd-project-features class="fd__menu fd__menu_line"></ul>
-                <!--ul.fd__menu.fd__menu_line
-                each item, index in ['Веб страница', 'HTML', 'CSS', 'JavaScript']
-                    if (index === 0)
-                        li.m-item.active
-                            span!=item
-                    else
-                        li.m-item
-                            a(href='#' target='_blank' rel='nofollow')!=item
-                -->
-            </div>
-            <!--/middle text -->
-
+        <!-- middle text -->
+        <div class="middle-text">
+            <h1><?php echo $worksItem['pH1'];?></h1>
+            <p><?php echo $worksItem['description'];?></p>
         </div>
-        <!--/full height  layout -->
+        <!--/middle text -->
 
-
-        <!-- pager -->
-        <ul class="pager pager_short" data-fd-project-pager="">
-            <li class="pager-item active">
-                <span><</span>
-            </li>
-            <li class="pager-item">
-                <a href="#">></a>
-            </li>
-        </ul>
-        <!--/pager -->
-
+        <div class="direct-line"></div>
+        <div class="arrow"></div>
     </div>
-    <!--/black layout -->
-
-
-    <!-- main wrap -->
-    <div class="main-wrap">
-
-        <!-- white layout -->
-        <div class="white-layout">
-
-            <!-- responsive menu -->
-            <div class="responsive-menu">
-
-                <!-- responsive mlist -->
-                <ul class="responsive-mlist">
-                    <li title="Mobile" class="responsive-mitem mob"></li>
-                    <li title="Protrait tablet" class="responsive-mitem vtab"></li>
-                    <li title="Landscape tablet" class="responsive-mitem tab"></li>
-                    <li title="Laptop" class="responsive-mitem lap"></li>
-                    <li title="Desktop" class="responsive-mitem desk"></li>
-                </ul>
-                <!--/responsive mlist -->
-
-            </div>
-            <!--/responsive menu -->
-
-
-            <!-- screens -->
-            <div class="screens">
-
-                <!-- screens wrap -->
-                <div data-fd-works-view class="screens-wrap">
-                    <!--div.screens-item(data-fd-works-code-wrap)
-                    div.work-frame
-                        pre
-                            code(data-fd-works-code)
-                            //code.css .full-height__layout {white-space: nowrap;height: 100%;text-align: center;z-index: 1;position: relative;will-change: opacity, transform;}
-                    -->
-                    <!--div.screens-item(data-fd-works-view-wrap)iframe.work-frame(src="" data-fd-iframe)
-                    -->
-                    <!--iframe.work-frame(src="http://192.168.1.32/platbox/markup/build/index.imp.html" data-fd-iframe scrolling="no")-->
-                </div>
-                <!--/screens wrap -->
-
-            </div>
-            <!--/screens -->
-
-        </div>
-        <!--/white layout -->
-
-    </div>
-    <!--/main wrap -->
+    <!--/full height  layout -->
 
 </div>
-<!--/site wrap -->
+<!--/full height -->
 
+
+<!-- main wrap -->
+<div class="main-wrap">
+
+    <!-- article -->
+    <article class="article light">
+
+        <!-- layout -->
+        <div class="layout">
+            <section>
+                <aside>
+                    <h3>клиент</h3>
+                    <p><?php echo $worksItem['client']?></p>
+                    <h3>услуги</h3>
+                    <p><?php echo $worksItem['services']?></p>
+                    <h3>LAUNCH</h3>
+                    <p><?php echo $worksItem['launch']?></p>
+                </aside>
+                <aside>
+                    <h3>проектная группа</h3>
+                    <p>
+                        <?php echo $worksItem['aboutProject']?>
+                    </p>
+                </aside>
+            </section>
+            <section>
+                <h2>задача</h2>
+                <?php echo $worksItem['task']?>
+
+            </section>
+            <section>
+                <h2>решение</h2>
+                <p>Лаконичный и строгий дизайн в сине-красных цветах подчеркивают серьезность и надежность компании, а промо блоки больших размеров – солидность и размах.</p>
+                <p>Главная страница:</p>
+
+                <!-- image frame -->
+                <div class="image-frame">
+                    <div>
+
+                        <!-- frame controls -->
+                        <div class="frame-controls">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <!--/frame controls -->
+
+                        <div class="frame-input">http://teksan.ru</div>
+                        <div class="frame-face-input"></div>
+                    </div>
+                    <picture>
+                        <source srcset="pic/article/1.jpg" media="(min-width: 1280px)">
+                        <source srcset="pic/article/1-748.jpg" media="(min-width: 748px)">
+                        <source srcset="pic/article/1-414.jpg" media="(min-width: 414px)">
+                        <source srcset="pic/article/1-320.jpg" media="(min-width: 320px)"><img src="pic/article/1-320.jpg" alt="">
+                    </picture>
+                </div>
+                <!--/image frame -->
+
+                <p>Лаконичный и строгий дизайн в сине-красных цветах подчеркивают серьезность и надежность компании, а промо блоки больших размеров – солидность и размах.</p>
+                <p>Оформление заказа делают более приятным небольшие анимации:</p>
+                <div class="align-center"><img src="pic/article/2.jpg" alt="" width="768" height="491"></div>
+
+                <!-- align center -->
+                <div class="align-center">
+                    <p>посетить веб-сайт</p>
+
+                    <!-- button -->
+                    <a href="#" target="_blank" rel="nofollow" class="button light">
+                        <span>Divan.tv</span>
+                    </a>
+                    <!--/button -->
+
+                </div>
+                <!--/align center -->
+
+            </section>
+            <section>
+                <h2>результаты</h2>
+                <p>После 3-х месяцев работы и 2-х итераций улучшений:</p>
+                <aside>
+                    <p>на
+                        <span>53%</span><b>снижен процент отказов</b>
+                    </p>
+                    <p>на
+                        <span>15.3%</span><b>увеличено число онлайн заявок</b>
+                    </p>
+                </aside>
+                <aside>
+                    <p>на
+                        <span>2.5 стр.</span><b>увеличина глубина просмотра</b>
+                    </p>
+                </aside>
+            </section>
+        </div>
+        <!--/layout -->
+
+    </article>
+    <!--/article -->
+
+
+    <!-- offer -->
+    <div class="offer mesh">
+
+        <!-- layout -->
+        <div class="layout fd_align-center">
+
+            <!-- button -->
+            <a href="<?php echo($textPagesUrlProvider->getCommercialUrl()) ?>" class="button dark">
+                <span>Заказать бесплатную консультацию и оценку вашего проекта</span>
+            </a>
+            <!--/button -->
+
+        </div>
+        <!--/layout -->
+
+    </div>
+    <!--/offer -->
+
+</div>
+<!--/main wrap -->
 
 
 

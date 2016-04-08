@@ -150,8 +150,11 @@ class Works extends Model
 		$query = Yii::$app->db->createCommand('SELECT
             `w`.`id`, `w`.`pUrl` as url, `w`.`dateCreated` as publishDate,
             IF(`w`.`image` <> "", CONCAT("/'.Yii::$app->params['pics']['works']['path'].'general-", `w`.`image`), "") as imgPath,
+            IF(`w`.`imagebg` <> "", CONCAT("/'.Yii::$app->params['pics']['works']['path'].'generalbg-", `w`.`imagebg`), "") as imgPathbg,
+            IF(`w`.`imagebg` <> "", CONCAT("/'.Yii::$app->params['pics']['works']['path'].'mediumbg-", `w`.`imagebg`), "") as imgPathbgmd,
+            IF(`w`.`imagebg` <> "", CONCAT("/'.Yii::$app->params['pics']['works']['path'].'smallbg-", `w`.`imagebg`), "") as imgPathbgsm,
 			`w`.`imageWidth` as imgW, `w`.`imageHeight` as imgH, `wc`.`imageTitle` as imgT,
-            `wc`.`pTitle`, `wc`.`pDescription`, `wc`.`pH1`, `wc`.`pContent` as content
+            `wc`.`pTitle`, `wc`.`description`, `wc`.`pH1`, `wc`.`pContent` as content,`wc`.`client`,`wc`.`services`,`wc`.`launch`,`wc`.`aboutProject`,`wc`.`task`
 
         FROM
             `works` `w`, `works_content` `wc`

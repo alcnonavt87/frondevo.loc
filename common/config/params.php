@@ -4,11 +4,11 @@ return [
     'supportEmail' => 'support@example.com',
     'user.passwordResetTokenExpire' => 3600,
     
-	'defLang' => 'ua',
+	'defLang' => 'ru',
     'hostProtocol' => 'http://',
 	
     'siteLangs' => [
-		'ru',
+		'ua',
 		'en',
 		
 	],
@@ -36,6 +36,18 @@ return [
 								'generalprtf' => [
 										'width' => 1920,
 										'height' => 345,
+								],
+								'generalbg' => [
+										'width' => 1920,
+										'height' => 1080,
+								],
+								'mediumbg' => [
+										'width' => 1178,
+										'height' => 736,
+								],
+								'smallbg' => [
+										'width' => 768,
+										'height' => 480,
 								],
 						],
 

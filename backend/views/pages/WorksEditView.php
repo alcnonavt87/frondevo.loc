@@ -167,7 +167,169 @@ if ($worksItem['imageprtf'] <> '') {
 		</div>';
 }
 $imageprtfOne .= '</fieldset>';
-// Вывод одного изображения "Одиночное изображение для страницы портфолио" КОНЕЦ/* UpdateCode */
+// Вывод одного изображения "Одиночное изображение для страницы портфолио" КОНЕЦ
+
+
+
+// Вывод одного изображения "Изображение для background" НАЧАЛО
+$imagebgOne = '<fieldset class="catalog__section">'.
+$this->createHeader('Изображение для background');
+if ($worksItem['imagebg'] <> '') {
+	$imagebgOne .= '<div class="fa__uploader single" id="uploader0-imagebg" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">
+					<div class="fa__file">
+						<a href="/p/works/original-'.$worksItem['imagebg'].'" title="'.$worksItem['imagebgTitle'].'" class="cboxElement" rel="uploader0">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/frontend/web/p/works/mediumbg-'.$worksItem['imagebg'].'" width="100%" height="auto" alt="'.$worksItem['imagebgTitle'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[imagebg-one][imgTitle]" value="'.$this->getCodeStr($worksItem['imagebgTitle']).'">
+								<input class="item-deleted" type="hidden" name="images[imagebg-one][deleted]" value="0">
+							</span>
+							<span class="fa__file-title">'.$worksItem['imagebgTitle'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>
+				</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+} else {
+	$imagebgOne .= '<div class="fa__uploader single" id="uploader0-imagebg" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+}
+$imagebgOne .= '</fieldset>';
+// Вывод одного изображения "Изображение для background" КОНЕЦ
+
+
+
+// Вывод одного изображения "Изображение главной страницы" НАЧАЛО
+$mainpageOne = '<fieldset class="catalog__section">'.
+$this->createHeader('Изображение главной страницы');
+if ($worksItem['mainpage'] <> '') {
+	$mainpageOne .= '<div class="fa__uploader single" id="uploader0-mainpage" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">
+					<div class="fa__file">
+						<a href="/p/works/original-'.$worksItem['mainpage'].'" title="'.$worksItem['mainpageTitle'].'" class="cboxElement" rel="uploader0">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/p/works/medium-'.$worksItem['mainpage'].'" width="100%" height="auto" alt="'.$worksItem['mainpageTitle'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[mainpage-one][imgTitle]" value="'.$this->getCodeStr($worksItem['mainpageTitle']).'">
+								<input class="item-deleted" type="hidden" name="images[mainpage-one][deleted]" value="0">
+							</span>
+							<span class="fa__file-title">'.$worksItem['mainpageTitle'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>
+				</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+} else {
+	$mainpageOne .= '<div class="fa__uploader single" id="uploader0-mainpage" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+}
+$mainpageOne .= '</fieldset>';
+// Вывод одного изображения "Изображение главной страницы" КОНЕЦ
+
+
+
+// Вывод одного изображения "Изображение доп.возможностей" НАЧАЛО
+$addpageOne = '<fieldset class="catalog__section">'.
+$this->createHeader('Изображение доп.возможностей');
+if ($worksItem['addpage'] <> '') {
+	$addpageOne .= '<div class="fa__uploader single" id="uploader0-addpage" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">
+					<div class="fa__file">
+						<a href="/p/works/original-'.$worksItem['addpage'].'" title="'.$worksItem['addpageTitle'].'" class="cboxElement" rel="uploader0">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/p/works/medium-'.$worksItem['addpage'].'" width="100%" height="auto" alt="'.$worksItem['addpageTitle'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[addpage-one][imgTitle]" value="'.$this->getCodeStr($worksItem['addpageTitle']).'">
+								<input class="item-deleted" type="hidden" name="images[addpage-one][deleted]" value="0">
+							</span>
+							<span class="fa__file-title">'.$worksItem['addpageTitle'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>
+				</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+} else {
+	$addpageOne .= '<div class="fa__uploader single" id="uploader0-addpage" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+}
+$addpageOne .= '</fieldset>';
+// Вывод одного изображения "Изображение доп.возможностей" КОНЕЦ/* UpdateCode */
 
 
 
@@ -183,7 +345,6 @@ $content .= '<!-- sectionPageData --><fieldset class="catalog__section">
 		<!-- pH1 -->'.$this->createInput(['id'=> 'pH1', 'text' => 'Заголовок H1', 'placeholder' => '', 'width' => 400, 'name' => 'content[pH1]', 'value' => $worksItem['pH1'], 'attr' => 'required']).'<!-- /pH1 -->
 		<!-- pTitle -->'.$this->createInput(['id'=> 'pTitle', 'text' => 'Заголовок страницы', 'placeholder' => 'В поисковой выдаче видно 60 символов', 'width' => 400, 'name' => 'content[pTitle]', 'value' => $worksItem['pTitle'], 'attr' => 'required data-count="60"', 'dataCopy' => 'pH1', 'titleCopy' => 'Копия заголовка H1']).'<!-- /pTitle -->
 		<!-- pUrl -->'.$this->createInput(['id' => 'pUrl', 'text' => 'Алиас страницы', 'width' => 400, 'name' => 'base[pUrl]', 'value' => $worksItem['pUrl'], 'attr' => 'required', 'genUrl' => 'pH1', 'titleUrl' => 'Генерация с заголовка H1']).'<!-- /pUrl -->
-		<!-- pDescription -->'.$this->createTextArea(['id'=> 'pDescription', 'text' => 'Meta description', 'placeholder' => 'В поисковой выдаче видно 140 символов', 'width' => '400x100', 'name' => 'content[pDescription]', 'value' => $worksItem['pDescription'], 'attr' => 'data-count="140"']).'<!-- /pDescription -->
 		<!-- show -->'.$this->createCheckBoxRow(['id' => 'show', 'text' => 'Отображать страницу', 'name' => 'base[show]', 'value' => 1, 'attr' => $showViz]).'
 	</div>
 </fieldset><!-- /sectionPageData -->
@@ -193,10 +354,38 @@ $content .= '<!-- sectionPageData --><fieldset class="catalog__section">
 	<div class="catalog__section-data">
 		<!-- description -->'.$this->createTextArea(['id'=> 'description', 'text' => 'Описание', 'width' => '400x100', 'name' => 'content[description]', 'value' => $worksItem['description'], 'attr' => '']).'<!-- /description -->
 		<!-- filters -->'.$this->createSelect(['id'=> 'idFilters', 'text' => 'Фильтр', 'width' => 400,  'name' => 'base[idFilters]', 'value' => $filtersOptions, 'attr' => '']).'<!-- /filters -->
+		<!-- imagebg -->'.$imagebgOne.'<!-- /imagebg -->
 		<!-- image -->'.$imageOne.'<!-- /image -->
 		<!-- imageprtf -->'.$imageprtfOne.'<!-- /imageprtf -->
 	</div>
-</fieldset><!-- /commonData --><!-- /createFinish -->
+</fieldset><!-- /commonData -->
+
+<!-- aboutProject --><fieldset class="catalog__section">
+	'.$this->createHeader('О проекте').'
+	<div class="catalog__section-data">
+		<!-- client -->'.$this->createInput(['id'=> 'client', 'text' => 'Клиент', 'placeholder' => '', 'width' => 400, 'name' => 'content[client]', 'value' => $worksItem['client'], 'attr' => '']).'<!-- /client -->
+		<!-- services -->'.$this->createInput(['id'=> 'services', 'text' => 'Услуги', 'placeholder' => '', 'width' => 400, 'name' => 'content[services]', 'value' => $worksItem['services'], 'attr' => '']).'<!-- /services -->
+		<!-- launch -->'.$this->createInput(['id'=> 'launch', 'text' => 'Lauch', 'placeholder' => '', 'width' => 400, 'name' => 'content[launch]', 'value' => $worksItem['launch'], 'attr' => '']).'<!-- /launch -->
+		<!-- aboutProject -->'.$this->createTextArea(['id'=> 'aboutProject', 'text' => 'Проектная группа', 'width' => '400x100', 'name' => 'content[aboutProject]', 'value' => $worksItem['aboutProject'], 'attr' => 'data-module="tinymce"']).'<!-- /aboutProject -->
+
+
+<!-- task --><fieldset class="catalog__section">
+	'.$this->createHeader('Задача').'
+	<div class="catalog__section-data">
+		<!-- task -->'.$this->createTextArea(['id'=> 'task', 'text' => 'Задача', 'width' => '400x100', 'name' => 'content[task]', 'value' => $worksItem['task'], 'attr' => 'data-module="tinymce"']).'<!-- /task -->
+
+</fieldset><!-- /task -->
+
+<!-- solution --><fieldset class="catalog__section">
+	'.$this->createHeader('Решение').'
+	<div class="catalog__section-data">
+		<!-- descrofsolut -->'.$this->createInput(['id'=> 'descrofsolut', 'text' => 'Описание решения', 'placeholder' => '', 'width' => 400, 'name' => 'content[descrofsolut]', 'value' => $worksItem['descrofsolut'], 'attr' => '']).'<!-- /descrofsolut -->
+		<!-- linkwork -->'.$this->createInput(['id'=> 'linkwork', 'text' => 'Ссылка на работу', 'placeholder' => '', 'width' => 400, 'name' => 'content[linkwork]', 'value' => $worksItem['linkwork'], 'attr' => '']).'<!-- /linkwork -->
+		<!-- mainpage -->'.$mainpageOne.'<!-- /mainpage -->
+		<!-- add -->'.$this->createInput(['id'=> 'add', 'text' => 'Дополнительные возможности', 'placeholder' => '', 'width' => 400, 'name' => 'content[add]', 'value' => $worksItem['add'], 'attr' => '']).'<!-- /add -->
+		<!-- addpage -->'.$addpageOne.'<!-- /addpage -->
+	</div>
+</fieldset><!-- /solution --><!-- /createFinish -->
 
 </form>';
 // Форма редактирования КОНЕЦ
