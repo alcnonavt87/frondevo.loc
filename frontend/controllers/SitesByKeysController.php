@@ -39,7 +39,7 @@ class SitesByKeysController extends CommonController
         if ($this->secondUri) {
             return $this->actionInner();
         }
-
+        // Функция для преобразования Uri первого уровня в нужный action
         $action1 = explode("-", $this->firstUri);
         $action2 = implode(" ", $action1);
         $action3 = ucwords($action2);
@@ -340,7 +340,7 @@ class SitesByKeysController extends CommonController
         $links = $this->myWorks->getLinks($this->pageContent['alias']);
         $forLayout['links'] = $links;
         $data = array_merge($this->data, $data);
-        $forLayout = array_merge($this->forLayout, $forLayout);// echo '<pre>';print_r($forLayout);echo '</pre>';exit;
+        $forLayout = array_merge($this->forLayout, $forLayout); //echo '<pre>';print_r($data);echo '</pre>';exit;
 
         return [
             'view' => 'worksItem',

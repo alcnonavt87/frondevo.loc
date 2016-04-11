@@ -415,6 +415,47 @@ class AdminOthers extends Model
 
             return $query->execute();
     }
+
+
+    public function addImgOneMultiLangsIII($table, $field, $img, $imgTitle, $imgWidth, $imgHeight, $imgWidth2, $imgHeight2, $imgWidth3, $imgHeight3,$imgWidth4, $imgHeight4, $id, $idRelField, $lang, $textpage=0) {
+        if ($textpage) {
+            $tableContent = 'content';
+        } else {
+            $tableContent = $table.'_content';
+        }
+
+        $query = Yii::$app->db->createCommand('UPDATE
+                    `'.$table.'`, `'.$tableContent.'`
+            SET
+                    `'.$field.'` = :img,
+                    `'.$field.'Title` = :imgTitle,
+                    `'.$field.'Width` = :imgWidth,
+                    `'.$field.'Height` = :imgHeight,
+                    `'.$field.'Width2` = :imgWidth2,
+                    `'.$field.'Height2` = :imgHeight2,
+                    `'.$field.'Width3` = :imgWidth3,
+                    `'.$field.'Height3` = :imgHeight3,
+                    `'.$field.'Width3` = :imgWidth4,
+                    `'.$field.'Height3` = :imgHeight4
+            WHERE
+                    `id` = :id AND
+                    `'.$idRelField.'` = `id` AND
+					`lang` = :lang')
+            ->bindValue(':img', $img)
+            ->bindValue(':imgTitle', $imgTitle)
+            ->bindValue(':imgWidth', $imgWidth)
+            ->bindValue(':imgHeight', $imgHeight)
+            ->bindValue(':imgWidth2', $imgWidth2)
+            ->bindValue(':imgHeight2', $imgHeight2)
+            ->bindValue(':imgWidth3', $imgWidth3)
+            ->bindValue(':imgHeight3', $imgHeight3)
+            ->bindValue(':imgWidth4', $imgWidth4)
+            ->bindValue(':imgHeight4', $imgHeight4)
+            ->bindValue(':id', $id)
+            ->bindValue(':lang', $lang);
+
+        return $query->execute();
+    }
     public function addDocFileMultiLangs($table, $field, $file, $fileTitle, $id, $idRelField, $lang, $textpage=0) {
             if ($textpage) {
 				$tableContent = 'content';

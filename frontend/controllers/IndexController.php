@@ -54,7 +54,10 @@ class IndexController extends CommonController
             'link' => $pageRuUrl,
             'text' => 'Рус'
         ];
-        $forLayout['langMenu'] = $langMenu;
+        //Добираем статические данные со страницы
+        $pageData = $this->myRoot->getPageContent();
+        $data['pageData'] = $pageData;
+        $forLayout['langMenu'] = $langMenu;//echo '<pre>';print_r($data);echo '</pre>';exit;
 		return [
             'view' => 'index',
             'data' => $data,

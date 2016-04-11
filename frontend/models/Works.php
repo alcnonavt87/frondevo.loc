@@ -89,7 +89,7 @@ class Works extends Model
 		// запрос
 		$query = Yii::$app->db->createCommand('SELECT
             `w`.`id`, `w`.`pUrl` as url, `w`.`dateCreated`,
-            IF(`w`.`image` <> "", CONCAT("/'.Yii::$app->params['pics']['works']['path'].'preview-", `w`.`image`), "") as imgPath,
+            IF(`w`.`image` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'preview-", `w`.`image`), "") as imgPath,
 			`w`.`imageWidth2` as imgW, `w`.`imageHeight2` as imgH, `wc`.`imageTitle` as imgT,
 
 			`wc`.`pH1` as title, `wc`.`description`
@@ -149,12 +149,18 @@ class Works extends Model
 		// запрос
 		$query = Yii::$app->db->createCommand('SELECT
             `w`.`id`, `w`.`pUrl` as url, `w`.`dateCreated` as publishDate,
-            IF(`w`.`image` <> "", CONCAT("/'.Yii::$app->params['pics']['works']['path'].'general-", `w`.`image`), "") as imgPath,
-            IF(`w`.`imagebg` <> "", CONCAT("/'.Yii::$app->params['pics']['works']['path'].'generalbg-", `w`.`imagebg`), "") as imgPathbg,
-            IF(`w`.`imagebg` <> "", CONCAT("/'.Yii::$app->params['pics']['works']['path'].'mediumbg-", `w`.`imagebg`), "") as imgPathbgmd,
-            IF(`w`.`imagebg` <> "", CONCAT("/'.Yii::$app->params['pics']['works']['path'].'smallbg-", `w`.`imagebg`), "") as imgPathbgsm,
+            IF(`w`.`image` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'general-", `w`.`image`), "") as imgPath,
+            IF(`w`.`imagebg` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'generalbg-", `w`.`imagebg`), "") as imgPathbg,
+            IF(`w`.`imagebg` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'mediumbg-", `w`.`imagebg`), "") as imgPathbgmd,
+            IF(`w`.`imagebg` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'smallbg-", `w`.`imagebg`), "") as imgPathbgsm,
+            IF(`w`.`mainpage` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'generalmp-", `w`.`mainpage`), "") as imgPathmp,
+            IF(`w`.`mainpage` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'bigmp-", `w`.`mainpage`), "") as imgPathmpbig,
+            IF(`w`.`mainpage` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'mediummp-", `w`.`mainpage`), "") as imgPathmpmd,
+            IF(`w`.`mainpage` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'smallmp-", `w`.`mainpage`), "") as imgPathmpsm,
+            IF(`w`.`addpage` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'generaladd-", `w`.`addpage`), "") as imgPathadd,
 			`w`.`imageWidth` as imgW, `w`.`imageHeight` as imgH, `wc`.`imageTitle` as imgT,
-            `wc`.`pTitle`, `wc`.`description`, `wc`.`pH1`, `wc`.`pContent` as content,`wc`.`client`,`wc`.`services`,`wc`.`launch`,`wc`.`aboutProject`,`wc`.`task`
+            `wc`.`pTitle`, `wc`.`description`, `wc`.`pH1`, `wc`.`pContent` as content,`wc`.`client`,`wc`.`services`,`wc`.`launch`,`wc`.`aboutProject`,`wc`.`task`,`wc`.`add`,
+            `wc`.`descrofsolut`,`wc`.`linkwork`,`wc`.`results`
 
         FROM
             `works` `w`, `works_content` `wc`
@@ -205,7 +211,7 @@ class Works extends Model
 		// запрос
 		$query = Yii::$app->db->createCommand('SELECT
 		   `w`.`id`, `w`.`pUrl` as url,
-            IF(`w`.`image` <> "", CONCAT("/'.Yii::$app->params['pics']['works']['path'].'mediumsbk-", `w`.`image`), "") as imgPath,
+            IF(`w`.`image` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'mediumsbk-", `w`.`image`), "") as imgPath,
 			`w`.`imageWidth2` as imgW, `w`.`imageHeight2` as imgH, `wc`.`imageTitle` as imgT,
 
 			`wc`.`pH1` as title, `wc`.`description`
@@ -263,7 +269,7 @@ class Works extends Model
 		// запрос
 		$query = Yii::$app->db->createCommand('SELECT
             `w`.`id`, `w`.`pUrl` as url, `w`.`dateCreated`,
-            IF(`w`.`image` <> "", CONCAT("/'.Yii::$app->params['pics']['works']['path'].'generalprtf-", `w`.`imageprtf`), "") as imgPath,
+            IF(`w`.`image` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'generalprtf-", `w`.`imageprtf`), "") as imgPath,
 			`w`.`imageWidth2` as imgW, `w`.`imageHeight2` as imgH, `wc`.`imageTitle` as imgT,
 
 			`wc`.`pH1` as title, `wc`.`description`

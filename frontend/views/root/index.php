@@ -17,8 +17,8 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                 <!-- fd  index title -->
                 <h1 class="fd__index-title g_text">
-                    <span><?php echo Yii::t('app', 'Internet agency'); ?></span>
-                    <span><img src="/frontend/web/markup/img/header/frondevo-web-agency.png" alt="Frondevo - интернет-агентство полного цикла разработки интернет-проектов"></span>
+                    <span><?php echo $pH1; ?></span>
+                    <span><img src="markup/img/header/frondevo-web-agency.png" alt="<?php echo $pageData['indexAltName']?>"></span>
                 </h1>
                 <!--/fd  index title -->
 
@@ -31,7 +31,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                         <!-- # -->
                         <a href="<?php echo $textPagesUrlProvider->getSitesByKeysUrl()?>" class="button dark hidden">
-                            <span>разработка сайтов</span>
+                            <span><?php echo $pageData['indexTextButton']?></span>
                         </a>
                         <!--/# -->
 
@@ -42,7 +42,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                 </div>
                 <!--/align center -->
 
-                <div class="footer__text">Комплексный подход по разработке эффективных решений <br>для амбициозных интернет-проектов</div>
+                <div class="footer__text"><?php echo $pageData['pContent']?></div>
             </div>
         </div>
         <!--/middle text -->

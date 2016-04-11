@@ -15,7 +15,7 @@ Class Index extends Model
         $query = Yii::$app->db->createCommand('SELECT
             `a`.`id`, `a`.`pShow`, `a`.`pUrl`,
             `b`.`pTitle`, `b`.`pDescription`, `b`.`pKeyWords`, `b`.`pH1`,
-            `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`
+            `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`,`b`.`indexTextButton`,`b`.`indexAltName`
         FROM
             `pages` `a`, `content` `b`
         WHERE
@@ -40,10 +40,10 @@ Class Index extends Model
         return $query->queryAll();
     }
     
-    public function editUpDatePage($pageId, $lang, $pTitle, $pDescription, $pKeyWords, $pH1, $pMenuName, $pBreadCrumbs, $pContent) {
+    public function editUpDatePage($pageId, $lang, $pTitle, $pDescription, $pKeyWords, $pH1, $pMenuName, $pBreadCrumbs, $pContent,$indexTextButton,$indexAltName) {
         $query = Yii::$app->db->createCommand('UPDATE `content`
         SET `pTitle` = :pTitle, `pDescription` = :pDescription, `pKeyWords` = :pKeyWords, `pH1` = :pH1,
-            `pMenuName` = :pMenuName, `pBreadCrumbs` = :pBreadCrumbs, `pContent` = :pContent
+            `pMenuName` = :pMenuName, `pBreadCrumbs` = :pBreadCrumbs, `pContent` = :pContent,`indexTextButton` = :indexTextButton,`indexAltName` = :indexAltName
         WHERE `pageId` = :pageId AND `lang` = :lang')
         ->bindValue(':pageId', $pageId)
         ->bindValue(':lang', $lang)
@@ -53,8 +53,9 @@ Class Index extends Model
         ->bindValue(':pH1', $pH1)
         ->bindValue(':pMenuName', $pMenuName)
         ->bindValue(':pBreadCrumbs', $pBreadCrumbs)        
-        ->bindValue(':pContent', $pContent);
-        
+        ->bindValue(':pContent', $pContent)
+        ->bindValue(':indexTextButton', $indexTextButton)
+        ->bindValue(':indexAltName', $indexAltName);
         return $query->execute();
     }
     

@@ -242,7 +242,7 @@ if ($worksItem['mainpage'] <> '') {
 						<a href="/p/works/original-'.$worksItem['mainpage'].'" title="'.$worksItem['mainpageTitle'].'" class="cboxElement" rel="uploader0">
 							<span class="fa__file-img">
 								<span class="fa__file-cell">
-									<img src="/p/works/medium-'.$worksItem['mainpage'].'" width="100%" height="auto" alt="'.$worksItem['mainpageTitle'].'">
+									<img src="/frontend/web/p/works/mediummp-'.$worksItem['mainpage'].'" width="100%" height="auto" alt="'.$worksItem['mainpageTitle'].'">
 								</span>
 								<input class="title-fld" type="hidden" name="images[mainpage-one][imgTitle]" value="'.$this->getCodeStr($worksItem['mainpageTitle']).'">
 								<input class="item-deleted" type="hidden" name="images[mainpage-one][deleted]" value="0">
@@ -293,10 +293,10 @@ if ($worksItem['addpage'] <> '') {
 				</div>
 				<div class="fa__file-list">
 					<div class="fa__file">
-						<a href="/p/works/original-'.$worksItem['addpage'].'" title="'.$worksItem['addpageTitle'].'" class="cboxElement" rel="uploader0">
+						<a href="/frontend/web/p/works/generaladd-'.$worksItem['addpage'].'" title="'.$worksItem['addpageTitle'].'" class="cboxElement" rel="uploader0">
 							<span class="fa__file-img">
 								<span class="fa__file-cell">
-									<img src="/p/works/medium-'.$worksItem['addpage'].'" width="100%" height="auto" alt="'.$worksItem['addpageTitle'].'">
+									<img src="/frontend/web/p/works/generaladd-'.$worksItem['addpage'].'" width="100%" height="auto" alt="'.$worksItem['addpageTitle'].'">
 								</span>
 								<input class="title-fld" type="hidden" name="images[addpage-one][imgTitle]" value="'.$this->getCodeStr($worksItem['addpageTitle']).'">
 								<input class="item-deleted" type="hidden" name="images[addpage-one][deleted]" value="0">
@@ -385,7 +385,14 @@ $content .= '<!-- sectionPageData --><fieldset class="catalog__section">
 		<!-- add -->'.$this->createInput(['id'=> 'add', 'text' => 'Дополнительные возможности', 'placeholder' => '', 'width' => 400, 'name' => 'content[add]', 'value' => $worksItem['add'], 'attr' => '']).'<!-- /add -->
 		<!-- addpage -->'.$addpageOne.'<!-- /addpage -->
 	</div>
-</fieldset><!-- /solution --><!-- /createFinish -->
+</fieldset><!-- /solution -->
+
+<!-- results --><fieldset class="catalog__section">
+	'.$this->createHeader('Результаты').'
+	<div class="catalog__section-data">
+		<!-- results -->'.$this->createTextArea(['id'=> 'results', 'text' => 'Результаты', 'width' => '400x100', 'name' => 'content[results]', 'value' => $worksItem['results'], 'attr' => 'data-module="tinymce"']).'<!-- /results -->
+	</div>
+</fieldset><!-- /results --><!-- /createFinish -->
 
 </form>';
 // Форма редактирования КОНЕЦ

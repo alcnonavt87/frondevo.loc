@@ -84,8 +84,8 @@ class UpdateController extends  \backend\controllers\AdminController
 				$format = $item['format'];
 
 				$uploader = explode('-', $uploader);
-				$pathToFolder = $_SERVER['DOCUMENT_ROOT'].'/';
-				$pathToFolderBG = $_SERVER['DOCUMENT_ROOT'].'/'.'bg'.'/';
+				$pathToFolder = $_SERVER['DOCUMENT_ROOT'].'/frontend/web/';
+
 				if ($uploader[0] == 'uploader0') { // одно изображение
 					// если после добавления тут же удалили, то не продолжаем
 					//if (isset($_POST['images'][$uploader[1].'-one-'.$name]) && $_POST['images'][$uploader[1].'-one-'.$name]['deleted']) continue;
@@ -129,7 +129,29 @@ class UpdateController extends  \backend\controllers\AdminController
 					$imgSmallBGGHeight = Yii::$app->params['pics']['works']['sizes']['smallbg']['height'];
 
 
+					$fileNameGeneralMP =Yii::$app->params['pics']['works']['path']."generalmp-".$fileName;
+					$imgGeneralMPWidth = Yii::$app->params['pics']['works']['sizes']['generalmp']['width'];
+					$imgGeneralMPHeight = Yii::$app->params['pics']['works']['sizes']['generalmp']['height'];
 
+
+					$fileNameBigMP =Yii::$app->params['pics']['works']['path']."bigmp-".$fileName;
+					$imgBigMPWidth = Yii::$app->params['pics']['works']['sizes']['bigmp']['width'];
+					$imgBigMPHeight = Yii::$app->params['pics']['works']['sizes']['bigmp']['height'];
+
+
+					$fileNameMediumMP =Yii::$app->params['pics']['works']['path']."mediummp-".$fileName;
+					$imgMediumMPWidth = Yii::$app->params['pics']['works']['sizes']['mediummp']['width'];
+					$imgMediumMPMHeight = Yii::$app->params['pics']['works']['sizes']['mediummp']['height'];
+
+
+
+					$fileNameSmallMP =Yii::$app->params['pics']['works']['path']."smallmp-".$fileName;
+					$imgSmallMPWidth = Yii::$app->params['pics']['works']['sizes']['smallmp']['width'];
+					$imgSmallMPMHeight = Yii::$app->params['pics']['works']['sizes']['smallmp']['height'];
+
+					$fileNameGeneralADD =Yii::$app->params['pics']['works']['path']."generaladd-".$fileName;
+					$imgGeneralADDWidth = Yii::$app->params['pics']['works']['sizes']['generaladd']['width'];
+					$imgGeneralADDHeight = Yii::$app->params['pics']['works']['sizes']['generaladd']['height'];
 
 					// Копируем файл оригинал
 					//copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameOriginal);
@@ -163,7 +185,7 @@ class UpdateController extends  \backend\controllers\AdminController
 						$myImagick->makeResizeImageWithOptimalCrop(200, 200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
 						$newRow = $myOthers->addImgOne('works', $uploader[1], $fileName, $imgTitle, 200, 200, $idRecord);*/
 						if ($uploader[1] == "imageprtf") {
-							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralPRTFWidth, $imgGeneralPRTFHeight, $pathToFolderBG.$fileNameGeneralBG, $tmp_dir.'/'.$name, $format, \imagick::FILTER_HAMMING, 0.8, 0, 1, \imagick::COMPRESSION_LZW, 87);
+							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralPRTFWidth, $imgGeneralPRTFHeight,$pathToFolder.$fileNameGeneralPRTF, $tmp_dir.'/'.$name, $format, \imagick::FILTER_HAMMING, 0.8, 0, 1, \imagick::COMPRESSION_LZW, 87);
 							$newRow = $myOthers->addImgOneMultiLangs('works', $uploader[1], $fileName, $imgTitle, $imgGeneralPRTFWidth, $imgGeneralPRTFHeight,$idRecord, 'idWorks', $pageLang);
 						//загрузка изображений для background
 
@@ -175,6 +197,21 @@ class UpdateController extends  \backend\controllers\AdminController
 							// Создаём файл нужного размера с оптимальным обрезанием (превью)
 							$myImagick->makeResizeImageWithOptimalCrop($imgSmallBGWidth, $imgSmallBGGHeight, $pathToFolder.$fileNameSmallBG, $tmp_dir.'/'.$name, $format, \imagick::FILTER_HAMMING, 0.8, 0, 1, \imagick::COMPRESSION_LZW, 87);
 							$newRow = $myOthers->addImgOneMultiLangsII('works', $uploader[1], $fileName, $imgTitle, $imgGeneralBGWidth,$imgGeneralBGHeight, $imgMediumBGWidth, $imgMediumBGHeight, $imgSmallBGWidth, $imgSmallBGGHeight, $idRecord, 'idWorks', $pageLang);
+
+						} else if ($uploader[1] == "addpage"){
+							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralADDWidth, $imgGeneralADDHeight, $pathToFolder.$fileNameGeneralADD,$tmp_dir.'/'.$name, $format, \imagick::FILTER_HAMMING, 0.8, 0, 1, \imagick::COMPRESSION_LZW, 87);
+							$newRow = $myOthers->addImgOneMultiLangs('works', $uploader[1], $fileName, $imgTitle, $imgGeneralADDWidth, $imgGeneralADDHeight, $idRecord, 'idWorks', $pageLang);	}
+
+
+						else if ($uploader[1] == "mainpage"){
+							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralMPWidth, $imgGeneralMPHeight, $pathToFolder.$fileNameGeneralMP,$tmp_dir.'/'.$name, $format, \imagick::FILTER_HAMMING, 0.8, 0, 1, \imagick::COMPRESSION_LZW, 87);
+							// Создаём файл нужного размера с оптимальным обрезанием (превью)
+							$myImagick->makeResizeImageWithOptimalCrop($imgBigMPWidth, $imgBigMPHeight, $pathToFolder.$fileNameBigMP,$tmp_dir.'/'.$name, $format, \imagick::FILTER_HAMMING, 0.8, 0, 1, \imagick::COMPRESSION_LZW, 87);
+
+							$myImagick->makeResizeImageWithOptimalCrop($imgMediumMPWidth, $imgMediumMPMHeight, $pathToFolder.$fileNameMediumMP,$tmp_dir.'/'.$name, $format, \imagick::FILTER_HAMMING, 0.8, 0, 1, \imagick::COMPRESSION_LZW, 87);
+							// Создаём файл нужного размера с оптимальным обрезанием (превью)
+							$myImagick->makeResizeImageWithOptimalCrop($imgSmallMPWidth, $imgSmallMPMHeight, $pathToFolder.$fileNameSmallMP, $tmp_dir.'/'.$name, $format, \imagick::FILTER_HAMMING, 0.8, 0, 1, \imagick::COMPRESSION_LZW, 87);
+							$newRow = $myOthers->addImgOneMultiLangsIII('works', $uploader[1], $fileName, $imgTitle, $imgGeneralMPWidth, $imgGeneralMPHeight, $imgBigMPWidth, $imgBigMPHeight, $imgMediumMPWidth, $imgMediumMPMHeight, $imgSmallMPWidth, $imgSmallMPMHeight, $idRecord, 'idWorks', $pageLang);
 
 
 

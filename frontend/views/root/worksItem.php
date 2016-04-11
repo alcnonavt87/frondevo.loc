@@ -66,7 +66,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
             </section>
             <section>
                 <h2>решение</h2>
-                <p>Лаконичный и строгий дизайн в сине-красных цветах подчеркивают серьезность и надежность компании, а промо блоки больших размеров – солидность и размах.</p>
+                <p>"<?php echo $worksItem['descrofsolut']?>"</p>
                 <p>Главная страница:</p>
 
                 <!-- image frame -->
@@ -81,29 +81,29 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                         </div>
                         <!--/frame controls -->
 
-                        <div class="frame-input">http://teksan.ru</div>
+                        <div class="frame-input"><?php echo $worksItem['linkwork']?></div>
                         <div class="frame-face-input"></div>
                     </div>
                     <picture>
-                        <source srcset="pic/article/1.jpg" media="(min-width: 1280px)">
-                        <source srcset="pic/article/1-748.jpg" media="(min-width: 748px)">
-                        <source srcset="pic/article/1-414.jpg" media="(min-width: 414px)">
-                        <source srcset="pic/article/1-320.jpg" media="(min-width: 320px)"><img src="pic/article/1-320.jpg" alt="">
+                        <source srcset="<?php echo $worksItem['imgPathmp']?>" media="(min-width: 1280px)">
+                        <source srcset="<?php echo $worksItem['imgPathmpbig']?>" media="(min-width: 748px)">
+                        <source srcset="<?php echo $worksItem['imgPathmpmd']?>" media="(min-width: 414px)">
+                        <source srcset="<?php echo $worksItem['imgPathmpsm']?>" media="(min-width: 320px)"><img src="<?php echo $worksItem['imgPathmpsm']?>" alt="">
                     </picture>
                 </div>
                 <!--/image frame -->
 
                 <p>Лаконичный и строгий дизайн в сине-красных цветах подчеркивают серьезность и надежность компании, а промо блоки больших размеров – солидность и размах.</p>
-                <p>Оформление заказа делают более приятным небольшие анимации:</p>
-                <div class="align-center"><img src="pic/article/2.jpg" alt="" width="768" height="491"></div>
+                <p><?php echo $worksItem['add']?></p>
+                <div class="align-center"><img src="<?php echo $worksItem['imgPathadd']?>" alt="" width="768" height="491"></div>
 
                 <!-- align center -->
                 <div class="align-center">
                     <p>посетить веб-сайт</p>
 
                     <!-- button -->
-                    <a href="#" target="_blank" rel="nofollow" class="button light">
-                        <span>Divan.tv</span>
+                    <a href="<?php echo $worksItem['linkwork']?>" target="_blank" rel="nofollow" class="button light">
+                        <span><?php echo $worksItem['pTitle']?></span>
                     </a>
                     <!--/button -->
 
@@ -111,23 +111,26 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                 <!--/align center -->
 
             </section>
-            <section>
-                <h2>результаты</h2>
-                <p>После 3-х месяцев работы и 2-х итераций улучшений:</p>
-                <aside>
-                    <p>на
-                        <span>53%</span><b>снижен процент отказов</b>
-                    </p>
-                    <p>на
-                        <span>15.3%</span><b>увеличено число онлайн заявок</b>
-                    </p>
-                </aside>
-                <aside>
-                    <p>на
-                        <span>2.5 стр.</span><b>увеличина глубина просмотра</b>
-                    </p>
-                </aside>
-            </section>
+
+               <?php /*echo $worksItem['results']*/?>
+                <section>
+                    <h2>результаты</h2>
+                    <p>После 3-х месяцев работы и 2-х итераций улучшений:</p>
+                    <aside>
+                        <p>на
+                            <span>53%</span><b>снижен процент отказов</b>
+                        </p>
+                        <p>на
+                            <span>15.3%</span><b>увеличено число онлайн заявок</b>
+                        </p>
+                    </aside>
+                    <aside>
+                        <p>на
+                            <span>2.5 стр.</span><b>увеличина глубина просмотра</b>
+                        </p>
+                    </aside>
+                </section>
+
         </div>
         <!--/layout -->
 

@@ -16,13 +16,15 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
     <title><?=$pTitle?></title>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
-    <link rel="shortcut icon" href="/frontend/web/markup/img/favicon.ico">
+    <base href="http://frondevo.loc/frontend/web/">
+    <link rel="shortcut icon" href="markup/img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0'">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
     <meta name="apple-mobile-web-app-title" content="">
+    <link rel="stylesheet" href="markup/css/main.css">
     <?= Html::csrfMetaTags() ?>
     <?php $this->head() ?>
 </head>
@@ -33,7 +35,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
     <!-- header -->
     <header class="header hidden index">
-        <span class="logo"><img src="/frontend/web/markup/img/header/logo.png" width="77" height="76"
+        <span class="logo"><img src="markup/img/header/logo.png" width="77" height="76"
                                 alt="Frondevo - интернет-агентство полного цикла разработки интернет-проектов"></span>
     </header>
     <!--/header -->
@@ -62,7 +64,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                     <!-- fd  pmenu cell -->
                     <div class="fd__pmenu-cell queue-wrap queueFromLeft popup-column">
                         <div>
-                            <div class="fd__pmenu-logo queue queue1"><img src="/frontend/web/markup/img/frondevo.png"
+                            <div class="fd__pmenu-logo queue queue1"><img src="markup/img/frondevo.png"
                                                                           width="80" height="80" alt=""></div>
 
                             <!-- fd  menu -->
@@ -134,6 +136,8 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
         <div title="Close" class="pop-btn-close"></div>
     </div>
     <!--/fd  popup -->
+    <script src="markup/js/lib/lib.min.js"></script>
+    <script src="markup/js/main.min.js"></script>
     <?php $this->endBody() ?>
 </body>
 </html>

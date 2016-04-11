@@ -25,6 +25,8 @@ class IndexupdateController extends \backend\controllers\AdminController {
             $pDescription = Yii::$app->getRequest()->post('pDescription', '');
             $pKeyWords = Yii::$app->getRequest()->post('pKeyWords', '');
             $pContent = Yii::$app->getRequest()->post('pContent', '');
+            $indexTextButton = Yii::$app->getRequest()->post('indexTextButton', '');
+            $indexAltName = Yii::$app->getRequest()->post('indexAltName', '');
 
             $pBreadCrumbs = $this->getCodeStr($pBreadCrumbs);
             $pMenuName = $this->getCodeStr($pMenuName);
@@ -32,7 +34,8 @@ class IndexupdateController extends \backend\controllers\AdminController {
             $pH1 = $this->getCodeStr($pH1);
             $pDescription = $this->getCodeStr($pDescription);
             $pKeyWords = $this->getCodeStr($pKeyWords);
-
+            $indexTextButton = $this->getCodeStr($indexTextButton);
+            $indexAltName = $this->getCodeStr($indexAltName);
             //Начало: проверка есть ли контент на указанном языке
             $rowInCurrentLanguageCount = $myTextPage->getLangPageIs($id, $pageLang);
             if(!$rowInCurrentLanguageCount) {
@@ -41,7 +44,7 @@ class IndexupdateController extends \backend\controllers\AdminController {
             //Конец: проверка есть ли контент на указанном языке
 
             $rowUpDateCount = $myTextPage->editUpDatePage($id,
-                    $pageLang, $pTitle, $pDescription, $pKeyWords, $pH1, $pMenuName, $pBreadCrumbs, $pContent);
+                    $pageLang, $pTitle, $pDescription, $pKeyWords, $pH1, $pMenuName, $pBreadCrumbs, $pContent, $indexTextButton, $indexAltName);
 
             if ($rowUpDateCount >= 0) {
                 $json_data = json_encode(['code' => '0', 'message' => 'Документ успешно сохранён']);

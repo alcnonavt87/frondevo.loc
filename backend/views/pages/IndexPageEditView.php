@@ -25,8 +25,6 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
                     <div class="catalog__section-data">
                     '.$this->createInput(['id'=> 'pH1', 'text' => 'Заголовок новости H1', 'width' => 400, 'name' => 'pH1', 'value' => $page[0]['pH1'], 'attr' => 'required autofocus autocomplete="off"']).'
                     '.$this->createInput(['id'=> 'pTitle', 'text' => 'Заголовок страницы', 'placeholder' => 'В поисковой выдаче видно 60 символов', 'width' => 400, 'name' => 'pTitle', 'value' => $page[0]['pTitle'], 'attr' => 'required data-count="60"', 'dataCopy' => 'pH1', 'titleCopy' => 'Копия заголовка H1']).'
-                    '.$this->createTextArea(['id'=> 'pDescription', 'text' => 'Meta description', 'placeholder' => 'В поисковой выдаче видно 140 символов', 'width' => '400x100', 'name' => 'pDescription', 'value' => $page[0]['pDescription'], 'attr' => 'data-count="140"']).'
-                    '.$this->createInput(['id'=> 'pKeyWords', 'text' => 'Meta keywords', 'width' => 400, 'name' => 'pKeyWords', 'value' => $page[0]['pKeyWords'], 'attr' => '']).'
                     '.$this->createInput(['id'=> 'pMenuName', 'text' => 'Заголовок для главного меню', 'width' => 400, 'name' => 'pMenuName', 'value' => $page[0]['pMenuName'], 'attr' => 'required']).'
                     '.$this->createInput(['id'=> 'pBreadCrumbs', 'text' => 'Хлебные крошки', 'width' => 400, 'name' => 'pBreadCrumbs', 'value' => $page[0]['pBreadCrumbs'], 'attr' => 'required']).'
                     </div>
@@ -34,6 +32,8 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 
                 <fieldset class="catalog__section">
                 '.$this->createHeader('Редактирование контента страницы').'
-                '.$this->createTextArea(['id'=> 'pContent', 'text' => '', 'width' => '400x100', 'name' => 'pContent', 'value' => $page[0]['pContent'], 'attr' => 'data-module="tinymce"']).'
+                '.$this->createTextArea(['id'=> 'pContent', 'text' => '', 'width' => '400x100', 'name' => 'pContent', 'value' => $page[0]['pContent'],]).'
+                 '.$this->createInput(['id'=> 'indexTextButton', 'text' => 'Текст в кнопке', 'width' => 400, 'name' => 'indexTextButton', 'value' => $page[0]['indexTextButton'], 'attr' => '']).'
+                 '.$this->createInput(['id'=> 'indexAltName', 'text' => 'Текст alt названия', 'width' => 400, 'name' => 'indexAltName', 'value' => $page[0]['indexAltName'], 'attr' => '']).'
                 </fieldset>'.
             Html::endForm();

@@ -120,7 +120,7 @@ Class Works extends Model
 	public function get($id, $lang) {
 		$query = Yii::$app->db->createCommand('SELECT
 			`id`, `pH1`, `pTitle`, `pUrl`, `pDescription`, `pKeyWords`, `pBreadCrumbs`, `show`, `pContent`
-			, `description`, `idFilters`, `image`, `imageTitle`, `image`, `imageTitle`, `image`, `imageTitle`, `image`, `imageTitle`, `image`, `imageTitle`, `imageprtf`, `imageprtfTitle`, `imagebg`, `imagebgTitle`, `description`, `description`, `description`, `description`, `client`, `services`, `launch`, `aboutProject`, `task`, `descrofsolut`, `linkwork`, `mainpage`, `mainpageTitle`, `add`, `addpage`, `addpageTitle`/*get*/
+			, `description`, `idFilters`, `image`, `imageTitle`, `image`, `imageTitle`, `image`, `imageTitle`, `image`, `imageTitle`, `image`, `imageTitle`, `imageprtf`, `imageprtfTitle`, `imagebg`, `imagebgTitle`, `description`, `description`, `description`, `description`, `client`, `services`, `launch`, `aboutProject`, `task`, `descrofsolut`, `linkwork`, `mainpage`, `mainpageTitle`, `add`, `addpage`, `addpageTitle`, `results`/*get*/
 		FROM
 			`works`, `works_content`
 		WHERE
@@ -136,7 +136,7 @@ Class Works extends Model
 	public function getEmpty() {
 		$result = [
 			'pH1' => '', 'pTitle' => '', 'pUrl' => '', 'pDescription' => '', 'pKeyWords' => '', 'pBreadCrumbs' => '', 'show' => 0, 'pContent' => '',
-			 'description' => '', 'idFilters' => 0, 'image' => '', 'imageprtf' => '', 'imagebg' => '', 'description' => '', 'description' => '', 'description' => '', 'description' => '', 'client' => '', 'services' => '', 'launch' => '', 'aboutProject' => '', 'task' => '', 'descrofsolut' => '', 'linkwork' => '', 'mainpage' => '', 'add' => '', 'addpage' => '',/*getEmpty*/
+			 'description' => '', 'idFilters' => 0, 'image' => '', 'imageprtf' => '', 'imagebg' => '', 'description' => '', 'description' => '', 'description' => '', 'description' => '', 'client' => '', 'services' => '', 'launch' => '', 'aboutProject' => '', 'task' => '', 'descrofsolut' => '', 'linkwork' => '', 'mainpage' => '', 'add' => '', 'addpage' => '', 'results' => '',/*getEmpty*/
 		];
 		
 		return $result;

@@ -15,7 +15,7 @@ return [
 
 		'pics' => [ //конфигурация картинок
 				'works' => [ //работы
-						'path' => 'frontend/web/p/works/',
+						'path' => 'p/works/',
 						'sizes' => [
 								'general' => [
 										'width' => 1024,
@@ -48,6 +48,26 @@ return [
 								'smallbg' => [
 										'width' => 768,
 										'height' => 480,
+								],
+								'generalmp' => [
+										'width' => 900,
+										'height' => 2560,
+								],
+								'bigmp' => [
+										'width' => 704,
+										'height' => 2002,
+								],
+								'mediummp' => [
+										'width' => 390,
+										'height' => 1109,
+								],
+								'smallmp' => [
+										'width' => 296,
+										'height' => 842,
+								],
+								'generaladd' => [
+										'width' => 768,
+										'height' => 491,
 								],
 						],
 
