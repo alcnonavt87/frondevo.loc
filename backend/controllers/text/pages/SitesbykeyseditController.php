@@ -45,11 +45,55 @@ class SitesbykeysEditController extends \backend\controllers\AdminController {
                 $pageGroupData = $myOthers->getPageGroupData($id1Uri);
                 $textPageHeader = $myOthers->getTextPageHeader($idPage, $defLang);
 
-			;   
+
 
 				// Группа чекбоксов "Отображаемые работы"
-				$works = $myOthers->getChGrSourceIdsMultiLangs('works', 'id', $pageLang);
-				$worksIds = $myOthers->getChGrTargetIds('pages_works', 'idPages', 'idWorks', $idRecord);/* UpdateCode */
+				$works = $myOthers->getChGrSourceIdsMultiLangs('works', 'pTitle', $pageLang);
+				$worksIds = $myOthers->getChGrTargetIds('pages_works', 'idPages', 'idWorks', $idRecord);
+
+				// Множество текстовых полей "Пункты этапа"
+				$sbkstagelist1 = $myOthers->getManyFieldsElementMultiLangs('pages_sbkstagelist1', $idRecord, $pageLang);
+				if (!$sbkstagelist1) {
+					$sbkstagelist1 = $myOthers->getManyFieldsElementEmpty();
+				}
+
+				// Множество текстовых полей "Пункты этапа"
+				$sbkstagelist2 = $myOthers->getManyFieldsElementMultiLangs('pages_sbkstagelist2', $idRecord, $pageLang);
+				if (!$sbkstagelist2) {
+					$sbkstagelist2 = $myOthers->getManyFieldsElementEmpty();
+				}
+
+				// Множество текстовых полей "Пункты этапа"
+				$sbkstagelist3 = $myOthers->getManyFieldsElementMultiLangs('pages_sbkstagelist3', $idRecord, $pageLang);
+				if (!$sbkstagelist3) {
+					$sbkstagelist3 = $myOthers->getManyFieldsElementEmpty();
+				}
+
+				// Множество текстовых полей "Пункты этапа"
+				$sbkstagelist4 = $myOthers->getManyFieldsElementMultiLangs('pages_sbkstagelist4', $idRecord, $pageLang);
+				if (!$sbkstagelist4) {
+					$sbkstagelist4 = $myOthers->getManyFieldsElementEmpty();
+				}
+
+				// Множество текстовых полей "Пункты этапа"
+				$sbkstagelist5 = $myOthers->getManyFieldsElementMultiLangs('pages_sbkstagelist5', $idRecord, $pageLang);
+				if (!$sbkstagelist5) {
+					$sbkstagelist5 = $myOthers->getManyFieldsElementEmpty();
+				}
+
+				// Множество текстовых полей "Пункты этапа"
+				$sbkstagelist6 = $myOthers->getManyFieldsElementMultiLangs('pages_sbkstagelist6', $idRecord, $pageLang);
+				if (!$sbkstagelist6) {
+					$sbkstagelist6 = $myOthers->getManyFieldsElementEmpty();
+				}
+
+				
+
+				// Множество текстовых полей "Пункты P.S."
+				$sbkpslist = $myOthers->getManyFieldsElementMultiLangs('pages_sbkpslist', $idRecord, $pageLang);
+				if (!$sbkpslist) {
+					$sbkpslist = $myOthers->getManyFieldsElementEmpty();
+				}/* UpdateCode */
 
                 $content = '';
                 $navMenu = '';

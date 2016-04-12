@@ -214,9 +214,42 @@ class SitesbykeysupdateController extends \backend\controllers\AdminController {
 				}
 			}
 
+			
+
+
 			// Группа чекбоксов "Отображаемые работы"
 			$worksIds = ArrayHelper::getValue($_POST, 'worksIds', []);
-			$myOthers->updateChGrIds('pages_works', 'idPages', 'idWorks', $idRecord, $worksIds);/* UpdateCodeBottom */
+			$myOthers->updateChGrIds('pages_works', 'idPages', 'idWorks', $idRecord, $worksIds);
+
+			// Множество текстовых полей "Пункты этапа"
+			$sbkstagelist1 = ArrayHelper::getValue($_POST, 'sbkstagelist1', []);
+			$myOthers->updateManyFieldsElementIMultiLangsSimple('pages_sbkstagelist1', $idRecord, $sbkstagelist1, $pageLang);
+
+			// Множество текстовых полей "Пункты этапа"
+			$sbkstagelist2 = ArrayHelper::getValue($_POST, 'sbkstagelist2', []);
+			$myOthers->updateManyFieldsElementIMultiLangsSimple('pages_sbkstagelist2', $idRecord, $sbkstagelist2, $pageLang);
+
+			// Множество текстовых полей "Пункты этапа"
+			$sbkstagelist3 = ArrayHelper::getValue($_POST, 'sbkstagelist3', []);
+			$myOthers->updateManyFieldsElementIMultiLangsSimple('pages_sbkstagelist3', $idRecord, $sbkstagelist3, $pageLang);
+
+			// Множество текстовых полей "Пункты этапа"
+			$sbkstagelist4 = ArrayHelper::getValue($_POST, 'sbkstagelist4', []);
+			$myOthers->updateManyFieldsElementIMultiLangsSimple('pages_sbkstagelist4', $idRecord, $sbkstagelist4, $pageLang);
+
+			// Множество текстовых полей "Пункты этапа"
+			$sbkstagelist5 = ArrayHelper::getValue($_POST, 'sbkstagelist5', []);
+			$myOthers->updateManyFieldsElementIMultiLangsSimple('pages_sbkstagelist5', $idRecord, $sbkstagelist5, $pageLang);
+
+			// Множество текстовых полей "Пункты этапа"
+			$sbkstagelist6 = ArrayHelper::getValue($_POST, 'sbkstagelist6', []);
+			$myOthers->updateManyFieldsElementIMultiLangsSimple('pages_sbkstagelist6', $idRecord, $sbkstagelist6, $pageLang);
+
+			
+
+			// Множество текстовых полей "Пункты P.S."
+			$sbkpslist = ArrayHelper::getValue($_POST, 'sbkpslist', []);
+			$myOthers->updateManyFieldsElementIMultiLangsSimple('pages_sbkpslist', $idRecord, $sbkpslist, $pageLang);/* UpdateCodeBottom */
             
 			// отправляем ответ
             echo $json_data;

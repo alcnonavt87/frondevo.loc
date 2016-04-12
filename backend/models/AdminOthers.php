@@ -1171,7 +1171,7 @@ class AdminOthers extends Model
     }
     public function getChGrSourceIdsMultiLangs($table, $field, $lang) {
             $query = Yii::$app->db->createCommand('SELECT
-                    `id`, `'.$field.'`
+                    `id`,`pTitle`, `'.$field.'`
             FROM
                     `'.$table.'`, `'.$table.'_content`
 			WHERE

@@ -10,10 +10,10 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 <!-- full height -->
 <div class="full-height inner mesh">
     <picture>
-        <source srcset="/frontend/web/markup/img/bg/site-bg-1200.jpg" media="(min-height: 900px)">
-        <source srcset="/frontend/web/markup/img/bg/site-bg-736.jpg" media="(min-height: 736px)">
-        <source srcset="/frontend/web/markup/img/bg/site-bg-480.jpg" media="(min-height: 480px)">
-        <img src="/frontend/web/markup/img/bg/site-bg-480.jpg" alt="" data-fit="cover">
+        <source srcset="markup/img/bg/site-bg-1200.jpg" media="(min-height: 900px)">
+        <source srcset="markup/img/bg/site-bg-736.jpg" media="(min-height: 736px)">
+        <source srcset="markup/img/bg/site-bg-480.jpg" media="(min-height: 480px)">
+        <img src="markup/img/bg/site-bg-480.jpg" alt="" data-fit="cover">
     </picture>
 
     <!-- full height  layout -->
@@ -21,33 +21,16 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
         <!-- middle text -->
         <div class="middle-text">
-            <h1>
-                            <span>
-                                <span>разрабатываем</span>
-                                <span>сайты, которые</span>
-                            </span>
-                            <span>
-                                <span class="ru-lt-1">у</span>
-                                <span class="ru-lt-2">б</span>
-                                <span class="ru-lt-3">е</span>
-                                <span class="ru-lt-4">ж</span>
-                                <span class="ru-lt-5">д</span>
-                                <span class="ru-lt-6">а</span>
-                                <span class="ru-lt-7">ю</span>
-                                <span class="ru-lt-8">т</span>
-                            </span>
-                            <span>
-                                <span>приобретать ваши продукты</span>
-                            </span>
-            </h1>
 
-            <p>Современные интернет-решения с высоким уровнем конверсий<br> и мощной внутренней SEO оптимизацией</p>
+            <?php echo($pageData['pContent']) ?>
+
+            <p><?php echo($pageData1['sbkdescription']) ?></p>
         </div>
         <!--/middle text -->
 
         <div class="direct-line"></div>
         <div class="arrow"></div>
-        <div class="background-text">Сайты</div>
+        <div class="background-text"><?php echo($pageData1['textforbackground']) ?></div>
     </div>
     <!--/full height  layout -->
 
@@ -58,198 +41,16 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 <!-- main wrap -->
 <div class="main-wrap">
 
-    <!-- choose  reason -->
-    <div class="choose__reason">
 
-        <!-- layout -->
-        <div class="layout">
-
-            <!-- choose  reason t1 -->
-            <div class="choose__reason_t1">
-                <span>причины,<br> по которым</span>
-                <span>стоит<br> обратиться именно к нам</span>
-            </div>
-            <!--/choose  reason t1 -->
-
-
-            <!-- choose  reason t2 -->
-
-            <div class="choose__reason_t2 frame">
-                <input type="radio" name="reason-list" id="input-reason-1" checked="checked">
-                <input type="radio" name="reason-list" id="input-reason-2">
-                <input type="radio" name="reason-list" id="input-reason-3">
-                <input type="radio" name="reason-list" id="input-reason-4">
-                <input type="radio" name="reason-list" id="input-reason-5">
-                <ul>
-                    <li>
-                        <div>
-                                        <span>
-
-                                            <!-- (i + 1) -->
-                                            <span data-step='1'>
-                                                <span>Бизнес-мышление</span>
-                                            </span>
-                                            <!--/(i + 1) -->
-
-                                        </span>
-
-                            <div>
-                                <p class="white">Сначала думаем как будем продавать. Потом — как это будет выглядеть и
-                                    работать.</p>
-
-                                <p>Используя хорошее понимание бизнеса клиента, его рыночной ниши и целевой аудитории,
-                                    можно обеспечить существенное конкурентное преимущество любому бизнес-проекту.</p>
-
-                                <p>Поэтому мы особое внимание уделяем маркетинговому исследованию и подготовке
-                                    маркетинговой стратегии до начала разработки сайта.</p>
-
-                                <!-- choose  reason button wrap -->
-                                <label for="input-reason-2" class="choose__reason-button-wrap">
-                                    <span>1</span>
-
-                                    <div class="choose__reason-next"></div>
-                                </label>
-                                <!--/choose  reason button wrap -->
-
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                                        <span>
-
-                                            <!-- (i + 1) -->
-                                            <span data-step='2'>
-                                                <span>Больше, чем разработка сайта</span>
-                                            </span>
-                                            <!--/(i + 1) -->
-
-                                        </span>
-
-                            <div>
-                                <p>Сможем помочь понять особенности интернет-рынка и его тенденции, разработать
-                                    оптимальный план развития проекта с учетом выбранной маркетинговой стратегии и
-                                    имеющихся ресурсов.</p>
-
-                                <!-- choose  reason button wrap -->
-                                <label for="input-reason-3" class="choose__reason-button-wrap">
-                                    <span>2</span>
-
-                                    <div class="choose__reason-next"></div>
-                                </label>
-                                <!--/choose  reason button wrap -->
-
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                                        <span>
-
-                                            <!-- (i + 1) -->
-                                            <span data-step='3'>
-                                                <span>Высокая эффективность </span>
-                                            </span>
-                                            <!--/(i + 1) -->
-
-                                        </span>
-
-                            <div>
-                                <p>Мы не используем шаблонные решения. Наши проекты разрабатываются индивидуально под
-                                    задачи клиента. Это позволяет создавать максимально эффективные продукты.</p>
-
-                                <!-- choose  reason button wrap -->
-                                <label for="input-reason-4" class="choose__reason-button-wrap">
-                                    <span>3</span>
-
-                                    <div class="choose__reason-next"></div>
-                                </label>
-                                <!--/choose  reason button wrap -->
-
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                                        <span>
-
-                                            <!-- (i + 1) -->
-                                            <span data-step='4'>
-                                                <span>На шаг впереди</span>
-                                            </span>
-                                            <!--/(i + 1) -->
-
-                                        </span>
-
-                            <div>
-                                <p>Применение новейших технологий веб-разработки, современных трендов в дизайне,
-                                    эффективных методик рекламы позволяет нашим клиентам быть на шаг впереди
-                                    конкурентов.</p>
-
-                                <!-- choose  reason button wrap -->
-                                <label for="input-reason-5" class="choose__reason-button-wrap">
-                                    <span>4</span>
-
-                                    <div class="choose__reason-next"></div>
-                                </label>
-                                <!--/choose  reason button wrap -->
-
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                                        <span>
-
-                                            <!-- (i + 1) -->
-                                            <span data-step='5'>
-                                                <span>знание закулисья</span>
-                                            </span>
-                                            <!--/(i + 1) -->
-
-                                        </span>
-
-                            <div>
-                                <p>У нас есть опыт создания и развития собственных интернет проектов. Это бесценные
-                                    знания, которые не получить просто разрабатывая сайты на аутсорсе.</p>
-
-                                <!-- choose  reason button wrap -->
-                                <label for="input-reason-1" class="choose__reason-button-wrap">
-                                    <span>5</span>
-
-                                    <div class="choose__reason-next"></div>
-                                </label>
-                                <!--/choose  reason button wrap -->
-
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <!--/choose  reason t2 -->
-
-
-            <!-- choose  reason t3 -->
-            <div class="choose__reason_t3">
-                <span>разделяем точку зрения, что<br></span>
-                <span>пренебрежение качеством сегодня, <br>приводит к потере клиентов завтра.</span>
-            </div>
-            <!--/choose  reason t3 -->
-
-        </div>
-        <!--/layout -->
-
-    </div>
-    <!--/choose  reason -->
-    <?php /*echo htmlspecialchars_decode($pageData['section1'])*/ ?>
+    <?php echo($pageData1['section1']) ?>
 
     <!-- our works -->
     <div class="our-works">
         <h2>
-            <span>качество сайта измеряется</span>достижением поставленных бизнес-целей
+            <?php echo($pageData1['section2']) ?>
         </h2>
 
-        <h3>примеры наших работ</h3>
+        <h3>  <?php echo($pageData1['sbkworkstext']) ?></h3>
 
         <!-- our works  wrap -->
         <div class="our-works__wrap">
@@ -265,8 +66,9 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                             <a href="<?php echo $workUrl; ?>"><img
                                     src="<?php echo '/frontend/web/p/works/bigsbk-' . $work['id'] . '-image.jpg' ?>"
                                     alt="">
+
                                 <div>
-                                        <span> <?php echo $work['description']; ?></span>
+                                    <span> <?php echo $work['worksdesсsbk']; ?></span>
                                 </div>
                             </a>
                         </li>
@@ -275,8 +77,9 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                         <!--/(index === 0 ? long : ) -->
                         <li>
                             <a href="<?php echo $workUrl; ?>"><img src="<?php echo $work['imgPath'] ?>" alt="">
+
                                 <div>
-                                    <span> <?php echo $work['description']; ?></span>
+                                    <span> <?php echo $work['worksdesсsbk']; ?></span>
                                 </div>
                             </a>
                         </li>
@@ -294,16 +97,16 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                         <!--/(index === 0 ? long : ) -->
                         <li>
                             <a href="<?php echo $workUrl; ?>"><img src="<?php echo $work['imgPath'] ?>" alt="">
-                                    <div>
-                                        <span> <?php echo $work['description']; ?></span>
-                                    </div>
+
+                                <div>
+                                    <span> <?php echo $work['worksdesсsbk']; ?></span>
+                                </div>
                             </a>
                         </li>
                         <!--/(index === 0 ? long : ) -->
                     <?php } ?>
                 <?php } ?>
             </ul>
-
 
 
         </div>
@@ -319,10 +122,10 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
         <!-- layout -->
         <div class="layout">
             <h2>
-                <span>Успех коммерческого сайта<br> — это результат закалки</span>несколькими итерациями улучшений
+                <?php echo($pageData1['section3']) ?>
             </h2>
 
-            <h3>наш подход к разработке сайтов</h3>
+            <h3> <?php echo($pageData1['sbksmalltitle3']) ?></h3>
 
             <!-- approach  list wrap -->
             <div class="approach__list-wrap">
@@ -332,30 +135,27 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                     <!-- approach  item -->
                     <div class="approach__item">
-                        <h3>обсуждение</h3>
+                        <h3><?php echo($pageData1['sbktitlestep1']) ?></h3>
 
-                        <p>Каким вы видите свой будущий сайт. <br>Согласование целей и задач, общего <br>порядка
-                            предстоящих работ.</p>
+                        <p><?php echo($pageData1['sbkdeskstep1']) ?></p>
                     </div>
                     <!--/approach  item -->
 
 
                     <!-- approach  item -->
                     <div class="approach__item">
-                        <h3>исследование</h3>
+                        <h3><?php echo($pageData1['sbktitlestep2']) ?></h3>
 
-                        <p>Знакомство с вашей отраслью и вашим продуктом. Изучение конъюктуры рынка. Определение и
-                            детальное изучение целевой аудитории. Разбор сильных и слабых сторон вашего предложения.</p>
+                        <p><?php echo($pageData1['sbkdeskstep2']) ?></p>
                     </div>
                     <!--/approach  item -->
 
 
                     <!-- approach  item -->
                     <div class="approach__item">
-                        <h3>стратегия</h3>
+                        <h3><?php echo($pageData1['sbktitlestep3']) ?></h3>
 
-                        <p>Подготовка маркетинговой стратегии и <br>этапов развития проекта с учетом текущей <br>конкуренции,
-                            динамики развития рынка и имеющихся у вас ресурсов.</p>
+                        <p><?php echo($pageData1['sbkdeskstep3']) ?></p>
                     </div>
                     <!--/approach  item -->
 
@@ -371,39 +171,36 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                         <!-- approach  item -->
                         <div class="approach__item">
-                            <h3>проектирование</h3>
+                            <h3><?php echo($pageData1['sbktitlestep4']) ?></h3>
 
-                            <p>UI/UX дизайн. Разработка согласно целям проекта. Корректировка по результатам
-                                аналитики.</p>
+                            <p><?php echo($pageData1['sbkdeskstep4']) ?></p>
                         </div>
                         <!--/approach  item -->
 
 
                         <!-- approach  item -->
                         <div class="approach__item">
-                            <h3>разработка</h3>
+                            <h3><?php echo($pageData1['sbktitlestep5']) ?></h3>
 
-                            <p>Копирайтинг. Дизайн. Техническая часть. Наполнение контентом. Тестирование.</p>
+                            <p><?php echo($pageData1['sbkdeskstep5']) ?></p>
                         </div>
                         <!--/approach  item -->
 
 
                         <!-- approach  item -->
                         <div class="approach__item">
-                            <h3>маркетинг</h3>
+                            <h3><?php echo($pageData1['sbktitlestep6']) ?></h3>
 
-                            <p>Разработка структуры сайта и прототипирование типвых страниц полагаясь на полученные
-                                исследования.</p>
+                            <p><?php echo($pageData1['sbkdeskstep6']) ?></p>
                         </div>
                         <!--/approach  item -->
 
 
                         <!-- approach  item -->
                         <div class="approach__item">
-                            <h3>аналитика</h3>
+                            <h3><?php echo($pageData1['sbktitlestep7']) ?></h3>
 
-                            <p>Разработка структуры сайта и прототипирование типвых страниц полагаясь на полученные
-                                исследования.</p>
+                            <p><?php echo($pageData1['sbkdeskstep7']) ?></p>
                         </div>
                         <!--/approach  item -->
 
@@ -421,7 +218,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
     </div>
     <!--/approach -->
-    <?php /*echo htmlspecialchars_decode($pageData['section1'])*/ ?>
+
 
     <!-- stages -->
     <div id="indicators1" class="stages hor-indicators">
@@ -432,14 +229,14 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
         </div>
         <!--/stages  back -->
 
-        <div class="stages__back stages__back-2"><img src="/frontend/web/markup/img/sites/frondevo.png" alt="Сайты"
+        <div class="stages__back stages__back-2"><img src="markup/img/sites/frondevo.png" alt="Сайты"
                                                       width="4826" height="612" class="hor-ind"></div>
 
         <!-- stages  wrap -->
         <div class="stages__wrap">
-            <h2>в среднем разработка сайта длится 3 месяца <br>и задействует 8 специалистов</h2>
+            <h2><?php echo($pageData1['section4']) ?></h2>
 
-            <h3>результаты каждого этапа демонстрируются и обсуждаются с клиентом</h3>
+            <h3><?php echo($pageData1['sbksmalltitle']) ?></h3>
 
             <!-- stages  layout -->
             <div data-indicators="indicators1" class="stages__layout hor-wrapper">
@@ -452,17 +249,15 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                         <!-- stages  item -->
                         <li class="stages__item hor-sizing hor-snap researching">
-                            <h3>Исследования</h3>
+                            <h3><?php echo($pageData1['sbkstagetitle1']) ?></h3>
 
                             <div>
                                 <ul>
-                                    <li>определение задач и целей проекта</li>
-                                    <li>анализ Вашей бизнес-модели</li>
-                                    <li>аудит Вашей отрасли в Интернет</li>
-                                    <li>определение и исследование целевой адуитории</li>
-                                    <li>аудит Вашего сайта</li>
-                                    <li>анализ сайтов конкурентов</li>
-                                    <li>разработка перечня маркетинговых рекомендаций для будущего сайта</li>
+                                    <?php foreach ($pageData1['sbkstagelist1'] as $stagelist) { ?>
+
+                                        <li><?php echo $stagelist['text'] ?></li>
+
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </li>
@@ -471,17 +266,15 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                         <!-- stages  item -->
                         <li class="stages__item hor-sizing hor-snap projecting">
-                            <h3>Проектирование</h3>
+                            <h3><?php echo($pageData1['sbkstagetitle2']) ?></h3>
 
                             <div>
                                 <ul>
-                                    <li>определение необходимых технических требований</li>
-                                    <li>проектирование схем воронок продаж</li>
-                                    <li>проектирование схем привлечения трафика</li>
-                                    <li>разработка стурктуры сайта</li>
-                                    <li>проектирование интерфейсов с учетом множества доступных устройств пользователю
-                                    </li>
-                                    <li>подготовка технических заданий для проектной группы</li>
+                                    <?php foreach ($pageData1['sbkstagelist2'] as $stagelist) { ?>
+
+                                        <li><?php echo $stagelist['text'] ?></li>
+
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </li>
@@ -490,15 +283,15 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                         <!-- stages  item -->
                         <li class="stages__item hor-sizing hor-snap designing">
-                            <h3>Дизайн</h3>
+                            <h3><?php echo($pageData1['sbkstagetitle3']) ?></h3>
 
                             <div>
                                 <ul>
-                                    <li>современные графические и интерактивные решения</li>
-                                    <li>эмоциональное воздействие на целевую аудиторию</li>
-                                    <li>разработка сценариев для интерактивных элементов и анимационных эффектов</li>
-                                    <li>применение практик повышения уровня конверсии</li>
-                                    <li>использование методик по улучшению степени удобности использования сайтом</li>
+                                    <?php foreach ($pageData1['sbkstagelist3'] as $stagelist) { ?>
+
+                                        <li><?php echo $stagelist['text'] ?></li>
+
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </li>
@@ -507,17 +300,15 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                         <!-- stages  item -->
                         <li class="stages__item hor-sizing hor-snap developing">
-                            <h3>Разработка</h3>
+                            <h3><?php echo($pageData1['sbkstagetitle4']) ?></h3>
 
                             <div>
                                 <ul>
-                                    <li>современные технологии веб разработки</li>
-                                    <li>индивидуальные решения под Ваши задачи</li>
-                                    <li>оптимизация работы операторов сайта</li>
-                                    <li>максимальная внутренняя SEO оптимизация проекта</li>
-                                    <li>высококачественная оптимизация скорости загрузки сайта и его работы</li>
-                                    <li>12 уровней защиты от взлома сайта</li>
-                                    <li>высокие стандарты качества кода</li>
+                                    <?php foreach ($pageData1['sbkstagelist4'] as $stagelist) { ?>
+
+                                        <li><?php echo $stagelist['text'] ?></li>
+
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </li>
@@ -526,15 +317,15 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                         <!-- stages  item -->
                         <li class="stages__item hor-sizing hor-snap contenting">
-                            <h3>Контент</h3>
+                            <h3><?php echo($pageData1['sbkstagetitle5']) ?></h3>
 
                             <div>
                                 <ul>
-                                    <li>разработка контент стратегии</li>
-                                    <li>текстовые и графические материалы. подготовка, обработка, размещение на сайте
-                                    </li>
-                                    <li>составление эмоциональных промо и продающих текстов</li>
-                                    <li>подготовка SEO оптимизированных текстов</li>
+                                    <?php foreach ($pageData1['sbkstagelist5'] as $stagelist) { ?>
+
+                                        <li><?php echo $stagelist['text'] ?></li>
+
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </li>
@@ -543,14 +334,15 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                         <!-- stages  item -->
                         <li class="stages__item hor-sizing hor-snap supporting">
-                            <h3>Поддержка</h3>
+                            <h3><?php echo($pageData1['sbkstagetitle6']) ?></h3>
 
                             <div>
                                 <ul>
-                                    <li>все виды работ с контентом</li>
-                                    <li>аудит эффективности SEO продвижения</li>
-                                    <li>анализ поведения посетителей на сайте</li>
-                                    <li>мониторинг работоспособности сайта и устранение технических проблем</li>
+                                    <?php foreach ($pageData1['sbkstagelist6'] as $stagelist) { ?>
+
+                                        <li><?php echo $stagelist['text'] ?></li>
+
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </li>
@@ -585,14 +377,15 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
         <!-- layout -->
         <div class="layout">
             <h2>
-                <span>что получает</span> наш клиент
+                <?php echo($pageData1['section5']) ?>
             </h2>
             <ul>
-                <li>консультацию по особенностям интернет-продаж</li>
-                <li>гарантию защиты конфиденциальных данных</li>
-                <li>сайт с высоким процентом конверсий и серьезным уровнем SEO оптимизации</li>
-                <li>умеренную цену</li>
-                <li>техническое и маркетинговое сопровождение</li>
+                <?php foreach ($pageData1['sbkpslist'] as $pslist) { ?>
+
+
+                    <li><?php echo $pslist['text'] ?></li>
+
+                <?php } ?>
             </ul>
         </div>
         <!--/layout -->
@@ -621,16 +414,6 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
 </div>
 <!--/main wrap -->
-<?php
-//
-// Шаблон страницы для Сайты под ключ
-//
-// Принимаемые переменные:
-// $alias - алиас страницы
-// $pH1 - заголовок h1
-//
-?>
-template for page sitesbykeys<br>
-<?php echo $pH1; ?>
+
 
 

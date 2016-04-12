@@ -212,9 +212,9 @@ class Works extends Model
 		$query = Yii::$app->db->createCommand('SELECT
 		   `w`.`id`, `w`.`pUrl` as url,
             IF(`w`.`image` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'mediumsbk-", `w`.`image`), "") as imgPath,
-			`w`.`imageWidth2` as imgW, `w`.`imageHeight2` as imgH, `wc`.`imageTitle` as imgT,
+			`w`.`imageWidth2` as imgW, `w`.`imageHeight2` as imgH, `wc`.`imageTitle` as imgT,`wc`.`worksdesсsbk`,
 
-			`wc`.`pH1` as title, `wc`.`description`
+			`wc`.`pH1` as title
 		FROM
 			`works` `w`
 			LEFT JOIN `works_content` `wc`
