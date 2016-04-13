@@ -415,6 +415,35 @@ class AdminOthers extends Model
 
             return $query->execute();
     }
+    public function addImgOneMultiLangsSBKII($table, $field, $img, $imgTitle, $imgWidth, $imgHeight,$id, $idRelField, $lang, $textpage=0) {
+        if ($textpage) {
+            $tableContent = 'content';
+        } else {
+            $tableContent = $table.'_content';
+        }
+
+        $query = Yii::$app->db->createCommand('UPDATE
+                    `'.$table.'`, `'.$tableContent.'`
+            SET
+                    `'.$field.'` = :img,
+                    `'.$field.'Title` = :imgTitle,
+                    `'.$field.'Width` = :imgWidth,
+                    `'.$field.'Height` = :imgHeight
+
+            WHERE
+                    `id` = :id AND
+                    `'.$idRelField.'` = `id` AND
+					`lang` = :lang')
+            ->bindValue(':img', $img)
+            ->bindValue(':imgTitle', $imgTitle)
+            ->bindValue(':imgWidth', $imgWidth)
+            ->bindValue(':imgHeight', $imgHeight)
+
+            ->bindValue(':id', $id)
+            ->bindValue(':lang', $lang);
+
+        return $query->execute();
+    }
 
 
     public function addImgOneMultiLangsIII($table, $field, $img, $imgTitle, $imgWidth, $imgHeight, $imgWidth2, $imgHeight2, $imgWidth3, $imgHeight3,$imgWidth4, $imgHeight4, $id, $idRelField, $lang, $textpage=0) {
@@ -1171,7 +1200,7 @@ class AdminOthers extends Model
     }
     public function getChGrSourceIdsMultiLangs($table, $field, $lang) {
             $query = Yii::$app->db->createCommand('SELECT
-                    `id`,`pTitle`, `'.$field.'`
+                    `id`, `'.$field.'`
             FROM
                     `'.$table.'`, `'.$table.'_content`
 			WHERE

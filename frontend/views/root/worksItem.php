@@ -112,24 +112,8 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
             </section>
 
-               <?php /*echo $worksItem['results']*/?>
-                <section>
-                    <h2>результаты</h2>
-                    <p>После 3-х месяцев работы и 2-х итераций улучшений:</p>
-                    <aside>
-                        <p>на
-                            <span>53%</span><b>снижен процент отказов</b>
-                        </p>
-                        <p>на
-                            <span>15.3%</span><b>увеличено число онлайн заявок</b>
-                        </p>
-                    </aside>
-                    <aside>
-                        <p>на
-                            <span>2.5 стр.</span><b>увеличина глубина просмотра</b>
-                        </p>
-                    </aside>
-                </section>
+               <?php echo $worksItem['results']?>
+
 
         </div>
         <!--/layout -->
@@ -161,7 +145,3 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
 
 
-
-<?php /*echo $worksItem['pH1']; */?><!--
-
-<img src="<?/*=$worksItem['imgPath']; */?>" alt="" width="<?/*= $worksItem['imgW']*/?>" height="<?/*=$worksItem['imgH']; */?>">-->

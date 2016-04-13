@@ -10,10 +10,10 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 <!-- full height -->
 <div class="full-height inner mesh">
     <picture>
-        <source srcset="markup/img/bg/site-bg-1200.jpg" media="(min-height: 900px)">
-        <source srcset="markup/img/bg/site-bg-736.jpg" media="(min-height: 736px)">
-        <source srcset="markup/img/bg/site-bg-480.jpg" media="(min-height: 480px)">
-        <img src="markup/img/bg/site-bg-480.jpg" alt="" data-fit="cover">
+        <source srcset="<?php echo('p/pages/generalbgsbk-'.$pageData1['imagebgsbk']) ?>" media="(min-height: 900px)">
+        <source srcset="<?php echo('p/pages/mediumbgsbk-'.$pageData1['imagebgsbk']) ?>" media="(min-height: 736px)">
+        <source srcset="<?php echo('p/pages/smallbgsbk-'.$pageData1['imagebgsbk']) ?>" media="(min-height: 480px)">
+        <img src="<?php echo('p/pages/smallbgsbk-'.$pageData1['imagebgsbk']) ?>" alt="" data-fit="cover">
     </picture>
 
     <!-- full height  layout -->

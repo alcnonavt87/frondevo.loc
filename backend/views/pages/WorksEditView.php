@@ -391,7 +391,7 @@ $content .= '<!-- sectionPageData --><fieldset class="catalog__section">
 <!-- results --><fieldset class="catalog__section">
 	'.$this->createHeader('Результаты').'
 	<div class="catalog__section-data">
-		<!-- results -->'.$this->createTextArea(['id'=> 'results', 'text' => 'Результаты', 'width' => '400x100', 'name' => 'content[results]', 'value' => $worksItem['results'], 'attr' => 'data-module="tinymce"']).'<!-- /results -->
+		<!-- results -->'.$this->createTextArea(['id'=> 'results', 'text' => 'Результаты', 'width' => '800x500', 'name' => 'content[results]', 'value' => $worksItem['results'], 'attr' => '']).'<!-- /results -->
 	</div>
 </fieldset><!-- /results --><!-- /createFinish -->
 

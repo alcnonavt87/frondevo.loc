@@ -1,3 +1,4 @@
+
 <!-- full height -->
 <div class="full-height contacts">
 
@@ -89,6 +90,3 @@
 // $alias - алиас страницы
 // $pH1 - заголовок h1
 //
-?>
-    template for page Contacts<br>
-<?php echo $pH1; ?>

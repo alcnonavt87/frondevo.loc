@@ -16,7 +16,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
         <!-- middle text -->
         <div class="middle-text">
-            <h1>Портфолио front end разработок</h1>
+            <h1><?php echo $pH1?></h1>
             <address>
                 <span>Украина, г. Киев</span>
                 <a href="tel:+380671702727">+38 067 170 27 27</a>

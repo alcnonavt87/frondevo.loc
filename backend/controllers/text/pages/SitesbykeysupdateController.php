@@ -87,46 +87,39 @@ class SitesbykeysupdateController extends \backend\controllers\AdminController {
 				$format = $item['format'];
 				
 				$uploader = explode('-', $uploader);
-				$pathToFolder = '../../frontend/web/';
+				$pathToFolder = $_SERVER['DOCUMENT_ROOT'].'/frontend/web/';
 
 				if ($uploader[0] == 'uploader0') { // одно изображение
 					// если после добавления тут же удалили, то не продолжаем
 					//if (isset($_POST['images'][$uploader[1].'-one-'.$name]) && $_POST['images'][$uploader[1].'-one-'.$name]['deleted']) continue;
-					
-					$fileName = $idRecord.'-'.$uploader[1].$fileExtension;//echo '<pre>';print_r($fileName);echo '</pre>';exit;
-					$fileNameOriginal = "p/pages/original-".$fileName;
-					$fileNameMedium = "p/pages/medium-".$fileName;
 
-					// Копируем файл оригинал
-					copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameOriginal);
+					$fileName = $idRecord.'-'.$uploader[1].$fileExtension;//echo '<pre>';print_r($fileName);echo '</pre>';exit;
+					$fileNameOriginal = Yii::$app->params['pics']['pages']['path']."original-".$fileName;
+
+					$fileNameGeneral = Yii::$app->params['pics']['pages']['path']."generalbgsbk-".$fileName;
+					$imgGeneralWidth = Yii::$app->params['pics']['pages']['sizes']['generalbgsbk']['width'];
+					$imgGeneralHeight = Yii::$app->params['pics']['pages']['sizes']['generalbgsbk']['height'];
+
+					$fileNameMedium = Yii::$app->params['pics']['pages']['path']."mediumbgsbk-".$fileName;
+					$imgMediumWidth = Yii::$app->params['pics']['pages']['sizes']['mediumbgsbk']['width'];
+					$imgMediumHeight = Yii::$app->params['pics']['pages']['sizes']['mediumbgsbk']['height'];
+
+					$fileNameSmall = Yii::$app->params['pics']['pages']['path']."smallbgsbk-".$fileName;
+					$imgSmallWidth = Yii::$app->params['pics']['pages']['sizes']['smallbgsbk']['width'];
+					$imgSmallHeight = Yii::$app->params['pics']['pages']['sizes']['smallbgsbk']['height'];
+
 
 					if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1') {
 						copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameMedium);
 						$newRow = $myOthers->addImgOneMultiLangs('pages', $uploader[1], $fileName, $imgTitle, $imgWidth, $imgHeight, $idRecord, 'pageId', $pageLang, 1);
 					} else {
-						/*// Загружаем как есть
-						copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameMedium);
-						$newRow = $myOthers->addImgOneMultiLangs('pages', $uploader[1], $fileName, $imgTitle, $imgWidth, $imgHeight, $idRecord);*/
-						
-						/*// Создаём файл нужного размера по ширине
-						$h = $myImagick->makeResizeImageByWidth(200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
-						$newRow = $myOthers->addImgOneMultiLangs('pages', $uploader[1], $fileName, $imgTitle, 200, $h, $idRecord, 'pageId', $pageLang, 1);*/
-						
-						/*// Создаём файл нужного размера по высоте
-						$w = $myImagick->makeResizeImageByHeight(200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
-						$newRow = $myOthers->addImgOneMultiLangs('pages', $uploader[1], $fileName, $imgTitle, $w, 200, $idRecord, 'pageId', $pageLang, 1);*/
-						
-						/*// Создаём файл нужного размера по минимальной стороне
-						$sizes = $myImagick->makeResizeImageByMinSide(200, 200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
-						$newRow = $myOthers->addImgOneMultiLangs('pages', $uploader[1], $fileName, $imgTitle, $sizes[0], $sizes[1], $idRecord, 'pageId', $pageLang, 1);*/
-						
-						/*// Создаём файл нужного размера без обрезания
-						$myImagick->makeResizeImage(200, 200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
-						$newRow = $myOthers->addImgOneMultiLangs('pages', $uploader[1], $fileName, $imgTitle, 200, 200, $idRecord, 'pageId', $pageLang, 1);*/
-						
-						/*// Создаём файл нужного размера с оптимальным обрезанием
-						$myImagick->makeResizeImageWithOptimalCrop(200, 200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
-						$newRow = $myOthers->addIaddImgOneMultiLangsmgOne('pages', $uploader[1], $fileName, $imgTitle, 200, 200, $idRecord, 'pageId', $pageLang, 1);*/
+						$myImagick->makeResizeImageWithOptimalCrop($imgGeneralWidth, $imgGeneralHeight, $pathToFolder.$fileNameGeneral,$tmp_dir.'/'.$name, $format, \imagick::FILTER_HAMMING, 0.8, 0, 1, \imagick::COMPRESSION_LZW, 87);
+						// Создаём файл нужного размера с оптимальным обрезанием (превью)
+						$myImagick->makeResizeImageWithOptimalCrop($imgMediumWidth, $imgMediumHeight, $pathToFolder.$fileNameMedium,$tmp_dir.'/'.$name, $format, \imagick::FILTER_HAMMING, 0.8, 0, 1, \imagick::COMPRESSION_LZW, 87);
+						// Создаём файл нужного размера с оптимальным обрезанием (превью)
+						$myImagick->makeResizeImageWithOptimalCrop($imgSmallWidth, $imgSmallHeight, $pathToFolder.$fileNameSmall, $tmp_dir.'/'.$name, $format, \imagick::FILTER_HAMMING, 0.8, 0, 1, \imagick::COMPRESSION_LZW, 87);
+						$newRow = $myOthers->addImgOneMultiLangsSBKII('pages', $uploader[1], $fileName, $imgTitle, $imgGeneralWidth,$imgGeneralHeight, $idRecord, 'pageId', $pageLang,1);
+
 					}
 
 					/*if ($newRow[1] >= 0)
