@@ -38,7 +38,7 @@ foreach ($works as $key => $item) {
 
 // Вывод одного изображения "Изображение для background" НАЧАЛО
 $imagebgsbkOne = '<fieldset class="catalog__section">'.
-$this->createHeader('Изображение для background');
+$this->createHeader('Изображение для background(desktop 1950x950)');
 if ($pagesItem['imagebgsbk'] <> '') {
 	$imagebgsbkOne .= '<div class="fa__uploader single" id="uploader0-imagebgsbk" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
 				<span class="content__menu-item content__menu-item_upload">
@@ -53,7 +53,7 @@ if ($pagesItem['imagebgsbk'] <> '') {
 						<a href="/p/pages/original-'.$pagesItem['imagebgsbk'].'" title="'.$pagesItem['imagebgsbkTitle'].'" class="cboxElement" rel="uploader0">
 							<span class="fa__file-img">
 								<span class="fa__file-cell">
-									<img src="/frontend/web/p/pages/mediumbgsbk-'.$pagesItem['imagebgsbk'].'" width="100%" height="auto" alt="'.$pagesItem['imagebgsbkTitle'].'">
+									<img src="/frontend/web/p/pages/generalbgsbk-'.$pagesItem['imagebgsbk'].'" width="100%" height="auto" alt="'.$pagesItem['imagebgsbkTitle'].'">
 								</span>
 								<input class="title-fld" type="hidden" name="images[imagebgsbk-one][imgTitle]" value="'.$this->getCodeStr($pagesItem['imagebgsbkTitle']).'">
 								<input class="item-deleted" type="hidden" name="images[imagebgsbk-one][deleted]" value="0">
@@ -86,7 +86,115 @@ if ($pagesItem['imagebgsbk'] <> '') {
 		</div>';
 }
 $imagebgsbkOne .= '</fieldset>';
-// Вывод одного изображения "Изображение для background" КОНЕЦ/* UpdateCode */
+// Вывод одного изображения "Изображение для background" КОНЕЦ
+
+
+
+// Вывод одного изображения "Изображение для background(laptop 1487x736)" НАЧАЛО
+$imagebgsbklpOne = '<fieldset class="catalog__section">'.
+$this->createHeader('Изображение для background(laptop 1487x736)');
+if ($pagesItem['imagebgsbklp'] <> '') {
+	$imagebgsbklpOne .= '<div class="fa__uploader single" id="uploader0-imagebgsbklp" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">
+					<div class="fa__file">
+						<a href="/p/pages/original-'.$pagesItem['imagebgsbklp'].'" title="'.$pagesItem['imagebgsbklpTitle'].'" class="cboxElement" rel="uploader0">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/frontend/web/p/pages/mediumbgsbk-'.$pagesItem['imagebgsbklp'].'" width="100%" height="auto" alt="'.$pagesItem['imagebgsbklpTitle'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[imagebgsbklp-one][imgTitle]" value="'.$this->getCodeStr($pagesItem['imagebgsbklpTitle']).'">
+								<input class="item-deleted" type="hidden" name="images[imagebgsbklp-one][deleted]" value="0">
+							</span>
+							<span class="fa__file-title">'.$pagesItem['imagebgsbklpTitle'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>
+				</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+} else {
+	$imagebgsbklpOne .= '<div class="fa__uploader single" id="uploader0-imagebgsbklp" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+}
+$imagebgsbklpOne .= '</fieldset>';
+// Вывод одного изображения "Изображение для background(laptop 1487x736)" КОНЕЦ
+
+
+
+// Вывод одного изображения "Изображение для background(mobile 970x480)" НАЧАЛО
+$imagebgsbkmbOne = '<fieldset class="catalog__section">'.
+$this->createHeader('Изображение для background(mobile 970x480)');
+if ($pagesItem['imagebgsbkmb'] <> '') {
+	$imagebgsbkmbOne .= '<div class="fa__uploader single" id="uploader0-imagebgsbkmb" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">
+					<div class="fa__file">
+						<a href="/p/pages/smallbgsbk-'.$pagesItem['imagebgsbkmb'].'" title="'.$pagesItem['imagebgsbkmbTitle'].'" class="cboxElement" rel="uploader0">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/frontend/web/p/pages/smallbgsbk-'.$pagesItem['imagebgsbkmb'].'" width="100%" height="auto" alt="'.$pagesItem['imagebgsbkmbTitle'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[imagebgsbkmb-one][imgTitle]" value="'.$this->getCodeStr($pagesItem['imagebgsbkmbTitle']).'">
+								<input class="item-deleted" type="hidden" name="images[imagebgsbkmb-one][deleted]" value="0">
+							</span>
+							<span class="fa__file-title">'.$pagesItem['imagebgsbkmbTitle'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>
+				</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+} else {
+	$imagebgsbkmbOne .= '<div class="fa__uploader single" id="uploader0-imagebgsbkmb" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+}
+$imagebgsbkmbOne .= '</fieldset>';
+// Вывод одного изображения "Изображение для background(mobile 970x480)" КОНЕЦ/* UpdateCode */
 
 
 $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'].'/'.$pageLang, 'post', ['id'=>"form-edit-content"]).
@@ -105,6 +213,8 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 		<!-- sbkdescription -->'.$this->createTextArea(['id'=> 'sbkdescription', 'text' => 'Title small ', 'width' => '400x100', 'name' => 'content[sbkdescription]', 'value' => $pagesItem['sbkdescription'], 'attr' => '']).'<!-- /sbkdescription -->
 		<!-- textforbackground -->'.$this->createInput(['id'=> 'textforbackground', 'text' => 'Текст background', 'placeholder' => '', 'width' => 400, 'name' => 'content[textforbackground]', 'value' => $pagesItem['textforbackground'], 'attr' => '']).'<!-- /textforbackground -->
 		<!-- imagebgsbk -->'.$imagebgsbkOne.'<!-- /imagebgsbk -->
+		<!-- imagebgsbklp -->'.$imagebgsbklpOne.'<!-- /imagebgsbklp -->
+		<!-- imagebgsbkmb -->'.$imagebgsbkmbOne.'<!-- /imagebgsbkmb -->
                 </fieldset><!-- /sectionPageData --><!-- /createFinish -->
 
 <!-- section1 --><fieldset class="catalog__section">

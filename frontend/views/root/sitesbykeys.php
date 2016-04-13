@@ -11,9 +11,9 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 <div class="full-height inner mesh">
     <picture>
         <source srcset="<?php echo('p/pages/generalbgsbk-'.$pageData1['imagebgsbk']) ?>" media="(min-height: 900px)">
-        <source srcset="<?php echo('p/pages/mediumbgsbk-'.$pageData1['imagebgsbk']) ?>" media="(min-height: 736px)">
-        <source srcset="<?php echo('p/pages/smallbgsbk-'.$pageData1['imagebgsbk']) ?>" media="(min-height: 480px)">
-        <img src="<?php echo('p/pages/smallbgsbk-'.$pageData1['imagebgsbk']) ?>" alt="" data-fit="cover">
+        <source srcset="<?php echo('p/pages/mediumbgsbk-'.$pageData1['imagebgsbklp']) ?>" media="(min-height: 736px)">
+        <source srcset="<?php echo('p/pages/smallbgsbk-'.$pageData1['imagebgsbkmb']) ?>" media="(min-height: 480px)">
+        <img src="<?php echo('p/pages/smallbgsbk-'.$pageData1['imagebgsbkmb']) ?>" alt="" data-fit="cover">
     </picture>
 
     <!-- full height  layout -->
@@ -22,7 +22,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
         <!-- middle text -->
         <div class="middle-text">
 
-            <?php echo($pageData['pContent']) ?>
+           <?php echo($pageData['pContent']) ?>
 
             <p><?php echo($pageData1['sbkdescription']) ?></p>
         </div>

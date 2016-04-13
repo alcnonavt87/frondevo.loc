@@ -415,7 +415,7 @@ class AdminOthers extends Model
 
             return $query->execute();
     }
-    public function addImgOneMultiLangsSBKII($table, $field, $img, $imgTitle, $imgWidth, $imgHeight,$id, $idRelField, $lang, $textpage=0) {
+    public function addImgOneMultiLangsSBK($table, $field, $img, $imgTitle,$id, $idRelField, $lang, $textpage=0) {
         if ($textpage) {
             $tableContent = 'content';
         } else {
@@ -426,9 +426,7 @@ class AdminOthers extends Model
                     `'.$table.'`, `'.$tableContent.'`
             SET
                     `'.$field.'` = :img,
-                    `'.$field.'Title` = :imgTitle,
-                    `'.$field.'Width` = :imgWidth,
-                    `'.$field.'Height` = :imgHeight
+                    `'.$field.'Title` = :imgTitle
 
             WHERE
                     `id` = :id AND
@@ -436,8 +434,6 @@ class AdminOthers extends Model
 					`lang` = :lang')
             ->bindValue(':img', $img)
             ->bindValue(':imgTitle', $imgTitle)
-            ->bindValue(':imgWidth', $imgWidth)
-            ->bindValue(':imgHeight', $imgHeight)
 
             ->bindValue(':id', $id)
             ->bindValue(':lang', $lang);
