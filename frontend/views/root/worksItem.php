@@ -66,7 +66,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
             </section>
             <section>
                 <h2>решение</h2>
-                <p>"<?php echo $worksItem['descrofsolut']?>"</p>
+                <p><?php echo $worksItem['descrofsolut']?></p>
                 <p>Главная страница:</p>
 
                 <!-- image frame -->

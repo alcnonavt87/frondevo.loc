@@ -65,7 +65,7 @@ foreach ($filters as $item) {
 
 // Вывод одного изображения "Одиночное изображение" НАЧАЛО
 $imageOne = '<fieldset class="catalog__section">'.
-$this->createHeader('Одиночное изображение');
+$this->createHeader('Одиночное изображение для страницы сайты под ключ');
 if ($worksItem['image'] <> '') {
 	$imageOne .= '<div class="fa__uploader single" id="uploader0-image" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
 				<span class="content__menu-item content__menu-item_upload">

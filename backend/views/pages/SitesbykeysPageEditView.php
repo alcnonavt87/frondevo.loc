@@ -102,7 +102,7 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
                 <fieldset class="catalog__section">
                 '.$this->createHeader('Главный экран').'
                 <!-- pContent -->'.$this->createTextArea(['id'=> 'pContent', 'text' => 'Title ', 'width' => '800x500', 'name' => 'pContent', 'value' => $page[0]['pContent'], 'attr' => '']).'<!-- /pContent -->
-		<!-- sbkdescription -->'.$this->createInput(['id'=> 'sbkdescription', 'text' => 'Title small ', 'placeholder' => '', 'width' => 400, 'name' => 'content[sbkdescription]', 'value' => $pagesItem['sbkdescription'], 'attr' => '']).'<!-- /sbkdescription -->
+		<!-- sbkdescription -->'.$this->createTextArea(['id'=> 'sbkdescription', 'text' => 'Title small ', 'width' => '400x100', 'name' => 'content[sbkdescription]', 'value' => $pagesItem['sbkdescription'], 'attr' => '']).'<!-- /sbkdescription -->
 		<!-- textforbackground -->'.$this->createInput(['id'=> 'textforbackground', 'text' => 'Текст background', 'placeholder' => '', 'width' => 400, 'name' => 'content[textforbackground]', 'value' => $pagesItem['textforbackground'], 'attr' => '']).'<!-- /textforbackground -->
 		<!-- imagebgsbk -->'.$imagebgsbkOne.'<!-- /imagebgsbk -->
                 </fieldset><!-- /sectionPageData --><!-- /createFinish -->
