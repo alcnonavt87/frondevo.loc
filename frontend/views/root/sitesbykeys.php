@@ -64,7 +64,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                         <!--/(index === 0 ? long : ) -->
                         <li class="long">
                             <a href="<?php echo $workUrl; ?>"><img
-                                    src="<?php echo '/frontend/web/p/works/bigsbk-' . $work['id'] . '-image.jpg' ?>"
+                                    src="<?php echo 'p/works/bigsbk-' . $work['id'] . '-image.jpg' ?>"
                                     alt="">
 
                                 <div>
