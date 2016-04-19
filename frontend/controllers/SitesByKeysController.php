@@ -294,10 +294,10 @@ class SitesByKeysController extends CommonController
 
         $params = [];
 
+        // Информация из таблицы множественных полей
+        $data['multifields'] = $this->myWorks->getWorksContentFromMultiField($this->thirdUri,['resultlist1']);//echo '<pre>';print_r($worksItem);echo '</pre>';exit;
         // Информация о странице (единица работы)
-
         $pageContent = $worksItem = $this->myWorks->getItem($this->thirdUri);//echo '<pre>';print_r($worksItem);echo '</pre>';exit;
-
         // Проверка существования работы
         if (!$pageContent) {
             $controller = Yii::$app->createControllerByID('error');
