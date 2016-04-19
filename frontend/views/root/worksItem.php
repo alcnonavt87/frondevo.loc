@@ -111,26 +111,23 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                 <!--/align center -->
 
             </section>
-            <section>
-                <h2>результаты</h2>
-                <p>  <?php echo $worksItem['results']?> </p>
-                <aside>
-                    <p>на
-                        <span>53%</span><b>снижен процент отказов</b>
-                    </p>
-                    <p>на
-                        <span>15.3%</span><b>увеличено число онлайн заявок</b>
-                    </p>
-                </aside>
-                <aside>
-                    <p>на
-                        <span>2.5 стр.</span><b>увеличина глубина просмотра</b>
-                    </p>
-                </aside>
-            </section>
 
-               <?php echo $worksItem['results']?>
 
+                   <?php if (!empty($worksItem['result'])) { ?>
+                <section>
+                    <h2>результаты</h2>
+                    <p><?php echo $worksItem['result']?></p>
+                    <?php foreach ($multifields['resultlist1'] as $key => $stagelist) { ?>
+                        <?php if ($key % 2 == 0) { ?>  <aside> <?php } ?>
+
+                        <p><?php echo $stagelist['text']?> </p>
+
+                        <?php if ($key % 2 == 1) { ?>  </aside> <?php } ?>
+
+                    <?php } ?>
+
+                </section>
+            <?php } ?>
 
         </div>
         <!--/layout -->

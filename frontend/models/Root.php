@@ -111,7 +111,7 @@ class Root extends Model
 		return $result;
 
     }
-	
+
     public function getPagesContent($params=[]) {
         $where = '';
 			
@@ -220,7 +220,7 @@ class Root extends Model
 		$result = !$emptyResult ? $result : [];
 		return $result;
 	}
-	
+
 	/**
 	 * Информация из таблицы отражающей поле типа "множественные изображения"
 	 */

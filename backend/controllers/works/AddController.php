@@ -34,7 +34,10 @@ class AddController extends  \backend\controllers\AdminController
 			$langs = $myOthers->getAllLangs();
 
 			// Селект "Фильтр"
-			$filters = $myOthers->getSelectOptionsMultiLangs('filters', 'title', $pageLang);/* UpdateCode */
+			$filters = $myOthers->getSelectOptionsMultiLangs('filters', 'title', $pageLang);
+
+			// Множество текстовых полей "Пункты результата"
+			$resultlist1 = $myOthers->getManyFieldsElementEmpty();/* UpdateCode */
 
 
 			$content = '';

@@ -393,8 +393,26 @@ $content .= '<!-- sectionPageData --><fieldset class="catalog__section">
 	'.$this->createHeader('Результаты').'
 	<div class="catalog__section-data">
 		<!-- results -->'.$this->createTextArea(['id'=> 'results', 'text' => 'Результаты', 'width' => '400x100', 'name' => 'content[results]', 'value' => $worksItem['results'], 'attr' => '']).'<!-- /results -->
+		<!-- resultlist1 --><div class="input-row__group-wrap">';
+			for ($i = 0; $i < count($resultlist1); $i++) {
+				if ($i == count($resultlist1)-1) {
+					$content .= '<div class="input-row input-wrap input-row__group">
+						<label class="input__label" for="' . $i . '">Перечень результатов</label>
+						<input placeholder="" id="' . $i . '" name="resultlist1[]" class="input catalog_input input-width_400" type="text" value="' .$resultlist1[$i]['text'] . '" />
+						<div class="button button__block button_copy-block"></div>
+					</div>';
+					continue;
+				}
+				
+				$content .= '<div class="input-row input-wrap input-row__group">
+					<label class="input__label" for="' . $i . '">Перечень резултатов</label>
+					<input placeholder="" id="' . $i . '" name="resultlist1[]" class="input catalog_input input-width_400" type="text" value="' .$resultlist1[$i]['text'] . '" />
+					<div class="button button__block button_remove-block"></div>
+				</div>';
+			}
+		$content .= '</div><!-- /resultlist1 -->
 	</div>
-</fieldset><!-- /results --><!-- /createFinish -->
+
 
 </form>';
 // Форма редактирования КОНЕЦ

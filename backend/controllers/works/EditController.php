@@ -35,7 +35,13 @@ class EditController extends  \backend\controllers\AdminController
 				
 
 				// Селект "Фильтр"
-				$filters = $myOthers->getSelectOptionsMultiLangs('filters', 'title', $pageLang);/* UpdateCode */
+				$filters = $myOthers->getSelectOptionsMultiLangs('filters', 'title', $pageLang);
+
+				// Множество текстовых полей "Пункты результата"
+				$resultlist1 = $myOthers->getManyFieldsElementMultiLangs('works_resultlist1', $idRecord, $pageLang);
+				if (!$resultlist1) {
+					$resultlist1 = $myOthers->getManyFieldsElementEmpty();
+				}/* UpdateCode */
 
 
 				$content = '';

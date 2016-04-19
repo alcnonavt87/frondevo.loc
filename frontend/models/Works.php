@@ -160,7 +160,7 @@ class Works extends Model
             IF(`w`.`addpage` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'generaladd-", `w`.`addpage`), "") as imgPathadd,
 			`w`.`imageWidth` as imgW, `w`.`imageHeight` as imgH, `wc`.`imageTitle` as imgT,
             `wc`.`pTitle`, `wc`.`description`, `wc`.`pH1`, `wc`.`pContent` as content,`wc`.`client`,`wc`.`services`,`wc`.`launch`,`wc`.`aboutProject`,`wc`.`task`,`wc`.`add`,
-            `wc`.`descrofsolut`,`wc`.`linkwork`,`wc`.`results`
+            `wc`.`descrofsolut`,`wc`.`linkwork`,`wc`.`results`as result
 
         FROM
             `works` `w`, `works_content` `wc`
@@ -175,7 +175,47 @@ class Works extends Model
 
 		return $result;
     }
-	
+	public function getWorksContentFromMultiField($alias,$multifields=[]) {
+
+
+		$query = Yii::$app->db->createCommand('SELECT
+			`id`
+		FROM
+			`works`,`works_content`
+		WHERE
+			`pUrl` = :alias AND
+			`lang` = :lang')
+				->bindValue(':alias', $alias)
+				->bindValue(':lang', $this->lang);
+
+		$result = $query->queryOne();
+
+		if ($result) {
+			// информация из множественных полей
+			foreach ($multifields as $multifield) {
+				$result[$multifield] = $this->getMultiFieldsData($multifield, $result['id']);
+			}
+		}
+		return $result;
+	}
+
+	public function getMultiFieldsData($entity, $itemId) {
+		$query = Yii::$app->db->createCommand('SELECT
+			`pe`.`id`, `pe`.`text`
+		FROM
+			`works_'.$entity.'` `pe`, `works` `p`
+		WHERE
+			`pe`.`idRel` = `p`.`id` AND
+			`p`.`id` = '.$itemId.' AND
+			`pe`.`lang` = :lang')
+				->bindValue(':lang', $this->lang);
+
+		$result = $query->queryAll();
+
+		$emptyResult = (count($result) == 1 && $result[0]['text'] == '');
+		$result = !$emptyResult ? $result : [];
+		return $result;
+	}
 	/**
 	 * Список ссылок (для плашки сссылок в футере)
 	 */

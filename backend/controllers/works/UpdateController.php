@@ -311,7 +311,11 @@ class UpdateController extends  \backend\controllers\AdminController
 						}
 					}
 				}
-			}/* UpdateCodeBottom */
+			}
+
+			// Множество текстовых полей "Пункты результата"
+			$resultlist1 = ArrayHelper::getValue($_POST, 'resultlist1', []);
+			$myOthers->updateManyFieldsElementIMultiLangsSimple('works_resultlist1', $idRecord, $resultlist1, $pageLang);/* UpdateCodeBottom */
 
 			exit($json_data);
 		} else {
