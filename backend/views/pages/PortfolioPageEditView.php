@@ -42,7 +42,7 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
                     <!-- pMenuName -->'.$this->createInput(['id'=> 'pMenuName', 'text' => 'Заголовок для главного меню', 'width' => 400, 'name' => 'pMenuName', 'value' => $page[0]['pMenuName'], 'attr' => 'required']).'<!-- /pMenuName -->
 
 <!-- commonData --><fieldset class="catalog__section">
-	'.$this->createHeader('Основные данные').'
+	'.$this->createHeader('Выбор ссылок отображаемых в футере').'
 	<div class="catalog__section-data">
 		<!-- links -->'.$this->createCheckBoxGroup(['list' => $linksList]).'<!-- /links -->
 	</div>

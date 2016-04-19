@@ -93,7 +93,11 @@ class SitesbykeysEditController extends \backend\controllers\AdminController {
 				$sbkpslist = $myOthers->getManyFieldsElementMultiLangs('pages_sbkpslist', $idRecord, $pageLang);
 				if (!$sbkpslist) {
 					$sbkpslist = $myOthers->getManyFieldsElementEmpty();
-				}/* UpdateCode */
+				}
+
+				// Группа чекбоксов "Ссылки"
+				$links = $myOthers->getChGrSourceIdsMultiLangs('links', 'title', $pageLang);
+				$linksIds = $myOthers->getChGrTargetIds('pages_links', 'idPages', 'idLinks', $idRecord);/* UpdateCode */
 
                 $content = '';
                 $navMenu = '';

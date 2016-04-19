@@ -38,7 +38,7 @@ foreach ($works as $key => $item) {
 
 // Вывод одного изображения "Изображение для background" НАЧАЛО
 $imagebgsbkOne = '<fieldset class="catalog__section">'.
-$this->createHeader('Изображение для background(desktop 1950x950)');
+$this->createHeader('Изображение для background(desktop 1950x1100)');
 if ($pagesItem['imagebgsbk'] <> '') {
 	$imagebgsbkOne .= '<div class="fa__uploader single" id="uploader0-imagebgsbk" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
 				<span class="content__menu-item content__menu-item_upload">
@@ -146,7 +146,7 @@ $imagebgsbklpOne .= '</fieldset>';
 
 // Вывод одного изображения "Изображение для background(mobile 970x480)" НАЧАЛО
 $imagebgsbkmbOne = '<fieldset class="catalog__section">'.
-$this->createHeader('Изображение для background(mobile 970x480)');
+$this->createHeader('Изображение для background(mobile 640x1171)');
 if ($pagesItem['imagebgsbkmb'] <> '') {
 	$imagebgsbkmbOne .= '<div class="fa__uploader single" id="uploader0-imagebgsbkmb" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
 				<span class="content__menu-item content__menu-item_upload">
@@ -194,7 +194,21 @@ if ($pagesItem['imagebgsbkmb'] <> '') {
 		</div>';
 }
 $imagebgsbkmbOne .= '</fieldset>';
-// Вывод одного изображения "Изображение для background(mobile 970x480)" КОНЕЦ/* UpdateCode */
+// Вывод одного изображения "Изображение для background(mobile 970x480)" КОНЕЦ
+
+
+
+// Группа чекбоксов "Отображаемые работы"
+$linksList = [];
+foreach ($links as $key => $item) {
+	$checked = '';
+	
+	if (in_array($item['id'], $linksIds)) {
+		$checked = 'checked="checked"';
+	}
+	
+	$linksList[] = ['id'=> 'links'.$key, 'text' => $item['title'], 'width' => 400, 'name' => 'linksIds[]', 'value' => $item['id'], 'attr' => $checked];
+}/* UpdateCode */
 
 
 $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'].'/'.$pageLang, 'post', ['id'=>"form-edit-content"]).
@@ -380,6 +394,7 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 	'.$this->createHeader('P.S').'
 	<div class="catalog__section-data">
 		<!-- section5 -->'.$this->createTextArea(['id'=> 'section5', 'text' => 'P.S.title', 'width' => '400x100', 'name' => 'content[section5]', 'value' => $pagesItem['section5'], 'attr' => '']).'<!-- /section5 -->
+
 		<!-- sbkpslist --><div class="input-row__group-wrap">';
 			for ($i = 0; $i < count($sbkpslist); $i++) {
 				if ($i == count($sbkpslist)-1) {
@@ -400,6 +415,13 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 		$content .= '</div><!-- /sbkpslist -->
 
 </fieldset><!-- /section5 -->
+
+<!-- Links --><fieldset class="catalog__section">
+	'.$this->createHeader('Выбор ссылок отображаемых в футере').'
+	<div class="catalog__section-data">
+		<!-- links -->'.$this->createCheckBoxGroup(['list' => $linksList]).'<!-- /links -->
+	</div>
+</fieldset><!-- /Links -->
 
 
 '.

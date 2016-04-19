@@ -78,15 +78,15 @@ return [
                 'sizes' => [
                     'generalbgsbk' => [
                         'width' => 1920,
-                        'height' => 950,
+                        'height' => 1100,
                     ],
                     'mediumbgsbk' => [
                         'width' => 1487,
                         'height' => 736,
                     ],
                     'smallbgsbk' => [
-                        'width' => 970,
-                        'height' => 480,
+                        'width' => 640,
+                        'height' => 1171,
                     ],
                 ],
 

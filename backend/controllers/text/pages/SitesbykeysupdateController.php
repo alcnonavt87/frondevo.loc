@@ -249,7 +249,11 @@ class SitesbykeysupdateController extends \backend\controllers\AdminController {
 
 			// Множество текстовых полей "Пункты P.S."
 			$sbkpslist = ArrayHelper::getValue($_POST, 'sbkpslist', []);
-			$myOthers->updateManyFieldsElementIMultiLangsSimple('pages_sbkpslist', $idRecord, $sbkpslist, $pageLang);/* UpdateCodeBottom */
+			$myOthers->updateManyFieldsElementIMultiLangsSimple('pages_sbkpslist', $idRecord, $sbkpslist, $pageLang);
+
+			// Группа чекбоксов "Ссылки"
+			$linksIds = ArrayHelper::getValue($_POST, 'linksIds', []);
+			$myOthers->updateChGrIds('pages_links', 'idPages', 'idLinks', $idRecord, $linksIds);/* UpdateCodeBottom */
             
 			// отправляем ответ
             echo $json_data;

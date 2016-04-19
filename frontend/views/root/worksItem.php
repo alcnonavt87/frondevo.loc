@@ -102,14 +102,31 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                     <p>посетить веб-сайт</p>
 
                     <!-- button -->
-                    <a href="<?php echo $worksItem['linkwork']?>" target="_blank" rel="nofollow" class="button light">
-                        <span><?php echo $worksItem['pTitle']?></span>
+                    <a href="<?php echo 'http://'. $worksItem['linkwork']?>" target="_blank" rel="nofollow" class="button light">
+                        <span><?php echo $worksItem['linkwork']?></span>
                     </a>
                     <!--/button -->
 
                 </div>
                 <!--/align center -->
 
+            </section>
+            <section>
+                <h2>результаты</h2>
+                <p>  <?php echo $worksItem['results']?> </p>
+                <aside>
+                    <p>на
+                        <span>53%</span><b>снижен процент отказов</b>
+                    </p>
+                    <p>на
+                        <span>15.3%</span><b>увеличено число онлайн заявок</b>
+                    </p>
+                </aside>
+                <aside>
+                    <p>на
+                        <span>2.5 стр.</span><b>увеличина глубина просмотра</b>
+                    </p>
+                </aside>
             </section>
 
                <?php echo $worksItem['results']?>
