@@ -338,8 +338,36 @@ FRONDEVO_ADMIN.modules.Table.prototype = {
 
                 switch (sortType) {
                 case 'client-side':
+                    var dateColumn = JSON.parse($(table).attr('data-table-date-column')),
+                        params = {};
 
-                    $(table).tablesorter(/*{
+                    if (typeof dateColumn === 'object') {
+                        $.tablesorter.addParser({
+                            id: "dd.mm.yyyy",
+                            is: function(s) {
+                                return false;
+                            },
+                            format: function(s) {
+                                s = "" + s;
+                                var hit = s.match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+                                if (hit && hit.length == 4) {
+                                    return hit[3] + hit[2] + hit[1];
+                                } else {
+                                    return s;
+                                }
+                            },
+                            type: "text"
+                        });
+
+                        params.headers = {};
+                        $.each(dateColumn, function (key) {
+                            params.headers[key] = {sorter:"dd.mm.yyyy"};
+                        });
+                    }
+
+                    $(table).tablesorter(
+                        params
+                        /*{
                         sortList: [[0, 0]]
                     }*/);
 
@@ -378,6 +406,7 @@ FRONDEVO_ADMIN.config.table_init = function (object) {
         objectsCount,
         i,
         initTable = function (object) {
+
             object.removeAttribute('data-module');
 
             table[table.length - 1] = new modules.Table({

@@ -231,7 +231,7 @@ FRONDEVO_ADMIN.modules.sortDragEndDrop = (function () {
                         url: FRONDEVO_ADMIN.global.controls.baseUrl +
                         (controls.table.getAttribute('data-dragsort-url') || 'update') +
                             controls.table.getAttribute('data-action'),
-                        data: 'list=' + JSON.stringify(dataToSend),
+                        data: 'list=' + JSON.stringify(dataToSend) + ((controls.formParam !== null) ? '&' + $(controls.formParam).serialize() : ''),
                         type: controls.table.getAttribute('data-method')
                     });
                 }
@@ -279,6 +279,7 @@ FRONDEVO_ADMIN.modules.sortDragEndDrop = (function () {
         controls.listCount = count;
         controls.url = param.url;
         controls.table = param.table;
+        controls.formParam = document.getElementById(param.formParam);
 
         addEventList();
 
@@ -305,7 +306,8 @@ FRONDEVO_ADMIN.config.drag_sort_init = function (object) {
             modules.sortDragEndDrop.init({
                 list: ds_object.querySelectorAll('[data-index]'),
                 url: ds_object.getAttribute('data-php'),
-                table: ds_object.parentNode
+                table: ds_object.parentNode,
+                formParam: ds_object.getAttribute('data-form')
             });
         };
 

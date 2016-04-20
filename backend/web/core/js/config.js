@@ -1,4 +1,3 @@
-
 /**
  * Description:
  * Author Valera Siestov
@@ -12,7 +11,16 @@
  */
 FRONDEVO_ADMIN.config = {
     modules: {
-        adminPanelUri: 'adminfrondevo_',
+        auto_complete: [
+            {
+                type: 'js',
+                path: '/adminfrondevo_/components/modules/auto-complete/module.auto-complete.js'
+            },
+            {
+                type: 'css',
+                path: '/adminfrondevo_/components/modules/auto-complete/auto-complete.css'
+            }
+        ],
 
         select: [
             {

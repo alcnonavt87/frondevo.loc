@@ -11,9 +11,10 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 <!-- full height -->
 <div class="full-height inner mesh">
     <picture>
-        <source srcset="<?php echo $worksItem['imgPathbg']?>" media="(min-height: 900px)">
-        <source srcset="<?php echo $worksItem['imgPathbgmd']?>" media="(min-height: 736px)">
-        <source srcset="<?php echo $worksItem['imgPathbgsm']?>" media="(min-height: 480px)"><img src=""<?php echo $worksItem['imgPathbgsm']?>" alt="" data-fit="cover">
+        <source srcset="<?php echo $worksItem['imgPathbg'] ?>" media="(min-height: 900px)">
+        <source srcset="<?php echo $worksItem['imgPathbgmd'] ?>" media="(min-height: 736px)">
+        <source srcset="<?php echo $worksItem['imgPathbgsm'] ?>" media="(min-height: 480px)">
+        <img src=""<?php echo $worksItem['imgPathbgsm'] ?>" alt="" data-fit="cover">
     </picture>
 
     <!-- full height  layout -->
@@ -21,8 +22,9 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
         <!-- middle text -->
         <div class="middle-text">
-            <h1><?php echo $worksItem['pH1'];?></h1>
-            <p><?php echo $worksItem['description'];?></p>
+            <h1><?php echo $worksItem['pH1']; ?></h1>
+
+            <p><?php echo $worksItem['description']; ?></p>
         </div>
         <!--/middle text -->
 
@@ -46,82 +48,111 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
             <section>
                 <aside>
                     <h3>клиент</h3>
-                    <p><?php echo $worksItem['client']?></p>
+
+                    <p><?php echo $worksItem['client'] ?></p>
+
                     <h3>услуги</h3>
-                    <p><?php echo $worksItem['services']?></p>
+
+                    <p><?php echo $worksItem['services'] ?></p>
+
                     <h3>LAUNCH</h3>
-                    <p><?php echo $worksItem['launch']?></p>
+
+                    <p><?php echo $worksItem['launch'] ?></p>
                 </aside>
-                <aside>
+             <!--   <aside>
                     <h3>проектная группа</h3>
+
                     <p>
-                        <?php echo $worksItem['aboutProject']?>
+                        <?php /*echo $worksItem['aboutProject'] */?>
                     </p>
-                </aside>
+                </aside>-->
             </section>
             <section>
                 <h2>задача</h2>
-                <?php echo $worksItem['task']?>
+                <?php echo $worksItem['task'] ?>
 
             </section>
             <section>
-                <?php echo $worksItem['solutions']?>
-                <h2>решение</h2>
-                <p><?php echo $worksItem['descrofsolut']?></p>
-                <p>Главная страница:</p>
+                <?php echo $worksItem['solutions'] ?>
+                <?php if (!empty($worksItem['imgPathadd'])) { ?>
 
-                <!-- image frame -->
-                <div class="image-frame">
-                    <div>
+                    <h2>решение</h2>
 
-                        <!-- frame controls -->
-                        <div class="frame-controls">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <!--/frame controls -->
+                    <p><?php echo $worksItem['descrofsolut'] ?></p>
+                    <p><?php echo $worksItem['add'] ?></p>
+                    <div class="align-center"><img src="<?php echo $worksItem['imgPathadd'] ?>" alt="" width="768"
+                                                   height="491"></div>
 
-                        <div class="frame-input"><?php echo $worksItem['linkwork']?></div>
-                        <div class="frame-face-input"></div>
+                    <!-- align center -->
+                    <div class="align-center">
+                        <p>посетить веб-сайт</p>
+
+                        <!-- button -->
+                        <a href="<?php echo 'http://' . $worksItem['linkwork'] ?>" target="_blank" rel="nofollow"
+                           class="button light">
+                            <span><?php echo $worksItem['linkwork'] ?></span>
+                        </a>
+                        <!--/button -->
+
                     </div>
-                    <picture>
-                        <source srcset="<?php echo $worksItem['imgPathmp']?>" media="(min-width: 1280px)">
-                        <source srcset="<?php echo $worksItem['imgPathmpbig']?>" media="(min-width: 748px)">
-                        <source srcset="<?php echo $worksItem['imgPathmpmd']?>" media="(min-width: 414px)">
-                        <source srcset="<?php echo $worksItem['imgPathmpsm']?>" media="(min-width: 320px)"><img src="<?php echo $worksItem['imgPathmpsm']?>" alt="">
-                    </picture>
-                </div>
-                <!--/image frame -->
+                    <!--/align center -->
+                <?php } else { ?>
 
-                <p>Лаконичный и строгий дизайн в сине-красных цветах подчеркивают серьезность и надежность компании, а промо блоки больших размеров – солидность и размах.</p>
-                <p><?php echo $worksItem['add']?></p>
-                <div class="align-center"><img src="<?php echo $worksItem['imgPathadd']?>" alt="" width="768" height="491"></div>
+                    <h2>решение</h2>
+                    <p><?php echo $worksItem['descrofsolut'] ?></p>
+                    <p>Главная страница:</p>
 
-                <!-- align center -->
-                <div class="align-center">
-                    <p>посетить веб-сайт</p>
+                    <!-- image frame -->
+                    <div class="image-frame">
+                        <div>
 
-                    <!-- button -->
-                    <a href="<?php echo 'http://'. $worksItem['linkwork']?>" target="_blank" rel="nofollow" class="button light">
-                        <span><?php echo $worksItem['linkwork']?></span>
-                    </a>
-                    <!--/button -->
+                            <!-- frame controls -->
+                            <div class="frame-controls">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <!--/frame controls -->
 
-                </div>
-                <!--/align center -->
+                            <div class="frame-input"><?php echo $worksItem['linkwork'] ?></div>
+                            <div class="frame-face-input"></div>
+                        </div>
+                        <picture>
+                            <source srcset="<?php echo $worksItem['imgPathmp'] ?>" media="(min-width: 1280px)">
+                            <source srcset="<?php echo $worksItem['imgPathmpbig'] ?>" media="(min-width: 748px)">
+                            <source srcset="<?php echo $worksItem['imgPathmpmd'] ?>" media="(min-width: 414px)">
+                            <source srcset="<?php echo $worksItem['imgPathmpsm'] ?>" media="(min-width: 320px)">
+                            <img src="<?php echo $worksItem['imgPathmpsm'] ?>" alt="">
+                        </picture>
+                    </div>
+                    <!--/image frame -->
+                    <!-- align center -->
+                    <div class="align-center">
+                        <p>посетить веб-сайт</p>
+
+                        <!-- button -->
+                        <a href="<?php echo 'http://' . $worksItem['linkwork'] ?>" target="_blank" rel="nofollow"
+                           class="button light">
+                            <span><?php echo $worksItem['linkwork'] ?></span>
+                        </a>
+                        <!--/button -->
+
+                    </div>
+                    <!--/align center -->
+                <?php } ?>
 
             </section>
 
 
-                   <?php if (!empty($worksItem['result'])) { ?>
+            <?php if (!empty($worksItem['result'])) { ?>
                 <section>
                     <h2>результаты</h2>
-                    <p><?php echo $worksItem['result']?></p>
+
+                    <p><?php echo $worksItem['result'] ?></p>
                     <?php foreach ($multifields['resultlist1'] as $key => $stagelist) { ?>
                         <?php if ($key % 2 == 0) { ?>  <aside> <?php } ?>
 
-                        <p><?php echo $stagelist['text']?> </p>
+                        <p><?php echo $stagelist['text'] ?> </p>
 
                         <?php if ($key % 2 == 1) { ?>  </aside> <?php } ?>
 
