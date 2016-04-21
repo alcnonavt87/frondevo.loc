@@ -144,6 +144,76 @@ $imagebgsbklpOne .= '</fieldset>';
 
 
 
+// Селект "Работа 1"
+$works1Options = '<option value="0">Выберите вариант</option>';
+foreach ($works as $item) {
+	if ($item['id'] == $worksItem1[1]['idWorks1']) {
+		$works1Options .= '<option value="'.$item['id'].'"  selected>'.$item['pTitle'].'</option>';
+		continue;
+	}
+
+	$works1Options .= '<option value="'.$item['id'].'" >'.$item['pTitle'].'</option>';
+}
+// Селект "Работа 2"
+$works2Options = '<option value="0">Выберите вариант</option>';
+foreach ($works as $item) {
+	if ($item['id'] == $worksItem2[1]['idWorks2']) {
+		$works2Options .= '<option value="'.$item['id'].'"  selected>'.$item['pTitle'].'</option>';
+		continue;
+	}
+
+	$works2Options .= '<option value="'.$item['id'].'" >'.$item['pTitle'].'</option>';
+}
+// Селект "Работа 3"
+$works3Options = '<option value="0">Выберите вариант</option>';
+foreach ($works as $item) {
+	if ($item['id'] == $worksItem3[1]['idWorks3']) {
+		$works3Options .= '<option value="'.$item['id'].'"  selected>'.$item['pTitle'].'</option>';
+		continue;
+	}
+
+	$works3Options .= '<option value="'.$item['id'].'" >'.$item['pTitle'].'</option>';
+}
+// Селект "Работа 4"
+$works4Options = '<option value="0">Выберите вариант</option>';
+foreach ($works as $item) {
+	if ($item['id'] == $worksItem4[1]['idWorks4']) {
+		$works4Options .= '<option value="'.$item['id'].'"  selected>'.$item['pTitle'].'</option>';
+		continue;
+	}
+
+	$works4Options .= '<option value="'.$item['id'].'" >'.$item['pTitle'].'</option>';
+}
+// Селект "Работа 5"
+$works5Options = '<option value="0">Выберите вариант</option>';
+foreach ($works as $item) {
+	if ($item['id'] == $worksItem5[1]['idWorks5']) {
+		$works5Options .= '<option value="'.$item['id'].'"  selected>'.$item['pTitle'].'</option>';
+		continue;
+	}
+
+	$works5Options .= '<option value="'.$item['id'].'" >'.$item['pTitle'].'</option>';
+}
+// Селект "Работа 6"
+$works6Options = '<option value="0">Выберите вариант</option>';
+foreach ($works as $item) {
+	if ($item['id'] == $worksItem6[1]['idWorks6']) {
+		$works6Options .= '<option value="'.$item['id'].'"  selected>'.$item['pTitle'].'</option>';
+		continue;
+	}
+
+	$works6Options .= '<option value="'.$item['id'].'" >'.$item['pTitle'].'</option>';
+}
+// Селект "Работа 7"
+$works7Options = '<option value="0">Выберите вариант</option>';
+foreach ($works as $item) {
+	if ($item['id'] == $worksItem7[1]['idWorks7']) {
+		$works7Options .= '<option value="'.$item['id'].'"  selected>'.$item['pTitle'].'</option>';
+		continue;
+	}
+
+	$works7Options .= '<option value="'.$item['id'].'" >'.$item['pTitle'].'</option>';
+}
 // Вывод одного изображения "Изображение для background(mobile 970x480)" НАЧАЛО
 $imagebgsbkmbOne = '<fieldset class="catalog__section">'.
 $this->createHeader('Изображение для background(mobile 640x1171)');
@@ -208,7 +278,386 @@ foreach ($links as $key => $item) {
 	}
 	
 	$linksList[] = ['id'=> 'links'.$key, 'text' => $item['title'], 'width' => 400, 'name' => 'linksIds[]', 'value' => $item['id'], 'attr' => $checked];
-}/* UpdateCode */
+}
+
+
+
+// Вывод одного изображения "Изображение для работы №1" НАЧАЛО
+$sbkimgwork1One = '<fieldset class="catalog__section">'.
+$this->createHeader('Изображение для работы №1');
+if ($pagesItem['sbkimgwork1'] <> '') {
+	$sbkimgwork1One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork1" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">
+					<div class="fa__file">
+						<a href="/frontend/web/p/pages/mediumsbk-'.$pagesItem['sbkimgwork1'].'" title="'.$pagesItem['sbkimgwork1Title'].'" class="cboxElement" rel="uploader0">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/frontend/web/p/pages/mediumsbk-'.$pagesItem['sbkimgwork1'].'" width="100%" height="auto" alt="'.$pagesItem['sbkimgwork1Title'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[sbkimgwork1-one][imgTitle]" value="'.$this->getCodeStr($pagesItem['sbkimgwork1Title']).'">
+								<input class="item-deleted" type="hidden" name="images[sbkimgwork1-one][deleted]" value="0">
+							</span>
+							<span class="fa__file-title">'.$pagesItem['sbkimgwork1Title'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>
+				</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+} else {
+	$sbkimgwork1One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork1" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+}
+$sbkimgwork1One .= '</fieldset>';
+// Вывод одного изображения "Изображение для работы №1" КОНЕЦ
+
+
+
+
+// Вывод одного изображения "Изображение для работы №2" НАЧАЛО
+$sbkimgwork2One = '<fieldset class="catalog__section">'.
+$this->createHeader('Изображение для работы №2');
+if ($pagesItem['sbkimgwork2'] <> '') {
+	$sbkimgwork2One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork2" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">
+					<div class="fa__file">
+						<a href="/frontend/web/p/pages/mediumsbk-'.$pagesItem['sbkimgwork2'].'" title="'.$pagesItem['sbkimgwork2Title'].'" class="cboxElement" rel="uploader0">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/frontend/web/p/pages/mediumsbk-'.$pagesItem['sbkimgwork2'].'" width="100%" height="auto" alt="'.$pagesItem['sbkimgwork2Title'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[sbkimgwork2-one][imgTitle]" value="'.$this->getCodeStr($pagesItem['sbkimgwork2Title']).'">
+								<input class="item-deleted" type="hidden" name="images[sbkimgwork2-one][deleted]" value="0">
+							</span>
+							<span class="fa__file-title">'.$pagesItem['sbkimgwork2Title'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>
+				</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+} else {
+	$sbkimgwork2One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork2" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+}
+$sbkimgwork2One .= '</fieldset>';
+// Вывод одного изображения "Изображение для работы №2" КОНЕЦ
+
+
+
+// Вывод одного изображения "Изображение для работы №3" НАЧАЛО
+$sbkimgwork3One = '<fieldset class="catalog__section">'.
+$this->createHeader('Изображение для работы №3');
+if ($pagesItem['sbkimgwork3'] <> '') {
+	$sbkimgwork3One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork3" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">
+					<div class="fa__file">
+						<a href="/frontend/web/p/pages/mediumsbk-'.$pagesItem['sbkimgwork3'].'" title="'.$pagesItem['sbkimgwork3Title'].'" class="cboxElement" rel="uploader0">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/frontend/web/p/pages/mediumsbk-'.$pagesItem['sbkimgwork3'].'" width="100%" height="auto" alt="'.$pagesItem['sbkimgwork3Title'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[sbkimgwork3-one][imgTitle]" value="'.$this->getCodeStr($pagesItem['sbkimgwork3Title']).'">
+								<input class="item-deleted" type="hidden" name="images[sbkimgwork3-one][deleted]" value="0">
+							</span>
+							<span class="fa__file-title">'.$pagesItem['sbkimgwork3Title'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>
+				</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+} else {
+	$sbkimgwork3One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork3" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+}
+$sbkimgwork3One .= '</fieldset>';
+// Вывод одного изображения "Изображение для работы №3" КОНЕЦ
+
+
+
+// Вывод одного изображения "Изображение для работы №4" НАЧАЛО
+$sbkimgwork4One = '<fieldset class="catalog__section">'.
+$this->createHeader('Изображение для работы №4');
+if ($pagesItem['sbkimgwork4'] <> '') {
+	$sbkimgwork4One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork4" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">
+					<div class="fa__file">
+						<a href="/frontend/web/p/pages/mediumsbk-'.$pagesItem['sbkimgwork4'].'" title="'.$pagesItem['sbkimgwork4Title'].'" class="cboxElement" rel="uploader0">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/frontend/web/p/pages/mediumsbk-'.$pagesItem['sbkimgwork4'].'" width="100%" height="auto" alt="'.$pagesItem['sbkimgwork4Title'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[sbkimgwork4-one][imgTitle]" value="'.$this->getCodeStr($pagesItem['sbkimgwork4Title']).'">
+								<input class="item-deleted" type="hidden" name="images[sbkimgwork4-one][deleted]" value="0">
+							</span>
+							<span class="fa__file-title">'.$pagesItem['sbkimgwork4Title'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>
+				</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+} else {
+	$sbkimgwork4One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork4" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+}
+$sbkimgwork4One .= '</fieldset>';
+// Вывод одного изображения "Изображение для работы №4" КОНЕЦ
+
+
+
+// Вывод одного изображения "Изображение для работы №5" НАЧАЛО
+$sbkimgwork5One = '<fieldset class="catalog__section">'.
+$this->createHeader('Изображение для работы №5');
+if ($pagesItem['sbkimgwork5'] <> '') {
+	$sbkimgwork5One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork5" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">
+					<div class="fa__file">
+						<a href="/frontend/web/p/pages/mediumsbk-'.$pagesItem['sbkimgwork5'].'" title="'.$pagesItem['sbkimgwork5Title'].'" class="cboxElement" rel="uploader0">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/frontend/web/p/pages/mediumsbk-'.$pagesItem['sbkimgwork5'].'" width="100%" height="auto" alt="'.$pagesItem['sbkimgwork5Title'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[sbkimgwork5-one][imgTitle]" value="'.$this->getCodeStr($pagesItem['sbkimgwork5Title']).'">
+								<input class="item-deleted" type="hidden" name="images[sbkimgwork5-one][deleted]" value="0">
+							</span>
+							<span class="fa__file-title">'.$pagesItem['sbkimgwork5Title'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>
+				</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+} else {
+	$sbkimgwork5One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork5" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+}
+$sbkimgwork5One .= '</fieldset>';
+// Вывод одного изображения "Изображение для работы №5" КОНЕЦ
+
+
+
+// Вывод одного изображения "Изображение для работы №6" НАЧАЛО
+$sbkimgwork6One = '<fieldset class="catalog__section">'.
+$this->createHeader('Изображение для работы №6');
+if ($pagesItem['sbkimgwork6'] <> '') {
+	$sbkimgwork6One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork6" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">
+					<div class="fa__file">
+						<a href="/frontend/web/p/pages/mediumsbk-'.$pagesItem['sbkimgwork6'].'" title="'.$pagesItem['sbkimgwork6Title'].'" class="cboxElement" rel="uploader0">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/frontend/web/p/pages/mediumsbk-'.$pagesItem['sbkimgwork6'].'" width="100%" height="auto" alt="'.$pagesItem['sbkimgwork6Title'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[sbkimgwork6-one][imgTitle]" value="'.$this->getCodeStr($pagesItem['sbkimgwork6Title']).'">
+								<input class="item-deleted" type="hidden" name="images[sbkimgwork6-one][deleted]" value="0">
+							</span>
+							<span class="fa__file-title">'.$pagesItem['sbkimgwork6Title'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>
+				</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+} else {
+	$sbkimgwork6One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork6" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+}
+$sbkimgwork6One .= '</fieldset>';
+// Вывод одного изображения "Изображение для работы №6" КОНЕЦ
+
+
+
+// Вывод одного изображения "Изображение для работы №7" НАЧАЛО
+$sbkimgwork7One = '<fieldset class="catalog__section">'.
+$this->createHeader('Изображение для работы №7');
+if ($pagesItem['sbkimgwork7'] <> '') {
+	$sbkimgwork7One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork7" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">
+					<div class="fa__file">
+						<a href="/frontend/web/p/pages/mediumsbk-'.$pagesItem['sbkimgwork7'].'" title="'.$pagesItem['sbkimgwork7Title'].'" class="cboxElement" rel="uploader0">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/frontend/web/p/pages/mediumsbk-'.$pagesItem['sbkimgwork7'].'" width="100%" height="auto" alt="'.$pagesItem['sbkimgwork7Title'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[sbkimgwork7-one][imgTitle]" value="'.$this->getCodeStr($pagesItem['sbkimgwork7Title']).'">
+								<input class="item-deleted" type="hidden" name="images[sbkimgwork7-one][deleted]" value="0">
+							</span>
+							<span class="fa__file-title">'.$pagesItem['sbkimgwork7Title'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>
+				</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+} else {
+	$sbkimgwork7One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork7" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+}
+$sbkimgwork7One .= '</fieldset>';
+// Вывод одного изображения "Изображение для работы №7" КОНЕЦ/* UpdateCode */
 
 
 $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'].'/'.$pageLang, 'post', ['id'=>"form-edit-content"]).
@@ -242,8 +691,29 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 	<div class="catalog__section-data">
 		<!-- section2 -->'.$this->createTextArea(['id'=> 'section2', 'text' => 'Title ', 'width' => '400x100', 'name' => 'content[section2]', 'value' => $pagesItem['section2'], 'attr' => '']).'<!-- /section2 -->
 		<!-- sbkworkstext -->'.$this->createInput(['id'=> 'sbkworkstext', 'text' => 'Title small ', 'placeholder' => '', 'width' => 400, 'name' => 'content[sbkworkstext]', 'value' => $pagesItem['sbkworkstext'], 'attr' => '']).'<!-- /sbkworkstext -->
-		'.$this->createHeader('Выбор работ которые будут отображаться').'
-		<!-- works -->'.$this->createCheckBoxGroup(['list' => $worksList]).'<!-- /works -->
+		'.$this->createHeader('Информация о работах которые будут отображаться на странице').'
+		<!-- idWorks1 -->'.$this->createSelect(['id'=> 'idWorks1', 'text' => 'Работа №1', 'width' => 400,  'name' => 'base[idWorks1]', 'value' => $works1Options, 'attr' => '']).'<!-- /idWorks1 -->
+		<!-- sbkdeskwork1 -->'.$this->createTextArea(['id'=> 'sbkdeskwork1', 'text' => 'Описание работы 1', 'width' => '400x100', 'name' => 'content[sbkdeskwork1]', 'value' => $pagesItem['sbkdeskwork1'], 'attr' => '']).'<!-- /sbkdeskwork1 -->
+		<!-- sbkimgwork1 -->'.$sbkimgwork1One.'<!-- /sbkimgwork1 -->
+		<!-- idWorks2 -->'.$this->createSelect(['id'=> 'idWorks2', 'text' => 'Работа №2', 'width' => 400,  'name' => 'base[idWorks2]', 'value' => $works2Options, 'attr' => '']).'<!-- /idWorks2 -->
+		<!-- sbkdeskwork2 -->'.$this->createTextArea(['id'=> 'sbkdeskwork2', 'text' => 'Описание работы 2', 'width' => '400x100', 'name' => 'content[sbkdeskwork2]', 'value' => $pagesItem['sbkdeskwork2'], 'attr' => '']).'<!-- /sbkdeskwork2 -->
+		<!-- sbkimgwork2 -->'.$sbkimgwork2One.'<!-- /sbkimgwork2 -->
+		<!-- idWorks3 -->'.$this->createSelect(['id'=> 'idWorks3', 'text' => 'Работа №3', 'width' => 400,  'name' => 'base[idWorks3]', 'value' => $works3Options, 'attr' => '']).'<!-- /idWorks3 -->
+		<!-- sbkdeskwork3 -->'.$this->createTextArea(['id'=> 'sbkdeskwork3', 'text' => 'Описание работы 3', 'width' => '400x100', 'name' => 'content[sbkdeskwork3]', 'value' => $pagesItem['sbkdeskwork3'], 'attr' => '']).'<!-- /sbkdeskwork3 -->
+		<!-- sbkimgwork3 -->'.$sbkimgwork3One.'<!-- /sbkimgwork3 -->
+		<!-- idWorks4 -->'.$this->createSelect(['id'=> 'idWorks4', 'text' => 'Работа №4', 'width' => 400,  'name' => 'base[idWorks4]', 'value' => $works4Options, 'attr' => '']).'<!-- /idWorks4 -->
+		<!-- sbkdeskwork4 -->'.$this->createTextArea(['id'=> 'sbkdeskwork4', 'text' => 'Описание работы 4', 'width' => '400x100', 'name' => 'content[sbkdeskwork4]', 'value' => $pagesItem['sbkdeskwork4'], 'attr' => '']).'<!-- /sbkdeskwork4 -->
+		<!-- sbkimgwork4 -->'.$sbkimgwork4One.'<!-- /sbkimgwork4 -->
+		<!-- idWorks5 -->'.$this->createSelect(['id'=> 'idWorks5', 'text' => 'Работа №5', 'width' => 400,  'name' => 'base[idWorks5]', 'value' => $works5Options, 'attr' => '']).'<!-- /idWorks5 -->
+		<!-- sbkdeskwork5 -->'.$this->createTextArea(['id'=> 'sbkdeskwork5', 'text' => 'Описание работы 5', 'width' => '400x100', 'name' => 'content[sbkdeskwork5]', 'value' => $pagesItem['sbkdeskwork5'], 'attr' => '']).'<!-- /sbkdeskwork5 -->
+		<!-- sbkimgwork5 -->'.$sbkimgwork5One.'<!-- /sbkimgwork5 -->
+		<!-- idWorks6 -->'.$this->createSelect(['id'=> 'idWorks6', 'text' => 'Работа №6', 'width' => 400,  'name' => 'base[idWorks6]', 'value' => $works6Options, 'attr' => '']).'<!-- /idWorks6 -->
+		<!-- sbkdeskwork6 -->'.$this->createTextArea(['id'=> 'sbkdeskwork6', 'text' => 'Описание работы 6', 'width' => '400x100', 'name' => 'content[sbkdeskwork6]', 'value' => $pagesItem['sbkdeskwork6'], 'attr' => '']).'<!-- /sbkdeskwork6 -->
+		<!-- sbkimgwork6 -->'.$sbkimgwork6One.'<!-- /sbkimgwork6 -->
+		<!-- idWorks7 -->'.$this->createSelect(['id'=> 'idWorks7', 'text' => 'Работа №7', 'width' => 400,  'name' => 'base[idWorks7]', 'value' => $works7Options, 'attr' => '']).'<!-- /idWorks7 -->
+		<!-- sbkdeskwork7 -->'.$this->createTextArea(['id'=> 'sbkdeskwork7', 'text' => 'Описание работы 7', 'width' => '400x100', 'name' => 'content[sbkdeskwork7]', 'value' => $pagesItem['sbkdeskwork7'], 'attr' => '']).'<!-- /sbkdeskwork7 -->
+		<!-- sbkimgwork7 -->'.$sbkimgwork7One.'<!-- /sbkimgwork7 -->
+
 
 
 </fieldset><!-- /section2 -->

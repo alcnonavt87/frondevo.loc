@@ -109,6 +109,16 @@ class SitesbykeysupdateController extends \backend\controllers\AdminController {
 					$imgSmallHeight = Yii::$app->params['pics']['pages']['sizes']['smallbgsbk']['height'];
 
 
+					$fileNameBigSBK = Yii::$app->params['pics']['pages']['path']."bigsbk-".$fileName;
+					$imgBigSBKWidth = Yii::$app->params['pics']['pages']['sizes']['bigsbk']['width'];
+					$imgBigSBKHeight = Yii::$app->params['pics']['pages']['sizes']['bigsbk']['height'];
+
+					$fileNameMediumSBK = Yii::$app->params['pics']['pages']['path']."mediumsbk-".$fileName;
+					$imgMediumSBKWidth = Yii::$app->params['pics']['pages']['sizes']['mediumsbk']['width'];
+					$imgMediumSBKHeight = Yii::$app->params['pics']['pages']['sizes']['mediumsbk']['height'];
+
+
+
 					if ($_SERVER['REMOTE_ADDR'] == '') {
 						copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameMedium);
 						$newRow = $myOthers->addImgOneMultiLangs('pages', $uploader[1], $fileName, $imgTitle, $imgWidth, $imgHeight, $idRecord, 'pageId', $pageLang, 1);
@@ -121,7 +131,44 @@ class SitesbykeysupdateController extends \backend\controllers\AdminController {
 						$myImagick->makeResizeImageWithOptimalCrop($imgSmallWidth, $imgSmallHeight, $pathToFolder . $fileNameSmall, $tmp_dir . '/' . $name, $format, \imagick::FILTER_HAMMING, 0.8, 0, 1, \imagick::COMPRESSION_LZW, 87);
 						// Создаём файл нужного размера с оптимальным обрезанием (превью)
 						$newRow = $myOthers->addImgOneMultiLangsSBK('pages', $uploader[1], $fileName, $imgTitle, $idRecord, 'pageId', $pageLang, 1);
-					}else {
+
+
+					} else if ($uploader[1] == "sbkimgwork1") {
+						$myImagick->makeResizeImageWithOptimalCrop($imgBigSBKWidth, $imgBigSBKHeight, $pathToFolder . $fileNameBigSBK, $tmp_dir . '/' . $name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
+						// Создаём файл нужного размера с оптимальным обрезанием (превью)
+						$myImagick->makeResizeImageWithOptimalCrop($imgMediumSBKWidth, $imgMediumSBKHeight, $pathToFolder . $fileNameMediumSBK, $tmp_dir . '/' . $name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
+						$newRow = $myOthers->addImgOneMultiLangsSBK('pages', $uploader[1], $fileName, $imgTitle, $idRecord, 'pageId', $pageLang, 1);
+					} else if ($uploader[1] == "sbkimgwork2") {
+						$myImagick->makeResizeImageWithOptimalCrop($imgBigSBKWidth, $imgBigSBKHeight, $pathToFolder . $fileNameBigSBK, $tmp_dir . '/' . $name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
+						// Создаём файл нужного размера с оптимальным обрезанием (превью)
+						$myImagick->makeResizeImageWithOptimalCrop($imgMediumSBKWidth, $imgMediumSBKHeight, $pathToFolder . $fileNameMediumSBK, $tmp_dir . '/' . $name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
+						$newRow = $myOthers->addImgOneMultiLangsSBK('pages', $uploader[1], $fileName, $imgTitle, $idRecord, 'pageId', $pageLang, 1);
+					} else if ($uploader[1] == "sbkimgwork3") {
+						$myImagick->makeResizeImageWithOptimalCrop($imgBigSBKWidth, $imgBigSBKHeight, $pathToFolder . $fileNameBigSBK, $tmp_dir . '/' . $name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
+						// Создаём файл нужного размера с оптимальным обрезанием (превью)
+						$myImagick->makeResizeImageWithOptimalCrop($imgMediumSBKWidth, $imgMediumSBKHeight, $pathToFolder . $fileNameMediumSBK, $tmp_dir . '/' . $name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
+						$newRow = $myOthers->addImgOneMultiLangsSBK('pages', $uploader[1], $fileName, $imgTitle, $idRecord, 'pageId', $pageLang, 1);
+					} else if ($uploader[1] == "sbkimgwork4") {
+						$myImagick->makeResizeImageWithOptimalCrop($imgBigSBKWidth, $imgBigSBKHeight, $pathToFolder . $fileNameBigSBK, $tmp_dir . '/' . $name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
+						// Создаём файл нужного размера с оптимальным обрезанием (превью)
+						$myImagick->makeResizeImageWithOptimalCrop($imgMediumSBKWidth, $imgMediumSBKHeight, $pathToFolder . $fileNameMediumSBK, $tmp_dir . '/' . $name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
+						$newRow = $myOthers->addImgOneMultiLangsSBK('pages', $uploader[1], $fileName, $imgTitle, $idRecord, 'pageId', $pageLang, 1);
+					} else if ($uploader[1] == "sbkimgwork5") {
+						$myImagick->makeResizeImageWithOptimalCrop($imgBigSBKWidth, $imgBigSBKHeight, $pathToFolder . $fileNameBigSBK, $tmp_dir . '/' . $name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
+						// Создаём файл нужного размера с оптимальным обрезанием (превью)
+						$myImagick->makeResizeImageWithOptimalCrop($imgMediumSBKWidth, $imgMediumSBKHeight, $pathToFolder . $fileNameMediumSBK, $tmp_dir . '/' . $name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
+						$newRow = $myOthers->addImgOneMultiLangsSBK('pages', $uploader[1], $fileName, $imgTitle, $idRecord, 'pageId', $pageLang, 1);
+					} else if ($uploader[1] == "sbkimgwork6") {
+						$myImagick->makeResizeImageWithOptimalCrop($imgBigSBKWidth, $imgBigSBKHeight, $pathToFolder . $fileNameBigSBK, $tmp_dir . '/' . $name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
+						// Создаём файл нужного размера с оптимальным обрезанием (превью)
+						$myImagick->makeResizeImageWithOptimalCrop($imgMediumSBKWidth, $imgMediumSBKHeight, $pathToFolder . $fileNameMediumSBK, $tmp_dir . '/' . $name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
+						$newRow = $myOthers->addImgOneMultiLangsSBK('pages', $uploader[1], $fileName, $imgTitle, $idRecord, 'pageId', $pageLang, 1);
+					} else if ($uploader[1] == "sbkimgwork7") {
+						$myImagick->makeResizeImageWithOptimalCrop($imgBigSBKWidth, $imgBigSBKHeight, $pathToFolder . $fileNameBigSBK, $tmp_dir . '/' . $name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
+						// Создаём файл нужного размера с оптимальным обрезанием (превью)
+						$myImagick->makeResizeImageWithOptimalCrop($imgMediumSBKWidth, $imgMediumSBKHeight, $pathToFolder . $fileNameMediumSBK, $tmp_dir . '/' . $name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
+						$newRow = $myOthers->addImgOneMultiLangsSBK('pages', $uploader[1], $fileName, $imgTitle, $idRecord, 'pageId', $pageLang, 1);
+						}else {
 							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralWidth, $imgGeneralHeight, $pathToFolder . $fileNameGeneral, $tmp_dir . '/' . $name, $format, \imagick::FILTER_HAMMING, 0.8, 0, 1, \imagick::COMPRESSION_LZW, 87);
 							// Создаём файл нужного размера с оптимальным обрезанием (превью)
 							// Создаём файл нужного размера с оптимальным обрезанием (превью)

@@ -63,7 +63,7 @@ class Root extends Model
         
         return $query->queryOne();
     }
-	
+
     public function getPageContentByAlias($alias, $fields=[], $imagefields=[], $multifields=[], $multiimage=[]) {
         $fields = !empty($fields) ? ', '.implode(', ', $fields) : '';
 		

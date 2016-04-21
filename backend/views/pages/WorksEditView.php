@@ -355,10 +355,8 @@ $content .= '<!-- sectionPageData --><fieldset class="catalog__section">
 	'.$this->createHeader('Основные данные').'
 	<div class="catalog__section-data">
 		<!-- description -->'.$this->createTextArea(['id'=> 'description', 'text' => 'Описание', 'width' => '400x100', 'name' => 'content[description]', 'value' => $worksItem['description'], 'attr' => '']).'<!-- /description -->
-		<!-- worksdesсsbk -->'.$this->createTextArea(['id'=> 'worksdesсsbk', 'text' => 'Описание для страницы сайты под ключ', 'width' => '400x100', 'name' => 'content[worksdesсsbk]', 'value' => $worksItem['worksdesсsbk'], 'attr' => '']).'<!-- /worksdesсsbk -->
 		<!-- filters -->'.$this->createSelect(['id'=> 'idFilters', 'text' => 'Фильтр', 'width' => 400,  'name' => 'base[idFilters]', 'value' => $filtersOptions, 'attr' => '']).'<!-- /filters -->
 		<!-- imagebg -->'.$imagebgOne.'<!-- /imagebg -->
-		<!-- image -->'.$imageOne.'<!-- /image -->
 		<!-- imageprtf -->'.$imageprtfOne.'<!-- /imageprtf -->
 	</div>
 </fieldset><!-- /commonData -->

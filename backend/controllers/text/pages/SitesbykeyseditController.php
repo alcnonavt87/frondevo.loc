@@ -45,6 +45,28 @@ class SitesbykeysEditController extends \backend\controllers\AdminController {
                 $pageGroupData = $myOthers->getPageGroupData($id1Uri);
                 $textPageHeader = $myOthers->getTextPageHeader($idPage, $defLang);
 
+				// Селект "Работа 1"
+				$works = $myOthers->getChGrSourceIdsMultiLangs('works', 'pTitle', $pageLang);
+				$worksItem1 = $myOthers->getSelectOptions('pages', 'idWorks1');
+
+				// Селект "Работа 2"
+				$works = $myOthers->getChGrSourceIdsMultiLangs('works', 'pTitle', $pageLang);
+				$worksItem2 = $myOthers->getSelectOptions('pages', 'idWorks2');
+				// Селект "Работа 3"
+				$works = $myOthers->getChGrSourceIdsMultiLangs('works', 'pTitle', $pageLang);
+				$worksItem3 = $myOthers->getSelectOptions('pages', 'idWorks3');
+				// Селект "Работа 4"
+				$works = $myOthers->getChGrSourceIdsMultiLangs('works', 'pTitle', $pageLang);
+				$worksItem4 = $myOthers->getSelectOptions('pages', 'idWorks4');
+				// Селект "Работа 5"
+				$works = $myOthers->getChGrSourceIdsMultiLangs('works', 'pTitle', $pageLang);
+				$worksItem5 = $myOthers->getSelectOptions('pages', 'idWorks5');
+				// Селект "Работа 6"
+				$works = $myOthers->getChGrSourceIdsMultiLangs('works', 'pTitle', $pageLang);
+				$worksItem6 = $myOthers->getSelectOptions('pages', 'idWorks6');
+				// Селект "Работа 7"
+				$works = $myOthers->getChGrSourceIdsMultiLangs('works', 'pTitle', $pageLang);
+				$worksItem7 = $myOthers->getSelectOptions('pages', 'idWorks7');
 
 
 				// Группа чекбоксов "Отображаемые работы"

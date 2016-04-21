@@ -88,6 +88,14 @@ return [
                         'width' => 640,
                         'height' => 1171,
                     ],
+                    'bigsbk' => [
+                        'width' => 940,
+                        'height' => 275,
+                    ],
+                    'mediumsbk' => [
+                        'width' => 461,
+                        'height' => 275,
+                    ],
                 ],
 
         ],

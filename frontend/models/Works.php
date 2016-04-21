@@ -246,6 +246,42 @@ class Works extends Model
 		return $result;
     }
 
+	public function getWorksForSitesByKeys() {
+		// запрос
+		$query = Yii::$app->db->createCommand('SELECT
+		   `p`.`idWorks1`, `p`.`idWorks2`, `p`.`idWorks3`, `p`.`idWorks4`, `p`.`idWorks5`, `p`.`idWorks6`, `p`.`idWorks7`,
+		   `p`.`sbkimgwork1`,`p`.`sbkimgwork2`,`p`.`sbkimgwork3`,`p`.`sbkimgwork4`,`p`.`sbkimgwork5`,`p`.`sbkimgwork6`,`p`.`sbkimgwork7`,
+		    `c`.`sbkdeskwork1`,`c`.`sbkdeskwork2`,`c`.`sbkdeskwork3`,`c`.`sbkdeskwork4`,`c`.`sbkdeskwork5`,`c`.`sbkdeskwork6`,`c`.`sbkdeskwork7`,
+		    `w`.`pUrl` as url, `w2`.`pUrl` as url1,`w3`.`pUrl` as url2,`w4`.`pUrl` as url3,`w5`.`pUrl` as url4,`w6`.`pUrl` as url5,`w7`.`pUrl` as url6
+		FROM
+			`pages` `p`
+			JOIN `content` `c`
+				ON `c`.`pageid` = `p`.`id` AND `c`.`lang` = :lang
+		   JOIN `works` `w`
+				ON `w`.`id`=`p`.`idWorks1`
+		   LEFT JOIN  `works` `w2`
+			   ON `w2`.`id`=`p`.`idWorks2`
+			LEFT JOIN  `works` `w3`
+			   ON `w3`.`id`=`p`.`idWorks3`
+			LEFT JOIN `works` `w4`
+			   ON `w4`.`id`=`p`.`idWorks4`
+			LEFT JOIN `works` `w5`
+			   ON `w5`.`id`=`p`.`idWorks5`
+			LEFT JOIN `works` `w6`
+			   ON `w6`.`id`=`p`.`idWorks6`
+			LEFT JOIN `works` `w7`
+			   ON `w7`.`id`=`p`.`idWorks7`
+		  ')
+
+				->bindValue(':lang', $this->lang);
+
+		//echo '<pre>';print_r($query);echo '</pre>';exit;
+		$result = $query->queryAll();
+
+		return $result;
+	}
+
+
 	/*Список работ для вывода на странице Sites by keys*/
 	public function getListForSitesByKeys($alias, $params=[]) {
 		// запрос

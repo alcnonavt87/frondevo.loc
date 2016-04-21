@@ -52,66 +52,64 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
         <h3>  <?php echo($pageData1['sbkworkstext']) ?></h3>
 
-        <!-- our works  wrap -->
+
+        <!--/our works  wrap -->
         <div class="our-works__wrap">
             <ul>
-                <?php foreach ($works as $key => $work) { ?>
-                    <?php
-                    $params['item'] = $work;
-                    $workUrl = $simpleModuleUrlProvider->geteWorksItemUrl($params);
-                    ?>
-                    <?php if ($key == 0) { ?>
-                        <!--/(index === 0 ? long : ) -->
-                        <li class="long">
-                            <a href="<?php echo $workUrl; ?>"><img
-                                    src="<?php echo 'p/works/bigsbk-' . $work['id'] . '-image.jpg' ?>"
-                                    alt="">
+                <li class="long">
+                    <a href="<?php echo Yii::$app->request->absoluteUrl.'/portfolio/'.$works2[0]['url'] ?>"><img src="<?php echo 'p/pages/bigsbk-'.$works2[0]['sbkimgwork1']?>" alt="">
+                        <div>
+                            <span><?php echo $works2[0]['sbkdeskwork1']?></span>
+                        </div>
+                    </a>
+                </li>
 
-                                <div>
-                                    <span> <?php echo $work['worksdesсsbk']; ?></span>
-                                </div>
-                            </a>
-                        </li>
-                        <!--/(index === 0 ? long : ) -->
-                    <?php } else if ($key <= 2) { ?>
-                        <!--/(index === 0 ? long : ) -->
-                        <li>
-                            <a href="<?php echo $workUrl; ?>"><img src="<?php echo $work['imgPath'] ?>" alt="">
-
-                                <div>
-                                    <span> <?php echo $work['worksdesсsbk']; ?></span>
-                                </div>
-                            </a>
-                        </li>
-                        <!--/(index === 0 ? long : ) -->
-                    <?php } ?>
-                <?php } ?>
+                <li>
+                    <a href="<?php echo Yii::$app->request->absoluteUrl.'/portfolio/'.$works2[0]['url1'] ?>"><img src="<?php echo 'p/pages/mediumsbk-'.$works2[0]['sbkimgwork2']?>" alt="">
+                        <div>
+                            <span><?php echo $works2[0]['sbkdeskwork2']?></span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo Yii::$app->request->absoluteUrl.'/portfolio/'.$works2[0]['url2'] ?>"><img src="<?php echo 'p/pages/mediumsbk-'.$works2[0]['sbkimgwork3']?>" alt="">
+                        <div>
+                            <span><?php echo $works2[0]['sbkdeskwork3']?></span>
+                        </div>
+                    </a>
+                </li>
             </ul>
             <ul>
-                <?php foreach ($works as $key => $work) { ?>
-                    <?php
-                    $params['item'] = $work;
-                    $workUrl = $simpleModuleUrlProvider->geteWorksItemUrl($params);
-                    ?>
-                    <?php if ($key >= 3) { ?>
-                        <!--/(index === 0 ? long : ) -->
-                        <li>
-                            <a href="<?php echo $workUrl; ?>"><img src="<?php echo $work['imgPath'] ?>" alt="">
-
-                                <div>
-                                    <span> <?php echo $work['worksdesсsbk']; ?></span>
-                                </div>
-                            </a>
-                        </li>
-                        <!--/(index === 0 ? long : ) -->
-                    <?php } ?>
-                <?php } ?>
+                <li>
+                    <a href="<?php echo Yii::$app->request->absoluteUrl.'/portfolio/'.$works2[0]['url3'] ?>"><img src="<?php echo 'p/pages/mediumsbk-'.$works2[0]['sbkimgwork4']?>" alt="">
+                        <div>
+                            <span><?php echo $works2[0]['sbkdeskwork4']?></span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo Yii::$app->request->absoluteUrl.'/portfolio/'.$works2[0]['url4'] ?>"><img src="<?php echo 'p/pages/mediumsbk-'.$works2[0]['sbkimgwork5']?>" alt="">
+                        <div>
+                            <span><?php echo $works2[0]['sbkdeskwork5']?></span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo Yii::$app->request->absoluteUrl.'/portfolio/'.$works2[0]['url5'] ?>"><img src="<?php echo 'p/pages/mediumsbk-'.$works2[0]['sbkimgwork6']?>" alt="">
+                        <div>
+                            <span><?php echo $works2[0]['sbkdeskwork6']?></span>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="<?php echo Yii::$app->request->absoluteUrl.'/portfolio/'.$works2[0]['url6'] ?>"><img src="<?php echo 'p/pages/mediumsbk-'.$works2[0]['sbkimgwork7']?>" alt="">
+                        <div>
+                            <span><?php echo $works2[0]['sbkdeskwork7']?></span>
+                        </div>
+                    </a>
+                </li>
             </ul>
-
-
         </div>
-        <!--/our works  wrap -->
-
     </div>
     <!--/our works -->
 
