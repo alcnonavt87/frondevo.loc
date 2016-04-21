@@ -85,8 +85,8 @@ $urlprovider = new \vendor\UrlProvider\UrlProvider($lang)
                         ?>
                         <li><a href="<?php echo $linkUrl; ?>"><?php echo $link['title']; ?></a></li>
                     <?php } ?>
-                <?php } ?><br>
-                <ul>
+                <?php } ?>
+
             </div>
             <!--/layout -->
 
