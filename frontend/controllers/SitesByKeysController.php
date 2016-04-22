@@ -102,7 +102,9 @@ class SitesByKeysController extends CommonController
         // Работы отобаржаемые на текстовой странице
         // Работы отобаржаемые на текстовой странице
         $works = $this->myWorks->getListForSitesByKeys($this->pageContent['alias']);//echo '<pre>';print_r($data);echo '</pre>';exit;
+        $works2 = $this->myWorks->getWorksForSitesByKeys();
         $data['works'] = $works;
+        $data['works2'] = $works2;
         return [
             'view' => 'sitesbykeys',
             'data' => $data,
