@@ -43,7 +43,7 @@ class Mysettings extends Model
 		WHERE
 			`sc`.`idSettings` = `s`.`id` AND `sc`.`lang` = :lang')
             ->bindValue(':address', $address)
-            ->bindValue(':address', $copyright)
+            ->bindValue(':copyright', $copyright)
             ->bindValue(':emailCall', $emailCall)
             ->bindValue(':emailClaim', $emailClaim)
             ->bindValue(':snVkontakte', $snVkontakte)

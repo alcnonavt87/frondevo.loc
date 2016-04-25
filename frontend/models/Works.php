@@ -159,7 +159,7 @@ class Works extends Model
             IF(`w`.`mainpage` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'smallmp-", `w`.`mainpage`), "") as imgPathmpsm,
             IF(`w`.`addpage` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'generaladd-", `w`.`addpage`), "") as imgPathadd,
 			`w`.`imageWidth` as imgW, `w`.`imageHeight` as imgH, `wc`.`imageTitle` as imgT,
-            `wc`.`pTitle`, `wc`.`description`, `wc`.`pH1`, `wc`.`pContent` as content,`wc`.`client`,`wc`.`services`,`wc`.`launch`,`wc`.`aboutProject`,`wc`.`task`,`wc`.`add`,
+            `wc`.`pTitle`, `wc`.`pDescription`,`wc`.`description`, `wc`.`pH1`, `wc`.`pContent` as content,`wc`.`client`,`wc`.`services`,`wc`.`launch`,`wc`.`aboutProject`,`wc`.`task`,`wc`.`add`,
             `wc`.`descrofsolut`,`wc`.`linkwork`,`wc`.`results`as result,`wc`.`solutions`
 
         FROM

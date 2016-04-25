@@ -23,10 +23,10 @@ $menu = [
 		'items' => [
 			'index',
 			'sitesbykeys',
-			'landingpage',
 			'portfolio',
+			'contacts',
 			'commercial',
-			'contacts'
+
 		]
 	],
 ];

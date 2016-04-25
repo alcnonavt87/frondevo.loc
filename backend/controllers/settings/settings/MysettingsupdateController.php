@@ -16,6 +16,7 @@ class MysettingsupdateController extends \backend\controllers\AdminController {
             $pageLang = Yii::$app->getRequest()->get('id3');
 
             $address = Yii::$app->getRequest()->post('address', '');
+            $copyright = Yii::$app->getRequest()->post('copyright', '');
             $emailCall = Yii::$app->getRequest()->post('emailCall', '');
             $emailClaim = Yii::$app->getRequest()->post('emailClaim', '');
             $snVkontakte = Yii::$app->getRequest()->post('snVkontakte', '');
@@ -26,6 +27,7 @@ class MysettingsupdateController extends \backend\controllers\AdminController {
 
             $fields = compact(
                 'address',
+                'copyright',
                 'emailCall',
                 'emailClaim',
                 'snVkontakte',

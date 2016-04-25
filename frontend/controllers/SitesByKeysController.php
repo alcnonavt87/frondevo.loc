@@ -94,10 +94,10 @@ class SitesByKeysController extends CommonController
         $pageData = $this->myRoot->getPageContent($this->firstUri);
         $data['pageData'] = $pageData;
         $pageData2 = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], [
-            'sbkdescription','textforbackground','section1','section2','sbkworkstext','section3','sbksmalltitle3','sbktitlestep1','sbkdeskstep1','sbktitlestep2','sbkdeskstep2',
-            'sbktitlestep3','sbkdeskstep3','sbktitlestep4','sbkdeskstep4','sbktitlestep5','sbkdeskstep5','sbktitlestep6','sbkdeskstep6','sbktitlestep7','sbkdeskstep7','section4',
-            'sbksmalltitle','sbkstagetitle1','sbkstagetitle2','sbkstagetitle3','sbkstagetitle4','sbkstagetitle5','sbkstagetitle6','section5','imagebgsbk','imagebgsbklp','imagebgsbkmb'
-        ], [], ['sbkstagelist1','sbkstagelist2','sbkstagelist3','sbkstagelist4','sbkstagelist5','sbkstagelist6','sbkpslist']);
+            'sbkdescription', 'textforbackground', 'section1', 'section2', 'sbkworkstext', 'section3', 'sbksmalltitle3', 'sbktitlestep1', 'sbkdeskstep1', 'sbktitlestep2', 'sbkdeskstep2',
+            'sbktitlestep3', 'sbkdeskstep3', 'sbktitlestep4', 'sbkdeskstep4', 'sbktitlestep5', 'sbkdeskstep5', 'sbktitlestep6', 'sbkdeskstep6', 'sbktitlestep7', 'sbkdeskstep7', 'section4',
+            'sbksmalltitle', 'sbkstagetitle1', 'sbkstagetitle2', 'sbkstagetitle3', 'sbkstagetitle4', 'sbkstagetitle5', 'sbkstagetitle6', 'section5', 'imagebgsbk', 'imagebgsbklp', 'imagebgsbkmb'
+        ], [], ['sbkstagelist1', 'sbkstagelist2', 'sbkstagelist3', 'sbkstagelist4', 'sbkstagelist5', 'sbkstagelist6', 'sbkpslist']);
         $data['pageData1'] = $pageData2;
         // Работы отобаржаемые на текстовой странице
         // Работы отобаржаемые на текстовой странице
@@ -297,7 +297,7 @@ class SitesByKeysController extends CommonController
         $params = [];
 
         // Информация из таблицы множественных полей
-        $data['multifields'] = $this->myWorks->getWorksContentFromMultiField($this->thirdUri,['resultlist1']);//echo '<pre>';print_r($worksItem);echo '</pre>';exit;
+        $data['multifields'] = $this->myWorks->getWorksContentFromMultiField($this->thirdUri, ['resultlist1']);//echo '<pre>';print_r($worksItem);echo '</pre>';exit;
         // Информация о странице (единица работы)
         $pageContent = $worksItem = $this->myWorks->getItem($this->thirdUri);//echo '<pre>';print_r($worksItem);echo '</pre>';exit;
         // Проверка существования работы
@@ -338,10 +338,54 @@ class SitesByKeysController extends CommonController
             'text' => 'Рус'
         ];
         $forLayout['langMenu'] = $langMenu;
-
-
         //Получаем pTitle для Layout  единцы работы
         $forLayout['pTitle'] = $data['worksItem']['pTitle'];
+
+
+        //Сниппеты для кнопки на странице работ
+        $workBtn = $worksItem['linkwork'];
+        $workLink = 'http://' . $worksItem['linkwork'];
+        $search[] = '//workBtn//';
+        $search[] = '//workLink//';
+        $replace[] = $workBtn;
+        $replace[] = $workLink;
+        $worksItem['solutions'] = str_replace($search, $replace, $worksItem['solutions']);
+        $search = [];
+        $replace = [];
+
+        // Функция для загрузки изображений с фреймом на странице работы
+        //$worksItem['solutions'] строка основного содержимого секции из базы данных
+        $pattern = '/<img src=.*?\/>/';//шаблон для нахождения всеx елементов  img в $worksItem['solutions']
+        $matched = preg_match_all($pattern, $worksItem['solutions'], $matches);//echo '<pre>';print_r($matches1);echo '</pre>';exit;
+        foreach ($matches as $match) {// перебираем массив что бы отделить каждый img по отдельности
+            foreach ($match as $pic) {
+                if (preg_match('/alt=""/', $pic)) {//если alt img пустой то берем весь img из  $worksItem['solutions'и заменяем его на наш $pattern
+                    $pattern = '<div class="align-center">' . $pic . '</div>';
+                    $worksItem['solutions'] = str_replace($pic, $pattern, $worksItem['solutions']);
+                } else if (preg_match('/alt=".*?"/', $pic)) {//если alt img не пустой то берем весь img из  $worksItem['solutions'и заменяем его на другой $pattern
+                    $pattern1 = "<div class=\"image-frame\">
+                                <div>
+                                <!-- frame controls -->
+                                    <div class=\"frame-controls\">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <!--/frame controls -->
+
+                                    <div class=\"frame-input\">$workLink</div>
+                                    <div class=\"frame-face-input\"></div>
+                                </div>" . $pic . "</div>";
+                    $worksItem['solutions'] = str_replace($pic, $pattern1, $worksItem['solutions']);
+                }
+            }
+        }
+
+
+        $data['worksItem'] = $worksItem;
+        //Получаем pTitle для Layout  единцы работы
+        $forLayout['pTitle'] = $data['worksItem']['pTitle'];
+        $forLayout['pDescription'] = $data['worksItem']['pDescription'];
         // Список ссылок для плашки сссылок в футере
         $links = $this->myWorks->getLinks($this->pageContent['alias']);
         $forLayout['links'] = $links;

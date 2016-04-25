@@ -3,6 +3,7 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use vendor\UrlProvider\TextPagesUrlProvider;
 use frontend\controllers\CommonController;
+use frontend\models\Root;
 \frontend\assets\MainAsset::register($this);
 extract(Yii::$app->params['forLayout']);
 
@@ -15,6 +16,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 <head>
     <title><?=$pTitle?></title>
     <meta charset="<?= Yii::$app->charset ?>">
+    <meta name="description" content="<?php echo Root::getCodeStr($pDescription); ?>">
     <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
     <base href="http://frondevo.loc/frontend/web/">
     <link rel="shortcut icon" href="markup/img/favicon.ico">

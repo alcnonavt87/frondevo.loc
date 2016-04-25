@@ -378,12 +378,8 @@ $content .= '<!-- sectionPageData --><fieldset class="catalog__section">
 <!-- solution --><fieldset class="catalog__section">
 	'.$this->createHeader('Решение').'
 	<div class="catalog__section-data">
-		<!-- descrofsolut -->'.$this->createInput(['id'=> 'descrofsolut', 'text' => 'Описание решения', 'placeholder' => '', 'width' => 400, 'name' => 'content[descrofsolut]', 'value' => $worksItem['descrofsolut'], 'attr' => '']).'<!-- /descrofsolut -->
 		<!-- solutions -->'.$this->createTextArea(['id'=> 'solutions', 'text' => 'Решение', 'width' => '400x100', 'name' => 'content[solutions]', 'value' => $worksItem['solutions'], 'attr' => 'data-module="tinymce"']).'<!-- /solutions -->
 		<!-- linkwork -->'.$this->createInput(['id'=> 'linkwork', 'text' => 'Ссылка на работу', 'placeholder' => '', 'width' => 400, 'name' => 'content[linkwork]', 'value' => $worksItem['linkwork'], 'attr' => '']).'<!-- /linkwork -->
-		<!-- mainpage -->'.$mainpageOne.'<!-- /mainpage -->
-		<!-- add -->'.$this->createInput(['id'=> 'add', 'text' => 'Дополнительные возможности', 'placeholder' => '', 'width' => 400, 'name' => 'content[add]', 'value' => $worksItem['add'], 'attr' => '']).'<!-- /add -->
-		<!-- addpage -->'.$addpageOne.'<!-- /addpage -->
 	</div>
 </fieldset><!-- /solution -->
 

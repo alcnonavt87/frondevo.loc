@@ -13,27 +13,24 @@
 // $content - контент внутренней страницы
 //
 ?>
-
 <?php
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use vendor\UrlProvider\TextPagesUrlProvider;
-
+use frontend\models\Root;
 extract(Yii::$app->params['forLayout']);
 \frontend\assets\MainAsset::register($this);
 $textPagesUrlProvider = new TextPagesUrlProvider($lang);
-
 $urlprovider = new \vendor\UrlProvider\UrlProvider($lang)
 ?>
-
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-
 <!-- ru -->
 <html lang="ru">
 <head>
     <title><?=$pTitle?></title>
-    <meta charset="utf-8">
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta name="description" content="<?php echo Root::getCodeStr($pDescription); ?>">
     <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
     <base href="http://frondevo.loc/frontend/web/">
     <link rel="shortcut icon" href="markup/img/favicon.ico">
