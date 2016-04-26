@@ -13,7 +13,7 @@ Class Sitesbykeys extends Model
     
     public function getPageByIdAndLang($id,$lang) {
         $query = Yii::$app->db->createCommand('SELECT
-            `a`.`id`, `a`.`pShow`, `a`.`pUrl`,
+            `a`.`id`, `a`.`pShow`, `b`.`pUrl`,
             `b`.`pTitle`, `b`.`pDescription`, `b`.`pKeyWords`, `b`.`pH1`,
             `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`
 			,  `section1`, `image`,`section2`,`section3`, `section4`, `section5`, `idWorks`, `sbkdescription`, `textforbackground`, `sbkworkstext`, `sbksmalltitle3`, `sbktitlestep1`, `sbkdeskstep1`, `sbktitlestep2`, `sbkdeskstep2`, `sbktitlestep3`, `sbkdeskstep3`, `sbktitlestep4`, `sbkdeskstep4`, `sbktitlestep5`, `sbkdeskstep5`, `sbktitlestep6`, `sbkdeskstep6`, `sbktitlestep7`, `sbkdeskstep7`, `sbksmalltitle`, `sbkstagetitle1`, `sbkstagetitle2`, `sbkstagetitle3`, `sbkstagetitle4`, `sbkstagetitle5`, `sbkstagetitle6`, `imagebgsbk`, `imagebgsbkTitle`, `imagebgsbklp`, `imagebgsbklpTitle`, `imagebgsbkmb`, `imagebgsbkmbTitle`, `idWorks`, `idWorks`, `idWorks`, `sbkdeskwork1`, `sbkimgwork1`, `sbkimgwork1Title`, `sbkimgwork1`, `sbkimgwork1Title`, `sbkdeskwork2`, `sbkimgwork2`, `sbkimgwork2Title`, `sbkimgwork2`, `sbkimgwork2Title`, `sbkdeskwork3`, `sbkimgwork3`, `sbkimgwork3Title`, `sbkdeskwork4`, `sbkimgwork4`, `sbkimgwork4Title`, `sbkdeskwork5`, `sbkimgwork5`, `sbkimgwork5Title`, `sbkdeskwork6`, `sbkimgwork6`, `sbkimgwork6Title`, `sbkdeskwork7`, `sbkimgwork7`, `sbkimgwork7Title`/*get*/
@@ -30,12 +30,12 @@ Class Sitesbykeys extends Model
     public function getEmptyLangPageById($id)
     {
         $query = Yii::$app->db->createCommand('SELECT
-        `a`.`id`, `a`.`pShow`, `a`.`pUrl`,
+        `a`.`id`, `a`.`pShow`, `b`.`pUrl`,
          "" AS `pTitle`, "" AS `pDescription`, "" AS `pKeyWords`, "" AS `pH1`, "" AS `pMenuName`, "" AS `pBreadCrumbs`, "" AS `pContent`
 		FROM
-            `pages` `a`
+            `pages` `a`, `content` `b`
         WHERE
-            `a`.`id` = :id')
+            `a`.`id` = :id AND `a`.`id` = `b`.`pageId` AND `b`.`lang` = :lang')
         ->bindValue(':id', $id);
         
         return $query->queryAll();

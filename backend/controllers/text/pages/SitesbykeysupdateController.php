@@ -28,7 +28,8 @@ class SitesbykeysupdateController extends \backend\controllers\AdminController {
 			$pBreadCrumbs = Yii::$app->getRequest()->post('pBreadCrumbs', '');
             $pMenuName = Yii::$app->getRequest()->post('pMenuName', '');
             $pTitle = Yii::$app->getRequest()->post('pTitle', '');
-            $pH1 = Yii::$app->getRequest()->post('pH1', '');
+            $pсUrl = Yii::$app->getRequest()->post('pсUrl', '');
+			$pH1 = Yii::$app->getRequest()->post('pH1', '');
             $pDescription = Yii::$app->getRequest()->post('pDescription', '');
             $pKeyWords = Yii::$app->getRequest()->post('pKeyWords', '');
             $pContent = Yii::$app->getRequest()->post('pContent', '');
@@ -39,7 +40,7 @@ class SitesbykeysupdateController extends \backend\controllers\AdminController {
             $pH1 = $this->getCodeStr($pH1);
             $pDescription = $this->getCodeStr($pDescription);
             $pKeyWords = $this->getCodeStr($pKeyWords);
-
+			$pсUrl = $this->getCodeStr($pсUrl);
 			//Начало: проверка есть ли контент на указанном языке
             $rowInCurrentLanguageCount = $myTextPage->getLangPageIs($id, $pageLang);
             if(!$rowInCurrentLanguageCount) {
@@ -48,7 +49,7 @@ class SitesbykeysupdateController extends \backend\controllers\AdminController {
             //Конец: проверка есть ли контент на указанном языке
 
 			$rowUpDateCount = $myTextPage->editUpDatePage($id,
-                    $pageLang, $pTitle, $pDescription, $pKeyWords, $pH1, $pMenuName, $pBreadCrumbs, $pContent);
+                    $pageLang, $pTitle, $pDescription, $pKeyWords, $pH1, $pMenuName, $pBreadCrumbs, $pContent,$pсUrl);
 
 
 			// Многострочные поля без HTML

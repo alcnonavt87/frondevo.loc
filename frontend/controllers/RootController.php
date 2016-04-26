@@ -74,7 +74,7 @@ class RootController extends Controller
         $forLayout['indexUrl'] = $indexUrl;
         
         /* Находим нужный класс страницы */
-        $indexPage = $myCommon->isIndexPage($firstUri);
+        $indexPage = $myCommon->isIndexPage($firstUri);//echo '<pre>';print_r($firstUri);echo '</pre>';exit;
         if ($indexPage) {
 			$indexUri = $myCommon->getDbIndexUri();
             $pageIdAndClassName = $myRoot->getPageIdAndClassName($indexUri);
@@ -92,7 +92,7 @@ class RootController extends Controller
         }
 		
 		$this->layout = $ret['layout'];
-		$forLayout = array_merge($forLayout, $ret['forLayout']);
+		$forLayout = array_merge($forLayout, $ret['forLayout']);//echo '<pre>';print_r($forLayout);echo '</pre>';exit;
 		
 		// Список текстовых страниц
 		//$pages = $myRoot->getPagesContent();

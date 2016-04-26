@@ -21,27 +21,34 @@ class Root extends Model
         $query = Yii::$app->db->createCommand('SELECT
 			`id`, `class`
 		FROM
-			`pages`
+			`pages`,`content`
 		WHERE
 			`pUrl` = :pUrl AND
-			pShow = 1')
-        ->bindValue(':pUrl', $pUrl);
-        
+			pShow = 1
+			AND
+			`pageId` = `id` AND
+			`lang` = :lang')
+        ->bindValue(':pUrl', $pUrl)
+		->bindValue(':lang', $this->lang);
         return $query->queryOne();
     }
 	
     /**
      * Получить урл страницы по алиасу
      */
-    public function getPageUrlByAlias($alias) {
+    public function getPageUrlByAlias($alias) {echo '<pre>';print_r($alias);echo '</pre>';exit;
         $query = Yii::$app->db->createCommand('SELECT
 			`pUrl` as url
 		FROM
-			`pages`
+			`pages`,`content`
 		WHERE
-			`alias` = :alias')
-        ->bindValue(':alias', $alias);
-        
+			`alias` = :alias
+			AND
+			`pageId` = `id` AND
+			`lang` = :lang')
+        ->bindValue(':alias', $alias)
+		->bindValue(':lang', $this->lang);
+
         return $query->queryScalar();
     }
 	
@@ -122,7 +129,7 @@ class Root extends Model
 		
 		$query = Yii::$app->db->createCommand('SELECT
 			`p`.`id`, `c`.`pTitle`, `c`.`pDescription`, `c`.`pKeyWords`, `c`.`pH1`, `c`.`pMenuName` as menu, `c`.`pBreadCrumbs` as breadcrumb, `c`.`pContent`,
-			`p`.`pUrl` as url, `p`.`pAlias`
+			`c`.`pUrl` as url, `p`.`pAlias`
 		FROM
 			`pages` `p`, `content` `c`
 		WHERE
@@ -149,9 +156,14 @@ class Root extends Model
 	
     public function getPagesUrls() {
 		$query = Yii::$app->db->createCommand('SELECT
-			`p`.`id`, `p`.`pUrl` as url, `p`.`pAlias` as alias
+			`p`.`id`, `c`.`pUrl` as url, `p`.`pAlias` as alias
 		FROM
-			`pages` `p`');
+			`pages` `p`,`content` `c`
+			WHERE
+			`pageId` = `id` AND
+			`lang` = :lang
+			 ')
+		->bindValue(':lang', $this->lang);
         
         $result = $query->queryAll();
 		

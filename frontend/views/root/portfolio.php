@@ -16,14 +16,23 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
         <!-- middle text -->
         <div class="middle-text">
-            <h1><?php echo $pH1?></h1>
+            <?php
+            if (Yii::$app->request->getAbsoluteUrl() == $textPagesUrlProvider->getPortfolioUrl()){
+                echo "<h1>".$pH1."</h1>";}
+            else foreach ($filters as $filter) {
+                $params['item'] = $filter;
+                $filterUrl = $textPagesUrlProvider->geteFilterUrl($params);
+                $filterActive = ($filter['url'] == $filterUri);
+                if ($filterActive)
+                    echo " <h1>" . $filter['title'] . "</h1>";
+            }
+           ?>
             <address>
                 <span>Украина, г. Киев</span>
                 <a href="tel:+380671702727">+38 067 170 27 27</a>
                 <a href="mailto:welcome@frondevo.com">welcome@frondevo.com</a>
             </address>
-
-            <!-- fd  menu -->
+             <!-- fd  menu -->
             <div data-module="projectsfilter" data-filter-list="filter1" class="fd__menu filter-menu fd__menu_line">
                 <div>
 

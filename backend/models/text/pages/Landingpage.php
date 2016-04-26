@@ -13,7 +13,7 @@ Class Landingpage extends Model
     
     public function getPageByIdAndLang($id,$lang) {
         $query = Yii::$app->db->createCommand('SELECT
-            `a`.`id`, `a`.`pShow`, `a`.`pUrl`,
+            `a`.`id`, `a`.`pShow`, `b`.`pUrl`,
             `b`.`pTitle`, `b`.`pDescription`, `b`.`pKeyWords`, `b`.`pH1`,
             `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`
 			/*get*/
@@ -30,12 +30,12 @@ Class Landingpage extends Model
     public function getEmptyLangPageById($id)
     {
         $query = Yii::$app->db->createCommand('SELECT
-        `a`.`id`, `a`.`pShow`, `a`.`pUrl`,
+        `a`.`id`, `a`.`pShow`, `b`.`pUrl`,
          "" AS `pTitle`, "" AS `pDescription`, "" AS `pKeyWords`, "" AS `pH1`, "" AS `pMenuName`, "" AS `pBreadCrumbs`, "" AS `pContent`
 		FROM
-            `pages` `a`
+            `pages` `a`, `content` `b`
         WHERE
-            `a`.`id` = :id')
+            `a`.`id` = :id AND `a`.`id` = `b`.`pageId` AND `b`.`lang` = :lang')
         ->bindValue(':id', $id);
         
         return $query->queryAll();
