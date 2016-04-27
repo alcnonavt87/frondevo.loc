@@ -37,7 +37,7 @@ Class Links extends Model
 			`idLinks` = `id` AND
 			`lang` = :lang
 		ORDER BY
-			`id` ASC'
+			`order` ASC'
 		.$limit
 		.$offset)
 		->bindValue(':lang', $lang);

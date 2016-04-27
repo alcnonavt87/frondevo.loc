@@ -212,7 +212,11 @@ class CommercialupdateController extends \backend\controllers\AdminController {
 						}
 					}
 				}
-			}/* UpdateCodeBottom */
+			}
+
+			// Группа чекбоксов "Выбор ссылок отображаемых в футере"
+			$linksIds = ArrayHelper::getValue($_POST, 'linksIds', []);
+			$myOthers->updateChGrIds('pages_links', 'idPages', 'idLinks', $idRecord, $linksIds);/* UpdateCodeBottom */
             
 			// отправляем ответ
             echo $json_data;

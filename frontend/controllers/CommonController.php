@@ -17,7 +17,7 @@ class CommonController extends Controller
     
 	protected $myCommon;
     protected $myRoot;
-	
+
     protected $hostName;
     protected $lang;
     protected $langUri;

@@ -43,7 +43,11 @@ class LandingpageEditController extends \backend\controllers\AdminController {
 
                 //Хлебные крошки
                 $pageGroupData = $myOthers->getPageGroupData($id1Uri);
-                $textPageHeader = $myOthers->getTextPageHeader($idPage, $defLang);/* UpdateCode */
+                $textPageHeader = $myOthers->getTextPageHeader($idPage, $defLang);
+
+				// Группа чекбоксов "Выбор ссылок отображаемых в футере"
+				$links = $myOthers->getChGrSourceIdsMultiLangs('links', 'title', $pageLang);
+				$linksIds = $myOthers->getChGrTargetIds('pages_links', 'idPages', 'idLinks', $idRecord);/* UpdateCode */
 
                 $content = '';
                 $navMenu = '';

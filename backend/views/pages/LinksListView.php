@@ -31,9 +31,10 @@ $content .= '<div id="content__table" class="content__table">';
 
 	$content .= '<!-- pagination -->';
 
-	$content .= '<table class="table" data-action="/'.$idPageGroup.'" data-method="post" data-module="table" data-href="formedit">';
+$content .= '<table class="table" data-action="/'.$idPageGroup.'" data-method="post" data-module="table" data-dragsort-url="formupdate">';
 
-		$content .= '<thead>
+
+$content .= '<thead>
 			<tr>
 				<!--<th>#</th>
 				<th class="table__col-left">Id</th>-->
@@ -42,12 +43,12 @@ $content .= '<div id="content__table" class="content__table">';
 				<th data-sorter="false" class="td__edit-cell2">&nbsp;</th>
 			</tr>
 		</thead>
-		<tbody>';
+		<tbody data-module="drag_sort">';
 
 $countRecords = count($links);
 for($i = 0; $i < $countRecords; $i++)
 {
-	$content .= '<tr data-id = "'.$links[$i]['id'].'/'.$pageLang.'">';
+	$content .= '<tr data-id = "'.$links[$i]['id'].'/'.$pageLang.'" data-index="'.$links[$i]['id'].'" draggable="draggable">';
 				$content .= '<!--<td>'.($i + 1).'</td>
 				<td class="table__col-left"><b>'.$links[$i]['id'].'</b></td>-->
 				<td class="table__col-left">'.$links[$i]['title'].'</td><!-- td -->

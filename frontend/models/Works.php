@@ -236,7 +236,7 @@ class Works extends Model
 			JOIN `pages` `p2`
 				ON `p2`.`id` = `pl`.`idPages` AND `p2`.`pAlias` = :alias
 		ORDER BY
-			`l`.`id`')
+			`l`.`order`')
         ->bindValue(':lang', $this->lang)
         ->bindValue(':alias', $alias);
 		
