@@ -188,7 +188,7 @@ if ($worksItem['imagebg'] <> '') {
 						<a href="/p/works/original-'.$worksItem['imagebg'].'" title="'.$worksItem['imagebgTitle'].'" class="cboxElement" rel="uploader0">
 							<span class="fa__file-img">
 								<span class="fa__file-cell">
-									<img src="/frontend/web/p/works/mediumbg-'.$worksItem['imagebg'].'" width="100%" height="auto" alt="'.$worksItem['imagebgTitle'].'">
+									<img src="/frontend/web/p/works/smallbg-'.$worksItem['imagebg'].'" width="100%" height="auto" alt="'.$worksItem['imagebgTitle'].'">
 								</span>
 								<input class="title-fld" type="hidden" name="images[imagebg-one][imgTitle]" value="'.$this->getCodeStr($worksItem['imagebgTitle']).'">
 								<input class="item-deleted" type="hidden" name="images[imagebg-one][deleted]" value="0">
@@ -366,6 +366,7 @@ $content .= '<!-- sectionPageData --><fieldset class="catalog__section">
 	<div class="catalog__section-data">
 		<!-- client -->'.$this->createInput(['id'=> 'client', 'text' => 'Клиент', 'placeholder' => '', 'width' => 400, 'name' => 'content[client]', 'value' => $worksItem['client'], 'attr' => '']).'<!-- /client -->
 		<!-- services -->'.$this->createInput(['id'=> 'services', 'text' => 'Услуги', 'placeholder' => '', 'width' => 400, 'name' => 'content[services]', 'value' => $worksItem['services'], 'attr' => '']).'<!-- /services -->
+		<!-- launch -->'.$this->createInput(['id'=> 'launch', 'text' => 'Год запуска', 'placeholder' => '', 'width' => 400, 'name' => 'content[launch]', 'value' => $worksItem['launch'], 'attr' => '']).'<!-- /launch -->
 
 
 <!-- task --><fieldset class="catalog__section">

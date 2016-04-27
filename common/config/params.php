@@ -39,7 +39,7 @@ return [
                 ],
                 'generalbg' => [
                     'width' => 1920,
-                    'height' => 1080,
+                    'height' => 1200,
                 ],
                 'mediumbg' => [
                     'width' => 1178,

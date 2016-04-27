@@ -39,8 +39,9 @@ class SitesByKeysController extends CommonController
         if ($this->secondUri) {
             return $this->actionInner();
         }
-        // Функция для преобразования Uri первого уровня в нужный action
-        $action1 = explode("-", $this->firstUri);
+        $pageData = $this->myRoot->getPageContent($this->firstUri);
+        // Функция для преобразования alias страницы в нужный action
+        $action1 = explode("-", $pageData['alias']);
         $action2 = implode(" ", $action1);
         $action3 = ucwords($action2);
         $action4 = str_replace(" ", "", $action3);
@@ -55,7 +56,7 @@ class SitesByKeysController extends CommonController
         $forLayout = [];
         $params = [];
         $data = array_merge($this->data, $data);
-        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($data);echo '</pre>';exit;
+        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
         // Языковое меню
         $langMenu = [];
         $pagesContent = $this->myRoot->getPagesContent();
@@ -386,6 +387,8 @@ class SitesByKeysController extends CommonController
         //Получаем pTitle для Layout  единцы работы
         $forLayout['pTitle'] = $data['worksItem']['pTitle'];
         $forLayout['pDescription'] = $data['worksItem']['pDescription'];
+
+        $forLayout['pAlias'] =$worksItem['url'];
         // Список ссылок для плашки сссылок в футере
         $links = $this->myWorks->getLinks($this->pageContent['alias']);
         $forLayout['links'] = $links;

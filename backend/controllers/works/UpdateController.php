@@ -185,32 +185,32 @@ class UpdateController extends  \backend\controllers\AdminController
 						$myImagick->makeResizeImageWithOptimalCrop(200, 200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
 						$newRow = $myOthers->addImgOne('works', $uploader[1], $fileName, $imgTitle, 200, 200, $idRecord);*/
 						if ($uploader[1] == "imageprtf") {
-							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralPRTFWidth, $imgGeneralPRTFHeight,$pathToFolder.$fileNameGeneralPRTF, $tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED,1, 0, 0, \imagick::COMPRESSION_LZW, 100);
+							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralPRTFWidth, $imgGeneralPRTFHeight,$pathToFolder.$fileNameGeneralPRTF, $tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED,1, 0, 0, \imagick::COMPRESSION_NO, 100);
 							$newRow = $myOthers->addImgOneMultiLangs('works', $uploader[1], $fileName, $imgTitle, $imgGeneralPRTFWidth, $imgGeneralPRTFHeight,$idRecord, 'idWorks', $pageLang);
 						//загрузка изображений для background
 
 
 						} else if ($uploader[1] == "imagebg"){
-							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralBGWidth, $imgGeneralBGHeight, $pathToFolder.$fileNameGeneralBG,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_LZW, 100);
+							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralBGWidth, $imgGeneralBGHeight, $pathToFolder.$fileNameGeneralBG,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1.2, 0, 0, \imagick::COMPRESSION_NO, 100);
 							// Создаём файл нужного размера с оптимальным обрезанием (превью)
-							$myImagick->makeResizeImageWithOptimalCrop($imgMediumBGWidth, $imgMediumBGHeight, $pathToFolder.$fileNameMediumBG,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_LZW, 100);
+							$myImagick->makeResizeImageWithOptimalCrop($imgMediumBGWidth, $imgMediumBGHeight, $pathToFolder.$fileNameMediumBG,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1.2, 0, 0, \imagick::COMPRESSION_NO, 100);
 							// Создаём файл нужного размера с оптимальным обрезанием (превью)
-							$myImagick->makeResizeImageWithOptimalCrop($imgSmallBGWidth, $imgSmallBGGHeight, $pathToFolder.$fileNameSmallBG, $tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED,  1, 0, 0, \imagick::COMPRESSION_LZW, 100);
+							$myImagick->makeResizeImageWithOptimalCrop($imgSmallBGWidth, $imgSmallBGGHeight, $pathToFolder.$fileNameSmallBG, $tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED,  1.2, 0, 0, \imagick::COMPRESSION_NO, 100);
 							$newRow = $myOthers->addImgOneMultiLangsII('works', $uploader[1], $fileName, $imgTitle, $imgGeneralBGWidth,$imgGeneralBGHeight, $imgMediumBGWidth, $imgMediumBGHeight, $imgSmallBGWidth, $imgSmallBGGHeight, $idRecord, 'idWorks', $pageLang);
 
 						} else if ($uploader[1] == "addpage"){
-							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralADDWidth, $imgGeneralADDHeight, $pathToFolder.$fileNameGeneralADD,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED,1, 0, 0, \imagick::COMPRESSION_LZW, 100);
+							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralADDWidth, $imgGeneralADDHeight, $pathToFolder.$fileNameGeneralADD,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED,1, 0, 0, \imagick::COMPRESSION_NO, 100);
 							$newRow = $myOthers->addImgOneMultiLangs('works', $uploader[1], $fileName, $imgTitle, $imgGeneralADDWidth, $imgGeneralADDHeight, $idRecord, 'idWorks', $pageLang);	}
 
 
 						else if ($uploader[1] == "mainpage"){
-							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralMPWidth, $imgGeneralMPHeight, $pathToFolder.$fileNameGeneralMP,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_LZW, 100);
+							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralMPWidth, $imgGeneralMPHeight, $pathToFolder.$fileNameGeneralMP,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
 							// Создаём файл нужного размера с оптимальным обрезанием (превью)
-							$myImagick->makeResizeImageWithOptimalCrop($imgBigMPWidth, $imgBigMPHeight, $pathToFolder.$fileNameBigMP,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 1, \imagick::COMPRESSION_LZW, 100);
+							$myImagick->makeResizeImageWithOptimalCrop($imgBigMPWidth, $imgBigMPHeight, $pathToFolder.$fileNameBigMP,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
 
-							$myImagick->makeResizeImageWithOptimalCrop($imgMediumMPWidth, $imgMediumMPMHeight, $pathToFolder.$fileNameMediumMP,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_LZW, 100);
+							$myImagick->makeResizeImageWithOptimalCrop($imgMediumMPWidth, $imgMediumMPMHeight, $pathToFolder.$fileNameMediumMP,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
 							// Создаём файл нужного размера с оптимальным обрезанием (превью)
-							$myImagick->makeResizeImageWithOptimalCrop($imgSmallMPWidth, $imgSmallMPMHeight, $pathToFolder.$fileNameSmallMP, $tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED,  1, 0, 0, \imagick::COMPRESSION_LZW, 100);
+							$myImagick->makeResizeImageWithOptimalCrop($imgSmallMPWidth, $imgSmallMPMHeight, $pathToFolder.$fileNameSmallMP, $tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED,  1, 0, 0, \imagick::COMPRESSION_NO, 100);
 							$newRow = $myOthers->addImgOneMultiLangsIII('works', $uploader[1], $fileName, $imgTitle, $imgGeneralMPWidth, $imgGeneralMPHeight, $imgBigMPWidth, $imgBigMPHeight, $imgMediumMPWidth, $imgMediumMPMHeight, $imgSmallMPWidth, $imgSmallMPMHeight, $idRecord, 'idWorks', $pageLang);
 
 
