@@ -59,11 +59,12 @@ class SitesByKeysController extends CommonController
         $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
         // Языковое меню
         $langMenu = [];
-        $pagesContent = $this->myRoot->getPagesContent();
         $options = [];
         $options['joinUris'] = 1;
-        $options['items'] = $pagesContent;
+
         // укр
+        $pagesContent = $this->myRoot->getPagesContent('ua');
+        $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ua', $options);
         $pageUaUrl = $urlProvider->getSitesByKeysUrl();
         $langMenu['ua'] = [
@@ -71,6 +72,8 @@ class SitesByKeysController extends CommonController
             'text' => 'Укр'
         ];
         // eng
+        $pagesContent = $this->myRoot->getPagesContent('en');
+        $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('en', $options);
         $pageEnUrl = $urlProvider->getSitesByKeysUrl();
         $langMenu['en'] = [
@@ -78,6 +81,8 @@ class SitesByKeysController extends CommonController
             'text' => 'Eng'
         ];
         // рус
+        $pagesContent = $this->myRoot->getPagesContent('ru');
+        $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ru', $options);
         $pageRuUrl = $urlProvider->getSitesByKeysUrl();
         $langMenu['ru'] = [
@@ -113,7 +118,7 @@ class SitesByKeysController extends CommonController
             'forLayout' => $forLayout,
         ];
     }
-
+    /*Посадочная страница*/
     public function actionLandingPage()
     {
         $data = [];
@@ -123,11 +128,13 @@ class SitesByKeysController extends CommonController
         $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($data);echo '</pre>';exit;
         // Языковое меню
         $langMenu = [];
-        $pagesContent = $this->myRoot->getPagesContent();
+
         $options = [];
         $options['joinUris'] = 1;
-        $options['items'] = $pagesContent;
+
         // укр
+        $pagesContent = $this->myRoot->getPagesContent('ua');
+        $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ua', $options);
         $pageUaUrl = $urlProvider->getLandingpageUrl();
         $langMenu['ua'] = [
@@ -135,6 +142,8 @@ class SitesByKeysController extends CommonController
             'text' => 'Укр'
         ];
         // eng
+        $pagesContent = $this->myRoot->getPagesContent('en');
+        $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('en', $options);
         $pageEnUrl = $urlProvider->getLandingpageUrl();
         $langMenu['en'] = [
@@ -142,6 +151,8 @@ class SitesByKeysController extends CommonController
             'text' => 'Eng'
         ];
         // рус
+        $pagesContent = $this->myRoot->getPagesContent('ru');
+        $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ru', $options);
         $pageRuUrl = $urlProvider->getLandingpageUrl();
         $langMenu['ru'] = [
@@ -154,6 +165,9 @@ class SitesByKeysController extends CommonController
         $pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], [
 
         ], []);
+        // Список ссылок для плашки сссылок в футере
+        $links = $this->myWorks->getLinks($this->pageContent['alias']);
+        $forLayout['links'] = $links;
         $data['pageData'] = $pageData; //echo '<pre>';print_r($pageData);echo '</pre>';exit;
 
         return [
@@ -245,18 +259,23 @@ class SitesByKeysController extends CommonController
 
         // Языковое меню
         $langMenu = [];
-        $pagesContent = $this->myRoot->getPagesContent();
         $options = [];
         $options['joinUris'] = 1;
-        $options['items'] = $pagesContent;
+
+
         // укр
+        $pagesContent = $this->myRoot->getPagesContent('ua');
+        $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ua', $options);
         $pageUaUrl = $urlProvider->getPortfolioUrl();
         $langMenu['ua'] = [
             'link' => $pageUaUrl,
             'text' => 'Укр'
         ];
+
         // eng
+        $pagesContent = $this->myRoot->getPagesContent('en');
+        $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('en', $options);
         $pageEnUrl = $urlProvider->getPortfolioUrl();
         $langMenu['en'] = [
@@ -264,15 +283,29 @@ class SitesByKeysController extends CommonController
             'text' => 'Eng'
         ];
         // рус
+        $pagesContent = $this->myRoot->getPagesContent('ru');
+        $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ru', $options);
         $pageRuUrl = $urlProvider->getPortfolioUrl();
         $langMenu['ru'] = [
             'link' => $pageRuUrl,
             'text' => 'Рус'
         ];
+
+        $textPagesUrlProvider = new TextPagesUrlProvider($this->lang);
+
+
+        //вывод тайла фильтара вместо тайтла страницы портфолио
+        foreach ($filters as $filter) {
+            $params['item'] = $filter;
+            $filterUrl = $textPagesUrlProvider->geteFilterUrl($params);
+            $filterActive = ($filter['url'] == $this->thirdUri);//echo '<pre>';print_r($filterUri);echo '</pre>';
+            if ($filterActive)
+                $forLayout['pTitle'] =  $filter['title'] .' - '. Yii::t('app', 'internet-agency Frondevo') ;
+        }
+
+
         $forLayout['langMenu'] = $langMenu;
-
-
         $data = array_merge($this->data, $data);
         $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($data);echo '</pre>';exit;
 
@@ -283,7 +316,7 @@ class SitesByKeysController extends CommonController
             'forLayout' => $forLayout,
 
         ];
-        /*Посадочная страница*/
+
     }
 
     /**

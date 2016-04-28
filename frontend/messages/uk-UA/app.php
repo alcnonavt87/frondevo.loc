@@ -6,6 +6,7 @@ return [
 	'Social networks' => 'Соціальні мережі',
 	'All rights reserved' => 'Усі права захищені',
 	'Internet agency' => 'Інтернет-агенство',
+	'internet-agency Frondevo' => 'iнтернет-агенство Frondevo',
 	
     // головна сторінка
 	'About company' => 'Про компанію',

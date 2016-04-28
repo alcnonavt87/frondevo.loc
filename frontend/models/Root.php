@@ -119,9 +119,11 @@ class Root extends Model
 
     }
 
-    public function getPagesContent($params=[]) {
+    public function getPagesContent($lang = "",$params=[]) {
         $where = '';
-			
+
+		$lang = $lang ? $lang : $this->lang;
+
 		if (isset($params['ignoreSitemap'])) { //фильтр по карте сайта
 			$where .= ' AND
 		`p`.`ignoreSitemap` <> 1';
@@ -135,7 +137,7 @@ class Root extends Model
 		WHERE
 			`c`.`pageId` = `p`.`id` AND
 			`c`.`lang` = :lang'.$where)
-        ->bindValue(':lang', $this->lang);
+        ->bindValue(':lang', $lang);
 
         $result = $query->queryAll();
 

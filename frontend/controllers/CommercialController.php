@@ -35,11 +35,12 @@ class CommercialController extends CommonController
 
 // Языковое меню
         $langMenu = [];
-        $pagesContent = $this->myRoot->getPagesContent();
         $options = [];
         $options['joinUris'] = 1;
-        $options['items'] = $pagesContent;
+
         // укр
+        $pagesContent = $this->myRoot->getPagesContent('ua');
+        $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ua', $options);
         $pageUaUrl = $urlProvider->getCommercialUrl();
         $langMenu['ua'] = [
@@ -47,6 +48,8 @@ class CommercialController extends CommonController
             'text' => 'Укр'
         ];
         // eng
+        $pagesContent = $this->myRoot->getPagesContent('en');
+        $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('en', $options);
         $pageEnUrl = $urlProvider->getCommercialUrl();
         $langMenu['en'] = [
@@ -54,6 +57,8 @@ class CommercialController extends CommonController
             'text' => 'Eng'
         ];
         // рус
+        $pagesContent = $this->myRoot->getPagesContent('ru');
+        $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ru', $options);
         $pageRuUrl = $urlProvider->getCommercialUrl();
         $langMenu['ru'] = [

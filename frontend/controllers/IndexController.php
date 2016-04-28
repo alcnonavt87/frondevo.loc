@@ -6,13 +6,13 @@ use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use vendor\UrlProvider\TextPagesUrlProvider;
-
+use corpsepk\yii2emt\EMTypograph;
 /**
  * Index controller
  */
 class IndexController extends CommonController
 {
-
+    protected $text;
 
 
     public function init() {
@@ -23,17 +23,18 @@ class IndexController extends CommonController
         $this->layout='index';
         $data = [];
         $forLayout = [];
-		
         $forLayout['indexPage'] = 1;
 		$data = array_merge($this->data, $data);
 		$forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($forLayout);echo '</pre>';exit;
         // Языковое меню
         $langMenu = [];
-        $pagesContent = $this->myRoot->getPagesContent();
+
         $options = [];
         $options['joinUris'] = 1;
-        $options['items'] = $pagesContent;
+
         // укр
+        $pagesContent = $this->myRoot->getPagesContent('ua');
+        $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ua', $options);
         $pageUaUrl = $urlProvider->getIndexUrl();
         $langMenu['ua'] = [
@@ -41,6 +42,8 @@ class IndexController extends CommonController
             'text' => 'Укр'
         ];
         // eng
+        $pagesContent = $this->myRoot->getPagesContent('en');
+        $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('en', $options);
         $pageEnUrl = $urlProvider->getIndexUrl();
         $langMenu['en'] = [
@@ -48,6 +51,8 @@ class IndexController extends CommonController
             'text' => 'Eng'
         ];
         // рус
+        $pagesContent = $this->myRoot->getPagesContent('en');
+        $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ru', $options);
         $pageRuUrl = $urlProvider->getIndexUrl();
         $langMenu['ru'] = [
