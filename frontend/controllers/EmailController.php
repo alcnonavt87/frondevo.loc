@@ -34,7 +34,7 @@ class EmailController extends CommonController
 		$this->from = Yii::$app->params['emails']['from'];
 		$this->to = Yii::$app->params['emails']['to'];
 		$this->inputData = $_POST;
-		
+
 		$this->myClaims = new Claims($this->lang);
 		// Язык
 		$this->lang = $this->myCommon->getLang();
@@ -53,18 +53,18 @@ class EmailController extends CommonController
                 Yii::$app->language = 'en-US';
         }
 	}
-	
+
     public function actionIndex() {
         $isAjax = Yii::$app->getRequest()->isAjax;
         $emptyInputData = empty($this->inputData);
-		
+
 		// обозначаем условия неверного запроса
 		// (пустой массив входящих данных (POST))
 		$wrongRequest = $emptyInputData;//echo '<pre>';print_r($wrongRequest);echo '</pre>';exit;
-		
+
 		// и если запрос неверный, преращаем выполнение
 		if ($wrongRequest) {
-			throw new BadRequestHttpException(); 
+			throw new BadRequestHttpException();
 		}
 
         //if (YII_ENV == 'dev' || $isAjax) {
@@ -77,27 +77,27 @@ class EmailController extends CommonController
 			throw new BadRequestHttpException();
 		}*/
     }
-	
+
 	/**
 	 * Заявка коммерческая (со страницы commercial)
 	 */
     public function actionCommercial() {
 		// раскладываем входящий массив данных на переменные
         extract($this->inputData);
-		
+
 		// сохраняем заявку в БД
 		$this->myClaims->save($this->inputData);
-		
+
 		// инициализируем компонент отправки писем
 		$message = Yii::$app->mailer->compose();
-		
+
 		// устанавливаем тему письма
 		$subject = Yii::t('app', 'Commercial request');
 		$message->setSubject($subject);
-		
+
 		// устанавливаем отправителя
 		$message->setFrom($this->from);
-		
+
 		// устанавливаем получателя
 		$message->setTo($this->to);
 
@@ -116,12 +116,12 @@ class EmailController extends CommonController
 
 		// отправляем письмо
 		$status= $message->send();
-		
+
 		$result = array(
 			//'status' => isset($status) ? $status : 0,
 			'message' => $answer
 		);
-		
+
 		// возвращаемся на страницу объекта
 		/*if (!self::DEBUGGING) {
 			return $this->redirect($referrer);

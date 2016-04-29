@@ -27,6 +27,22 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
     <meta name="apple-mobile-web-app-title" content="">
     <link rel="stylesheet" href="markup/css/main.css">
+    <?php if (!empty($PageLangEn) && !empty($PageLangUa)) {
+        if ($lang == 'ru'){
+            echo '<link href="'.$PageLangEn.'"hreflang="en" rel="alternate">
+              <link href="'.$PageLangUa.'" hreflang="uk-UA" rel="alternate">';
+        }
+        else if ($lang == 'en') {
+            echo '<link href="'.$PageLangUa.'"hreflang="uk-UA" rel="alternate">
+                  <link href="'.$PageLangRu.'" hreflang="ru-RU" rel="alternate">';
+        }
+        else if ($lang == 'ua' ) {
+            echo '<link href="'.$PageLangEn.'"hreflang="en" rel="alternate">
+                  <link href="'.$PageLangRu.'" hreflang="ru-RU" rel="alternate">';
+        }
+    }
+
+    ?>
     <?= Html::csrfMetaTags() ?>
     <?php $this->head() ?>
 </head>
@@ -38,7 +54,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
     <!-- header -->
     <header class="header hidden index">
         <span class="logo"><img src="markup/img/header/logo.png" width="77" height="76"
-                                alt="Frondevo - интернет-агентство полного цикла разработки интернет-проектов"></span>
+                                alt="<?php echo Yii::t('app', 'Frondevo - Full Service Web Agency'); ?>"></span>
     </header>
     <!--/header -->
     <?= $content ?>
@@ -67,7 +83,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                     <div class="fd__pmenu-cell queue-wrap queueFromLeft popup-column">
                         <div>
                             <div class="fd__pmenu-logo queue queue1"><img src="markup/img/frondevo.png"
-                                                                          width="80" height="80" alt=""></div>
+                                                                          width="80" height="80" alt="<?php echo Yii::t('app', 'Frondevo - Full Service Web Agency'); ?>"></div>
 
                             <!-- fd  menu -->
                             <div class="fd__menu header-lang g_menu queue queue2">

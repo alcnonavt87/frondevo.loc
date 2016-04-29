@@ -44,7 +44,7 @@ class ContactsController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('ua');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ua', $options);
-        $pageUaUrl = $urlProvider->getContactsUrl();
+        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->getContactsUrl();
         $langMenu['ua'] = [
             'link' => $pageUaUrl,
             'text' => 'Укр'
@@ -53,7 +53,7 @@ class ContactsController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('en');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('en', $options);
-        $pageEnUrl = $urlProvider->getContactsUrl();
+        $forLayout['PageLangEn'] =$pageEnUrl = $urlProvider->getContactsUrl();
         $langMenu['en'] = [
             'link' => $pageEnUrl,
             'text' => 'Eng'
@@ -62,7 +62,7 @@ class ContactsController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('ru');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ru', $options);
-        $pageRuUrl = $urlProvider->getContactsUrl();
+        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->getContactsUrl();
         $langMenu['ru'] = [
             'link' => $pageRuUrl,
             'text' => 'Рус'

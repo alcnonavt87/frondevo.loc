@@ -36,7 +36,7 @@ class IndexController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('ua');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ua', $options);
-        $pageUaUrl = $urlProvider->getIndexUrl();
+        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->getIndexUrl();
         $langMenu['ua'] = [
             'link' => $pageUaUrl,
             'text' => 'Укр'
@@ -45,16 +45,16 @@ class IndexController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('en');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('en', $options);
-        $pageEnUrl = $urlProvider->getIndexUrl();
+        $forLayout['PageLangEn'] = $pageEnUrl = $urlProvider->getIndexUrl();
         $langMenu['en'] = [
             'link' => $pageEnUrl,
             'text' => 'Eng'
         ];
         // рус
-        $pagesContent = $this->myRoot->getPagesContent('en');
+        $pagesContent = $this->myRoot->getPagesContent('ru');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ru', $options);
-        $pageRuUrl = $urlProvider->getIndexUrl();
+        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->getIndexUrl();
         $langMenu['ru'] = [
             'link' => $pageRuUrl,
             'text' => 'Рус'

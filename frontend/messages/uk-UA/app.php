@@ -7,6 +7,7 @@ return [
 	'All rights reserved' => 'Усі права захищені',
 	'Internet agency' => 'Інтернет-агенція',
 	'internet-agency Frondevo' => 'інтернет-агенція Frondevo',
+	'Frondevo - Full Service Web Agency' => 'Frondevo - інтернет-агенція повного циклу',
 	
     // головна сторінка
 	'About company' => 'Про компанію',

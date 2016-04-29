@@ -42,16 +42,17 @@ class CommercialController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('ua');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ua', $options);
-        $pageUaUrl = $urlProvider->getCommercialUrl();
+        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->getCommercialUrl();
         $langMenu['ua'] = [
             'link' => $pageUaUrl,
             'text' => 'Укр'
         ];
+
         // eng
         $pagesContent = $this->myRoot->getPagesContent('en');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('en', $options);
-        $pageEnUrl = $urlProvider->getCommercialUrl();
+        $forLayout['PageLangEn'] = $pageEnUrl = $urlProvider->getCommercialUrl();
         $langMenu['en'] = [
             'link' => $pageEnUrl,
             'text' => 'Eng'
@@ -60,7 +61,7 @@ class CommercialController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('ru');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ru', $options);
-        $pageRuUrl = $urlProvider->getCommercialUrl();
+        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->getCommercialUrl();
         $langMenu['ru'] = [
             'link' => $pageRuUrl,
             'text' => 'Рус'

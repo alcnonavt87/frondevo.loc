@@ -14,8 +14,8 @@ return [
 		'emails' => [ //конфигурация почты
 				'from' => 'from@frondevo.com.ua',
 				'to' => [
-						'kanonir2012@gmail.com',
-						'to2@com.ua',
+						'krekotenko@gmail.com',
+
 					//'to3@com.ua',
 				],
 				'list' => [

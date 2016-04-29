@@ -41,8 +41,23 @@ $urlprovider = new \vendor\UrlProvider\UrlProvider($lang)
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
     <meta name="apple-mobile-web-app-title" content="">
     <link rel="stylesheet" href="markup/css/main.css">
+    //выводим с экшнов альт ссылки
+    <?php if (!empty($PageLangEn) && !empty($PageLangUa)) {
+        if ($lang == 'ru'){
+        echo '<link href="'.$PageLangEn.'"hreflang="en" rel="alternate">
+              <link href="'.$PageLangUa.'" hreflang="uk-UA" rel="alternate">';
+        }
+        else if ($lang == 'en') {
+            echo '<link href="'.$PageLangUa.'"hreflang="uk-UA" rel="alternate">
+                  <link href="'.$PageLangRu.'" hreflang="ru-RU" rel="alternate">';
+        }
+        else if ($lang == 'ua' ) {
+            echo '<link href="'.$PageLangEn.'"hreflang="en" rel="alternate">
+                  <link href="'.$PageLangRu.'" hreflang="ru-RU" rel="alternate">';
+        }
+    }
+    ?>
     <?= Html::csrfMetaTags() ?>
-    <?php $this->head() ?>
 </head>
 <body>
 
@@ -51,9 +66,9 @@ $urlprovider = new \vendor\UrlProvider\UrlProvider($lang)
 
     <!-- header -->
     <header class="header hidden">
-        <a href="<?php echo $indexUrl?>" class="logo"><img src="markup/img/header/logo.png" width="77"
+        <a title="<?php echo Yii::t('app', 'Frondevo - Full Service Web Agency'); ?>" href="<?php echo $indexUrl?>" class="logo"><img src="markup/img/header/logo.png" width="77"
                                                          height="76"
-                                                         alt="Frondevo - интернет-агентство полного цикла разработки интернет-проектов"></a>
+                                                         alt="<?php echo Yii::t('app', 'Frondevo - Full Service Web Agency'); ?>"></a>
     </header>
     <!--/header -->
     <!-- menu button -->
@@ -93,7 +108,7 @@ $urlprovider = new \vendor\UrlProvider\UrlProvider($lang)
 
         <!-- layout -->
         <div class="layout">
-            <a href="<?php echo $indexUrl ?>" class="footer-logo"><img src="markup/img/footer/footer-logo.png" alt=""></a>
+            <a href="<?php echo $indexUrl ?>" class="footer-logo"><img src="markup/img/footer/footer-logo.png" alt="<?php echo Yii::t('app', 'Frondevo - Full Service Web Agency'); ?>"></a>
             <address>
                 <span><?php echo $settings['copyright']; ?><br>
                    </span>
