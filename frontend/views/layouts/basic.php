@@ -197,16 +197,33 @@ $urlprovider = new \vendor\UrlProvider\UrlProvider($lang)
 
     <div title="Close" class="pop-btn-close"></div>
 </div>
-<script src="markup/js/lib/lib.min.js"></script>
-<script src="markup/js/main.min.js"></script>
-<script src="markup/js/lib/site.lib.min.js"></script>
-<script src="markup/js/site.min.js"></script>
-<script src="markup/js/lib/project.lib.min.js"></script>
-<script src="markup/js/project.min.js"></script>
-<script src="markup/js/form.min.js"></script>
-<script src="markup/js/projects.min.js"></script>
-<script src="markup/js/lib/works-view.lib.min.js"></script>
-<script src="markup/js/works-view.min.js"></script>
+<?php if (!empty($sitesbykeysPage)) {
+    echo '<script src="markup/js/lib/site.lib.min.js"></script>
+    <script src="markup/js/site.min.js"></script>';
+}
+else if (!empty($portfolioPage)){
+    echo '<script src="markup/js/lib/projects.lib.min.js"></script>
+    <script src="markup/js/projects.min.js"></script>';
+}
+else if (!empty($workPage)){
+    echo '<script src="markup/js/lib/works-view.lib.min.js"></script>
+    <script src="markup/js/works-view.min.js"></script>';
+}
+else if (!empty($commercialPage)){
+    echo '<script src="markup/js/lib/project.lib.min.js"></script>
+        <script src="markup/js/lib/lib.min.js"></script>
+        <script src="markup/js/form.min.js"></script>';
+}
+else if (!empty($contactsPage)){
+    echo '<script src="markup/js/lib/project.lib.min.js"></script>
+    <script src="markup/js/project.min.js"></script>';
+}
+else{
+    echo '<script src="markup/js/lib/lib.min.js"></script>
+    <script src="markup/js/main.min.js"></script>';
+}
+
+?>
 <!--/fd  popup -->
 <?php $this->endBody() ?>
 </body>

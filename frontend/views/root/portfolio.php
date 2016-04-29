@@ -116,7 +116,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                     <div class="pl-header">
                         <h2 class="pl-title"><?php echo $work['title']; ?></h2>
 
-                        <div class="pl-description g_text"><?php echo $work['description']; ?></div>
+                        <div class="pl-description g_text"><?php echo $work['pDescription']; ?></div>
                     </div>
                     <!--/pl header -->
 

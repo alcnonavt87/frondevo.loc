@@ -13,7 +13,7 @@
                 <h2>запрос коммерческого предложения на разработку сайта</h2>
 
                 <!-- action form -->
-                <form id="form-application" action="email/commercial" method="post" autocomplete="on" data-ajax novalidate class="action-form">
+                <form id="form-application" action="/email/commercial" method="post" autocomplete="on" data-ajax novalidate class="action-form">
 
                     <!-- row -->
                     <div class="row">

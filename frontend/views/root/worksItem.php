@@ -45,33 +45,51 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
         <div class="layout">
             <section>
                 <aside>
-                    <h3>клиент</h3>
+                    <h3><?php echo Yii::t('app', 'client')?></h3>
 
                     <p><?php echo $worksItem['client'] ?></p>
 
-                    <h3>услуги</h3>
+                    <h3><?php echo Yii::t('app', 'services')?></h3>
 
                     <p><?php echo $worksItem['services'] ?></p>
 
-                    <h3>год запуска</h3>
+                    <h3><?php echo Yii::t('app', 'launch')?></h3>
 
                     <p><?php echo $worksItem['launch'] ?></p>
                 </aside>
             </section>
             <section>
-                <h2>задача</h2>
+                <h2><?php echo Yii::t('app', 'task')?></h2>
                 <?php echo $worksItem['task'] ?>
 
             </section>
             //Секция работ
             <section>
-                <h2>решение</h2>
+                <h2><?php echo Yii::t('app', 'solution')?></h2>
                 <?php echo $worksItem['solutions']; ?>
+
+     //если поле ссылка на сайт не пустое выводим кнопку
+                <?php if (!empty($worksItem['linkwork'])) {
+              echo '<div class="align-center">
+                                <p>посетить веб-сайт</p>
+
+                                <!-- button -->
+                                <a href="'.'http://'.$worksItem['linkwork'].'" target="_blank" rel="nofollow" class="button light">
+                                    <span>'.$worksItem['linkwork'].'</span>
+                                </a>
+                                <!--/button -->
+
+                            </div>';
+                } ?>
+
+
+
+
             </section>
             // Секция результатов
             <?php if (!empty($worksItem['result'])) { ?>
                 <section>
-                    <h2>результаты</h2>
+                    <h2><?php echo Yii::t('app', 'results')?></h2>
 
                     <p><?php echo $worksItem['result'] ?></p>
                     <?php foreach ($multifields['resultlist1'] as $key => $stagelist) { ?>
@@ -101,7 +119,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
             <!-- button -->
             <a href="<?php echo($textPagesUrlProvider->getCommercialUrl()) ?>" class="button dark">
-                <span>Заказать бесплатную консультацию и оценку вашего проекта</span>
+                <span><?php echo Yii::t('app', 'request a free consultation and estimate of your project')?></span>
             </a>
             <!--/button -->
 

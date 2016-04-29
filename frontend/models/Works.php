@@ -348,7 +348,7 @@ class Works extends Model
             IF(`w`.`image` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'generalprtf-", `w`.`imageprtf`), "") as imgPath,
 			`w`.`imageWidth2` as imgW, `w`.`imageHeight2` as imgH, `wc`.`imageTitle` as imgT,
 
-			`wc`.`pH1` as title, `wc`.`description`
+			`wc`.`pH1` as title, `wc`.`pDescription`
 			'.$fields.'
 		FROM
 			`works` `w`

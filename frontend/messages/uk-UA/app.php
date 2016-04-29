@@ -5,8 +5,8 @@ return [
 	'Search' => 'Пошук',
 	'Social networks' => 'Соціальні мережі',
 	'All rights reserved' => 'Усі права захищені',
-	'Internet agency' => 'Інтернет-агенство',
-	'internet-agency Frondevo' => 'iнтернет-агенство Frondevo',
+	'Internet agency' => 'Інтернет-агенція',
+	'internet-agency Frondevo' => 'інтернет-агенція Frondevo',
 	
     // головна сторінка
 	'About company' => 'Про компанію',
@@ -36,6 +36,13 @@ return [
 	'Online order' => 'Онлайн замовлення',
 	'Show more' => 'Показати більше',
 	'Close' => 'Закрити',
+	'client' => 'клієнт',
+	'services' => 'послуги',
+	'launch' => 'запуск',
+	'task' => 'задача',
+	'solution' => 'вирішення',
+	'results' => 'результати',
+	'request a free consultation and estimate of your project' => 'замовити безкоштовну консультацію та оцінку вашого проекту',
 	
     // новини/новина
     // акції/акція

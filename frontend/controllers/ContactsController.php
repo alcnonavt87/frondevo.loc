@@ -27,6 +27,7 @@ class ContactsController extends CommonController
     public function actionIndex() {
         $data = [];
         $forLayout = [];
+        $forLayout['contactsPage'] = 1;
 
         // Добираем статические данные страницы
 

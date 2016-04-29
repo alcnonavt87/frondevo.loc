@@ -119,7 +119,7 @@ $imageOne .= '</fieldset>';
 
 // Вывод одного изображения "Одиночное изображение для страницы портфолио" НАЧАЛО
 $imageprtfOne = '<fieldset class="catalog__section">'.
-$this->createHeader('Одиночное изображение для страницы портфолио');
+$this->createHeader('Одиночное изображение для страницы портфолио (1920x345)');
 if ($worksItem['imageprtf'] <> '') {
 	$imageprtfOne .= '<div class="fa__uploader single" id="uploader0-imageprtf" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
 				<span class="content__menu-item content__menu-item_upload">
@@ -173,7 +173,7 @@ $imageprtfOne .= '</fieldset>';
 
 // Вывод одного изображения "Изображение для background" НАЧАЛО
 $imagebgOne = '<fieldset class="catalog__section">'.
-$this->createHeader('Изображение для background');
+$this->createHeader('Изображение для background (1920x1200)');
 if ($worksItem['imagebg'] <> '') {
 	$imagebgOne .= '<div class="fa__uploader single" id="uploader0-imagebg" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
 				<span class="content__menu-item content__menu-item_upload">

@@ -27,7 +27,7 @@ class CommercialController extends CommonController
     public function actionIndex() {
         $data = [];
         $forLayout = [];
-
+        $forLayout['commercialPage'] = 1;
         // Добираем статические данные страницы
 
         $pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], [], []);

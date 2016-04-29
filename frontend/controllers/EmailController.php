@@ -126,7 +126,7 @@ class EmailController extends CommonController
 		/*if (!self::DEBUGGING) {
 			return $this->redirect($referrer);
 		}*/
-		
+
 		$result = json_encode($result);
 		echo $result;
     }

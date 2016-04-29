@@ -6,7 +6,7 @@ return [
 	'Social networks' => 'Социальные сети',
 	'All rights reserved' => 'Все права защищены',
 	'Internet agency' => 'Интернет-агенство',
-	'internet-agency Frondevo' => 'интернет-агенство Frondevo',
+	'internet-agency Frondevo' => 'интернет-агентство Frondevo',
     // главная страница
 	'About company' => 'О компании',
 	'Actions prepositions' => 'Акционные предложения',
@@ -35,6 +35,15 @@ return [
 	'Online order' => 'Онлайн заказ',
 	'Show more' => 'Показать больше',
 	'Close' => 'Закрыть',
+	'client' => 'клиент',
+	'services' => 'услуги',
+	'launch' => 'запуск',
+	'task' => 'задача',
+	'solution' => 'решение',
+	'results' => 'результаты',
+	'request a free consultation and estimate of your project' => 'заказать бесплатную консультацию и оценку вашего проекта',
+
+
 	
     // новости/новость
     // акции/акция
@@ -42,6 +51,7 @@ return [
 	'Other news' => 'Другие новости',
 	'News full text' => 'Полный текст новости',
 	'Action full text' => 'Полный текст акции',
+
 	
     // страница "Контакты"
 	'Schedule' => 'График работы',

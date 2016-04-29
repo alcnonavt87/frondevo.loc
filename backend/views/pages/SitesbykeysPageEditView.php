@@ -284,7 +284,7 @@ foreach ($links as $key => $item) {
 
 // Вывод одного изображения "Изображение для работы №1" НАЧАЛО
 $sbkimgwork1One = '<fieldset class="catalog__section">'.
-$this->createHeader('Изображение для работы №1');
+$this->createHeader('Изображение для работы №1(940x275)');
 if ($pagesItem['sbkimgwork1'] <> '') {
 	$sbkimgwork1One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork1" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
 				<span class="content__menu-item content__menu-item_upload">
@@ -339,7 +339,7 @@ $sbkimgwork1One .= '</fieldset>';
 
 // Вывод одного изображения "Изображение для работы №2" НАЧАЛО
 $sbkimgwork2One = '<fieldset class="catalog__section">'.
-$this->createHeader('Изображение для работы №2');
+$this->createHeader('Изображение для работы №2(461x275)');
 if ($pagesItem['sbkimgwork2'] <> '') {
 	$sbkimgwork2One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork2" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
 				<span class="content__menu-item content__menu-item_upload">
@@ -393,7 +393,7 @@ $sbkimgwork2One .= '</fieldset>';
 
 // Вывод одного изображения "Изображение для работы №3" НАЧАЛО
 $sbkimgwork3One = '<fieldset class="catalog__section">'.
-$this->createHeader('Изображение для работы №3');
+$this->createHeader('Изображение для работы №3(461x275)');
 if ($pagesItem['sbkimgwork3'] <> '') {
 	$sbkimgwork3One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork3" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
 				<span class="content__menu-item content__menu-item_upload">
@@ -447,7 +447,7 @@ $sbkimgwork3One .= '</fieldset>';
 
 // Вывод одного изображения "Изображение для работы №4" НАЧАЛО
 $sbkimgwork4One = '<fieldset class="catalog__section">'.
-$this->createHeader('Изображение для работы №4');
+$this->createHeader('Изображение для работы №4(461x275)');
 if ($pagesItem['sbkimgwork4'] <> '') {
 	$sbkimgwork4One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork4" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
 				<span class="content__menu-item content__menu-item_upload">
@@ -501,7 +501,7 @@ $sbkimgwork4One .= '</fieldset>';
 
 // Вывод одного изображения "Изображение для работы №5" НАЧАЛО
 $sbkimgwork5One = '<fieldset class="catalog__section">'.
-$this->createHeader('Изображение для работы №5');
+$this->createHeader('Изображение для работы №5(461x275)');
 if ($pagesItem['sbkimgwork5'] <> '') {
 	$sbkimgwork5One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork5" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
 				<span class="content__menu-item content__menu-item_upload">
@@ -555,7 +555,7 @@ $sbkimgwork5One .= '</fieldset>';
 
 // Вывод одного изображения "Изображение для работы №6" НАЧАЛО
 $sbkimgwork6One = '<fieldset class="catalog__section">'.
-$this->createHeader('Изображение для работы №6');
+$this->createHeader('Изображение для работы №6(461x275)');
 if ($pagesItem['sbkimgwork6'] <> '') {
 	$sbkimgwork6One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork6" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
 				<span class="content__menu-item content__menu-item_upload">
@@ -609,7 +609,7 @@ $sbkimgwork6One .= '</fieldset>';
 
 // Вывод одного изображения "Изображение для работы №7" НАЧАЛО
 $sbkimgwork7One = '<fieldset class="catalog__section">'.
-$this->createHeader('Изображение для работы №7');
+$this->createHeader('Изображение для работы №7(461x275)');
 if ($pagesItem['sbkimgwork7'] <> '') {
 	$sbkimgwork7One .= '<div class="fa__uploader single" id="uploader0-sbkimgwork7" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
 				<span class="content__menu-item content__menu-item_upload">
