@@ -31,10 +31,11 @@ class ContactsController extends CommonController
 
         // Добираем статические данные страницы
 
-        $pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], [], []);
+        $pageData = $this->myRoot->getSocialNetworkLinksByAlias($this->pageContent['alias'], ['snVkontakte','snFacebook','snTwitter','snBahance','snInstagram','snBall','snPinterest'], []);
+
         $data['pageData'] = $pageData;
 
-// Языковое меню
+        // Языковое меню
         $langMenu = [];
 
         $options = [];

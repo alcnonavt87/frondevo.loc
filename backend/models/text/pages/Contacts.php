@@ -16,7 +16,7 @@ Class Contacts extends Model
             `a`.`id`, `a`.`pShow`, `b`.`pUrl`,
             `b`.`pTitle`, `b`.`pDescription`, `b`.`pKeyWords`, `b`.`pH1`,
             `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`
-			/*get*/
+			, `snVkontakte`, `snFacebook`, `snTwitter`, `snBahance`, `snInstagram`, `snBall`, `snPinterest`/*get*/
         FROM
             `pages` `a`, `content` `b`
         WHERE

@@ -41,7 +41,6 @@ $urlprovider = new \vendor\UrlProvider\UrlProvider($lang)
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
     <meta name="apple-mobile-web-app-title" content="">
     <link rel="stylesheet" href="markup/css/main.css">
-    //выводим с экшнов альт ссылки
     <?php if (!empty($PageLangEn) && !empty($PageLangUa)) {
         if ($lang == 'ru'){
         echo '<link href="'.$PageLangEn.'"hreflang="en" rel="alternate">

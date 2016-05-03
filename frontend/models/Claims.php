@@ -98,7 +98,19 @@ class Claims extends Model
 
 		return $result;
 	}
+	public function getEmails()
+	{
 
+		// запрос
+		$query = Yii::$app->db->createCommand('SELECT
+             `s`.`emailClaim`
+		FROM
+			`settings` `s`'
+				);
+
+		$result = $query->queryAll();
+		return $result;
+	}
 	/**
 	 * Формирование условий
 	 */

@@ -20,7 +20,7 @@ class EmailController extends CommonController
 	private $to;
 	private $inputData;
 	private $myClaims;
-
+	private $myEmails;
 
 	protected $lang;
 	protected $firstUri;
@@ -29,13 +29,14 @@ class EmailController extends CommonController
 	
 	public function init() {
 		parent::init();
-		
+		$this->myClaims = new Claims($this->lang);
 		$this->hostName = $this->myCommon->getHostName();
 		$this->from = Yii::$app->params['emails']['from'];
-		$this->to = Yii::$app->params['emails']['to'];
+		$this->myEmails = explode(";",$this->myClaims->getEmails()[0]['emailClaim']);
+		$this->to = $this->myEmails;
 		$this->inputData = $_POST;
 
-		$this->myClaims = new Claims($this->lang);
+
 		// Язык
 		$this->lang = $this->myCommon->getLang();
 		// Настройка языкового окружения

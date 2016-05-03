@@ -50,5 +50,18 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
                 <!-- pContent -->'.$this->createTextArea(['id'=> 'pContent', 'text' => '', 'width' => '400x100', 'name' => 'pContent', 'value' => $page[0]['pContent'], 'attr' => 'data-module="tinymce"']).'<!-- /pContent -->
 		'.$this->createHeader('Выбор ссылок отображаемых в футере').'
 		<!-- links -->'.$this->createCheckBoxGroup(['list' => $linksList]).'<!-- /links -->
+
+<!-- social --><fieldset class="catalog__section">
+	'.$this->createHeader('Социальные сети').'
+	<div class="catalog__section-data">
+		<!-- snVkontakte -->'.$this->createInput(['id'=> 'snVkontakte', 'text' => 'Вконтакте', 'placeholder' => '', 'width' => 400, 'name' => 'content[snVkontakte]', 'value' => $pagesItem['snVkontakte'], 'attr' => '']).'<!-- /snVkontakte -->
+		<!-- snFacebook -->'.$this->createInput(['id'=> 'snFacebook', 'text' => 'Фэйсбук', 'placeholder' => '', 'width' => 400, 'name' => 'content[snFacebook]', 'value' => $pagesItem['snFacebook'], 'attr' => '']).'<!-- /snFacebook -->
+		<!-- snTwitter -->'.$this->createInput(['id'=> 'snTwitter', 'text' => 'Твиттер', 'placeholder' => '', 'width' => 400, 'name' => 'content[snTwitter]', 'value' => $pagesItem['snTwitter'], 'attr' => '']).'<!-- /snTwitter -->
+		<!-- snBahance -->'.$this->createInput(['id'=> 'snBahance', 'text' => 'Behance', 'placeholder' => '', 'width' => 400, 'name' => 'content[snBahance]', 'value' => $pagesItem['snBahance'], 'attr' => '']).'<!-- /snBahance -->
+		<!-- snInstagram -->'.$this->createInput(['id'=> 'snInstagram', 'text' => 'Instagram', 'placeholder' => '', 'width' => 400, 'name' => 'content[snInstagram]', 'value' => $pagesItem['snInstagram'], 'attr' => '']).'<!-- /snInstagram -->
+		<!-- snBall -->'.$this->createInput(['id'=> 'snBall', 'text' => 'Ball', 'placeholder' => '', 'width' => 400, 'name' => 'content[snBall]', 'value' => $pagesItem['snBall'], 'attr' => '']).'<!-- /snBall -->
+		<!-- snPinterest -->'.$this->createInput(['id'=> 'snPinterest', 'text' => 'Pinterest', 'placeholder' => '', 'width' => 400, 'name' => 'content[snPinterest]', 'value' => $pagesItem['snPinterest'], 'attr' => '']).'<!-- /snPinterest -->
+	</div>
+</fieldset><!-- /social -->
                 </fieldset><!-- /sectionPageData --><!-- /createFinish -->'.
             Html::endForm();

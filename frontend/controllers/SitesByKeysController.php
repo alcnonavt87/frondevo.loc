@@ -55,6 +55,7 @@ class SitesByKeysController extends CommonController
         $data = [];
         $forLayout = [];
         $params = [];
+        $forLayout['sitesbykeysPage'] = 1;
         $data = array_merge($this->data, $data);
         $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
         // Языковое меню
@@ -66,7 +67,7 @@ class SitesByKeysController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('ua');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ua', $options);
-        $pageUaUrl = $urlProvider->getSitesByKeysUrl();
+        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->getSitesByKeysUrl();
         $langMenu['ua'] = [
             'link' => $pageUaUrl,
             'text' => 'Укр'
@@ -75,7 +76,7 @@ class SitesByKeysController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('en');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('en', $options);
-        $pageEnUrl = $urlProvider->getSitesByKeysUrl();
+        $forLayout['PageLangEn'] = $pageEnUrl = $urlProvider->getSitesByKeysUrl();
         $langMenu['en'] = [
             'link' => $pageEnUrl,
             'text' => 'Eng'
@@ -84,7 +85,7 @@ class SitesByKeysController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('ru');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ru', $options);
-        $pageRuUrl = $urlProvider->getSitesByKeysUrl();
+        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->getSitesByKeysUrl();
         $langMenu['ru'] = [
             'link' => $pageRuUrl,
             'text' => 'Рус'
@@ -136,7 +137,7 @@ class SitesByKeysController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('ua');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ua', $options);
-        $pageUaUrl = $urlProvider->getLandingpageUrl();
+        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->getLandingpageUrl();
         $langMenu['ua'] = [
             'link' => $pageUaUrl,
             'text' => 'Укр'
@@ -145,7 +146,7 @@ class SitesByKeysController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('en');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('en', $options);
-        $pageEnUrl = $urlProvider->getLandingpageUrl();
+        $forLayout['PageLangEn'] = $pageEnUrl = $urlProvider->getLandingpageUrl();
         $langMenu['en'] = [
             'link' => $pageEnUrl,
             'text' => 'Eng'
@@ -154,7 +155,7 @@ class SitesByKeysController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('ru');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ru', $options);
-        $pageRuUrl = $urlProvider->getLandingpageUrl();
+        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->getLandingpageUrl();
         $langMenu['ru'] = [
             'link' => $pageRuUrl,
             'text' => 'Рус'
@@ -202,7 +203,7 @@ class SitesByKeysController extends CommonController
 
         $data = [];
         $forLayout = [];
-
+        $forLayout['portfolioPage'] = 1;
         // Список фильтров
         $params = [];
         $filters = $this->myFilters->getList($params);
@@ -267,7 +268,7 @@ class SitesByKeysController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('ua');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ua', $options);
-        $pageUaUrl = $urlProvider->getPortfolioUrl();
+        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->getPortfolioUrl();
         $langMenu['ua'] = [
             'link' => $pageUaUrl,
             'text' => 'Укр'
@@ -277,7 +278,7 @@ class SitesByKeysController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('en');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('en', $options);
-        $pageEnUrl = $urlProvider->getPortfolioUrl();
+        $forLayout['PageLangEn'] = $pageEnUrl = $urlProvider->getPortfolioUrl();
         $langMenu['en'] = [
             'link' => $pageEnUrl,
             'text' => 'Eng'
@@ -286,7 +287,7 @@ class SitesByKeysController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('ru');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ru', $options);
-        $pageRuUrl = $urlProvider->getPortfolioUrl();
+        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->getPortfolioUrl();
         $langMenu['ru'] = [
             'link' => $pageRuUrl,
             'text' => 'Рус'
@@ -327,7 +328,7 @@ class SitesByKeysController extends CommonController
         $data = [];
         $forLayout = [];
         $pUrl = '';
-
+        $forLayout['workPage'] = 1;
         $params = [];
 
         // Информация из таблицы множественных полей
@@ -352,21 +353,21 @@ class SitesByKeysController extends CommonController
 
         // укр
         $urlProvider = new SimpleModuleUrlProvider('ua', $params);
-        $pageUaUrl = $urlProvider->geteWorksItemUrl($params);
+        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->geteWorksItemUrl($params);
         $langMenu['ua'] = [
             'link' => $pageUaUrl,
             'text' => 'Укр'
         ];
         // eng
         $urlProvider = new SimpleModuleUrlProvider('en', $params);
-        $pageEnUrl = $urlProvider->geteWorksItemUrl($params);
+        $forLayout['PageLangEn'] = $pageEnUrl = $urlProvider->geteWorksItemUrl($params);
         $langMenu['en'] = [
             'link' => $pageEnUrl,
             'text' => 'Eng'
         ];
         // рус
         $urlProvider = new SimpleModuleUrlProvider('ru', $params);
-        $pageRuUrl = $urlProvider->geteWorksItemUrl($params);
+        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->geteWorksItemUrl($params);
         $langMenu['ru'] = [
             'link' => $pageRuUrl,
             'text' => 'Рус'
@@ -397,9 +398,13 @@ class SitesByKeysController extends CommonController
                     $pattern = '<div class="align-center">' . $pic . '</div>';
                     $worksItem['solutions'] = str_replace($pic, $pattern, $worksItem['solutions']);
                 } else if (preg_match('/alt=".*?"/', $pic)) {//если alt img не пустой то берем весь img из  $worksItem['solutions'и заменяем его на другой $pattern
-                    $pattern1 = "<div class=\"image-frame\">
+                    $pattern = '/alt="(.*?)"/';
+                    $matched = preg_match_all($pattern, $pic, $matches);//print_r ($matches[1]);exit();
+                    foreach ($matches[1] as $url) {
+                        $pattern1 = "<div class=\"image-frame\">
                                 <div>
-                                <!-- frame controls -->
+
+                                    <!-- frame controls -->
                                     <div class=\"frame-controls\">
                                         <span></span>
                                         <span></span>
@@ -407,10 +412,13 @@ class SitesByKeysController extends CommonController
                                     </div>
                                     <!--/frame controls -->
 
-                                    <div class=\"frame-input\">$workLink</div>
+                                    <div class=\"frame-input\">" ."http://". $url . "</div>
                                     <div class=\"frame-face-input\"></div>
-                                </div>" . $pic . "</div>";
-                    $worksItem['solutions'] = str_replace($pic, $pattern1, $worksItem['solutions']);
+
+                               </div>" . $pic . "</div>";
+
+                        $worksItem['solutions'] = str_replace($pic, $pattern1, $worksItem['solutions']);
+                    }
                 }
             }
         }

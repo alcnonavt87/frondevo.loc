@@ -35,17 +35,9 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$settingsPage
 				<fieldset class="catalog__section">
                 '.$this->createHeader('Emails').'
                     <div class="catalog__section-data">
-                    '.$this->createInput(array('id'=> 'emailCall', 'text' => 'Для заказа звонков', 'width' => 400, 'name' => 'emailCall', 'value' => $mySettings['emailCall'], 'attr' => '')).'
                     '.$this->createInput(array('id'=> 'emailClaim', 'text' => 'Для заявок', 'width' => 400, 'name' => 'emailClaim', 'value' => $mySettings['emailClaim'], 'attr' => '')).'
                     </div>
                 </fieldset>
 
-				<fieldset class="catalog__section">
-                '.$this->createHeader('Социальные сети').'
-                    <div class="catalog__section-data">
-                    '.$this->createInput(array('id'=> 'snVkontakte', 'text' => 'Вконтакте', 'width' => 400, 'name' => 'snVkontakte', 'value' => $mySettings['snVkontakte'], 'attr' => '')).'
-                    '.$this->createInput(array('id'=> 'snFacebook', 'text' => 'Фэйсбук', 'width' => 400, 'name' => 'snFacebook', 'value' => $mySettings['snFacebook'], 'attr' => '')).'
-                    '.$this->createInput(array('id'=> 'snTwitter', 'text' => 'Твиттер', 'width' => 400, 'name' => 'snTwitter', 'value' => $mySettings['snTwitter'], 'attr' => '')).'
-                    </div>
-                </fieldset>'.
+				'.
     Html::endForm();
