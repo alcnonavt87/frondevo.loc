@@ -33,6 +33,9 @@ class ListController extends \backend\controllers\AdminController
 			// Подготавливаем данные для хлебных крошек
 			$pageGroupData = $myOthers->getPageGroupDataI($idPageGroup, ['groupName']);/* UpdateCode */
 
+			// Для ссылки "Редактировать страницу"
+			$textPageData = $myOthers->getTextPageDataByMarkI('Портфолио', ['id', 'idPageGroup']);
+
 			// Получаем записи
 			$works = $myWorks->getMany($filters, $limit, $offset, $pageLang);//echo '<pre>';print_r($works);echo '</pre>';exit;
 

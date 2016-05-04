@@ -14,7 +14,7 @@ $navMenu .= '</nav>';
 
 //Хлебные крошки НАЧАЛО
 $content = '<ul class="crumbs">
-                <li class="crumbs__item"><a href="/'.$id1Uri.'/'.$defLang.'" data-href="formlist">'.$pageGroupData[0]['groupName'].'</a></li>
+                <!--<li class="crumbs__item"><a href="/'.$id1Uri.'/'.$defLang.'" data-href="formlist">'.$pageGroupData[0]['groupName'].'</a></li>-->
                 <li class="crumbs__item crumbs__item-active">'.$textPageHeader.'</li>
             </ul>';
 //Хлебные крошки КОНЕЦ

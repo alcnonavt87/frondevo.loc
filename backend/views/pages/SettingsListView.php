@@ -16,8 +16,11 @@ $content.='<div class="content__table">
 
 $countSettingsPages = count($allSettingsPages);
 for($i = 0; $i < $countSettingsPages; $i++) {
-    // временно скрываем "Базу иконок" и "Управление сложностью" из настроек
-	//if ($i == 5 || $i == 4) continue;
+    // скрываем пункты
+	$toHide = ['Дапм базы данных'];
+	if (in_array($allSettingsPages[$i]['settingsName'], $toHide)) {
+		continue;
+	}
 	
     $content.='<tr data-id = "'.$allSettingsPages[$i]['id'].'/'.$pageLang.'">
                 <td>'.($i + 1).'</td>

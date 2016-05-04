@@ -27,6 +27,32 @@ class ListController extends \backend\controllers\AdminController
 
             $myOthers = new AdminOthers();
             $pageGroupData = $myOthers->getPageGroupData($id1Uri);
+            
+			// Добавляем необходимые пункты вручную
+			$listTableItems = [];
+			// Ход строительства
+			$listTableItem = [];
+			$listTableItem['id'] = 9;
+			$listTableItem['pShow'] = 1;
+			$listTableItem['pAlias'] = 'portfolio';
+			$listTableItem['pH1'] = 'Портфолио';
+			$listTableItem['pageGroup'] = 1;
+			$listTableItem['location'] = 'before';
+			$listTableItems['Сайты под ключ'][] = $listTableItem;
+			foreach ($listTableItems[$pageGroupData[0]['groupName']] as $listTableItem) {
+				$locateBefore = ($listTableItem['location'] == 'before');
+				if ($locateBefore) {
+					array_unshift($allTextPages, $listTableItem);
+				} else {
+					$allTextPages[] = $listTableItem;
+				}
+			}//echo '<pre>';print_r($allTextPages);echo '</pre>';exit;
+
+			// Для ссылки "Редактировать страницу"
+			$textPageIsset = ['Сайты под ключ'];
+			$textPageData = in_array($pageGroupData[0]['groupName'], $textPageIsset)
+				? $myOthers->getTextPageDataByMarkI($pageGroupData[0]['groupName'], ['id', 'idPageGroup'])
+				: null;
 
             $content = '';
             
