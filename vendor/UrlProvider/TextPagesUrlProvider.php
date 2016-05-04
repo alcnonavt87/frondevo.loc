@@ -98,8 +98,21 @@ class TextPagesUrlProvider extends UrlProvider
 		$url = $this->indexUrl.$sitesbykeysUri.$portfolioUri.$filterUri;
 		return $url;
 	}
-	
-	
+
+	/**
+	 * Get outsourcing url.
+	 */
+	public function getOutsourcingUrl($params=[]) {
+		$OutsourcingUri = $this->getOutsourcingUri();
+		$url = $this->indexUrl.$OutsourcingUri;
+		return $url;
+	}
+	public function getFrontendOutUrl($params=[]) {
+		$FrontendOutUri = $this->getFrontendOutUri();
+		$OutsourcingUri = $this->getOutsourcingUri();
+		$url = $this->indexUrl.$OutsourcingUri.$FrontendOutUri;
+		return $url;
+	}
 	////////////////////////////////////////////////////// URIS //////////////////////////////////////////////////////
 	
 	/**
@@ -119,6 +132,25 @@ class TextPagesUrlProvider extends UrlProvider
 		return $uri;
 	}
 
+
+
+	/**
+	 * Get outsourcing uri.
+	 */
+	public function getOutsourcingUri($params=[]) {
+		$alias = 'outsourcing';
+		$uri = '/'.$this->pagesUrls[$alias];
+		return $uri;
+	}
+
+	/**
+	 * Get outsourcing uri.
+	 */
+	public function getFrontendOutUri($params=[]) {
+		$alias = 'frontendout';
+		$uri = '/'.$this->pagesUrls[$alias];
+		return $uri;
+	}
 
 
 

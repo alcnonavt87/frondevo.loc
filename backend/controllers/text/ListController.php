@@ -27,7 +27,7 @@ class ListController extends \backend\controllers\AdminController
 
             $myOthers = new AdminOthers();
             $pageGroupData = $myOthers->getPageGroupData($id1Uri);
-            
+
 			// Добавляем необходимые пункты вручную
 			$listTableItems = [];
 			// Ход строительства

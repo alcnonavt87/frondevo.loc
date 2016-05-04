@@ -40,10 +40,7 @@ class Root extends Model
      */
     public function getPageUrlByAlias($alias)
     {
-        echo '<pre>';
-        print_r($alias);
-        echo '</pre>';
-        exit;
+
         $query = Yii::$app->db->createCommand('SELECT
 			`pUrl` as url
 		FROM
