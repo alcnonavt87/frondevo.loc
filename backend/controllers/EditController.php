@@ -83,7 +83,26 @@ class EditController extends Controller
 			$menuItem['quickButton'] = 0;
 			$menuItem['picking'] = 60;
 			$menu[] = $menuItem;
-			
+			// страница Аутсорсинг
+			$menuItem = [];
+			$menuItem['id'] = 1;
+			$menuItem['secondUri'] = 7;
+			$menuItem['groupName'] = 'Аутсорсинг';
+			$menuItem['cssKlass'] = 'external-link';
+			$menuItem['addParam'] = 0;
+			$menuItem['quickButton'] = 0;
+			$menuItem['picking'] = 300;
+			$menu[] = $menuItem;
+			// страница Аутсорсинг портфолио
+			$menuItem = [];
+			$menuItem['id'] = 111;
+			$menuItem['groupName'] = 'Аутсорсинг портфолио';
+			$menuItem['cssKlass'] = 'suitcase';
+			$menuItem['addParam'] = 0;
+			$menuItem['quickButton'] = 0;
+			$menuItem['picking'] = 301;
+			$menu[] = $menuItem;
+
 			// Еще раз сортируем (с учетом добавленных вручную пунктов)
 			usort($menu, function ($a, $b) {
 				return ($a['picking'] < $b['picking']) ? -1 : 1;

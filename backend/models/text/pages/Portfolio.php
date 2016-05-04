@@ -14,7 +14,7 @@ Class Portfolio extends Model
     
     public function getPageByIdAndLang($id,$lang) {
         $query = Yii::$app->db->createCommand('SELECT
-            `a`.`id`, `a`.`pShow`, `b`.`pUrl`,
+            `a`.`id`, `a`.`pShow`, `b`.`Url`,
             `b`.`pTitle`, `b`.`pDescription`, `b`.`pKeyWords`, `b`.`pH1`,
             `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`
 			/*get*/
@@ -31,7 +31,7 @@ Class Portfolio extends Model
     public function getEmptyLangPageById($id)
     {
         $query = Yii::$app->db->createCommand('SELECT
-        `a`.`id`, `a`.`pShow`, `b`.`pUrl`,
+        `a`.`id`, `a`.`pShow`, `b`.`Url`,
          "" AS `pTitle`, "" AS `pDescription`, "" AS `pKeyWords`, "" AS `pH1`, "" AS `pMenuName`, "" AS `pBreadCrumbs`, "" AS `pContent`
 		FROM
             `pages` `a`, `content` `b`

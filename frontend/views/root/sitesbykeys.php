@@ -400,7 +400,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
             <!-- button -->
             <a href="<?php echo($textPagesUrlProvider->getCommercialUrl()) ?>" class="button dark">
-                <span>Заказать бесплатную консультацию и оценку вашего проекта</span>
+                <span><?php echo Yii::t('app', 'request a free consultation and estimate of your project'); ?></span>
             </a>
             <!--/button -->
 

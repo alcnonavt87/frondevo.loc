@@ -25,7 +25,7 @@ class Root extends Model
 		FROM
 			`pages`,`content`
 		WHERE
-			`pUrl` = :pUrl AND
+			`Url` = :pUrl AND
 			pShow = 1
 			AND
 			`pageId` = `id` AND
@@ -42,7 +42,7 @@ class Root extends Model
     {
 
         $query = Yii::$app->db->createCommand('SELECT
-			`pUrl` as url
+			`Url` as url
 		FROM
 			`pages`,`content`
 		WHERE
@@ -67,7 +67,7 @@ class Root extends Model
 		FROM
 			`pages`, `content`
 		WHERE
-			`pUrl` = :pUrl AND
+			`Url` = :pUrl AND
 			`pageId` = `id` AND
 			`lang` = :lang')
             ->bindValue(':pUrl', $pUrl)
@@ -161,7 +161,7 @@ class Root extends Model
 
         $query = Yii::$app->db->createCommand('SELECT
 			`p`.`id`, `c`.`pTitle`, `c`.`pDescription`, `c`.`pKeyWords`, `c`.`pH1`, `c`.`pMenuName` as menu, `c`.`pBreadCrumbs` as breadcrumb, `c`.`pContent`,
-			`c`.`pUrl` as url, `p`.`pAlias`
+			`c`.`Url` as url, `p`.`pAlias`
 		FROM
 			`pages` `p`, `content` `c`
 		WHERE
@@ -190,7 +190,7 @@ class Root extends Model
     public function getPagesUrls()
     {
         $query = Yii::$app->db->createCommand('SELECT
-			`p`.`id`, `c`.`pUrl` as url, `p`.`pAlias` as alias
+			`p`.`id`, `c`.`Url` as url, `p`.`pAlias` as alias
 		FROM
 			`pages` `p`,`content` `c`
 			WHERE

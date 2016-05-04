@@ -1,3 +1,12 @@
+<?php
+use frontend\models\Common;
+use vendor\UrlProvider\SimpleModuleUrlProvider;
+use vendor\UrlProvider\TextPagesUrlProvider;
+
+$options['joinUris'] = 1;
+$simpleModuleUrlProvider = new SimpleModuleUrlProvider($lang, $options);
+$textPagesUrlProvider = new TextPagesUrlProvider($lang);
+?>
 <!-- full height -->
             <div class="full-height inner mesh">
                 <picture>
@@ -766,7 +775,6 @@
                 </section>
                 <!--/article -->
 
-
                 <!-- offer -->
                 <div class="offer mesh">
 
@@ -774,8 +782,8 @@
                     <div class="layout fd_align-center">
 
                         <!-- button -->
-                        <a href="#" class="button dark">
-                            <span>Заказать бесплатную консультацию и оценку вашего проекта</span>
+                        <a href="<?php echo($textPagesUrlProvider->getCommercialUrl()) ?>" class="button dark">
+                            <span><?php echo Yii::t('app', 'request a free consultation and estimate of your project'); ?></span>
                         </a>
                         <!--/button -->
 
@@ -784,6 +792,8 @@
 
                 </div>
                 <!--/offer -->
+
+
 
             </div>
             <!--/main wrap -->
