@@ -3,6 +3,7 @@ namespace backend\models\text\pages;
 
 use Yii;
 use yii\base\Model;
+use corpsepk\yii2emt\EMTypograph;
 
 /**
  * Commercial
@@ -42,6 +43,29 @@ Class Commercial extends Model
     }
 
 	public function editUpDatePage($pageId, $lang, $pTitle, $pDescription, $pKeyWords, $pH1, $pMenuName, $pBreadCrumbs, $pContent) {
+        $EMTypograph = new EMTypograph();
+        $EMTypograph->setup([
+            'Text.paragraphs' => 'off',
+            'OptAlign.oa_oquote' => 'off',
+            'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+        ]);
+        $EMTypograph->set_text($pTitle);
+        $pTitle= $EMTypograph->apply();
+        $EMTypograph->setup([
+            'Text.paragraphs' => 'off',
+            'OptAlign.oa_oquote' => 'off',
+            'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+        ]);
+        $EMTypograph->set_text($pDescription );
+        $pDescription = $EMTypograph->apply();
+
+        $EMTypograph->set_text($pH1 );
+        $EMTypograph->setup([
+            'Text.paragraphs' => 'off',
+            'OptAlign.oa_oquote' => 'off',
+            'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+        ]);
+        $pH1 = $EMTypograph->apply();
         $query = Yii::$app->db->createCommand('UPDATE `content`
         SET `pTitle` = :pTitle, `pDescription` = :pDescription, `pKeyWords` = :pKeyWords, `pH1` = :pH1,
             `pMenuName` = :pMenuName, `pBreadCrumbs` = :pBreadCrumbs, `pContent` = :pContent

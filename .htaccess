@@ -30,3 +30,5 @@
 
   RewriteRule ^.*$ frontend/web/index.php
 </IfModule>
+
+

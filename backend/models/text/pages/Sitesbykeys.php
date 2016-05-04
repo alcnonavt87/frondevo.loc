@@ -3,7 +3,7 @@ namespace backend\models\text\pages;
 
 use Yii;
 use yii\base\Model;
-
+use corpsepk\yii2emt\EMTypograph;
 /**
  * Sitesbykeys
  */
@@ -42,6 +42,32 @@ Class Sitesbykeys extends Model
     }
 
 	public function editUpDatePage($pageId, $lang, $pTitle, $pDescription, $pKeyWords, $pH1, $pMenuName, $pBreadCrumbs, $pContent) {
+        $EMTypograph = new EMTypograph();
+        $EMTypograph->setup([
+            'Text.paragraphs' => 'off',
+            'OptAlign.oa_oquote' => 'off',
+            'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+        ]);
+        $EMTypograph->set_text($pTitle);
+        $pTitle= $EMTypograph->apply();
+        $EMTypograph->setup([
+            'Text.paragraphs' => 'off',
+            'OptAlign.oa_oquote' => 'off',
+            'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+        ]);
+        $EMTypograph->set_text($pDescription );
+        $pDescription = $EMTypograph->apply();
+
+        $EMTypograph->set_text($pH1 );
+        $EMTypograph->setup([
+            'Text.paragraphs' => 'off',
+            'OptAlign.oa_oquote' => 'off',
+            'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+        ]);
+        $pH1 = $EMTypograph->apply();
+
+
+
         $query = Yii::$app->db->createCommand('UPDATE `content`
         SET `pTitle` = :pTitle, `pDescription` = :pDescription, `pKeyWords` = :pKeyWords, `pH1` = :pH1,
             `pMenuName` = :pMenuName, `pBreadCrumbs` = :pBreadCrumbs, `pContent` = :pContent
@@ -60,7 +86,7 @@ Class Sitesbykeys extends Model
     }
 	public function update($id, $postBase, $postContent, $lang) {
 		$data = $postBase;
-		
+
 		if (isset($postContent)) {
 			$data = array_merge($data, $postContent);
 		}
@@ -72,8 +98,7 @@ Class Sitesbykeys extends Model
 			$set[] = '`'.$key.'`="'.addslashes($item).'"';
 		}
 		$set = implode(',', $set);
-		
-		$query = Yii::$app->db->createCommand('UPDATE
+        $query = Yii::$app->db->createCommand('UPDATE
 			`pages`, `content`
 		SET
 			'.$set.'
@@ -83,7 +108,7 @@ Class Sitesbykeys extends Model
 			`lang` = :lang')
 		->bindValue(':id', $id)
         ->bindValue(':lang', $lang);
-		
+
 		return $query->execute();
 	}
     

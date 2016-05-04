@@ -4,6 +4,7 @@ namespace backend\models\works;
 use yii\base\Model;
 use Yii;
 use backend\models\AdminOthers;
+use corpsepk\yii2emt\EMTypograph;
 
 Class Works extends Model
 {
@@ -143,8 +144,52 @@ Class Works extends Model
 	}
 
 	public function update($id, $postBase, $postContent, $lang) {
+
+		$EMTypograph = new EMTypograph();
+		$EMTypograph->setup([
+				'Text.paragraphs' => 'off',
+				'OptAlign.oa_oquote' => 'off',
+				'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+		]);
+		$EMTypograph->set_text($postContent['description']);
+		$postContent['description']= $EMTypograph->apply();
+
+		$EMTypograph->setup([
+				'Text.paragraphs' => 'off',
+				'OptAlign.oa_oquote' => 'off',
+				'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+		]);
+		$EMTypograph->set_text($postBase['pUrl']);
+		$postBase['pUrl']= $EMTypograph->apply();
+
+
+		$EMTypograph->set_text($postContent['client'] );
+		$postContent['client']  = $EMTypograph->apply();
+
+		$EMTypograph->set_text($postContent['pTitle'] );
+		$EMTypograph->setup([
+				'Text.paragraphs' => 'off',
+				'OptAlign.oa_oquote' => 'off',
+				'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+		]);
+		$postContent['pTitle'] = $EMTypograph->apply();
+
+		$EMTypograph->set_text($postContent['pDescription']);
+		$EMTypograph->setup([
+				'Text.paragraphs' => 'off',
+				'OptAlign.oa_oquote' => 'off',
+				'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+		]);
+		$postContent['pDescription'] = $EMTypograph->apply();
+
+		$EMTypograph->set_text($postContent['results']);
+		$EMTypograph->setup([
+				'Text.paragraphs' => 'off',
+				'OptAlign.oa_oquote' => 'off',
+				'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+		]);
+		$postContent['results'] = $EMTypograph->apply();
 		$data = $postBase;
-		
 		if (isset($postContent)) {
 			$data = array_merge($data, $postContent);
 		}
@@ -156,7 +201,7 @@ Class Works extends Model
 			$set[] = '`'.$key.'`="'.addslashes($item).'"';
 		}
 		$set = implode(',', $set);
-		
+
 		$query = Yii::$app->db->createCommand('UPDATE
 			`works`, `works_content`
 		SET

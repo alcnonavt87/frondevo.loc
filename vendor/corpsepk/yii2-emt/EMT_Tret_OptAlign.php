@@ -10,14 +10,14 @@ class EMT_Tret_OptAlign extends \corpsepk\yii2emt\EMT_Tret
 {
 
     public $classes = array(
-        'oa_obracket_sp_s' => "margin-right:0.3em;",
-        "oa_obracket_sp_b" => "margin-left:-0.3em;",
-        "oa_obracket_nl_b" => "margin-left:-0.3em;",
-        "oa_comma_b"       => "margin-right:-0.2em;",
-        "oa_comma_e"       => "margin-left:0.2em;",
-        'oa_oquote_nl' => "margin-left:-0.44em;",
-        'oa_oqoute_sp_s' => "margin-right:0.44em;",
-        'oa_oqoute_sp_q' => "margin-left:-0.44em;",
+        'oa_obracket_sp_s' => "",
+        "oa_obracket_sp_b" => "",
+        "oa_obracket_nl_b" => "",
+        "oa_comma_b"       => "",
+        "oa_comma_e"       => "",
+        'oa_oquote_nl' => "",
+        'oa_oqoute_sp_s' => "",
+        'oa_oqoute_sp_q' => "",
     );
 
     /**
