@@ -39,7 +39,7 @@ class SitesByKeysController extends CommonController
         if ($this->secondUri) {
             return $this->actionInner();
         }
-        $pageData = $this->myRoot->getPageContent($this->firstUri);
+        $pageData = $this->myRoot->getPageContent($this->firstUri);//echo '<pre>';print_r($pageData);echo '</pre>';exit;
         // Функция для преобразования alias страницы в нужный action
         $action1 = explode("-", $pageData['alias']);
         $action2 = implode(" ", $action1);
