@@ -95,6 +95,7 @@ return [
 	'News delivery done successfully.' => 'Рассылка новости завершилась успешно.',
 	'Action delivery done successfully.' => 'Рассылка акции завершилась успешно.',
 	'The contact person' => 'Контактное лицо',
+	'Request from frondevo.com' =>'Запрос от frondevo.com',
 
 	'Short description' => 'Краткое описание',
 

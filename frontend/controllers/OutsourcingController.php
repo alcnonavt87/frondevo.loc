@@ -173,14 +173,12 @@ class OutsourcingController extends CommonController
         //Добираем статические данные со страницы
         $pageData = $this->myRoot->getPageContent($this->firstUri);
         $data['pageData'] = $pageData;
-        $pageData2 = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], [
-            'sbkdescription', 'textforbackground', 'section1', 'section2', 'sbkworkstext', 'section3', 'sbksmalltitle3', 'sbktitlestep1', 'sbkdeskstep1', 'sbktitlestep2', 'sbkdeskstep2',
-            'sbktitlestep3', 'sbkdeskstep3', 'sbktitlestep4', 'sbkdeskstep4', 'sbktitlestep5', 'sbkdeskstep5', 'sbktitlestep6', 'sbkdeskstep6', 'sbktitlestep7', 'sbkdeskstep7', 'section4',
-            'sbksmalltitle', 'sbkstagetitle1', 'sbkstagetitle2', 'sbkstagetitle3', 'sbkstagetitle4', 'sbkstagetitle5', 'sbkstagetitle6', 'section5', 'imagebgsbk', 'imagebgsbklp', 'imagebgsbkmb'
-        ], [], ['sbkstagelist1', 'sbkstagelist2', 'sbkstagelist3', 'sbkstagelist4', 'sbkstagelist5', 'sbkstagelist6', 'sbkpslist']);
+        $pageData2 = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], ['titlefrontout','titlemiddlefrontout',
+            'titlesmallfrontout','titlesmallfrontout2','imagefrontoutbgbig','imagefrontoutbgsmall'], [], []);
         $data['pageData1'] = $pageData2;
         // Работы отобаржаемые на текстовой странице
         // Работы отобаржаемые на текстовой странице
+
         $works = $this->myWorks->getListForSitesByKeys($this->pageContent['alias']);//echo '<pre>';print_r($data);echo '</pre>';exit;
         $works2 = $this->myWorks->getWorksForSitesByKeys();
         $data['works'] = $works;

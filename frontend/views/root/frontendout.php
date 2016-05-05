@@ -10,9 +10,9 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 <!-- full height -->
             <div class="full-height inner mesh">
                 <picture>
-                    <source srcset="img/bg/site-bg-1200.jpg" media="(min-height: 900px)">
-                    <source srcset="img/bg/site-bg-736.jpg" media="(min-height: 736px)">
-                    <source srcset="img/bg/site-bg-480.jpg" media="(min-height: 480px)"><img src="img/bg/site-bg-480.jpg" alt="" data-fit="cover">
+                    <source srcset="<?php echo('p/pages/bigfrontoutbg-'.$pageData1['imagefrontoutbgbig']) ?>" media="(min-height: 900px)">
+                    <source srcset="<?php echo('p/pages/smallfrontoutbg-'.$pageData1['imagefrontoutbgsmall']) ?>" media="(min-height: 480px)">
+                    <img src="<?php echo('p/pages/smallfrontoutbg-'.$pageData1['imagefrontoutbgsmall']) ?>" alt="" data-fit="cover">
                 </picture>
 
                 <!-- full height  layout -->
@@ -23,13 +23,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                         <!-- fd  title type2 -->
                         <h1 class="fd__title_type2">
-                            <span>
-                                <span>Профессиональная</span>
-                            </span>
-                            <span>Front end разработка</span>
-                            <span>
-                                <span>для решения сложных задач</span>
-                            </span>
+                            <?php echo($pageData1['titlefrontout']) ?>
                         </h1>
                         <!--/fd  title type2 -->
 
@@ -42,13 +36,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                                 <li class="start-screen-cats-items">
 
                                     <!-- start screen cats item content -->
-                                    <div class="start-screen-cats-item-content">
-                                        <div>PSD в HTML5</div>
-                                        <div>PSD в Email шаблоны</div>
-                                    </div>
-                                    <!--/start screen cats item content -->
-
-                                    <div class="start-screen-cats-item-footer">Сжатые сроки разработки</div>
+                                    <?php echo($pageData1['titlemiddlefrontout']) ?>
                                 </li>
                                 <!--/start screen cats items -->
 
@@ -57,13 +45,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                                 <li class="start-screen-cats-items">
 
                                     <!-- start screen cats item content -->
-                                    <div class="start-screen-cats-item-content">
-                                        <div>HTML5 игры</div>
-                                        <div>HTML5 графика и анимации</div>
-                                    </div>
-                                    <!--/start screen cats item content -->
-
-                                    <div class="start-screen-cats-item-footer">Высококачественный код</div>
+                                    <?php echo($pageData1['titlesmallfrontout']) ?>
                                 </li>
                                 <!--/start screen cats items -->
 
@@ -72,13 +54,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                                 <li class="start-screen-cats-items">
 
                                     <!-- start screen cats item content -->
-                                    <div class="start-screen-cats-item-content">
-                                        <div>Javascript разработка</div>
-                                        <div>Разработка на AngularJs</div>
-                                    </div>
-                                    <!--/start screen cats item content -->
-
-                                    <div class="start-screen-cats-item-footer">Умеренная цена</div>
+                                    <?php echo($pageData1['titlesmallfrontout2']) ?>
                                 </li>
                                 <!--/start screen cats items -->
 

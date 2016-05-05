@@ -87,23 +87,42 @@ class FrontendoutupdateController extends \backend\controllers\AdminController {
 				$format = $item['format'];
 				
 				$uploader = explode('-', $uploader);
-				$pathToFolder = '../../frontend/web/';
+				$pathToFolder = $_SERVER['DOCUMENT_ROOT'].'/frontend/web/';
 
 				if ($uploader[0] == 'uploader0') { // одно изображение
 					// если после добавления тут же удалили, то не продолжаем
 					//if (isset($_POST['images'][$uploader[1].'-one-'.$name]) && $_POST['images'][$uploader[1].'-one-'.$name]['deleted']) continue;
-					
-					$fileName = $idRecord.'-'.$uploader[1].$fileExtension;//echo '<pre>';print_r($fileName);echo '</pre>';exit;
-					$fileNameOriginal = "p/pages/original-".$fileName;
-					$fileNameMedium = "p/pages/medium-".$fileName;
+					$fileName = $idRecord.'-'.$uploader[1].$fileExtension;
 
-					// Копируем файл оригинал
-					copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameOriginal);
 
-					if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1') {
-						copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameMedium);
-						$newRow = $myOthers->addImgOneMultiLangs('pages', $uploader[1], $fileName, $imgTitle, $imgWidth, $imgHeight, $idRecord, 'pageId', $pageLang, 1);
-					} else {
+					$fileNameGeneral = Yii::$app->params['pics']['pages']['path']."bigfrontoutbg-".$fileName;
+					$imgGeneralWidth = Yii::$app->params['pics']['pages']['sizes']['imagefrontoutbgbig']['width'];
+					$imgGeneralHeight = Yii::$app->params['pics']['pages']['sizes']['imagefrontoutbgbig']['height'];
+
+					$fileNameSmall = Yii::$app->params['pics']['pages']['path']."smallfrontoutbg-".$fileName;
+					$imgSmallWidth = Yii::$app->params['pics']['pages']['sizes']['imagefrontoutbgsmall']['width'];
+					$imgSmallHeight = Yii::$app->params['pics']['pages']['sizes']['imagefrontoutbgsmall']['height'];
+
+					if ($_SERVER['REMOTE_ADDR'] == '') {
+						if ($uploader[1] == 'imagefrontoutbgbig') {
+							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralWidth, $imgGeneralHeight, $pathToFolder.$fileNameGeneral,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_LZW, 87);
+							$newRow = $myOthers->addImgOneMultiLangsSBK('pages', $uploader[1], $fileName, $imgTitle, $idRecord, 'pageId', $pageLang,1);
+						} else if ($uploader[1] == 'imagefrontoutbgsmall') {
+							$myImagick->makeResizeImageWithOptimalCrop($imgSmallWidth, $imgSmallHeight, $pathToFolder.$fileNameSmall,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_LZW, 87);
+							$newRow = $myOthers->addImgOneMultiLangsSBK('pages', $uploader[1], $fileName, $imgTitle, $idRecord, 'pageId', $pageLang,1);
+
+						};
+
+					}else {
+						if ($uploader[1] == 'imagefrontoutbgbig') {
+							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralWidth, $imgGeneralHeight, $pathToFolder.$fileNameGeneral,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_LZW, 87);
+							$newRow = $myOthers->addImgOneMultiLangsSBK('pages', $uploader[1], $fileName, $imgTitle, $idRecord, 'pageId', $pageLang,1);
+						} else if ($uploader[1] == 'imagefrontoutbgsmall') {
+							$myImagick->makeResizeImageWithOptimalCrop($imgSmallWidth, $imgSmallHeight, $pathToFolder.$fileNameSmall,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_LZW, 87);
+							$newRow = $myOthers->addImgOneMultiLangsSBK('pages', $uploader[1], $fileName, $imgTitle, $idRecord, 'pageId', $pageLang,1);
+
+						};
+
 						/*// Загружаем как есть
 						copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameMedium);
 						$newRow = $myOthers->addImgOneMultiLangs('pages', $uploader[1], $fileName, $imgTitle, $imgWidth, $imgHeight, $idRecord);*/

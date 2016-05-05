@@ -93,7 +93,7 @@ class EmailController extends CommonController
 		$message = Yii::$app->mailer->compose();
 
 		// устанавливаем тему письма
-		$subject = Yii::t('app', 'Commercial request');
+		$subject = 'Request from frondevo.com';
 		$message->setSubject($subject);
 
 		// устанавливаем отправителя

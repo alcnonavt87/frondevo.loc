@@ -29,15 +29,15 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
     <link rel="stylesheet" href="markup/css/main.css">
     <?php if (!empty($PageLangEn) && !empty($PageLangUa)) {
         if ($lang == 'ru'){
-            echo '<link href="'.$PageLangEn.'"hreflang="en" rel="alternate">
+            echo '<link href="'.$PageLangEn.'" hreflang="en" rel="alternate">
               <link href="'.$PageLangUa.'" hreflang="uk-UA" rel="alternate">';
         }
         else if ($lang == 'en') {
-            echo '<link href="'.$PageLangUa.'"hreflang="uk-UA" rel="alternate">
+            echo '<link href="'.$PageLangUa.'" hreflang="uk-UA" rel="alternate">
                   <link href="'.$PageLangRu.'" hreflang="ru-RU" rel="alternate">';
         }
         else if ($lang == 'ua' ) {
-            echo '<link href="'.$PageLangEn.'"hreflang="en" rel="alternate">
+            echo '<link href="'.$PageLangEn.'" hreflang="en" rel="alternate">
                   <link href="'.$PageLangRu.'" hreflang="ru-RU" rel="alternate">';
         }
     }

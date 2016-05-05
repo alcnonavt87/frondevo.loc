@@ -102,8 +102,37 @@ class EditController extends Controller
 			$menuItem['quickButton'] = 0;
 			$menuItem['picking'] = 301;
 			$menu[] = $menuItem;
+            // страница Аутсорсинг фронтенд
+            $menuItem = [];
+            $menuItem['id'] = 1;
+            $menuItem['secondUri'] = 8;
+            $menuItem['groupName'] = 'Аутсорсинг фронтенд';
+            $menuItem['cssKlass'] = 'suitcase';
+            $menuItem['addParam'] = 0;
+            $menuItem['quickButton'] = 0;
+            $menuItem['picking'] = 301;
+            $menu[] = $menuItem;
 
-			// Еще раз сортируем (с учетом добавленных вручную пунктов)
+            $menuItem = [];
+            $menuItem['id'] = 7;
+            $menuItem['groupName'] = 'Ссылки для подвала';
+            $menuItem['cssKlass'] = 'link';
+            $menuItem['addParam'] = 0;
+            $menuItem['quickButton'] = 0;
+            $menuItem['picking'] = 70;
+            $menu[] = $menuItem;
+
+            $menuItem = [];
+            $menuItem['id'] = 4;
+            $menuItem['groupName'] = 'Фильтры для Портфолио под ключ';
+            $menuItem['cssKlass'] = 'filter';
+            $menuItem['addParam'] = 0;
+            $menuItem['quickButton'] = 0;
+            $menuItem['picking'] = 80;
+            $menu[] = $menuItem;
+
+
+            // Еще раз сортируем (с учетом добавленных вручную пунктов)
 			usort($menu, function ($a, $b) {
 				return ($a['picking'] < $b['picking']) ? -1 : 1;
 			});//echo '<pre>';print_r($menu);echo '</pre>';exit;

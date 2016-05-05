@@ -94,5 +94,6 @@ return [
 	'Action delivery done successfully.' => 'Розсилка акції завершилася успішно.',
 	'The contact person' => 'Контактна особа',
 	'Short description' => 'Короткий опис',
+	'Request from frondevo.com' =>'Запит від frondevo.com',
 
 ];

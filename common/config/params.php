@@ -96,6 +96,14 @@ return [
                         'width' => 461,
                         'height' => 275,
                     ],
+                    'imagefrontoutbgbig' => [
+                        'width' => 1920,
+                        'height' => 1100,
+                    ],
+                    'imagefrontoutbgsmall' => [
+                        'width' => 640,
+                        'height' => 1171,
+                    ],
                 ],
 
         ],
