@@ -345,7 +345,7 @@ class Works extends Model
 		// запрос
 		$query = Yii::$app->db->createCommand('SELECT
             `w`.`id`, `w`.`pUrl` as url, `w`.`dateCreated`,
-            IF(`w`.`image` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'generalprtf-", `w`.`imageprtf`), "") as imgPath,
+            IF(`w`.`imageprtf` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'generalprtf-", `w`.`imageprtf`), "") as imgPath,
 			`w`.`imageWidth2` as imgW, `w`.`imageHeight2` as imgH, `wc`.`imageTitle` as imgT,
 
 			`wc`.`pH1` as title, `wc`.`pDescription`

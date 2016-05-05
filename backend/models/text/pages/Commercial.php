@@ -48,6 +48,7 @@ Class Commercial extends Model
             'Text.paragraphs' => 'off',
             'OptAlign.oa_oquote' => 'off',
             'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+            'OptAlign.all' => 'off',
         ]);
         $EMTypograph->set_text($pTitle);
         $pTitle= $EMTypograph->apply();
@@ -55,6 +56,7 @@ Class Commercial extends Model
             'Text.paragraphs' => 'off',
             'OptAlign.oa_oquote' => 'off',
             'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+            'OptAlign.all' => 'off',
         ]);
         $EMTypograph->set_text($pDescription );
         $pDescription = $EMTypograph->apply();
@@ -64,6 +66,7 @@ Class Commercial extends Model
             'Text.paragraphs' => 'off',
             'OptAlign.oa_oquote' => 'off',
             'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+            'OptAlign.all' => 'off',
         ]);
         $pH1 = $EMTypograph->apply();
         $query = Yii::$app->db->createCommand('UPDATE `content`

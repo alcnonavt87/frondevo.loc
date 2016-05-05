@@ -150,6 +150,7 @@ Class Works extends Model
 				'Text.paragraphs' => 'off',
 				'OptAlign.oa_oquote' => 'off',
 				'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+				'OptAlign.all' => 'off',
 		]);
 		$EMTypograph->set_text($postContent['description']);
 		$postContent['description']= $EMTypograph->apply();
@@ -158,6 +159,7 @@ Class Works extends Model
 				'Text.paragraphs' => 'off',
 				'OptAlign.oa_oquote' => 'off',
 				'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+				'OptAlign.all' => 'off',
 		]);
 		$EMTypograph->set_text($postBase['pUrl']);
 		$postBase['pUrl']= $EMTypograph->apply();
@@ -171,14 +173,23 @@ Class Works extends Model
 				'Text.paragraphs' => 'off',
 				'OptAlign.oa_oquote' => 'off',
 				'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+				'OptAlign.all' => 'off',
 		]);
 		$postContent['pTitle'] = $EMTypograph->apply();
 
+
+		$EMTypograph->setup([
+				'Text.paragraphs' => 'off',
+				'OptAlign.oa_oquote' => 'off',
+				'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+				'OptAlign.all' => 'off',
+		]);
 		$EMTypograph->set_text($postContent['pDescription']);
 		$EMTypograph->setup([
 				'Text.paragraphs' => 'off',
 				'OptAlign.oa_oquote' => 'off',
 				'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+				'OptAlign.all' => 'off',
 		]);
 		$postContent['pDescription'] = $EMTypograph->apply();
 
@@ -187,6 +198,8 @@ Class Works extends Model
 				'Text.paragraphs' => 'off',
 				'OptAlign.oa_oquote' => 'off',
 				'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+				'OptAlign.all' => 'off',
+
 		]);
 		$postContent['results'] = $EMTypograph->apply();
 		$data = $postBase;

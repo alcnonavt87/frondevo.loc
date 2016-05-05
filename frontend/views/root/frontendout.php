@@ -79,67 +79,8 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                 <!-- article -->
                 <section class="article fd__digits">
-                    <h2>Цифры о нашей front end команде</h2>
-
-                    <!-- fd  digits row3 -->
-                    <div class="fd__digits-row3">
-
-                        <!-- fd  digits cell -->
-                        <div class="fd__digits-cell">
-
-                              <!-- fd  digits item -->
-                              <div class="fd__digits-item">
-                                  <div>c</div>
-                                  <div class="fd__digits-value">2006</div>
-                                  <div><b>года занимаемся front end разработкой</b></div>
-                              </div>
-                              <!--/fd  digits item -->
-
-                        </div>
-                        <!--/fd  digits cell -->
-
-
-                        <!-- fd  digits cell -->
-                        <div class="fd__digits-cell">
-
-                              <!-- fd  digits item -->
-                              <div class="fd__digits-item">
-                                  <div>опыт работы с</div>
-                                  <div class="fd__digits-value">69</div>
-                                  <div><b>разными клиентами</b></div>
-                              </div>
-                              <!--/fd  digits item -->
-
-                        </div>
-                        <!--/fd  digits cell -->
-
-
-                        <!-- fd  digits cell -->
-                        <div class="fd__digits-cell">
-
-                              <!-- fd  digits item -->
-                              <div class="fd__digits-item">
-                                  <div>реализовано</div>
-                                  <div class="fd__digits-value">200</div>
-                                  <div><b>проектов</b></div>
-                              </div>
-                              <!--/fd  digits item -->
-
-                        </div>
-                        <!--/fd  digits cell -->
-
-                    </div>
-                    <!--/fd  digits row3 -->
-
-
-                          <!-- fd  digits item -->
-                          <div class="fd__digits-item">
-                              <div>суммарно написано</div>
-                              <div class="fd__digits-value">1 200 000</div>
-                              <div><b>строк кода</b></div>
-                          </div>
-                          <!--/fd  digits item -->
-
+                    <h2><?php echo($pageData1['frndoutsect2title']) ?></h2>
+                         <?php echo($pageData1['frndoutsect2data']) ?>
                 </section>
                 <!--/article -->
 

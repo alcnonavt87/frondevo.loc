@@ -174,7 +174,7 @@ class OutsourcingController extends CommonController
         $pageData = $this->myRoot->getPageContent($this->firstUri);
         $data['pageData'] = $pageData;
         $pageData2 = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], ['titlefrontout','titlemiddlefrontout',
-            'titlesmallfrontout','titlesmallfrontout2','imagefrontoutbgbig','imagefrontoutbgsmall'], [], []);
+            'titlesmallfrontout','titlesmallfrontout2','imagefrontoutbgbig','imagefrontoutbgsmall','frndoutsect2title','frndoutsect2data'], [], []);
         $data['pageData1'] = $pageData2;
         // Работы отобаржаемые на текстовой странице
         // Работы отобаржаемые на текстовой странице

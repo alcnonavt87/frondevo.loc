@@ -148,5 +148,14 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 		<!-- imagefrontoutbgbig -->'.$imagefrontoutbgbigOne.'<!-- /imagefrontoutbgbig -->
 		<!-- imagefrontoutbgsmall -->'.$imagefrontoutbgsmallOne.'<!-- /imagefrontoutbgsmall -->
 
+<!-- dataofTeam --><fieldset class="catalog__section">
+	'.$this->createHeader('Данные о команде').'
+	<div class="catalog__section-data">
+
+		<!-- frndoutsect2title -->'.$this->createInput(['id'=> 'frndoutsect2title', 'text' => 'title', 'width' => '400', 'name' => 'content[frndoutsect2title]', 'value' => $pagesItem['frndoutsect2title'], 'attr' => '']).'<!-- /frndoutsect2title -->
+		<!-- frndoutsect2data -->'.$this->createTextArea(['id'=> 'frndoutsect2data', 'text' => 'Данные о команде', 'width' => '800x500', 'name' => 'content[frndoutsect2data]', 'value' => $pagesItem['frndoutsect2data'], 'attr' => '']).'<!-- /frndoutsect2data -->
+	</div>
+</fieldset><!-- /dataofTeam -->
+
                 </fieldset><!-- /sectionPageData --><!-- /createFinish -->'.
             Html::endForm();

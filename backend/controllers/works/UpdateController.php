@@ -185,7 +185,7 @@ class UpdateController extends  \backend\controllers\AdminController
 						$myImagick->makeResizeImageWithOptimalCrop(200, 200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
 						$newRow = $myOthers->addImgOne('works', $uploader[1], $fileName, $imgTitle, 200, 200, $idRecord);*/
 						if ($uploader[1] == "imageprtf") {
-							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralPRTFWidth, $imgGeneralPRTFHeight,$pathToFolder.$fileNameGeneralPRTF, $tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED,1, 0, 0, \imagick::COMPRESSION_NO, 100);
+							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralPRTFWidth, $imgGeneralPRTFHeight,$pathToFolder.$fileNameGeneralPRTF, $tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
 							$newRow = $myOthers->addImgOneMultiLangs('works', $uploader[1], $fileName, $imgTitle, $imgGeneralPRTFWidth, $imgGeneralPRTFHeight,$idRecord, 'idWorks', $pageLang);
 						//загрузка изображений для background
 
@@ -199,7 +199,7 @@ class UpdateController extends  \backend\controllers\AdminController
 							$newRow = $myOthers->addImgOneMultiLangsII('works', $uploader[1], $fileName, $imgTitle, $imgGeneralBGWidth,$imgGeneralBGHeight, $imgMediumBGWidth, $imgMediumBGHeight, $imgSmallBGWidth, $imgSmallBGGHeight, $idRecord, 'idWorks', $pageLang);
 
 						} else if ($uploader[1] == "addpage"){
-							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralADDWidth, $imgGeneralADDHeight, $pathToFolder.$fileNameGeneralADD,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED,1, 0, 0, \imagick::COMPRESSION_NO, 100);
+							$myImagick->makeResizeImageWithOptimalCrop($imgGeneralADDWidth, $imgGeneralADDHeight, $pathToFolder.$fileNameGeneralADD,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_NO, 100);
 							$newRow = $myOthers->addImgOneMultiLangs('works', $uploader[1], $fileName, $imgTitle, $imgGeneralADDWidth, $imgGeneralADDHeight, $idRecord, 'idWorks', $pageLang);	}
 
 

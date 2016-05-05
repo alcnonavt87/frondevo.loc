@@ -3,6 +3,7 @@ namespace backend\models\text\pages;
 
 use Yii;
 use yii\base\Model;
+use corpsepk\yii2emt\EMTypograph;
 
 /**
  * Frontendout
@@ -16,7 +17,7 @@ Class Frontendout extends Model
             `a`.`id`, `a`.`pShow`, `b`.`Url`,
             `b`.`pTitle`, `b`.`pDescription`, `b`.`pKeyWords`, `b`.`pH1`,
             `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`
-			, `titlefrontout`, `titlemiddlefrontout`, `titlesmallfrontout`, `titlefrontout`, `titlemiddlefrontout`, `titlesmallfrontout`, `titlesmallfrontout2`, `imagefrontoutbgbig`, `imagefrontoutbgbigTitle`, `imagefrontoutbgsmall`, `imagefrontoutbgsmallTitle`/*get*/
+			, `titlefrontout`, `titlemiddlefrontout`, `titlesmallfrontout`, `titlefrontout`, `titlemiddlefrontout`, `titlesmallfrontout`, `titlesmallfrontout2`, `imagefrontoutbgbig`, `imagefrontoutbgbigTitle`, `imagefrontoutbgsmall`, `imagefrontoutbgsmallTitle`, `frndoutsect2title`, `frndoutsect2data`/*get*/
         FROM
             `pages` `a`, `content` `b`
         WHERE
@@ -42,6 +43,32 @@ Class Frontendout extends Model
     }
 
 	public function editUpDatePage($pageId, $lang, $pTitle, $pDescription, $pKeyWords, $pH1, $pMenuName, $pBreadCrumbs, $pContent) {
+        $EMTypograph = new EMTypograph();
+        $EMTypograph->setup([
+            'Text.paragraphs' => 'off',
+            'OptAlign.oa_oquote' => 'off',
+            'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+            'OptAlign.all' => 'off',
+        ]);
+        $EMTypograph->set_text($pTitle);
+        $pTitle= $EMTypograph->apply();
+        $EMTypograph->setup([
+            'Text.paragraphs' => 'off',
+            'OptAlign.oa_oquote' => 'off',
+            'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+            'OptAlign.all' => 'off',
+        ]);
+        $EMTypograph->set_text($pDescription );
+        $pDescription = $EMTypograph->apply();
+
+        $EMTypograph->set_text($pH1 );
+        $EMTypograph->setup([
+            'Text.paragraphs' => 'off',
+            'OptAlign.oa_oquote' => 'off',
+            'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+            'OptAlign.all' => 'off',
+        ]);
+        $pH1 = $EMTypograph->apply();
         $query = Yii::$app->db->createCommand('UPDATE `content`
         SET `pTitle` = :pTitle, `pDescription` = :pDescription, `pKeyWords` = :pKeyWords, `pH1` = :pH1,
             `pMenuName` = :pMenuName, `pBreadCrumbs` = :pBreadCrumbs, `pContent` = :pContent
