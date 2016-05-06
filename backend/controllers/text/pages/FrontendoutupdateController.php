@@ -235,7 +235,23 @@ class FrontendoutupdateController extends \backend\controllers\AdminController {
 
 			// Множество текстовых полей "Виды клиентов"
 			$ourclientslist = ArrayHelper::getValue($_POST, 'ourclientslist', []);
-			$myOthers->updateManyFieldsElementIMultiLangsSimple('pages_ourclientslist', $idRecord, $ourclientslist, $pageLang);/* UpdateCodeBottom */
+			$myOthers->updateManyFieldsElementIMultiLangsSimple('pages_ourclientslist', $idRecord, $ourclientslist, $pageLang);
+
+			// Множество текстовых полей "Пункты сроков"
+			$garanties1list = ArrayHelper::getValue($_POST, 'garanties1list', []);
+			$myOthers->updateManyFieldsElementIMultiLangsSimple('pages_garanties1list', $idRecord, $garanties1list, $pageLang);
+
+			// Множество текстовых полей "Пункты поддержки"
+			$garanties2list = ArrayHelper::getValue($_POST, 'garanties2list', []);
+			$myOthers->updateManyFieldsElementIMultiLangsSimple('pages_garanties2list', $idRecord, $garanties2list, $pageLang);
+
+			// Группа чекбоксов "Выбор работ отображаемых на странице"
+			$frontendoutworksIds = ArrayHelper::getValue($_POST, 'frontendoutworksIds', []);
+			$myOthers->updateChGrIds('pages_frontendoutworks', 'idPages', 'idFrontendoutworks', $idRecord, $frontendoutworksIds);
+
+			// Группа чекбоксов "Выбор ссылок отображаемых в футере"
+			$linksIds = ArrayHelper::getValue($_POST, 'linksIds', []);
+			$myOthers->updateChGrIds('pages_links', 'idPages', 'idLinks', $idRecord, $linksIds);/* UpdateCodeBottom */
             
 			// отправляем ответ
             echo $json_data;

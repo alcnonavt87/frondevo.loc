@@ -52,7 +52,27 @@ class FrontendoutEditController extends \backend\controllers\AdminController {
 				}
 
 				// Множественные изображения "Лого наших клиентов"
-				$imageourclientslogo = $myOthers->getImgManyMultiLangs('pages_imageourclientslogo', 'idPages', $idRecord, $pageLang);/* UpdateCode */
+				$imageourclientslogo = $myOthers->getImgManyMultiLangs('pages_imageourclientslogo', 'idPages', $idRecord, $pageLang);
+
+				// Множественные изображения "Лого компаний"
+				$imageourcompanieslogo = $myOthers->getImgManyMultiLangs('pages_imageourcompanieslogo', 'idPages', $idRecord, $pageLang);
+
+				// Множество текстовых полей "Пункты сроков"
+				$garanties1list = $myOthers->getManyFieldsElementMultiLangs('pages_garanties1list', $idRecord, $pageLang);
+				if (!$garanties1list) {
+					$garanties1list = $myOthers->getManyFieldsElementEmpty();
+				}
+
+				// Множество текстовых полей "Пункты поддержки"
+				$garanties2list = $myOthers->getManyFieldsElementMultiLangs('pages_garanties2list', $idRecord, $pageLang);
+				if (!$garanties2list) {
+					$garanties2list = $myOthers->getManyFieldsElementEmpty();
+				}
+
+
+				// Группа чекбоксов "Выбор ссылок отображаемых в футере"
+				$links = $myOthers->getChGrSourceIdsMultiLangs('links', 'title', $pageLang);
+				$linksIds = $myOthers->getChGrTargetIds('pages_links', 'idPages', 'idLinks', $idRecord);/* UpdateCode */
 
                 $content = '';
                 $navMenu = '';

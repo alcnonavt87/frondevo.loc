@@ -15,7 +15,7 @@ return [
     
     'nameDB' => [
 		'dev' => 'frondevo',
-		'demo' => '',
+		'demo' => 'frondevo_new',
 		'prod' => '',
 	],
     'insertRows' => 50,

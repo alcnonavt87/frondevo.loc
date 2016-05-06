@@ -187,7 +187,97 @@ if ($imagesCount > 0) {
 			</div>';
 }
 $imageourclientslogoMany .= '</fieldset>';
-// Вывод нескольких изображеий "Лого наших клиентов" КОНЕЦ/* UpdateCode */
+// Вывод нескольких изображеий "Лого наших клиентов" КОНЕЦ
+
+
+
+// Вывод нескольких изображений "Лого компаний" НАЧАЛО
+$imagesCount = count($imageourcompanieslogo);
+$imageourcompanieslogoMany = '<fieldset class="catalog__section">'.
+$this->createHeader('Лого компаний');
+if ($imagesCount > 0) {
+	$imageourcompanieslogoMany .= '<div class="fa__uploader" id="uploader1-imageourcompanieslogo" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файлы
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">';
+
+	for ($i = 0; $i < $imagesCount; $i++) {
+		$imageourcompanieslogoMany .= '<div class="fa__file">
+						<a href="/frontend/web/p/pages/original-'.$imageourcompanieslogo[$i]['img'].'" title="'.$imageourcompanieslogo[$i]['imgTitle'].'" class="cboxElement" rel="uploader1-imageourcompanieslogo">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/frontend/web/p/pages/medium-'.$imageourcompanieslogo[$i]['img'].'" width="100%" height="auto" alt="'.$imageourcompanieslogo[$i]['imgTitle'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[imageourcompanieslogo-'.$imageourcompanieslogo[$i]['id'].'][imgTitle]" value="'.$this->getCodeStr($imageourcompanieslogo[$i]['imgTitle']).'">
+								<input class="place-fld" type="hidden" name="images[imageourcompanieslogo-'.$imageourcompanieslogo[$i]['id'].'][picking]" value="'.$imageourcompanieslogo[$i]['order'].'">
+								<input class="item-id" type="hidden" name="images[imageourcompanieslogo-'.$imageourcompanieslogo[$i]['id'].'][imgId]" value="imageourcompanieslogo-'.$imageourcompanieslogo[$i]['id'].'">
+								<input class="item-deleted" type="hidden" name="images[imageourcompanieslogo-'.$imageourcompanieslogo[$i]['id'].'][deleted]" value="0">
+								<input class="item-groupName" type="hidden" name="images[imageourcompanieslogo-'.$imageourcompanieslogo[$i]['id'].'][groupName]" value="uploader1-imageourcompanieslogo">
+							</span>
+							<span class="fa__file-title">'.$imageourcompanieslogo[$i]['imgTitle'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>';
+	}
+
+	$imageourcompanieslogoMany .= '</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+			</div>';
+} else {
+	$imageourcompanieslogoMany .= '<div class="fa__uploader" id="uploader1-imageourcompanieslogo" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файлы
+					<input id="fileupload" type="file" name="files[]" multiple">
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+			</div>';
+}
+$imageourcompanieslogoMany .= '</fieldset>';
+// Вывод нескольких изображеий "Лого компаний" КОНЕЦ
+
+
+
+// Группа чекбоксов "Выбор работ отображаемых на странице"
+$frontendoutworksList = [];
+foreach ($links as $key => $item) {
+	$checked = '';
+
+	if (in_array($item['id'], $linksIds)) {
+		$checked = 'checked="checked"';
+	}
+
+	$frontendoutworksList[] = ['id'=> 'frontendoutworks'.$key, 'text' => $item['title'], 'width' => 400, 'name' => 'frontendoutworksIds[]', 'value' => $item['id'], 'attr' => $checked];
+}
+
+
+
+// Группа чекбоксов "Выбор ссылок отображаемых в футере"
+$linksList = [];
+foreach ($links as $key => $item) {
+	$checked = '';
+	
+	if (in_array($item['id'], $linksIds)) {
+		$checked = 'checked="checked"';
+	}
+	
+	$linksList[] = ['id'=> 'links'.$key, 'text' => $item['title'], 'width' => 400, 'name' => 'linksIds[]', 'value' => $item['id'], 'attr' => $checked];
+}/* UpdateCode */
 
 $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'].'/'.$pageLang, 'post', ['id'=>"form-edit-content"]).
                 '<!-- sectionPageData --><fieldset class="catalog__section">
@@ -207,6 +297,7 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 		<!-- titlemiddlefrontout -->'.$this->createTextArea(['id'=> 'titlemiddlefrontout', 'text' => 'Title small 1', 'width' => '400x100', 'name' => 'content[titlemiddlefrontout]', 'value' => $pagesItem['titlemiddlefrontout'], 'attr' => '']).'<!-- /titlemiddlefrontout -->
 		<!-- titlesmallfrontout -->'.$this->createTextArea(['id'=> 'titlesmallfrontout', 'text' => 'Title small 2', 'width' => '400x100', 'name' => 'content[titlesmallfrontout]', 'value' => $pagesItem['titlesmallfrontout'], 'attr' => '']).'<!-- /titlesmallfrontout -->
 		<!-- titlesmallfrontout2 -->'.$this->createTextArea(['id'=> 'titlesmallfrontout2', 'text' => 'Title small 3', 'width' => '400x100', 'name' => 'content[titlesmallfrontout2]', 'value' => $pagesItem['titlesmallfrontout2'], 'attr' => '']).'<!-- /titlesmallfrontout2 -->
+		<!-- linkvideobgfrnout -->'.$this->createInput(['id'=> 'linkvideobgfrnout', 'text' => 'Ссылка на видео для background', 'placeholder' => '', 'width' => 400, 'name' => 'content[linkvideobgfrnout]', 'value' => $pagesItem['linkvideobgfrnout'], 'attr' => '']).'<!-- /linkvideobgfrnout -->
 		<!-- imagefrontoutbgbig -->'.$imagefrontoutbgbigOne.'<!-- /imagefrontoutbgbig -->
 		<!-- imagefrontoutbgsmall -->'.$imagefrontoutbgsmallOne.'<!-- /imagefrontoutbgsmall -->
 
@@ -243,6 +334,84 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 		<!-- imageourclientslogo -->'.$imageourclientslogoMany.'<!-- /imageourclientslogo -->
 	</div>
 </fieldset><!-- /ourclients -->
+
+<!-- othervariants --><fieldset class="catalog__section">
+	'.$this->createHeader('Вариатны сотрудничества').'
+	<div class="catalog__section-data">
+		<!-- othervariantstitle -->'.$this->createTextArea(['id'=> 'othervariantstitle', 'text' => 'title', 'width' => '400x100', 'name' => 'content[othervariantstitle]', 'value' => $pagesItem['othervariantstitle'], 'attr' => '']).'<!-- /othervariantstitle -->
+		<!-- othervariants1title -->'.$this->createInput(['id'=> 'othervariants1title', 'text' => 'Вариант №1 title', 'placeholder' => '', 'width' => 400, 'name' => 'content[othervariants1title]', 'value' => $pagesItem['othervariants1title'], 'attr' => '']).'<!-- /othervariants1title -->
+		<!-- othervariants1text -->'.$this->createInput(['id'=> 'othervariants1text', 'text' => 'Вариант №1 ', 'placeholder' => '', 'width' => 400, 'name' => 'content[othervariants1text]', 'value' => $pagesItem['othervariants1text'], 'attr' => '']).'<!-- /othervariants1text -->
+		<!-- othervariants2title -->'.$this->createInput(['id'=> 'othervariants2title', 'text' => 'Вариант №2 title', 'placeholder' => '', 'width' => 400, 'name' => 'content[othervariants2title]', 'value' => $pagesItem['othervariants2title'], 'attr' => '']).'<!-- /othervariants2title -->
+		<!-- othervariants2text -->'.$this->createInput(['id'=> 'othervariants2text', 'text' => 'Вариант №2 ', 'placeholder' => '', 'width' => 400, 'name' => 'content[othervariants2text]', 'value' => $pagesItem['othervariants2text'], 'attr' => '']).'<!-- /othervariants2text -->
+
+	</div>
+</fieldset><!-- /othervariants -->
+
+<!-- ourcompanies --><fieldset class="catalog__section">
+	'.$this->createHeader('Компании').'
+	<div class="catalog__section-data">
+		<!-- ourcompaniestitle -->'.$this->createTextArea(['id'=> 'ourcompaniestitle', 'text' => 'Компанни title', 'width' => '400x100', 'name' => 'content[ourcompaniestitle]', 'value' => $pagesItem['ourcompaniestitle'], 'attr' => '']).'<!-- /ourcompaniestitle -->
+		<!-- imageourcompanieslogo -->'.$imageourcompanieslogoMany.'<!-- /imageourcompanieslogo -->
+
+<!-- frontendoutworks --><fieldset class="catalog__section">
+	'.$this->createHeader('Примеры работ frontend').'
+	<div class="catalog__section-data">
+
+		<!-- frontendoutworkstitle -->'.$this->createTextArea(['id'=> 'frontendoutworkstitle', 'text' => 'title', 'width' => '400x100', 'name' => 'content[frontendoutworkstitle]', 'value' => $pagesItem['frontendoutworkstitle'], 'attr' => '']).'<!-- /frontendoutworkstitle -->
+		'.$this->createHeader('Выбор работ отображаемых на странице').'
+		<!-- frontendoutworks -->'.$this->createCheckBoxGroup(['list' => $frontendoutworksList]).'<!-- /frontendoutworks -->
+	</div>
+</fieldset><!-- /frontendoutworks -->
+
+<!-- garanties --><fieldset class="catalog__section">
+	'.$this->createHeader('Гарантии').'
+	<div class="catalog__section-data">
+		<!-- garantiesbgword -->'.$this->createInput(['id'=> 'garantiesbgword', 'text' => 'Текст для background', 'placeholder' => '', 'width' => 400, 'name' => 'content[garantiesbgword]', 'value' => $pagesItem['garantiesbgword'], 'attr' => '']).'<!-- /garantiesbgword -->
+		<!-- garanties1title -->'.$this->createTextArea(['id'=> 'garanties1title', 'text' => 'Сроки title', 'width' => '400x100', 'name' => 'content[garanties1title]', 'value' => $pagesItem['garanties1title'], 'attr' => '']).'<!-- /garanties1title -->
+		<!-- garanties1list --><div class="input-row__group-wrap">';
+			for ($i = 0; $i < count($garanties1list); $i++) {
+				if ($i == count($garanties1list)-1) {
+					$content .= '<div class="input-row input-wrap input-row__group">
+						<label class="input__label" for="' . $i . '">Пункт сроков</label>
+						<input placeholder="" id="' . $i . '" name="garanties1list[]" class="input catalog_input input-width_400" type="text" value="' . $this->getCodeStr($garanties1list[$i]['text']) . '" />
+						<div class="button button__block button_copy-block"></div>
+					</div>';
+					continue;
+				}
+				
+				$content .= '<div class="input-row input-wrap input-row__group">
+					<label class="input__label" for="' . $i . '">Пункт сроков</label>
+					<input placeholder="" id="' . $i . '" name="garanties1list[]" class="input catalog_input input-width_400" type="text" value="' . $this->getCodeStr($garanties1list[$i]['text']) . '" />
+					<div class="button button__block button_remove-block"></div>
+				</div>';
+			}
+		$content .= '</div><!-- /garanties1list -->
+		<!-- garanties2title -->'.$this->createTextArea(['id'=> 'garanties2title', 'text' => 'Поддержка title', 'width' => '400x100', 'name' => 'content[garanties2title]', 'value' => $pagesItem['garanties2title'], 'attr' => '']).'<!-- /garanties2title -->
+		<!-- garanties2list --><div class="input-row__group-wrap">';
+			for ($i = 0; $i < count($garanties2list); $i++) {
+				if ($i == count($garanties2list)-1) {
+					$content .= '<div class="input-row input-wrap input-row__group">
+						<label class="input__label" for="' . $i . '">Пункт поддержки</label>
+						<input placeholder="" id="' . $i . '" name="garanties2list[]" class="input catalog_input input-width_400" type="text" value="' . $this->getCodeStr($garanties2list[$i]['text']) . '" />
+						<div class="button button__block button_copy-block"></div>
+					</div>';
+					continue;
+				}
+				
+				$content .= '<div class="input-row input-wrap input-row__group">
+					<label class="input__label" for="' . $i . '">Пункт поддержки</label>
+					<input placeholder="" id="' . $i . '" name="garanties2list[]" class="input catalog_input input-width_400" type="text" value="' . $this->getCodeStr($garanties2list[$i]['text']) . '" />
+					<div class="button button__block button_remove-block"></div>
+				</div>';
+			}
+
+		$content .= '</div><!-- /garanties2list -->
+     '.$this->createHeader('Выбор ссылок отображаемых в футере').'
+		<!-- links -->'.$this->createCheckBoxGroup(['list' => $linksList]).'<!-- /links -->
+	</div>
+</fieldset><!-- /garanties -->
+	</div>
+</fieldset><!-- /ourcompanies -->
 
 
                 </fieldset><!-- /sectionPageData --><!-- /createFinish -->'.
