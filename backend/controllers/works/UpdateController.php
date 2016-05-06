@@ -29,6 +29,17 @@ class UpdateController extends  \backend\controllers\AdminController
 			$myWorks = new Works();
 			$myImagick = new Imagick();
 
+			// Сортировка в list-таблице
+			if (!$id2Uri && isset($_POST['list'])) {
+				$listIndexes = $_POST['list'];
+				$newIndexes = json_decode($listIndexes);
+
+				$orderField = 'order';
+
+				$myOthers->sortTable('works', 'id', $newIndexes, $orderField);
+				exit;
+			}
+
 			$hostName = Yii::$app->params['hostName'];
 			$admPanelUri = Yii::$app->homeUrl;
 

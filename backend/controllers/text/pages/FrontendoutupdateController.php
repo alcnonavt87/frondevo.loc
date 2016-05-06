@@ -172,9 +172,9 @@ class FrontendoutupdateController extends \backend\controllers\AdminController {
 						copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameMedium);
 						$newRow = $myOthers->addImgManyMultiLangs('pages_'.$uploader[1], 'idPages', $idRecord, $fileName, $imgTitle, $imgWidth, $imgHeight, $pageLang);
 					} else {
-						/*// Загружаем как есть
+
 						copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameMedium);
-						$newRow = $myOthers->addImgManyMultiLangs('pages_'.$uploader[1], 'idAdvices2', $idRecord, $fileName, $imgTitle, $imgWidth, $imgHeight, $pageLang);*/
+						$newRow = $myOthers->addImgManyMultiLangs('pages_'.$uploader[1], 'idPages', $idRecord, $fileName, $imgTitle, $imgWidth, $imgHeight, $pageLang);
 						
 						/*// Создаём файл нужного размера по ширине
 						$h = $myImagick->makeResizeImageByWidth(200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
@@ -231,7 +231,11 @@ class FrontendoutupdateController extends \backend\controllers\AdminController {
 						}
 					}
 				}
-			}/* UpdateCodeBottom */
+			}
+
+			// Множество текстовых полей "Виды клиентов"
+			$ourclientslist = ArrayHelper::getValue($_POST, 'ourclientslist', []);
+			$myOthers->updateManyFieldsElementIMultiLangsSimple('pages_ourclientslist', $idRecord, $ourclientslist, $pageLang);/* UpdateCodeBottom */
             
 			// отправляем ответ
             echo $json_data;

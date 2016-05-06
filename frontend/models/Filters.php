@@ -22,7 +22,7 @@ class Filters extends Model
 		$fields = '';
 		$join = '';
 		$where = '';
-		$orderBy = '`f`.`id`';
+		$orderBy = '`f`.`order`';
 		$pUrl = '';
 		
 		// условия

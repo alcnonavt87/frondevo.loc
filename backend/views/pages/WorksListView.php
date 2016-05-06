@@ -46,7 +46,7 @@ $content .= '<div id="content__table" class="content__table content__table_filte
 
 	$content .= '<!-- pagination -->';
 
-	$content .= '<table class="table" data-action="/'.$idPageGroup.'" data-method="post" data-module="table" data-href="formedit">';
+	$content .= '<table class="table" data-action="/'.$idPageGroup.'" data-method="post" data-module="table"  data-dragsort-url="formupdate">';
 
 		$content .= '<thead>
 			<tr>
@@ -58,12 +58,12 @@ $content .= '<div id="content__table" class="content__table content__table_filte
 				<th data-sorter="false" class="td__edit-cell2">&nbsp;</th>
 			</tr>
 		</thead>
-		<tbody>';
+		<tbody data-module="drag_sort">';
 
 $countRecords = count($works);
 for($i = 0; $i < $countRecords; $i++)
 {
-	$content .= '<tr data-id = "'.$works[$i]['id'].'/'.$pageLang.'">';
+	$content .= '<tr data-id = "'.$works[$i]['id'].'/'.$pageLang.'" data-index="'.$works[$i]['id'].'" draggable="draggable">';
 				$content .= '<!--<td>'.($i + 1).'</td>
 				<td class="table__col-left"><b>'.$works[$i]['id'].'</b></td>-->
 				<td class="table__col-left">'.$works[$i]['pH1'].'</td>

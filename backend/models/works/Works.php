@@ -38,7 +38,7 @@ Class Works extends Model
 			`idWorks` = `id` AND
 			`lang` = :lang
 		ORDER BY
-			`dateCreated` ASC'
+			`order` ASC'
 		.$limit
 		.$offset)
 		->bindValue(':lang', $lang);

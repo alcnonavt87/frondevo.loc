@@ -276,11 +276,11 @@ class Root extends Model
     public function getMultiImageData($entity, $itemId)
     {
         $query = Yii::$app->db->createCommand('SELECT
-			`pe`.`id`, IF(`pe`.`img` <> "", CONCAT("/' . Yii::$app->params['pics']['pages']['path'] . 'medium-", `pe`.`img`), "") as img,
+			`pe`.`id`, IF(`pe`.`img` <> "", CONCAT("' . Yii::$app->params['pics']['pages']['path'] . 'medium-", `pe`.`img`), "") as img,
 			`pe`.`imgWidth` as imgW, `pe`.`imgHeight` as imgH,
-			`pe`.`id`, IF(`pe`.`img` <> "", CONCAT("/' . Yii::$app->params['pics']['pages']['path'] . 'original-", `pe`.`img`), "") as imgOriginal,
-			`pe`.`id`, IF(`pe`.`img` <> "", CONCAT("/' . Yii::$app->params['pics']['pages']['path'] . 'general-", `pe`.`img`), "") as imgGeneral,
-			`pe`.`id`, IF(`pe`.`img` <> "", CONCAT("/' . Yii::$app->params['pics']['pages']['path'] . 'mob-", `pe`.`img`), "") as imgMob,
+			`pe`.`id`, IF(`pe`.`img` <> "", CONCAT("' . Yii::$app->params['pics']['pages']['path'] . 'original-", `pe`.`img`), "") as imgOriginal,
+			`pe`.`id`, IF(`pe`.`img` <> "", CONCAT("' . Yii::$app->params['pics']['pages']['path'] . 'general-", `pe`.`img`), "") as imgGeneral,
+			`pe`.`id`, IF(`pe`.`img` <> "", CONCAT("' . Yii::$app->params['pics']['pages']['path'] . 'mob-", `pe`.`img`), "") as imgMob,
 			`pec`.`imgTitle` as imgT
 		FROM
 			`pages_' . $entity . '` `pe`, `pages_' . $entity . '_content` `pec`, `pages` `p`

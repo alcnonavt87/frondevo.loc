@@ -43,7 +43,16 @@ class FrontendoutEditController extends \backend\controllers\AdminController {
 
                 //Хлебные крошки
                 $pageGroupData = $myOthers->getPageGroupData($id1Uri);
-                $textPageHeader = $myOthers->getTextPageHeader($idPage, $defLang);/* UpdateCode */
+                $textPageHeader = $myOthers->getTextPageHeader($idPage, $defLang);
+
+				// Множество текстовых полей "Виды клиентов"
+				$ourclientslist = $myOthers->getManyFieldsElementMultiLangs('pages_ourclientslist', $idRecord, $pageLang);
+				if (!$ourclientslist) {
+					$ourclientslist = $myOthers->getManyFieldsElementEmpty();
+				}
+
+				// Множественные изображения "Лого наших клиентов"
+				$imageourclientslogo = $myOthers->getImgManyMultiLangs('pages_imageourclientslogo', 'idPages', $idRecord, $pageLang);/* UpdateCode */
 
                 $content = '';
                 $navMenu = '';

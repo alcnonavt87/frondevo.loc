@@ -17,7 +17,7 @@ Class Frontendout extends Model
             `a`.`id`, `a`.`pShow`, `b`.`Url`,
             `b`.`pTitle`, `b`.`pDescription`, `b`.`pKeyWords`, `b`.`pH1`,
             `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`
-			, `titlefrontout`, `titlemiddlefrontout`, `titlesmallfrontout`, `titlefrontout`, `titlemiddlefrontout`, `titlesmallfrontout`, `titlesmallfrontout2`, `imagefrontoutbgbig`, `imagefrontoutbgbigTitle`, `imagefrontoutbgsmall`, `imagefrontoutbgsmallTitle`, `frndoutsect2title`, `frndoutsect2data`/*get*/
+			, `titlefrontout`, `titlemiddlefrontout`, `titlesmallfrontout`, `titlefrontout`, `titlemiddlefrontout`, `titlesmallfrontout`, `titlesmallfrontout2`, `imagefrontoutbgbig`, `imagefrontoutbgbigTitle`, `imagefrontoutbgsmall`, `imagefrontoutbgsmallTitle`, `frndoutsect2title`, `frndoutsect2data`, `frndoutsect3title`/*get*/
         FROM
             `pages` `a`, `content` `b`
         WHERE

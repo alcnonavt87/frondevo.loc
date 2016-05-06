@@ -125,7 +125,69 @@ if ($pagesItem['imagefrontoutbgsmall'] <> '') {
 		</div>';
 }
 $imagefrontoutbgsmallOne .= '</fieldset>';
-// Вывод одного изображения "Изображение для background(mobile 640x1171)" КОНЕЦ/* UpdateCode */
+// Вывод одного изображения "Изображение для background(mobile 640x1171)" КОНЕЦ
+
+
+
+// Вывод нескольких изображений "Лого наших клиентов" НАЧАЛО
+$imagesCount = count($imageourclientslogo);
+$imageourclientslogoMany = '<fieldset class="catalog__section">'.
+$this->createHeader('Лого наших клиентов');
+if ($imagesCount > 0) {
+	$imageourclientslogoMany .= '<div class="fa__uploader" id="uploader1-imageourclientslogo" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файлы
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">';
+
+	for ($i = 0; $i < $imagesCount; $i++) {
+		$imageourclientslogoMany .= '<div class="fa__file">
+						<a href="/frontend/web/p/pages/original-'.$imageourclientslogo[$i]['img'].'" title="'.$imageourclientslogo[$i]['imgTitle'].'" class="cboxElement" rel="uploader1-imageourclientslogo">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/frontend/web/p/pages/medium-'.$imageourclientslogo[$i]['img'].'" width="100%" height="auto" alt="'.$imageourclientslogo[$i]['imgTitle'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[imageourclientslogo-'.$imageourclientslogo[$i]['id'].'][imgTitle]" value="'.$this->getCodeStr($imageourclientslogo[$i]['imgTitle']).'">
+								<input class="place-fld" type="hidden" name="images[imageourclientslogo-'.$imageourclientslogo[$i]['id'].'][picking]" value="'.$imageourclientslogo[$i]['order'].'">
+								<input class="item-id" type="hidden" name="images[imageourclientslogo-'.$imageourclientslogo[$i]['id'].'][imgId]" value="imageourclientslogo-'.$imageourclientslogo[$i]['id'].'">
+								<input class="item-deleted" type="hidden" name="images[imageourclientslogo-'.$imageourclientslogo[$i]['id'].'][deleted]" value="0">
+								<input class="item-groupName" type="hidden" name="images[imageourclientslogo-'.$imageourclientslogo[$i]['id'].'][groupName]" value="uploader1-imageourclientslogo">
+							</span>
+							<span class="fa__file-title">'.$imageourclientslogo[$i]['imgTitle'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>';
+	}
+
+	$imageourclientslogoMany .= '</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+			</div>';
+} else {
+	$imageourclientslogoMany .= '<div class="fa__uploader" id="uploader1-imageourclientslogo" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файлы
+					<input id="fileupload" type="file" name="files[]" multiple">
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+			</div>';
+}
+$imageourclientslogoMany .= '</fieldset>';
+// Вывод нескольких изображеий "Лого наших клиентов" КОНЕЦ/* UpdateCode */
 
 $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'].'/'.$pageLang, 'post', ['id'=>"form-edit-content"]).
                 '<!-- sectionPageData --><fieldset class="catalog__section">
@@ -156,6 +218,32 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 		<!-- frndoutsect2data -->'.$this->createTextArea(['id'=> 'frndoutsect2data', 'text' => 'Данные о команде', 'width' => '800x500', 'name' => 'content[frndoutsect2data]', 'value' => $pagesItem['frndoutsect2data'], 'attr' => '']).'<!-- /frndoutsect2data -->
 	</div>
 </fieldset><!-- /dataofTeam -->
+<!-- ourclients --><fieldset class="catalog__section">
+	'.$this->createHeader('Наши клиенты').'
+	<div class="catalog__section-data">
+		<!-- frndoutsect3title -->'.$this->createTextArea(['id'=> 'frndoutsect3title', 'text' => 'title', 'width' => '400x100', 'name' => 'content[frndoutsect3title]', 'value' => $pagesItem['frndoutsect3title'], 'attr' => '']).'<!-- /frndoutsect3title -->
+		<!-- ourclientslist --><div class="input-row__group-wrap">';
+			for ($i = 0; $i < count($ourclientslist); $i++) {
+				if ($i == count($ourclientslist)-1) {
+					$content .= '<div class="input-row input-wrap input-row__group">
+						<label class="input__label" for="' . $i . '">Виды клиетов</label>
+						<input placeholder="" id="' . $i . '" name="ourclientslist[]" class="input catalog_input input-width_400" type="text" value="' . $this->getCodeStr($ourclientslist[$i]['text']) . '" />
+						<div class="button button__block button_copy-block"></div>
+					</div>';
+					continue;
+				}
+				
+				$content .= '<div class="input-row input-wrap input-row__group">
+					<label class="input__label" for="' . $i . '">Виды клиентов</label>
+					<input placeholder="" id="' . $i . '" name="ourclientslist[]" class="input catalog_input input-width_400" type="text" value="' . $this->getCodeStr($ourclientslist[$i]['text']) . '" />
+					<div class="button button__block button_remove-block"></div>
+				</div>';
+			}
+		$content .= '</div><!-- /ourclientslist -->
+		<!-- imageourclientslogo -->'.$imageourclientslogoMany.'<!-- /imageourclientslogo -->
+	</div>
+</fieldset><!-- /ourclients -->
+
 
                 </fieldset><!-- /sectionPageData --><!-- /createFinish -->'.
             Html::endForm();

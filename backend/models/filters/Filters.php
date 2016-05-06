@@ -37,7 +37,7 @@ Class Filters extends Model
 			`idFilters` = `id` AND
 			`lang` = :lang
 		ORDER BY
-			`id` ASC'
+			`order` ASC'
 		.$limit
 		.$offset)
 		->bindValue(':lang', $lang);

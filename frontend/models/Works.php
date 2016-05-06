@@ -311,7 +311,7 @@ class Works extends Model
 		$fields = '';
 		$join = '';
 		$where = '';
-		$orderBy = '`w`.`id`';
+		$orderBy = '`w`.`order`';
 		$pUrl = '';
 
 		// условия

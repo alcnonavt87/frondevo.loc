@@ -94,16 +94,18 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                     </div>
                     <!--/stages  back -->
 
-                    <div class="stages__back stages__back-2"><img src="img/sites/frondevo.png" alt="Сайты" width="4826" height="612" class="hor-ind"></div>
+                    <div class="stages__back stages__back-2"><img src="markup/img/sites/frondevo.png" alt="Сайты" width="4826" height="612" class="hor-ind"></div>
 
                     <!-- stages  wrap -->
                     <div class="stages__wrap">
-                        <h2>Находим общий язык <br/>с самыми разными клиентами</h2>
+                        <h2><?php echo($pageData1['frndoutsect3title']) ?></h2>
                         <h3>
-                            <span>Стартапы</span>
-                            <span>Digital и рекламные агентства</span>
-                            <span>веб студии</span>
-                            <span>фрилансеры</span>
+                            <?php foreach ($pageData1['ourclientslist'] as $pslist) { ?>
+
+                                <span><?php echo $pslist['text'] ?></span>
+
+                            <?php } ?>
+
                         </h3>
 
                         <!-- fd  logos -->
@@ -112,109 +114,18 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                             <!-- fd  logos list -->
                             <ul class="fd__logos-list">
 
-                                <!-- fd  logos item -->
+
+                                <?php foreach ($pageData1['imageourclientslogo'] as $clientlogo) { ?>
                                 <li class="fd__logos-item">
-
-                                    <!-- item.href -->
-                                    <a href="#"><img src="pic/logos/adwatch.png" width="228" height="26" alt="Adwatch">
-                                    </a>
-                                    <!--/item.href -->
-
+                                    <span><img src="<?php echo $clientlogo['img'] ?>" alt=""</span>
                                 </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/logos/folga.png" width="94" height="46" alt="Folga">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/logos/ebola.png" width="165" height="41" alt="Ebola">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/logos/vision.png" width="78" height="81" alt="Vision">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/logos/platbox.png" width="189" height="47" alt="Platbxo">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/logos/rulevoy.png" width="125" height="36" alt="Rulevoy">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/logos/cmg.png" width="117" height="63" alt="CMG">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/logos/alterplay.png" width="140" height="29" alt="Alterplay">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/logos/trand.png" width="111" height="23" alt="Trand">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/logos/stfalcon.png" width="179" height="36" alt="Stfalcon.com">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
+                                <?php } ?>
 
                             </ul>
                             <!--/fd  logos list -->
 
                         </div>
-                        <!--/fd  logos -->
 
-                        <!--.stages__layout.stages__layout_five.hor-wrapper(data-indicators="indicators1")
-                        div.stages__scroll.hor-scroller.hor-scrollbar.hor-snap-mobile
-                            ul.stages__list
-                                each item, index in logos
-                                    li.stages__item.hor-sizing.hor-snap
-                                        each item2, index2 in item
-                                            div.stages__img
-                                                if (item2.href)
-                                                    a(href=item2.href)
-                                                    +img(item2)
-                                                else
-                                                    span
-                                                    +img(item2)
-                                                    -->
                     </div>
                     <!--/stages  wrap -->
 
