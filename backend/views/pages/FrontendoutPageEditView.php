@@ -23,7 +23,7 @@ $content = '<ul class="crumbs">
 
 // Вывод одного изображения "Изображение для background(desktop 1950x1100)" НАЧАЛО
 $imagefrontoutbgbigOne = '<fieldset class="catalog__section">'.
-$this->createHeader('Изображение для background(desktop 1950x1100)');
+$this->createHeader('Изображение для background(desktop 1920x1100)');
 if ($pagesItem['imagefrontoutbgbig'] <> '') {
 	$imagefrontoutbgbigOne .= '<div class="fa__uploader single" id="uploader0-imagefrontoutbgbig" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
 				<span class="content__menu-item content__menu-item_upload">

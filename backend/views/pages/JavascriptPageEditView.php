@@ -23,7 +23,7 @@ $content = '<ul class="crumbs">
 
 // Вывод одного изображения "Изображение для background(desktop 1950x1100)" НАЧАЛО
 $imagejavascript5bgbigOne = '<fieldset class="catalog__section">'.
-$this->createHeader('Изображение для background(desktop 1950x1100)');
+$this->createHeader('Изображение для background(desktop 1920x1100)');
 if ($pagesItem['imagejavascript5bgbig'] <> '') {
 	$imagejavascript5bgbigOne .= '<div class="fa__uploader single" id="uploader0-imagejavascript5bgbig" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
 				<span class="content__menu-item content__menu-item_upload">
@@ -142,10 +142,10 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 
                 <fieldset class="catalog__section">
                 '.$this->createHeader('Главный экран').'
-                <!-- javascriptmainscreentitle -->'.$this->createTextArea(['id'=> 'javascriptmainscreentitle', 'text' => 'maintitle', 'width' => '400x100', 'name' => 'content[javascriptmainscreentitle]', 'value' => $pagesItem['javascriptmainscreentitle'], 'attr' => '']).'<!-- /javascriptmainscreentitle -->
-		<!-- javascriptmainscreentitle1 -->'.$this->createTextArea(['id'=> 'javascriptmainscreentitle1', 'text' => 'titlemedium 1', 'width' => '400x100', 'name' => 'content[javascriptmainscreentitle1]', 'value' => $pagesItem['javascriptmainscreentitle1'], 'attr' => '']).'<!-- /javascriptmainscreentitle1 -->
-		<!-- javascriptmainscreentitle2 -->'.$this->createTextArea(['id'=> 'javascriptmainscreentitle2', 'text' => 'titlemedium 2', 'width' => '400x100', 'name' => 'content[javascriptmainscreentitle2]', 'value' => $pagesItem['javascriptmainscreentitle2'], 'attr' => '']).'<!-- /javascriptmainscreentitle2 -->
-		<!-- javascriptmainscreentitle3 -->'.$this->createTextArea(['id'=> 'javascriptmainscreentitle3', 'text' => 'titlemedium 3', 'width' => '400x100', 'name' => 'content[javascriptmainscreentitle3]', 'value' => $pagesItem['javascriptmainscreentitle3'], 'attr' => '']).'<!-- /javascriptmainscreentitle3 -->
+                <!-- javascriptmainscreentitle -->'.$this->createTextArea(['id'=> 'javascriptmainscreentitle', 'text' => 'Title main', 'width' => '400x100', 'name' => 'content[javascriptmainscreentitle]', 'value' => $pagesItem['javascriptmainscreentitle'], 'attr' => '']).'<!-- /javascriptmainscreentitle -->
+		<!-- javascriptmainscreentitle1 -->'.$this->createTextArea(['id'=> 'javascriptmainscreentitle1', 'text' => 'Title medium 1', 'width' => '400x100', 'name' => 'content[javascriptmainscreentitle1]', 'value' => $pagesItem['javascriptmainscreentitle1'], 'attr' => '']).'<!-- /javascriptmainscreentitle1 -->
+		<!-- javascriptmainscreentitle2 -->'.$this->createTextArea(['id'=> 'javascriptmainscreentitle2', 'text' => 'Title medium 2', 'width' => '400x100', 'name' => 'content[javascriptmainscreentitle2]', 'value' => $pagesItem['javascriptmainscreentitle2'], 'attr' => '']).'<!-- /javascriptmainscreentitle2 -->
+		<!-- javascriptmainscreentitle3 -->'.$this->createTextArea(['id'=> 'javascriptmainscreentitle3', 'text' => 'Title medium 3', 'width' => '400x100', 'name' => 'content[javascriptmainscreentitle3]', 'value' => $pagesItem['javascriptmainscreentitle3'], 'attr' => '']).'<!-- /javascriptmainscreentitle3 -->
 		<!-- imagejavascript5bgbig -->'.$imagejavascript5bgbigOne.'<!-- /imagejavascript5bgbig -->
 		<!-- imagejavascriptbgsmall -->'.$imagejavascriptbgsmallOne.'<!-- /imagejavascriptbgsmall -->'.
 

@@ -38,7 +38,7 @@ foreach ($works as $key => $item) {
 
 // Вывод одного изображения "Изображение для background" НАЧАЛО
 $imagebgsbkOne = '<fieldset class="catalog__section">'.
-$this->createHeader('Изображение для background(desktop 1950x1100)');
+$this->createHeader('Изображение для background(desktop 1920x1100)');
 if ($pagesItem['imagebgsbk'] <> '') {
 	$imagebgsbkOne .= '<div class="fa__uploader single" id="uploader0-imagebgsbk" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
 				<span class="content__menu-item content__menu-item_upload">

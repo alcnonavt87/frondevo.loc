@@ -23,7 +23,7 @@ $content = '<ul class="crumbs">
 
 // Вывод одного изображения "Изображение для background(desktop 1950x1100)" НАЧАЛО
 $imagepsd2html5bgbigOne = '<fieldset class="catalog__section">'.
-$this->createHeader('Изображение для background(desktop 1950x1100)');
+$this->createHeader('Изображение для background(desktop 1920x1100)');
 if ($pagesItem['imagepsd2html5bgbig'] <> '') {
 	$imagepsd2html5bgbigOne .= '<div class="fa__uploader single" id="uploader0-imagepsd2html5bgbig" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
 				<span class="content__menu-item content__menu-item_upload">
@@ -142,14 +142,14 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 
                 <fieldset class="catalog__section">
                 '.$this->createHeader('Главный экран').'
-          	<!-- psd2html5mainscreebtitle -->'.$this->createTextArea(['id'=> 'psd2html5mainscreebtitle', 'text' => 'maintitle', 'width' => '400x100', 'name' => 'content[psd2html5mainscreebtitle]', 'value' => $pagesItem['psd2html5mainscreebtitle'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle -->
-		<!-- psd2html5mainscreebtitle1 -->'.$this->createTextArea(['id'=> 'psd2html5mainscreebtitle1', 'text' => 'titlemedium 1', 'width' => '400x100', 'name' => 'content[psd2html5mainscreebtitle1]', 'value' => $pagesItem['psd2html5mainscreebtitle1'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle1 -->
-		<!-- psd2html5mainscreebtitle2 -->'.$this->createTextArea(['id'=> 'psd2html5mainscreebtitle2', 'text' => 'titlemedium 2', 'width' => '400x100', 'name' => 'content[psd2html5mainscreebtitle2]', 'value' => $pagesItem['psd2html5mainscreebtitle2'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle2 -->
-		<!-- psd2html5mainscreebtitle3 -->'.$this->createTextArea(['id'=> 'psd2html5mainscreebtitle3', 'text' => 'titlemedium 3', 'width' => '400x100', 'name' => 'content[psd2html5mainscreebtitle3]', 'value' => $pagesItem['psd2html5mainscreebtitle3'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle3 -->
-		<!-- psd2html5mainscreebtitle4 -->'.$this->createInput(['id'=> 'psd2html5mainscreebtitle4', 'text' => 'titlsmall 1', 'placeholder' => '', 'width' => 400, 'name' => 'content[psd2html5mainscreebtitle4]', 'value' => $pagesItem['psd2html5mainscreebtitle4'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle4 -->
-		<!-- psd2html5mainscreebtitle5 -->'.$this->createInput(['id'=> 'psd2html5mainscreebtitle5', 'text' => 'titlsmall 2', 'placeholder' => '', 'width' => 400, 'name' => 'content[psd2html5mainscreebtitle5]', 'value' => $pagesItem['psd2html5mainscreebtitle5'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle5 -->
-		<!-- psd2html5mainscreebtitle6 -->'.$this->createInput(['id'=> 'psd2html5mainscreebtitle6', 'text' => 'titlsmall 3', 'placeholder' => '', 'width' => 400, 'name' => 'content[psd2html5mainscreebtitle6]', 'value' => $pagesItem['psd2html5mainscreebtitle6'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle6 -->
-		<!-- psd2html5mainscreebtitle7 -->'.$this->createInput(['id'=> 'psd2html5mainscreebtitle7', 'text' => 'titlsmall 4', 'placeholder' => '', 'width' => 400, 'name' => 'content[psd2html5mainscreebtitle7]', 'value' => $pagesItem['psd2html5mainscreebtitle7'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle7 -->
+          	<!-- psd2html5mainscreebtitle -->'.$this->createTextArea(['id'=> 'psd2html5mainscreebtitle', 'text' => 'Title main', 'width' => '400x100', 'name' => 'content[psd2html5mainscreebtitle]', 'value' => $pagesItem['psd2html5mainscreebtitle'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle -->
+		<!-- psd2html5mainscreebtitle1 -->'.$this->createTextArea(['id'=> 'psd2html5mainscreebtitle1', 'text' => 'Title medium 1', 'width' => '400x100', 'name' => 'content[psd2html5mainscreebtitle1]', 'value' => $pagesItem['psd2html5mainscreebtitle1'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle1 -->
+		<!-- psd2html5mainscreebtitle2 -->'.$this->createTextArea(['id'=> 'psd2html5mainscreebtitle2', 'text' => 'Title medium 2', 'width' => '400x100', 'name' => 'content[psd2html5mainscreebtitle2]', 'value' => $pagesItem['psd2html5mainscreebtitle2'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle2 -->
+		<!-- psd2html5mainscreebtitle3 -->'.$this->createTextArea(['id'=> 'psd2html5mainscreebtitle3', 'text' => 'Title medium 3', 'width' => '400x100', 'name' => 'content[psd2html5mainscreebtitle3]', 'value' => $pagesItem['psd2html5mainscreebtitle3'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle3 -->
+		<!-- psd2html5mainscreebtitle4 -->'.$this->createInput(['id'=> 'psd2html5mainscreebtitle4', 'text' => 'Title small 1', 'placeholder' => '', 'width' => 400, 'name' => 'content[psd2html5mainscreebtitle4]', 'value' => $pagesItem['psd2html5mainscreebtitle4'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle4 -->
+		<!-- psd2html5mainscreebtitle5 -->'.$this->createInput(['id'=> 'psd2html5mainscreebtitle5', 'text' => 'Title small 2', 'placeholder' => '', 'width' => 400, 'name' => 'content[psd2html5mainscreebtitle5]', 'value' => $pagesItem['psd2html5mainscreebtitle5'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle5 -->
+		<!-- psd2html5mainscreebtitle6 -->'.$this->createInput(['id'=> 'psd2html5mainscreebtitle6', 'text' => 'Title small 3', 'placeholder' => '', 'width' => 400, 'name' => 'content[psd2html5mainscreebtitle6]', 'value' => $pagesItem['psd2html5mainscreebtitle6'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle6 -->
+		<!-- psd2html5mainscreebtitle7 -->'.$this->createInput(['id'=> 'psd2html5mainscreebtitle7', 'text' => 'Title small 4', 'placeholder' => '', 'width' => 400, 'name' => 'content[psd2html5mainscreebtitle7]', 'value' => $pagesItem['psd2html5mainscreebtitle7'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle7 -->
 		<!-- imagepsd2html5bgbig -->'.$imagepsd2html5bgbigOne.'<!-- /imagepsd2html5bgbig -->
 		<!-- imagepsd2html5bgsmall -->'.$imagepsd2html5bgsmallOne.'<!-- /imagepsd2html5bgsmall -->'.
 

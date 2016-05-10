@@ -23,7 +23,7 @@ $content = '<ul class="crumbs">
 
 // Вывод одного изображения "Изображение для background(desktop 1950x1100)" НАЧАЛО
 $imageangularbgbigOne = '<fieldset class="catalog__section">'.
-$this->createHeader('Изображение для background(desktop 1950x1100)');
+$this->createHeader('Изображение для background(desktop 1920x1100)');
 if ($pagesItem['imageangularbgbig'] <> '') {
 	$imageangularbgbigOne .= '<div class="fa__uploader single" id="uploader0-imageangularbgbig" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'/'.$idPage.'">
 				<span class="content__menu-item content__menu-item_upload">
@@ -141,8 +141,8 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 
                 <fieldset class="catalog__section">
                 '.$this->createHeader('Главный экран').'
-                	<!-- angularmainscreentitle -->'.$this->createTextArea(['id'=> 'angularmainscreentitle', 'text' => 'maintitle', 'width' => '400x100', 'name' => 'content[angularmainscreentitle]', 'value' => $pagesItem['angularmainscreentitle'], 'attr' => '']).'<!-- /angularmainscreentitle -->
-		<!-- angularmainscreentitle1 -->'.$this->createTextArea(['id'=> 'angularmainscreentitle1', 'text' => 'titlemedium ', 'width' => '400x100', 'name' => 'content[angularmainscreentitle1]', 'value' => $pagesItem['angularmainscreentitle1'], 'attr' => '']).'<!-- /angularmainscreentitle1 -->
+                	<!-- angularmainscreentitle -->'.$this->createTextArea(['id'=> 'angularmainscreentitle', 'text' => 'Title main', 'width' => '400x100', 'name' => 'content[angularmainscreentitle]', 'value' => $pagesItem['angularmainscreentitle'], 'attr' => '']).'<!-- /angularmainscreentitle -->
+		<!-- angularmainscreentitle1 -->'.$this->createTextArea(['id'=> 'angularmainscreentitle1', 'text' => 'Title medium ', 'width' => '400x100', 'name' => 'content[angularmainscreentitle1]', 'value' => $pagesItem['angularmainscreentitle1'], 'attr' => '']).'<!-- /angularmainscreentitle1 -->
 		<!-- imageangularbgbig -->'.$imageangularbgbigOne.'<!-- /imageangularbgbig -->
 		<!-- imageangularbgsmall -->'.$imageangularbgsmallOne.'<!-- /imageangularbgsmall -->'.
             Html::endForm();
