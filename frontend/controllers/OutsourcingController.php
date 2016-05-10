@@ -40,8 +40,11 @@ class OutsourcingController extends CommonController
             $action2 = implode(" ", $action1);
             $action3 = ucwords($action2);
             $action4 = str_replace(" ", "", $action3);
+
             $action5 = 'action' . $action4;
+
             return $this->$action5();
+
         }
         $pageData = $this->myRoot->getPageContent($this->firstUri);
         // Функция для преобразования alias страницы в нужный action
@@ -116,6 +119,7 @@ class OutsourcingController extends CommonController
         $works2 = $this->myWorks->getWorksForSitesByKeys();
         $data['works'] = $works;
         $data['works2'] = $works2;
+
         return [
             'view' => 'frontendout',
             'data' => $data,
@@ -165,26 +169,244 @@ class OutsourcingController extends CommonController
         ];
         $forLayout['langMenu'] = $langMenu;
 
-        // Список ссылок для плашки сссылок в футере
-        $links = $this->myWorks->getLinks($this->pageContent['alias']);
-        $forLayout['links'] = $links;
-
-
         //Добираем статические данные со страницы
         $pageData = $this->myRoot->getPageContent($this->firstUri);
         $data['pageData'] = $pageData;
         $pageData2 = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], ['titlefrontout','titlemiddlefrontout',
-            'titlesmallfrontout','titlesmallfrontout2','imagefrontoutbgbig','imagefrontoutbgsmall','frndoutsect2title','frndoutsect2data','frndoutsect3title'], [], ['ourclientslist'],['imageourclientslogo']);
+            'titlesmallfrontout','linkvideobgfrnout','titlesmallfrontout2','imagefrontoutbgbig','imagefrontoutbgsmall','frndoutsect2title','frndoutsect2data','frndoutsect3title',
+        'othervariantstitle','othervariants1title','othervariants1text','othervariants2title','othervariants2text','frontendoutworkstitle','ourcompaniestitle','garantiesbgword','garanties1title','garanties2title'], [], ['ourclientslist','garanties1list','garanties2list'],['imageourclientslogo','imageourcompanieslogo']);
         $data['pageData1'] = $pageData2;
         // Работы отобаржаемые на текстовой странице
         // Работы отобаржаемые на текстовой странице
 
-        $works = $this->myWorks->getListForSitesByKeys($this->pageContent['alias']);//echo '<pre>';print_r($data);echo '</pre>';exit;
-        $works2 = $this->myWorks->getWorksForSitesByKeys();
+        $works = $this->myWorks->getWorksForFrontendOut($this->pageContent['alias']);//echo '<pre>';print_r($works);echo '</pre>';exit;
+
         $data['works'] = $works;
-        $data['works2'] = $works2;
+
+
+        // Список ссылок для плашки сссылок в футере
+        $links = $this->myWorks->getLinks($this->pageContent['alias']);
+        $forLayout['links'] = $links;
+        $data['pageData'] = $pageData; //echo '<pre>';print_r($pageData);echo '</pre>';exit;
         return [
             'view' => 'frontendout',
+            'data' => $data,
+            'layout' => $this->layout,
+            'forLayout' => $forLayout,
+        ];
+    }
+
+
+    public function actionPsd2html5()
+    {
+        $data = [];
+        $forLayout = [];
+        $params = [];
+        $forLayout['Psd2html5'] = 1;
+        $data = array_merge($this->data, $data);
+        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
+        // Языковое меню
+        $langMenu = [];
+        $options = [];
+        $options['joinUris'] = 1;
+
+        // укр
+        $pagesContent = $this->myRoot->getPagesContent('ua');
+        $options['items'] = $pagesContent;
+        $urlProvider = new TextPagesUrlProvider('ua', $options);
+        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->getPsd2html5Url();
+        $langMenu['ua'] = [
+            'link' => $pageUaUrl,
+            'text' => 'Укр'
+        ];
+        // eng
+        $pagesContent = $this->myRoot->getPagesContent('en');
+        $options['items'] = $pagesContent;
+        $urlProvider = new TextPagesUrlProvider('en', $options);
+        $forLayout['PageLangEn'] = $pageEnUrl = $urlProvider->getPsd2html5Url();
+        $langMenu['en'] = [
+            'link' => $pageEnUrl,
+            'text' => 'Eng'
+        ];
+        // рус
+        $pagesContent = $this->myRoot->getPagesContent('ru');
+        $options['items'] = $pagesContent;
+        $urlProvider = new TextPagesUrlProvider('ru', $options);
+        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->getPsd2html5Url();
+        $langMenu['ru'] = [
+            'link' => $pageRuUrl,
+            'text' => 'Рус'
+        ];
+        $forLayout['langMenu'] = $langMenu;
+
+
+
+
+        //Добираем статические данные со страницы
+        $pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], ['imagepsd2html5bgbig','imagepsd2html5bgsmall','psd2html5mainscreebtitle',
+        'psd2html5mainscreebtitle1','psd2html5mainscreebtitle2','psd2html5mainscreebtitle3','psd2html5mainscreebtitle4','psd2html5mainscreebtitle5','psd2html5mainscreebtitle6','psd2html5mainscreebtitle7'], [], [],[]);
+        $data['pageData'] = $pageData;
+        $pageData2 = $this->myRoot->getPageContentByAlias('frontendout', ['garantiesbgword','garanties1title','garanties2title'], [], ['ourclientslist','garanties1list','garanties2list']);
+        $data['pageData1'] = $pageData2;
+        // Работы отобаржаемые на текстовой странице
+        // Работы отобаржаемые на текстовой странице
+
+        $works = $this->myWorks->getWorksForFrontendOut($this->pageContent['alias']);//echo '<pre>';print_r($works);echo '</pre>';exit;
+
+        $data['works'] = $works;
+
+
+        // Список ссылок для плашки сссылок в футере
+        $links = $this->myWorks->getLinks($this->pageContent['alias']);
+        $forLayout['links'] = $links;
+
+        return [
+            'view' => 'psd2tohtml5',
+            'data' => $data,
+            'layout' => $this->layout,
+            'forLayout' => $forLayout,
+        ];
+    }
+
+
+    public function actionJavascript()
+    {
+        $data = [];
+        $forLayout = [];
+        $params = [];
+        $forLayout['Javascript'] = 1;
+        $data = array_merge($this->data, $data);
+        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
+        // Языковое меню
+        $langMenu = [];
+        $options = [];
+        $options['joinUris'] = 1;
+
+        // укр
+        $pagesContent = $this->myRoot->getPagesContent('ua');
+        $options['items'] = $pagesContent;
+        $urlProvider = new TextPagesUrlProvider('ua', $options);
+        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->getJavascriptUrl();
+        $langMenu['ua'] = [
+            'link' => $pageUaUrl,
+            'text' => 'Укр'
+        ];
+        // eng
+        $pagesContent = $this->myRoot->getPagesContent('en');
+        $options['items'] = $pagesContent;
+        $urlProvider = new TextPagesUrlProvider('en', $options);
+        $forLayout['PageLangEn'] = $pageEnUrl = $urlProvider->getJavascriptUrl();
+        $langMenu['en'] = [
+            'link' => $pageEnUrl,
+            'text' => 'Eng'
+        ];
+        // рус
+        $pagesContent = $this->myRoot->getPagesContent('ru');
+        $options['items'] = $pagesContent;
+        $urlProvider = new TextPagesUrlProvider('ru', $options);
+        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->getJavascriptUrl();
+        $langMenu['ru'] = [
+            'link' => $pageRuUrl,
+            'text' => 'Рус'
+        ];
+        $forLayout['langMenu'] = $langMenu;
+
+
+
+
+        //Добираем статические данные со страницы
+        $pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], ['imagejavascript5bgbig','imagejavascriptbgsmall','javascriptmainscreentitle','javascriptmainscreentitle1',
+        'javascriptmainscreentitle2','javascriptmainscreentitle3'], [], [],[]);
+        $data['pageData'] = $pageData;
+
+        $pageData2 = $this->myRoot->getPageContentByAlias('frontendout', ['garantiesbgword','garanties1title','garanties2title'], [], ['ourclientslist','garanties1list','garanties2list']);
+        $data['pageData1'] = $pageData2;
+        // Работы отобаржаемые на текстовой странице
+        // Работы отобаржаемые на текстовой странице
+
+        $works = $this->myWorks->getWorksForFrontendOut($this->pageContent['alias']);//echo '<pre>';print_r($works);echo '</pre>';exit;
+
+        $data['works'] = $works;
+
+
+        // Список ссылок для плашки сссылок в футере
+        $links = $this->myWorks->getLinks($this->pageContent['alias']);
+        $forLayout['links'] = $links;
+
+        return [
+            'view' => 'javascript',
+            'data' => $data,
+            'layout' => $this->layout,
+            'forLayout' => $forLayout,
+        ];
+    }
+
+
+    public function actionAngular()
+    {
+        $data = [];
+        $forLayout = [];
+        $params = [];
+        $forLayout['Angular'] = 1;
+        $data = array_merge($this->data, $data);
+        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
+        // Языковое меню
+        $langMenu = [];
+        $options = [];
+        $options['joinUris'] = 1;
+
+        // укр
+        $pagesContent = $this->myRoot->getPagesContent('ua');
+        $options['items'] = $pagesContent;
+        $urlProvider = new TextPagesUrlProvider('ua', $options);
+        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->getAngularUrl();
+        $langMenu['ua'] = [
+            'link' => $pageUaUrl,
+            'text' => 'Укр'
+        ];
+        // eng
+        $pagesContent = $this->myRoot->getPagesContent('en');
+        $options['items'] = $pagesContent;
+        $urlProvider = new TextPagesUrlProvider('en', $options);
+        $forLayout['PageLangEn'] = $pageEnUrl = $urlProvider->getAngularUrl();
+        $langMenu['en'] = [
+            'link' => $pageEnUrl,
+            'text' => 'Eng'
+        ];
+        // рус
+        $pagesContent = $this->myRoot->getPagesContent('ru');
+        $options['items'] = $pagesContent;
+        $urlProvider = new TextPagesUrlProvider('ru', $options);
+        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->getAngularUrl();
+        $langMenu['ru'] = [
+            'link' => $pageRuUrl,
+            'text' => 'Рус'
+        ];
+        $forLayout['langMenu'] = $langMenu;
+
+
+
+
+        //Добираем статические данные со страницы
+        $pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], ['imageangularbgbig','imageangularbgsmall','angularmainscreentitle','angularmainscreentitle1'], [], [],[]);
+        $data['pageData'] = $pageData;
+
+        $pageData2 = $this->myRoot->getPageContentByAlias('frontendout', ['garantiesbgword','garanties1title','garanties2title'], [], ['ourclientslist','garanties1list','garanties2list']);
+        $data['pageData1'] = $pageData2;
+        // Работы отобаржаемые на текстовой странице
+        // Работы отобаржаемые на текстовой странице
+
+        $works = $this->myWorks->getWorksForFrontendOut($this->pageContent['alias']);//echo '<pre>';print_r($works);echo '</pre>';exit;
+
+        $data['works'] = $works;
+
+
+        // Список ссылок для плашки сссылок в футере
+        $links = $this->myWorks->getLinks($this->pageContent['alias']);
+        $forLayout['links'] = $links;
+
+        return [
+            'view' => 'angular',
             'data' => $data,
             'layout' => $this->layout,
             'forLayout' => $forLayout,
@@ -243,7 +465,7 @@ class OutsourcingController extends CommonController
         $data['pageData'] = $pageData; //echo '<pre>';print_r($pageData);echo '</pre>';exit;
 
         return [
-            'view' => 'landingpage',
+            'view' => 'angular',
             'data' => $data,
             'layout' => $this->layout,
             'forLayout' => $forLayout,

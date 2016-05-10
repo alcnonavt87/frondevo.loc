@@ -9,11 +9,19 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 ?>
 <!-- full height -->
             <div class="full-height inner mesh">
-                <picture>
-                    <source srcset="<?php echo('p/pages/bigfrontoutbg-'.$pageData1['imagefrontoutbgbig']) ?>" media="(min-height: 900px)">
-                    <source srcset="<?php echo('p/pages/smallfrontoutbg-'.$pageData1['imagefrontoutbgsmall']) ?>" media="(min-height: 480px)">
-                    <img src="<?php echo('p/pages/smallfrontoutbg-'.$pageData1['imagefrontoutbgsmall']) ?>" alt="" data-fit="cover">
-                </picture>
+                <?php
+                if (!empty($pageData1['linkvideobgfrnout'])) {
+                    ?>
+                    <video autoplay loop muted poster="video/poster.jpg" class="fs-bg-video">
+                        <source src="<?php echo $pageData1['linkvideobgfrnout'] ?>" >
+                    </video>
+                <?php } else { ?>
+                    <picture>
+                        <source srcset="<?php echo('p/pages/bigfrontoutbg-'.$pageData1['imagefrontoutbgbig']) ?>" media="(min-height: 900px)">
+                        <source srcset="<?php echo('p/pages/smallfrontoutbg-'.$pageData1['imagefrontoutbgsmall']) ?>" media="(min-height: 480px)">
+                        <img src="<?php echo('p/pages/smallfrontoutbg-'.$pageData1['imagefrontoutbgsmall']) ?>" alt="" data-fit="cover">
+                    </picture>
+                <?php } ?>
 
                 <!-- full height  layout -->
                 <div class="full-height__layout">
@@ -139,8 +147,8 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                     <!-- layout -->
                     <div class="layout">
                         <h2>
-                            <span>для разных задач</span>разные варианты сотрудничества
-</h2>
+                            <?php echo($pageData1['othervariantstitle']) ?>
+                        </h2>
 
                         <!-- cooperation  list wrap -->
                         <div class="cooperation__list-wrap">
@@ -150,16 +158,16 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                                 <!-- cooperation  item -->
                                 <div class="cooperation__item">
-                                    <h3>на проект</h3>
-                                    <p>Фиксированная цена или почасовая ставка.</p>
+                                    <h3><?php echo($pageData1['othervariants1title']) ?>  </h3>
+                                    <p><?php echo($pageData1['othervariants1text']) ?></p>
                                 </div>
                                 <!--/cooperation  item -->
 
 
                                 <!-- cooperation  item -->
                                 <div class="cooperation__item">
-                                    <h3>на период</h3>
-                                    <p>Почасовая, понедельная или помесячная ставка. Постоянная или частичная занятость.</p>
+                                    <h3><?php echo($pageData1['othervariants2title']) ?></h3>
+                                    <p><?php echo($pageData1['othervariants1text']) ?></p>
                                 </div>
                                 <!--/cooperation  item -->
 
@@ -185,144 +193,22 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                     </div>
                     <!--/stages  back -->
 
-                    <div class="stages__back stages__back-3"><img src="img/sites/frondevo.png" alt="Сайты" width="4826" height="612" class="hor-ind"></div>
+                    <div class="stages__back stages__back-3"><img src="markup/img/sites/frondevo.png" alt="Сайты" width="4826" height="612" class="hor-ind"></div>
 
                     <!-- stages  wrap -->
                     <div class="stages__wrap">
-                        <h2>Качество нашей работы успешно прошло испытания <br/>в проектах для крупнейших компаний</h2>
+                        <h2><?php echo($pageData1['ourcompaniestitle']) ?></h2>
 
                         <!-- fd  logos -->
                         <div class="fd__logos">
 
                             <!-- fd  logos list -->
                             <ul class="fd__logos-list">
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-
-                                    <!-- item.href -->
-                                    <a href="#"><img src="pic/companies/megafon.png" width="240" height="44" alt="Megafon">
-                                    </a>
-                                    <!--/item.href -->
-
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/companies/vtb.png" width="129" height="50" alt="VTB">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/companies/pg.png" width="102" height="44" alt="P&amp;G">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/companies/nivea.png" width="160" height="38" alt="Nivea">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/companies/zewa.png" width="124" height="65" alt="Zewa">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/companies/lm.png" width="64" height="54" alt="L&amp;M">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/companies/dirol.png" width="113" height="53" alt="Dirol">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/companies/nestle.png" width="147" height="42" alt="Nestle">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/companies/wargaming.png" width="139" height="64" alt="Wargaming.net">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-
-                                    <!-- item.href -->
-                                    <a href="#"><img src="pic/companies/miel.png" width="98" height="72" alt="Miel">
-                                    </a>
-                                    <!--/item.href -->
-
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/companies/danone.png" width="133" height="64" alt="Danone">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/companies/chesterfield.png" width="150" height="85" alt="Chesterfield">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/companies/maccoffee.png" width="141" height="40" alt="MacCoffee">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/companies/ok.png" width="36" height="61" alt="Odnoklassniki">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
-
-
-                                <!-- fd  logos item -->
-                                <li class="fd__logos-item">
-                                    <span><img src="pic/companies/sk.png" width="77" height="60" alt="Skolkovo">
-                                    </span>
-                                </li>
-                                <!--/fd  logos item -->
+                                <?php foreach ($pageData1['imageourcompanieslogo'] as $clientlogo) { ?>
+                                    <li class="fd__logos-item">
+                                        <span><img src="<?php echo $clientlogo['img'] ?>" alt=""</span>
+                                    </li>
+                                <?php } ?>
 
                             </ul>
                             <!--/fd  logos list -->
@@ -340,7 +226,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                 <!-- our works -->
                 <div class="our-works our-works_type2 our-works_vert">
                     <h2>
-                        <span>ПРИМЕРЫ FRONT END РАЗРАБОТКИ ОТ НАШЕЙ КОМАНДЫ</span>
+                        <?php echo($pageData1['frontendoutworkstitle']) ?>
                     </h2>
 
                     <!-- our works  wrap -->
@@ -565,7 +451,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                     <!-- warranty  background text -->
                     <div class="warranty__background-text">
-                        <span>Гарантии</span>
+                        <span><?php echo($pageData1['garantiesbgword']) ?></span>
                     </div>
                     <!--/warranty  background text -->
 
@@ -575,11 +461,14 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                         <!-- warranty item -->
                         <div class="warranty-item">
-                            <h2>Соблюдение сроков</h2>
+                            <h2><?php echo($pageData1['garanties1title']) ?></h2>
                             <ul>
-                                <li>составление четкого технического задания и определение этапов работы</li>
-                                <li>жесткий контроль соблюдения сроков</li>
-                                <li>демонстрация промежуточных результатов по ходу работ</li>
+                                <?php foreach ($pageData1['garanties1list'] as $garanties) { ?>
+                                    <li>
+                                        <?php echo $garanties['text'] ?>
+                                    </li>
+                                <?php } ?>
+
                             </ul>
                         </div>
                         <!--/warranty item -->
@@ -587,12 +476,14 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                         <!-- warranty item -->
                         <div class="warranty-item">
-                            <h2>Поддержка</h2>
+                            <h2><?php echo($pageData1['garanties2title']) ?></h2>
                             <ul>
-                                <li>30 дней на внесение бесплатных иправлений после сдачи работы</li>
-                                <li>30 дней на бесплатные консультации по коду</li>
-                                <li>легкая доступность к менеджерам (телефон, email, skype)</li>
-                                <li>возможность долгосрочной поддержки проекта</li>
+                                <?php foreach ($pageData1['garanties2list'] as $garanties) { ?>
+                                    <li>
+                                      <?php echo $garanties['text'] ?>
+                                    </li>
+                                <?php } ?>
+
                             </ul>
                         </div>
                         <!--/warranty item -->

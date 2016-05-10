@@ -3,73 +3,45 @@ namespace backend\models\text\pages;
 
 use Yii;
 use yii\base\Model;
-use corpsepk\yii2emt\EMTypograph;
 
 /**
- * Portfolio
+ * Psd2html5
  */
 
-Class Portfolio extends Model
+Class Psd2html5 extends Model
 {
-    
+
     public function getPageByIdAndLang($id,$lang) {
         $query = Yii::$app->db->createCommand('SELECT
             `a`.`id`, `a`.`pShow`, `b`.`Url`,
             `b`.`pTitle`, `b`.`pDescription`, `b`.`pKeyWords`, `b`.`pH1`,
             `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`
-			/*get*/
+			, `psd2html5mainscreebtitle`, `psd2html5mainscreebtitle1`, `psd2html5mainscreebtitle2`, `psd2html5mainscreebtitle3`, `psd2html5mainscreebtitle4`, `psd2html5mainscreebtitle5`, `psd2html5mainscreebtitle6`, `psd2html5mainscreebtitle7`, `imagepsd2html5bgbig`, `imagepsd2html5bgbigTitle`, `imagepsd2html5bgsmall`, `imagepsd2html5bgsmallTitle`/*get*/
         FROM
             `pages` `a`, `content` `b`
         WHERE
             `a`.`id` = :id AND `a`.`id` = `b`.`pageId` AND `b`.`lang` = :lang')
         ->bindValue(':id', $id)
 	->bindValue(':lang', $lang);
-        
+
         return $query->queryAll();
     }
     
     public function getEmptyLangPageById($id)
     {
         $query = Yii::$app->db->createCommand('SELECT
-        `a`.`id`, `a`.`pShow`, `b`.`Url`,
+        `a`.`id`, `a`.`pShow`, `a`.`pUrl`,
          "" AS `pTitle`, "" AS `pDescription`, "" AS `pKeyWords`, "" AS `pH1`, "" AS `pMenuName`, "" AS `pBreadCrumbs`, "" AS `pContent`
 		FROM
-            `pages` `a`, `content` `b`
+            `pages` `a`
         WHERE
-            `a`.`id` = :id AND `a`.`id` = `b`.`pageId` AND `b`.`lang` = :lang')
+            `a`.`id` = :id')
         ->bindValue(':id', $id);
 
         return $query->queryAll();
     }
 
 	public function editUpDatePage($pageId, $lang, $pTitle, $pDescription, $pKeyWords, $pH1, $pMenuName, $pBreadCrumbs, $pContent) {
-        $EMTypograph = new EMTypograph();
-        $EMTypograph->setup([
-            'Text.paragraphs' => 'off',
-            'OptAlign.oa_oquote' => 'off',
-            'Nobr.spaces_nobr_in_surname_abbr' => 'off',
-            'OptAlign.all' => 'off',
-        ]);
-        $EMTypograph->set_text($pTitle);
-        $pTitle= $EMTypograph->apply();
-        $EMTypograph->setup([
-            'Text.paragraphs' => 'off',
-            'OptAlign.oa_oquote' => 'off',
-            'Nobr.spaces_nobr_in_surname_abbr' => 'off',
-            'OptAlign.all' => 'off',
-        ]);
-        $EMTypograph->set_text($pDescription );
-        $pDescription = $EMTypograph->apply();
-
-        $EMTypograph->set_text($pH1 );
-        $EMTypograph->setup([
-            'Text.paragraphs' => 'off',
-            'OptAlign.oa_oquote' => 'off',
-            'Nobr.spaces_nobr_in_surname_abbr' => 'off',
-            'OptAlign.all' => 'off',
-        ]);
-        $pH1 = $EMTypograph->apply();
-
         $query = Yii::$app->db->createCommand('UPDATE `content`
         SET `pTitle` = :pTitle, `pDescription` = :pDescription, `pKeyWords` = :pKeyWords, `pH1` = :pH1,
             `pMenuName` = :pMenuName, `pBreadCrumbs` = :pBreadCrumbs, `pContent` = :pContent
@@ -81,26 +53,26 @@ Class Portfolio extends Model
         ->bindValue(':pKeyWords', $pKeyWords)
         ->bindValue(':pH1', $pH1)
         ->bindValue(':pMenuName', $pMenuName)
-        ->bindValue(':pBreadCrumbs', $pBreadCrumbs)
+        ->bindValue(':pBreadCrumbs', $pBreadCrumbs)        
         ->bindValue(':pContent', $pContent);
-
+        
         return $query->execute();
     }
 	public function update($id, $postBase, $postContent, $lang) {
 		$data = $postBase;
-
+		
 		if (isset($postContent)) {
 			$data = array_merge($data, $postContent);
 		}
-
+		
 		if (empty($data)) return false;
-
+		
 		$set = array();
 		foreach ($data as $key => $item) {
 			$set[] = '`'.$key.'`="'.addslashes($item).'"';
 		}
 		$set = implode(',', $set);
-
+		
 		$query = Yii::$app->db->createCommand('UPDATE
 			`pages`, `content`
 		SET
@@ -111,7 +83,7 @@ Class Portfolio extends Model
 			`lang` = :lang')
 		->bindValue(':id', $id)
         ->bindValue(':lang', $lang);
-
+		
 		return $query->execute();
 	}
     

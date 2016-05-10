@@ -104,6 +104,30 @@ return [
                         'width' => 640,
                         'height' => 1171,
                     ],
+                    'imagepsd2html5bgbig' => [
+                        'width' => 1920,
+                        'height' => 1100,
+                    ],
+                    'imagepsd2html5bgsmall' => [
+                        'width' => 640,
+                        'height' => 1171,
+                    ],
+                    'imagejavascriptbgbig' => [
+                        'width' => 1920,
+                        'height' => 1100,
+                    ],
+                    'imagejavascriptbgsmall' => [
+                        'width' => 640,
+                        'height' => 1171,
+                    ],
+                    'imageangularbgbig' => [
+                        'width' => 1920,
+                        'height' => 1100,
+                    ],
+                    'imageangularbgsmall' => [
+                        'width' => 640,
+                        'height' => 1171,
+                    ],
                 ],
 
         ],

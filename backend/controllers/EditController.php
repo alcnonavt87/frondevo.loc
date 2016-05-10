@@ -114,6 +114,38 @@ class EditController extends Controller
             $menu[] = $menuItem;
 
             $menuItem = [];
+            $menuItem['id'] = 1;
+            $menuItem['secondUri'] = 9;
+            $menuItem['groupName'] = 'PSD2toHTML5';
+            $menuItem['cssKlass'] = 'suitcase';
+            $menuItem['addParam'] = 0;
+            $menuItem['quickButton'] = 0;
+            $menuItem['picking'] = 302;
+            $menu[] = $menuItem;
+
+            $menuItem = [];
+            $menuItem['id'] = 1;
+            $menuItem['secondUri'] = 10;
+            $menuItem['groupName'] = 'JavaScript';
+            $menuItem['cssKlass'] = 'suitcase';
+            $menuItem['addParam'] = 0;
+            $menuItem['quickButton'] = 0;
+            $menuItem['picking'] = 303;
+            $menu[] = $menuItem;
+
+            $menuItem = [];
+            $menuItem['id'] = 1;
+            $menuItem['secondUri'] = 11;
+            $menuItem['groupName'] = 'Angular';
+            $menuItem['cssKlass'] = 'suitcase';
+            $menuItem['addParam'] = 0;
+            $menuItem['quickButton'] = 0;
+            $menuItem['picking'] = 304;
+            $menu[] = $menuItem;
+
+
+
+            $menuItem = [];
             $menuItem['id'] = 7;
             $menuItem['groupName'] = 'Ссылки для подвала';
             $menuItem['cssKlass'] = 'link';
