@@ -228,7 +228,7 @@ else if (!empty($commercialPage)){
         <script src="markup/js/lib/lib.min.js"></script>
         <script src="markup/js/form.min.js"></script>';
 }
-else if (!empty($contactsPage)){
+else if (!empty($contactsPage) || !empty($JavascriptPage)|| !empty($Psd2html5Page)|| !empty($AngularPage)){
     echo '<script src="markup/js/lib/project.lib.min.js"></script>
     <script src="markup/js/project.min.js"></script>';
 }

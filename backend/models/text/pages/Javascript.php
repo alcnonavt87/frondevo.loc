@@ -17,7 +17,7 @@ Class Javascript extends Model
             `a`.`id`, `a`.`pShow`, `b`.`Url`,
             `b`.`pTitle`, `b`.`pDescription`, `b`.`pKeyWords`, `b`.`pH1`,
             `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`
-			, `javascriptmainscreentitle`, `javascriptmainscreentitle1`, `javascriptmainscreentitle2`, `javascriptmainscreentitle3`, `imagejavascript5bgbig`, `imagejavascript5bgbigTitle`, `imagejavascriptbgsmall`, `imagejavascriptbgsmallTitle`/*get*/
+			, `javascriptmainscreentitle`, `javascriptmainscreentitle1`, `javascriptmainscreentitle2`, `javascriptmainscreentitle3`, `imagejavascript5bgbig`, `imagejavascript5bgbigTitle`, `imagejavascriptbgsmall`, `imagejavascriptbgsmallTitle`, `worksexamplesjavascripttitle`/*get*/
         FROM
             `pages` `a`, `content` `b`
         WHERE

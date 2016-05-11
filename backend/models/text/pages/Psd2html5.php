@@ -17,7 +17,7 @@ Class Psd2html5 extends Model
             `a`.`id`, `a`.`pShow`, `b`.`Url`,
             `b`.`pTitle`, `b`.`pDescription`, `b`.`pKeyWords`, `b`.`pH1`,
             `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`
-			, `psd2html5mainscreebtitle`, `psd2html5mainscreebtitle1`, `psd2html5mainscreebtitle2`, `psd2html5mainscreebtitle3`, `psd2html5mainscreebtitle4`, `psd2html5mainscreebtitle5`, `psd2html5mainscreebtitle6`, `psd2html5mainscreebtitle7`, `imagepsd2html5bgbig`, `imagepsd2html5bgbigTitle`, `imagepsd2html5bgsmall`, `imagepsd2html5bgsmallTitle`/*get*/
+			, `psd2html5mainscreebtitle`, `psd2html5mainscreebtitle1`, `psd2html5mainscreebtitle2`, `psd2html5mainscreebtitle3`, `psd2html5mainscreebtitle4`, `psd2html5mainscreebtitle5`, `psd2html5mainscreebtitle6`, `psd2html5mainscreebtitle7`, `imagepsd2html5bgbig`, `imagepsd2html5bgbigTitle`, `imagepsd2html5bgsmall`, `imagepsd2html5bgsmallTitle`, `worksexamplespsd2html5title`/*get*/
         FROM
             `pages` `a`, `content` `b`
         WHERE

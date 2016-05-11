@@ -125,7 +125,21 @@ if ($pagesItem['imagejavascriptbgsmall'] <> '') {
 		</div>';
 }
 $imagejavascriptbgsmallOne .= '</fieldset>';
-// Вывод одного изображения "Изображение для background(mobile 640x1171)" КОНЕЦ/* UpdateCode */
+// Вывод одного изображения "Изображение для background(mobile 640x1171)" КОНЕЦ
+
+
+
+// Группа чекбоксов "Выбор ссылок отображаемых в футере"
+$linksList = [];
+foreach ($links as $key => $item) {
+	$checked = '';
+	
+	if (in_array($item['id'], $linksIds)) {
+		$checked = 'checked="checked"';
+	}
+	
+	$linksList[] = ['id'=> 'links'.$key, 'text' => $item['title'], 'width' => 400, 'name' => 'linksIds[]', 'value' => $item['id'], 'attr' => $checked];
+}/* UpdateCode */
 
 $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'].'/'.$pageLang, 'post', ['id'=>"form-edit-content"]).
                 '<!-- sectionPageData --><fieldset class="catalog__section">
@@ -147,6 +161,14 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 		<!-- javascriptmainscreentitle2 -->'.$this->createTextArea(['id'=> 'javascriptmainscreentitle2', 'text' => 'Title medium 2', 'width' => '400x100', 'name' => 'content[javascriptmainscreentitle2]', 'value' => $pagesItem['javascriptmainscreentitle2'], 'attr' => '']).'<!-- /javascriptmainscreentitle2 -->
 		<!-- javascriptmainscreentitle3 -->'.$this->createTextArea(['id'=> 'javascriptmainscreentitle3', 'text' => 'Title medium 3', 'width' => '400x100', 'name' => 'content[javascriptmainscreentitle3]', 'value' => $pagesItem['javascriptmainscreentitle3'], 'attr' => '']).'<!-- /javascriptmainscreentitle3 -->
 		<!-- imagejavascript5bgbig -->'.$imagejavascript5bgbigOne.'<!-- /imagejavascript5bgbig -->
-		<!-- imagejavascriptbgsmall -->'.$imagejavascriptbgsmallOne.'<!-- /imagejavascriptbgsmall -->'.
+		<!-- imagejavascriptbgsmall -->'.$imagejavascriptbgsmallOne.'<!-- /imagejavascriptbgsmall -->
+
+<!-- worksexamplesjavascript --><fieldset class="catalog__section">
+	'.$this->createHeader('Примеры работ').'
+	<div class="catalog__section-data">
+		<!-- worksexamplesjavascripttitle -->'.$this->createInput(['id'=> 'worksexamplesjavascripttitle', 'text' => 'Title', 'placeholder' => '', 'width' => 400, 'name' => 'content[worksexamplesjavascripttitle]', 'value' => $pagesItem['worksexamplesjavascripttitle'], 'attr' => '']).'<!-- /worksexamplesjavascripttitle -->
+		<!-- links -->'.$this->createCheckBoxGroup(['list' => $linksList]).'<!-- /links -->
+	</div>
+</fieldset><!-- /worksexamplesjavascript -->'.
 
             Html::endForm();

@@ -91,117 +91,20 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                 <!-- why dl -->
                 <div class="why-dl">
-
-                    <!-- why dl row -->
-                    <div class="why-dl-row">
-                        <div class="why-dt">Профессиональный код</div>
-
-                        <!-- why dd -->
-                        <div class="why-dd">
-                            <ul>
-                                <li>хорошо структурированный</li>
-                                <li>содержащий комментарии</li>
-                                <li>легко масштабируемый</li>
-                                <li>объектно-ориентированный подход (ООП)</li>
-                                <li>соотвествует правилам JSLint</li>
-                            </ul>
+                    <?php foreach ($pageData2 as $advantages) { ?>
+                        <div class="why-dl-row">
+                            <div class="why-dt"><?php echo($advantages['title']) ?></div>
+                            <div class="why-dd">
+                                <?php if (!empty($advantages['paragraph'])) { ?>
+                                    <p><?php echo($advantages['paragraph']) ?></p><?php } ?>
+                                <ul>
+                                    <?php foreach ($advantages['advlist'] as $key => $item) { ?>
+                                        <li><?php echo($item['text']) ?> </li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
                         </div>
-                        <!--/why dd -->
-
-                    </div>
-                    <!--/why dl row -->
-
-
-                    <!-- why dl row -->
-                    <div class="why-dl-row">
-                        <div class="why-dt">Использование <br/>архитектурных шаблонов</div>
-
-                        <!-- why dd -->
-                        <div class="why-dd">
-                            <ul>
-                                <li>Module Pattern (object literals, revealing module, singleton)</li>
-                                <li>Constructor Pattern</li>
-                                <li>Prototype Pattern</li>
-                                <li>Observer Pattern</li>
-                                <li>Subscribe Pattern</li>
-                            </ul>
-                        </div>
-                        <!--/why dd -->
-
-                    </div>
-                    <!--/why dl row -->
-
-
-                    <!-- why dl row -->
-                    <div class="why-dl-row">
-                        <div class="why-dt">Опыт работ с HTML5 api <br/>и noSQL БД</div>
-
-                        <!-- why dd -->
-                        <div class="why-dd">
-                            <ul>
-                                <li>Audio, Video, Web audio, Fullscreen</li>
-                                <li>History, Web notification, Canvas, Files</li>
-                                <li>Storage (local storage, session storage, IndexedDB)</li>
-                                <li>JSON, Base64, Fetch, Promise, Mutation Observer, Page visibility, Runtime script error reporting,</li>
-                                <li>URL Api, matchMedia</li>
-                                <li>MongoDBS</li>
-                            </ul>
-                        </div>
-                        <!--/why dd -->
-
-                    </div>
-                    <!--/why dl row -->
-
-
-                    <!-- why dl row -->
-                    <div class="why-dl-row">
-                        <div class="why-dt">Опыт работ <br/>с Javascript библиотеками <br/>и фреймворками</div>
-
-                        <!-- why dd -->
-                        <div class="why-dd">
-                            <ul>
-                                <li>jQuery, Kinetic.js, Require.js</li>
-                                <li>Greensock, Raphael, ThreeJs</li>
-                                <li>AngularJs, Mustache, CommonJS/AMD</li>
-                            </ul>
-                        </div>
-                        <!--/why dd -->
-
-                    </div>
-                    <!--/why dl row -->
-
-
-                    <!-- why dl row -->
-                    <div class="why-dl-row">
-                        <div class="why-dt">Опыт работы с api <br/>сторонних сервисов</div>
-
-                        <!-- why dd -->
-                        <div class="why-dd">
-                            <ul>
-                                <li>Google Analytics, Maps, Places, Geocoding</li>
-                                <li>Youtube, Facebook, VK</li>
-                                <li>Yandex Webmaster, Maps</li>
-                                <li>GitLab</li>
-                            </ul>
-                        </div>
-                        <!--/why dd -->
-
-                    </div>
-                    <!--/why dl row -->
-
-
-                    <!-- why dl row -->
-                    <div class="why-dl-row">
-                        <div class="why-dt">Современное <br/>окружение разработки</div>
-
-                        <!-- why dd -->
-                        <div class="why-dd">
-                            <p>Jade, NodeJs, npm, bower, Gulp, Git</p>
-                        </div>
-                        <!--/why dd -->
-
-                    </div>
-                    <!--/why dl row -->
+                    <?php } ?>
 
                 </div>
                 <!--/why dl -->
@@ -216,7 +119,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
         <!-- our works -->
         <div class="our-works our-works_type2 our-works_vert">
             <h2>
-                <span>Примеры Javascript кода от нашей команды</span>
+                <span><?php echo($pageData['worksexamplesjavascripttitle']) ?></span>
             </h2>
 
             <!-- our works  wrap -->

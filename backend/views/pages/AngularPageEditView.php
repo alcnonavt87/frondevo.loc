@@ -125,7 +125,49 @@ if ($pagesItem['imageangularbgsmall'] <> '') {
 		</div>';
 }
 $imageangularbgsmallOne .= '</fieldset>';
-// Вывод одного изображения "Изображение для background(mobile 640x1171)" КОНЕЦ/* UpdateCode */
+// Вывод одного изображения "Изображение для background(mobile 640x1171)" КОНЕЦ
+
+
+
+// Группа чекбоксов "Выбор ссылок отображаемых в футере"
+$linksList = [];
+foreach ($links as $key => $item) {
+	$checked = '';
+	
+	if (in_array($item['id'], $linksIds)) {
+		$checked = 'checked="checked"';
+	}
+	
+	$linksList[] = ['id'=> 'links'.$key, 'text' => $item['title'], 'width' => 400, 'name' => 'linksIds[]', 'value' => $item['id'], 'attr' => $checked];
+}
+
+
+
+// Группа чекбоксов "Выбор ссылок отображаемых в футере"
+$linksList = [];
+foreach ($links as $key => $item) {
+	$checked = '';
+	
+	if (in_array($item['id'], $linksIds)) {
+		$checked = 'checked="checked"';
+	}
+	
+	$linksList[] = ['id'=> 'links'.$key, 'text' => $item['title'], 'width' => 400, 'name' => 'linksIds[]', 'value' => $item['id'], 'attr' => $checked];
+}
+
+
+
+// Группа чекбоксов "Выбор ссылок отображаемых в футере"
+$linksList = [];
+foreach ($links as $key => $item) {
+	$checked = '';
+	
+	if (in_array($item['id'], $linksIds)) {
+		$checked = 'checked="checked"';
+	}
+	
+	$linksList[] = ['id'=> 'links'.$key, 'text' => $item['title'], 'width' => 400, 'name' => 'linksIds[]', 'value' => $item['id'], 'attr' => $checked];
+}/* UpdateCode */
 
 $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'].'/'.$pageLang, 'post', ['id'=>"form-edit-content"]).
                 '<!-- sectionPageData --><fieldset class="catalog__section">
@@ -144,5 +186,57 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
                 	<!-- angularmainscreentitle -->'.$this->createTextArea(['id'=> 'angularmainscreentitle', 'text' => 'Title main', 'width' => '400x100', 'name' => 'content[angularmainscreentitle]', 'value' => $pagesItem['angularmainscreentitle'], 'attr' => '']).'<!-- /angularmainscreentitle -->
 		<!-- angularmainscreentitle1 -->'.$this->createTextArea(['id'=> 'angularmainscreentitle1', 'text' => 'Title medium ', 'width' => '400x100', 'name' => 'content[angularmainscreentitle1]', 'value' => $pagesItem['angularmainscreentitle1'], 'attr' => '']).'<!-- /angularmainscreentitle1 -->
 		<!-- imageangularbgbig -->'.$imageangularbgbigOne.'<!-- /imageangularbgbig -->
-		<!-- imageangularbgsmall -->'.$imageangularbgsmallOne.'<!-- /imageangularbgsmall -->'.
+		<!-- imageangularbgsmall -->'.$imageangularbgsmallOne.'<!-- /imageangularbgsmall -->
+
+<!-- causesAngular --><fieldset class="catalog__section">
+	'.$this->createHeader('Почему Angular').'
+	<div class="catalog__section-data">
+		<!-- causesAngulartitle -->'.$this->createTextArea(['id'=> 'causesAngulartitle', 'text' => 'Title', 'width' => '400x100', 'name' => 'content[causesAngulartitle]', 'value' => $pagesItem['causesAngulartitle'], 'attr' => '']).'<!-- /causesAngulartitle -->
+		<!-- causesAngularlist --><div class="input-row__group-wrap">';
+			for ($i = 0; $i < count($causesAngularlist); $i++) {
+				if ($i == count($causesAngularlist)-1) {
+					$content .= '<div class="input-row input-wrap input-row__group">
+						<label class="input__label" for="' . $i . '">Пункт перечня 1-я колонка</label>
+						<input placeholder="" id="' . $i . '" name="causesAngularlist[]" class="input catalog_input input-width_400" type="text" value="' . $this->getCodeStr($causesAngularlist[$i]['text']) . '" />
+						<div class="button button__block button_copy-block"></div>
+					</div>';
+					continue;
+				}
+				
+				$content .= '<div class="input-row input-wrap input-row__group">
+					<label class="input__label" for="' . $i . '">Пункт перечня 1-я колонка</label>
+					<input placeholder="" id="' . $i . '" name="causesAngularlist[]" class="input catalog_input input-width_400" type="text" value="' . $this->getCodeStr($causesAngularlist[$i]['text']) . '" />
+					<div class="button button__block button_remove-block"></div>
+				</div>';
+			}
+		$content .= '</div><!-- /causesAngularlist -->
+		<!-- causesAngularlist1 --><div class="input-row__group-wrap">';
+			for ($i = 0; $i < count($causesAngularlist1); $i++) {
+				if ($i == count($causesAngularlist1)-1) {
+					$content .= '<div class="input-row input-wrap input-row__group">
+						<label class="input__label" for="' . $i . '">Пункт перечня 2-я колонка</label>
+						<input placeholder="" id="' . $i . '" name="causesAngularlist1[]" class="input catalog_input input-width_400" type="text" value="' . $this->getCodeStr($causesAngularlist1[$i]['text']) . '" />
+						<div class="button button__block button_copy-block"></div>
+					</div>';
+					continue;
+				}
+				
+				$content .= '<div class="input-row input-wrap input-row__group">
+					<label class="input__label" for="' . $i . '">Пункт перечня 2-я колонка</label>
+					<input placeholder="" id="' . $i . '" name="causesAngularlist1[]" class="input catalog_input input-width_400" type="text" value="' . $this->getCodeStr($causesAngularlist1[$i]['text']) . '" />
+					<div class="button button__block button_remove-block"></div>
+				</div>';
+			}
+		$content .= '</div><!-- /causesAngularlist1 -->
+
+<!-- worksexamplesAngular --><fieldset class="catalog__section">
+	'.$this->createHeader('Примеры работ').'
+	<div class="catalog__section-data">
+		<!-- worksexamplesAngulartitle -->'.$this->createInput(['id'=> 'worksexamplesAngulartitle', 'text' => 'Title', 'placeholder' => '', 'width' => 400, 'name' => 'content[worksexamplesAngulartitle]', 'value' => $pagesItem['worksexamplesAngulartitle'], 'attr' => '']).'<!-- /worksexamplesAngulartitle -->
+		<!-- links -->'.$this->createCheckBoxGroup(['list' => $linksList]).'<!-- /links -->
+
+	</div>
+</fieldset><!-- /worksexamplesAngular -->
+	</div>
+</fieldset><!-- /causesAngular -->'.
             Html::endForm();

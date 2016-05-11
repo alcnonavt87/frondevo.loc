@@ -7,6 +7,8 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use Yii\helpers\ArrayHelper;
 use frontend\models\Works;
+use frontend\models\AdvantagesPsdHtml;
+use frontend\models\AdvantagesJavascript;
 use frontend\models\Filters;
 use vendor\UrlProvider\TextPagesUrlProvider;
 use vendor\UrlProvider\SimpleModuleUrlProvider;
@@ -17,13 +19,16 @@ class OutsourcingController extends CommonController
 {
     private $myWorks;
     private $myFilters;
-
+    private $myAdvantagePsdHtml;
+    private $myAdvantageJavascript;
     public function init()
     {
         parent::init();
         $this->myWorks = new Works($this->lang);
         $this->myFilters = new Filters($this->lang);
         $this->myRoot = new Root($this->lang);
+        $this->myAdvantagePsdHtml = new AdvantagesPsdHtml($this->lang);
+        $this->myAdvantageJavascript = new AdvantagesJavascript($this->lang);
     }
 
     /**
@@ -202,7 +207,7 @@ class OutsourcingController extends CommonController
         $data = [];
         $forLayout = [];
         $params = [];
-        $forLayout['Psd2html5'] = 1;
+        $forLayout['Psd2html5Page'] = 1;
         $data = array_merge($this->data, $data);
         $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
         // Языковое меню
@@ -244,13 +249,15 @@ class OutsourcingController extends CommonController
 
         //Добираем статические данные со страницы
         $pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], ['imagepsd2html5bgbig','imagepsd2html5bgsmall','psd2html5mainscreebtitle',
-        'psd2html5mainscreebtitle1','psd2html5mainscreebtitle2','psd2html5mainscreebtitle3','psd2html5mainscreebtitle4','psd2html5mainscreebtitle5','psd2html5mainscreebtitle6','psd2html5mainscreebtitle7'], [], [],[]);
+        'psd2html5mainscreebtitle1','psd2html5mainscreebtitle2','psd2html5mainscreebtitle3','psd2html5mainscreebtitle4','psd2html5mainscreebtitle5','psd2html5mainscreebtitle6','psd2html5mainscreebtitle7','worksexamplespsd2html5title'], [], [],[]);
         $data['pageData'] = $pageData;
         $pageData2 = $this->myRoot->getPageContentByAlias('frontendout', ['garantiesbgword','garanties1title','garanties2title'], [], ['ourclientslist','garanties1list','garanties2list']);
         $data['pageData1'] = $pageData2;
-        // Работы отобаржаемые на текстовой странице
-        // Работы отобаржаемые на текстовой странице
+        $pageData3 = $this->myAdvantagePsdHtml->getAdvantagesFromMultiField(['advantagepsdhmtl5']);
+        $data['pageData2'] = $pageData3;
 
+
+        // Работы отобаржаемые на текстовой странице
         $works = $this->myWorks->getWorksForFrontendOut($this->pageContent['alias']);//echo '<pre>';print_r($works);echo '</pre>';exit;
 
         $data['works'] = $works;
@@ -274,7 +281,7 @@ class OutsourcingController extends CommonController
         $data = [];
         $forLayout = [];
         $params = [];
-        $forLayout['Javascript'] = 1;
+        $forLayout['JavascriptPage'] = 1;
         $data = array_merge($this->data, $data);
         $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
         // Языковое меню
@@ -316,12 +323,16 @@ class OutsourcingController extends CommonController
 
         //Добираем статические данные со страницы
         $pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], ['imagejavascript5bgbig','imagejavascriptbgsmall','javascriptmainscreentitle','javascriptmainscreentitle1',
-        'javascriptmainscreentitle2','javascriptmainscreentitle3'], [], [],[]);
+        'javascriptmainscreentitle2','javascriptmainscreentitle3','worksexamplesjavascripttitle'], [], [],[]);
         $data['pageData'] = $pageData;
 
         $pageData2 = $this->myRoot->getPageContentByAlias('frontendout', ['garantiesbgword','garanties1title','garanties2title'], [], ['ourclientslist','garanties1list','garanties2list']);
         $data['pageData1'] = $pageData2;
-        // Работы отобаржаемые на текстовой странице
+
+        $pageData3 = $this->myAdvantageJavascript->getAdvantagesFromMultiField(['advantagejavascript']);
+        $data['pageData2'] = $pageData3;
+
+
         // Работы отобаржаемые на текстовой странице
 
         $works = $this->myWorks->getWorksForFrontendOut($this->pageContent['alias']);//echo '<pre>';print_r($works);echo '</pre>';exit;
@@ -388,7 +399,7 @@ class OutsourcingController extends CommonController
 
 
         //Добираем статические данные со страницы
-        $pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], ['imageangularbgbig','imageangularbgsmall','angularmainscreentitle','angularmainscreentitle1'], [], [],[]);
+        $pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], ['imageangularbgbig','imageangularbgsmall','angularmainscreentitle','angularmainscreentitle1','causesAngulartitle','worksexamplesangulartitle'], [], ['causesAngularlist','causesAngularlist1'],[]);
         $data['pageData'] = $pageData;
 
         $pageData2 = $this->myRoot->getPageContentByAlias('frontendout', ['garantiesbgword','garanties1title','garanties2title'], [], ['ourclientslist','garanties1list','garanties2list']);
@@ -396,7 +407,7 @@ class OutsourcingController extends CommonController
         // Работы отобаржаемые на текстовой странице
         // Работы отобаржаемые на текстовой странице
 
-        $works = $this->myWorks->getWorksForFrontendOut($this->pageContent['alias']);//echo '<pre>';print_r($works);echo '</pre>';exit;
+        $works = $this->myWorks->getWorksForFrontendOut($this->pageContent['alias']);//echo '<pre>';print_r($pageData);echo '</pre>';exit;
 
         $data['works'] = $works;
 

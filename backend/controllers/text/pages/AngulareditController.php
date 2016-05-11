@@ -43,7 +43,23 @@ class AngularEditController extends \backend\controllers\AdminController {
 
                 //Хлебные крошки
                 $pageGroupData = $myOthers->getPageGroupData($id1Uri);
-                $textPageHeader = $myOthers->getTextPageHeader($idPage, $defLang);/* UpdateCode */
+                $textPageHeader = $myOthers->getTextPageHeader($idPage, $defLang);
+
+				// Множество текстовых полей "Пункты поддержки"
+				$causesAngularlist = $myOthers->getManyFieldsElementMultiLangs('pages_causesAngularlist', $idRecord, $pageLang);
+				if (!$causesAngularlist) {
+					$causesAngularlist = $myOthers->getManyFieldsElementEmpty();
+				}
+
+				// Множество текстовых полей "Пункты поддержки"
+				$causesAngularlist1 = $myOthers->getManyFieldsElementMultiLangs('pages_causesAngularlist1', $idRecord, $pageLang);
+				if (!$causesAngularlist1) {
+					$causesAngularlist1 = $myOthers->getManyFieldsElementEmpty();
+				}
+
+				// Группа чекбоксов "Выбор ссылок отображаемых в футере"
+				$links = $myOthers->getChGrSourceIdsMultiLangs('links', 'title', $pageLang);
+				$linksIds = $myOthers->getChGrTargetIds('pages_links', 'idPages', 'idLinks', $idRecord);/* UpdateCode */
 
                 $content = '';
                 $navMenu = '';

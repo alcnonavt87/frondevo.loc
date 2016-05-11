@@ -45,35 +45,26 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
     <!-- article -->
     <section class="article light why">
-        <h2>Почему AngularJs?</h2>
+        <h2> <?php echo($pageData['causesAngulartitle']) ?></h2>
 
         <!-- layout -->
         <div class="layout">
-
-            <!-- why item -->
             <div class="why-item">
                 <ul>
-                    <li>Легкая масштабируемость приложений</li>
-                    <li>Высокая скорость работы и малый вес приложений</li>
-                    <li>Полная независимость от back end платформы</li>
-                    <li>Легкая локализация</li>
-                    <li>Быстрая отладка</li>
+            <?php foreach ($pageData['causesAngularlist'] as $item) { ?>
+                <li><?php echo($item['text']) ?></li>
+            <?php } ?>
                 </ul>
             </div>
-            <!--/why item -->
 
-
-            <!-- why item -->
             <div class="why-item">
                 <ul>
-                    <li>Высокая уровень гибкости</li>
-                    <li>Сокращение времени разработки</li>
-                    <li>Возможность «из коробки» создавать REST приложения</li>
-                    <li>Простая интеграция с веб страницами</li>
-                    <li>Постоянное  совершенствование фреймворка и мощное сообщество разработчиков</li>
+                    <?php foreach ($pageData['causesAngularlist1'] as $item) { ?>
+                        <li><?php echo($item['text']) ?></li>
+                    <?php } ?>
                 </ul>
             </div>
-            <!--/why item -->
+
 
         </div>
         <!--/layout -->
@@ -85,7 +76,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
     <!-- our works -->
     <div class="our-works our-works_type2 our-works_vert">
         <h2>
-            <span>Примеры разработок на AngularJs от нашей команды</span>
+            <span><?php echo($pageData['worksexamplesangulartitle']) ?></span>
         </h2>
 
         <!-- our works  wrap -->

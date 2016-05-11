@@ -125,7 +125,21 @@ if ($pagesItem['imagepsd2html5bgsmall'] <> '') {
 		</div>';
 }
 $imagepsd2html5bgsmallOne .= '</fieldset>';
-// Вывод одного изображения "Изображение для background(mobile 640x1171)" КОНЕЦ/* UpdateCode */
+// Вывод одного изображения "Изображение для background(mobile 640x1171)" КОНЕЦ
+
+
+
+// Группа чекбоксов "Выбор ссылок отображаемых в футере"
+$linksList = [];
+foreach ($links as $key => $item) {
+	$checked = '';
+	
+	if (in_array($item['id'], $linksIds)) {
+		$checked = 'checked="checked"';
+	}
+	
+	$linksList[] = ['id'=> 'links'.$key, 'text' => $item['title'], 'width' => 400, 'name' => 'linksIds[]', 'value' => $item['id'], 'attr' => $checked];
+}/* UpdateCode */
 
 $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'].'/'.$pageLang, 'post', ['id'=>"form-edit-content"]).
                 '<!-- sectionPageData --><fieldset class="catalog__section">
@@ -151,6 +165,14 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 		<!-- psd2html5mainscreebtitle6 -->'.$this->createInput(['id'=> 'psd2html5mainscreebtitle6', 'text' => 'Title small 3', 'placeholder' => '', 'width' => 400, 'name' => 'content[psd2html5mainscreebtitle6]', 'value' => $pagesItem['psd2html5mainscreebtitle6'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle6 -->
 		<!-- psd2html5mainscreebtitle7 -->'.$this->createInput(['id'=> 'psd2html5mainscreebtitle7', 'text' => 'Title small 4', 'placeholder' => '', 'width' => 400, 'name' => 'content[psd2html5mainscreebtitle7]', 'value' => $pagesItem['psd2html5mainscreebtitle7'], 'attr' => '']).'<!-- /psd2html5mainscreebtitle7 -->
 		<!-- imagepsd2html5bgbig -->'.$imagepsd2html5bgbigOne.'<!-- /imagepsd2html5bgbig -->
-		<!-- imagepsd2html5bgsmall -->'.$imagepsd2html5bgsmallOne.'<!-- /imagepsd2html5bgsmall -->'.
+		<!-- imagepsd2html5bgsmall -->'.$imagepsd2html5bgsmallOne.'<!-- /imagepsd2html5bgsmall -->
+
+<!-- worksexamplespsd2html5 --><fieldset class="catalog__section">
+	'.$this->createHeader('Примеры работ').'
+	<div class="catalog__section-data">
+		<!-- worksexamplespsd2html5title -->'.$this->createInput(['id'=> 'worksexamplespsd2html5title', 'text' => 'Title', 'placeholder' => '', 'width' => 400, 'name' => 'content[worksexamplespsd2html5title]', 'value' => $pagesItem['worksexamplespsd2html5title'], 'attr' => '']).'<!-- /worksexamplespsd2html5title -->
+		<!-- links -->'.$this->createCheckBoxGroup(['list' => $linksList]).'<!-- /links -->
+	</div>
+</fieldset><!-- /worksexamplespsd2html5 -->'.
 
             Html::endForm();

@@ -173,7 +173,7 @@ $imageprtfOne .= '</fieldset>';
 
 // Вывод одного изображения "Изображение для background" НАЧАЛО
 $imagebgOne = '<fieldset class="catalog__section">'.
-$this->createHeader('Изображение для background (1920x1200)');
+$this->createHeader('Изображение для background (1920x1100)');
 if ($worksItem['imagebg'] <> '') {
 	$imagebgOne .= '<div class="fa__uploader single" id="uploader0-imagebg" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
 				<span class="content__menu-item content__menu-item_upload">

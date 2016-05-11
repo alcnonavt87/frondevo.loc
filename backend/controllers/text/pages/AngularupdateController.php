@@ -229,7 +229,19 @@ class AngularupdateController extends \backend\controllers\AdminController {
 						}
 					}
 				}
-			}/* UpdateCodeBottom */
+			}
+
+			// Множество текстовых полей "Пункты поддержки"
+			$causesAngularlist = ArrayHelper::getValue($_POST, 'causesAngularlist', []);
+			$myOthers->updateManyFieldsElementIMultiLangsSimple('pages_causesAngularlist', $idRecord, $causesAngularlist, $pageLang);
+
+			// Множество текстовых полей "Пункты поддержки"
+			$causesAngularlist1 = ArrayHelper::getValue($_POST, 'causesAngularlist1', []);
+			$myOthers->updateManyFieldsElementIMultiLangsSimple('pages_causesAngularlist1', $idRecord, $causesAngularlist1, $pageLang);
+
+			// Группа чекбоксов "Выбор ссылок отображаемых в футере"
+			$linksIds = ArrayHelper::getValue($_POST, 'linksIds', []);
+			$myOthers->updateChGrIds('pages_links', 'idPages', 'idLinks', $idRecord, $linksIds);/* UpdateCodeBottom */
             
 			// отправляем ответ
             echo $json_data;

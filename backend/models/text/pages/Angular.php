@@ -17,7 +17,7 @@ Class Angular extends Model
             `a`.`id`, `a`.`pShow`, `b`.`Url`,
             `b`.`pTitle`, `b`.`pDescription`, `b`.`pKeyWords`, `b`.`pH1`,
             `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`
-			, `angularmainscreentitle`, `angularmainscreentitle1`, `imageangularbgbig`, `imageangularbgbigTitle`, `imageangularbgsmall`, `imageangularbgsmallTitle`/*get*/
+			, `angularmainscreentitle`, `angularmainscreentitle1`, `imageangularbgbig`, `imageangularbgbigTitle`, `imageangularbgsmall`, `imageangularbgsmallTitle`, `causesAngulartitle`, `worksexamplesAngulartitle`/*get*/
         FROM
             `pages` `a`, `content` `b`
         WHERE
