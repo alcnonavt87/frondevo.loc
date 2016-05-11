@@ -233,6 +233,7 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 	'.$this->createHeader('Примеры работ').'
 	<div class="catalog__section-data">
 		<!-- worksexamplesAngulartitle -->'.$this->createInput(['id'=> 'worksexamplesAngulartitle', 'text' => 'Title', 'placeholder' => '', 'width' => 400, 'name' => 'content[worksexamplesAngulartitle]', 'value' => $pagesItem['worksexamplesAngulartitle'], 'attr' => '']).'<!-- /worksexamplesAngulartitle -->
+		'.$this->createHeader('Выбор ссылок отображаемых в футере').'
 		<!-- links -->'.$this->createCheckBoxGroup(['list' => $linksList]).'<!-- /links -->
 
 	</div>

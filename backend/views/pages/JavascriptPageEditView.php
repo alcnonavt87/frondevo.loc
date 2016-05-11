@@ -167,6 +167,7 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 	'.$this->createHeader('Примеры работ').'
 	<div class="catalog__section-data">
 		<!-- worksexamplesjavascripttitle -->'.$this->createInput(['id'=> 'worksexamplesjavascripttitle', 'text' => 'Title', 'placeholder' => '', 'width' => 400, 'name' => 'content[worksexamplesjavascripttitle]', 'value' => $pagesItem['worksexamplesjavascripttitle'], 'attr' => '']).'<!-- /worksexamplesjavascripttitle -->
+		'.$this->createHeader('Выбор ссылок отображаемых в футере').'
 		<!-- links -->'.$this->createCheckBoxGroup(['list' => $linksList]).'<!-- /links -->
 	</div>
 </fieldset><!-- /worksexamplesjavascript -->'.
