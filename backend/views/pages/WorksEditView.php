@@ -329,7 +329,21 @@ if ($worksItem['addpage'] <> '') {
 		</div>';
 }
 $addpageOne .= '</fieldset>';
-// Вывод одного изображения "Изображение доп.возможностей" КОНЕЦ/* UpdateCode */
+// Вывод одного изображения "Изображение доп.возможностей" КОНЕЦ
+
+
+
+// Группа чекбоксов "Выбор ссылок отображаемых в футере"
+$linksList = [];
+foreach ($links as $key => $item) {
+	$checked = '';
+	
+	if (in_array($item['id'], $linksIds)) {
+		$checked = 'checked="checked"';
+	}
+	
+	$linksList[] = ['id'=> 'links'.$key, 'text' => $item['title'], 'width' => 400, 'name' => 'linksIds[]', 'value' => $item['id'], 'attr' => $checked];
+}/* UpdateCode */
 
 
 
@@ -406,6 +420,8 @@ $content .= '<!-- sectionPageData --><fieldset class="catalog__section">
 				</div>';
 			}
 		$content .= '</div><!-- /resultlist1 -->
+        '.$this->createHeader('Выбор ссылок отображаемых в футере').'
+		<!-- links -->'.$this->createCheckBoxGroup(['list' => $linksList]).'<!-- /links -->
 	</div>
 
 

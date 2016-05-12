@@ -37,7 +37,11 @@ class AddController extends  \backend\controllers\AdminController
 			$filters = $myOthers->getSelectOptionsMultiLangs('filters', 'title', $pageLang);
 
 			// Множество текстовых полей "Пункты результата"
-			$resultlist1 = $myOthers->getManyFieldsElementEmpty();/* UpdateCode */
+			$resultlist1 = $myOthers->getManyFieldsElementEmpty();
+
+			// Группа чекбоксов "Выбор ссылок отображаемых в футере"
+			$links = $myOthers->getChGrSourceIdsMultiLangs('links', 'title', $pageLang);
+			$linksIds = [];/* UpdateCode */
 
 
 			$content = '';

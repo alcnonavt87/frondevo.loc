@@ -326,7 +326,11 @@ class UpdateController extends  \backend\controllers\AdminController
 
 			// Множество текстовых полей "Пункты результата"
 			$resultlist1 = ArrayHelper::getValue($_POST, 'resultlist1', []);
-			$myOthers->updateManyFieldsElementIMultiLangsSimple('works_resultlist1', $idRecord, $resultlist1, $pageLang);/* UpdateCodeBottom */
+			$myOthers->updateManyFieldsElementIMultiLangsSimple('works_resultlist1', $idRecord, $resultlist1, $pageLang);
+
+			// Группа чекбоксов "Выбор ссылок отображаемых в футере"
+			$linksIds = ArrayHelper::getValue($_POST, 'linksIds', []);
+			$myOthers->updateChGrIds('works_links', 'idWorks', 'idLinks', $idRecord, $linksIds);/* UpdateCodeBottom */
 
 			exit($json_data);
 		} else {

@@ -428,11 +428,12 @@ class SitesByKeysController extends CommonController
         //Получаем pTitle для Layout  единцы работы
         $forLayout['pTitle'] = $data['worksItem']['pTitle'];
         $forLayout['pDescription'] = $data['worksItem']['pDescription'];
-
         $forLayout['pAlias'] =$worksItem['url'];
+
         // Список ссылок для плашки сссылок в футере
-        $links = $this->myWorks->getLinks($this->pageContent['alias']);
+        $links = $this->myWorks->getLinksItem($worksItem['id']);
         $forLayout['links'] = $links;
+
         $data = array_merge($this->data, $data);
         $forLayout = array_merge($this->forLayout, $forLayout); //echo '<pre>';print_r($data);echo '</pre>';exit;
 

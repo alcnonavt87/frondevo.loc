@@ -245,6 +245,36 @@ class Works extends Model
 		
 		return $result;
     }
+
+	public function getLinksItem($id) {
+		// запрос
+		$query = Yii::$app->db->createCommand('SELECT
+            `l`.`id`,
+			`lc`.`title`,
+			`p`.`urlMethod`
+		FROM
+			`links` `l`
+			LEFT JOIN `links_content` `lc`
+				ON `lc`.`idLinks` = `l`.`id` AND `lc`.`lang` = :lang
+			LEFT JOIN `pages` `p`
+				ON `p`.`id` = `l`.`idTextpages`
+			JOIN `works_links` `wl`
+				ON `wl`.`idLinks` = `l`.`id`AND `wl`.`idWorks` = :id
+		ORDER BY
+			`l`.`order`')
+				->bindValue(':lang', $this->lang)
+				->bindValue(':id', $id);
+
+		//echo '<pre>';print_r($query);echo '</pre>';exit;
+		$result = $query->queryAll();
+
+		return $result;
+	}
+
+
+
+
+
 	public function getWorksForFrontendOut($alias, $params=[]) {
 		// запрос
 		$query = Yii::$app->db->createCommand('SELECT

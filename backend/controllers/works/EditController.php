@@ -41,7 +41,11 @@ class EditController extends  \backend\controllers\AdminController
 				$resultlist1 = $myOthers->getManyFieldsElementMultiLangs('works_resultlist1', $idRecord, $pageLang);
 				if (!$resultlist1) {
 					$resultlist1 = $myOthers->getManyFieldsElementEmpty();
-				}/* UpdateCode */
+				}
+
+				// Группа чекбоксов "Выбор ссылок отображаемых в футере"
+				$links = $myOthers->getChGrSourceIdsMultiLangs('links', 'title', $pageLang);
+				$linksIds = $myOthers->getChGrTargetIds('works_links', 'idWorks', 'idLinks', $idRecord);/* UpdateCode */
 
 
 				$content = '';
