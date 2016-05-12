@@ -46,8 +46,8 @@ return [
                     'height' => 736,
                 ],
                 'smallbg' => [
-                    'width' => 768,
-                    'height' => 480,
+                    'width' => 640,
+                    'height' => 1171,
                 ],
                 'generalmp' => [
                     'width' => 900,

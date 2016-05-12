@@ -45,7 +45,13 @@ class EditController extends  \backend\controllers\AdminController
 
 				// Группа чекбоксов "Выбор ссылок отображаемых в футере"
 				$links = $myOthers->getChGrSourceIdsMultiLangs('links', 'title', $pageLang);
-				$linksIds = $myOthers->getChGrTargetIds('works_links', 'idWorks', 'idLinks', $idRecord);/* UpdateCode */
+
+				$linksIds = $myOthers->getChGrTargetIds('works_links', 'idWorks', 'idLinks', $idRecord);
+				//если $linksIds для единицы работы пустое, берем его со страницы работа у которой $idRecord = 3
+				if(empty($linksIds)){
+					$linksIds = $myOthers->getChGrTargetIds('pages_links', 'idPages', 'idLinks', 3);
+				}/* UpdateCode */
+
 
 
 				$content = '';
