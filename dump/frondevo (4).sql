@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10.6
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1:3306
--- Generation Time: May 12, 2016 at 10:59 AM
--- Server version: 5.5.41-log
--- PHP Version: 5.5.19
+-- Хост: 127.0.0.1
+-- Время создания: Май 12 2016 г., 08:40
+-- Версия сервера: 5.6.17
+-- Версия PHP: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `frondevo_working`
+-- База данных: `frondevo`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `access_list`
+-- Структура таблицы `access_list`
 --
 
 CREATE TABLE IF NOT EXISTS `access_list` (
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `access_list` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `advantagejavascript`
+-- Структура таблицы `advantagejavascript`
 --
 
 CREATE TABLE IF NOT EXISTS `advantagejavascript` (
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `advantagejavascript` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
--- Dumping data for table `advantagejavascript`
+-- Дамп данных таблицы `advantagejavascript`
 --
 
 INSERT INTO `advantagejavascript` (`id`) VALUES
@@ -59,7 +59,7 @@ INSERT INTO `advantagejavascript` (`id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `advantagejavascript_content`
+-- Структура таблицы `advantagejavascript_content`
 --
 
 CREATE TABLE IF NOT EXISTS `advantagejavascript_content` (
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `advantagejavascript_content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `advantagejavascript_content`
+-- Дамп данных таблицы `advantagejavascript_content`
 --
 
 INSERT INTO `advantagejavascript_content` (`idAdvantagejavascript`, `lang`, `title`, `paragraph`) VALUES
@@ -97,7 +97,7 @@ INSERT INTO `advantagejavascript_content` (`idAdvantagejavascript`, `lang`, `tit
 -- --------------------------------------------------------
 
 --
--- Table structure for table `advantagejavascript_list`
+-- Структура таблицы `advantagejavascript_list`
 --
 
 CREATE TABLE IF NOT EXISTS `advantagejavascript_list` (
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `advantagejavascript_list` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
--- Dumping data for table `advantagejavascript_list`
+-- Дамп данных таблицы `advantagejavascript_list`
 --
 
 INSERT INTO `advantagejavascript_list` (`id`, `idRel`, `lang`, `text`) VALUES
@@ -142,7 +142,7 @@ INSERT INTO `advantagejavascript_list` (`id`, `idRel`, `lang`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `advantagepsdhmtl5`
+-- Структура таблицы `advantagepsdhmtl5`
 --
 
 CREATE TABLE IF NOT EXISTS `advantagepsdhmtl5` (
@@ -151,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `advantagepsdhmtl5` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
--- Dumping data for table `advantagepsdhmtl5`
+-- Дамп данных таблицы `advantagepsdhmtl5`
 --
 
 INSERT INTO `advantagepsdhmtl5` (`id`) VALUES
@@ -167,7 +167,7 @@ INSERT INTO `advantagepsdhmtl5` (`id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `advantagepsdhmtl5_content`
+-- Структура таблицы `advantagepsdhmtl5_content`
 --
 
 CREATE TABLE IF NOT EXISTS `advantagepsdhmtl5_content` (
@@ -179,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `advantagepsdhmtl5_content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `advantagepsdhmtl5_content`
+-- Дамп данных таблицы `advantagepsdhmtl5_content`
 --
 
 INSERT INTO `advantagepsdhmtl5_content` (`idAdvantagepsdhmtl5`, `lang`, `title`, `paragraph`) VALUES
@@ -211,7 +211,7 @@ INSERT INTO `advantagepsdhmtl5_content` (`idAdvantagepsdhmtl5`, `lang`, `title`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `advantagepsdhmtl5_list`
+-- Структура таблицы `advantagepsdhmtl5_list`
 --
 
 CREATE TABLE IF NOT EXISTS `advantagepsdhmtl5_list` (
@@ -224,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `advantagepsdhmtl5_list` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
 
 --
--- Dumping data for table `advantagepsdhmtl5_list`
+-- Дамп данных таблицы `advantagepsdhmtl5_list`
 --
 
 INSERT INTO `advantagepsdhmtl5_list` (`id`, `idRel`, `lang`, `text`) VALUES
@@ -256,7 +256,7 @@ INSERT INTO `advantagepsdhmtl5_list` (`id`, `idRel`, `lang`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `claims`
+-- Структура таблицы `claims`
 --
 
 CREATE TABLE IF NOT EXISTS `claims` (
@@ -269,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `claims` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='База заявок' AUTO_INCREMENT=270 ;
 
 --
--- Dumping data for table `claims`
+-- Дамп данных таблицы `claims`
 --
 
 INSERT INTO `claims` (`id`, `date`, `tel`, `email`, `status`) VALUES
@@ -294,7 +294,7 @@ INSERT INTO `claims` (`id`, `date`, `tel`, `email`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `claims_content`
+-- Структура таблицы `claims_content`
 --
 
 CREATE TABLE IF NOT EXISTS `claims_content` (
@@ -307,7 +307,7 @@ CREATE TABLE IF NOT EXISTS `claims_content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='База заявок (контент)';
 
 --
--- Dumping data for table `claims_content`
+-- Дамп данных таблицы `claims_content`
 --
 
 INSERT INTO `claims_content` (`idClaims`, `lang`, `name`, `contact`, `desc`) VALUES
@@ -332,7 +332,7 @@ INSERT INTO `claims_content` (`idClaims`, `lang`, `name`, `contact`, `desc`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `content`
+-- Структура таблицы `content`
 --
 
 CREATE TABLE IF NOT EXISTS `content` (
@@ -453,7 +453,7 @@ CREATE TABLE IF NOT EXISTS `content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=585 COMMENT='Содержимое страниц на разных языках';
 
 --
--- Dumping data for table `content`
+-- Дамп данных таблицы `content`
 --
 
 INSERT INTO `content` (`pageId`, `lang`, `pTitle`, `Url`, `pDescription`, `pKeyWords`, `pH1`, `pMenuName`, `pBreadCrumbs`, `pContent`, `imageTitle`, `section1`, `section2`, `section3`, `section4`, `section5`, `indexTextButton`, `indexAltName`, `sbkdescription`, `textforbackground`, `sbkworkstext`, `sbksmalltitle3`, `sbktitlestep1`, `sbkdeskstep1`, `sbktitlestep2`, `sbkdeskstep2`, `sbktitlestep3`, `sbkdeskstep3`, `sbktitlestep4`, `sbkdeskstep4`, `sbktitlestep5`, `sbkdeskstep5`, `sbktitlestep6`, `sbkdeskstep6`, `sbktitlestep7`, `sbkdeskstep7`, `sbksmalltitle`, `sbkstagetitle1`, `sbkstagetitle2`, `sbkstagetitle3`, `sbkstagetitle4`, `sbkstagetitle5`, `sbkstagetitle6`, `imagebgsbkTitle`, `imagebgsbklpTitle`, `imagebgsbkmbTitle`, `sbkdeskwork1`, `sbkimgwork1Title`, `sbkdeskwork2`, `sbkimgwork2Title`, `sbkdeskwork3`, `sbkimgwork3Title`, `sbkdeskwork4`, `sbkimgwork4Title`, `sbkdeskwork5`, `sbkimgwork5Title`, `sbkdeskwork6`, `sbkimgwork6Title`, `sbkdeskwork7`, `sbkimgwork7Title`, `snVkontakte`, `snFacebook`, `snTwitter`, `snBahance`, `snInstagram`, `snBall`, `snPinterest`, `titlefrontout`, `titlemiddlefrontout`, `titlesmallfrontout`, `titlesmallfrontout2`, `imagefrontoutbgbigTitle`, `imagefrontoutbgsmallTitle`, `frndoutsect2title`, `frndoutsect2data`, `frndoutsect3title`, `othervariantstitle`, `othervariants1title`, `othervariants1text`, `othervariants2title`, `othervariants2text`, `ourcompaniestitle`, `linkvideobgfrnout`, `garantiesbgword`, `garanties1title`, `garanties2title`, `frontendoutworkstitle`, `psd2html5mainscreebtitle`, `psd2html5mainscreebtitle1`, `psd2html5mainscreebtitle2`, `psd2html5mainscreebtitle3`, `psd2html5mainscreebtitle4`, `psd2html5mainscreebtitle5`, `psd2html5mainscreebtitle6`, `psd2html5mainscreebtitle7`, `imagepsd2html5bgbigTitle`, `imagepsd2html5bgsmallTitle`, `javascriptmainscreentitle`, `javascriptmainscreentitle1`, `javascriptmainscreentitle2`, `javascriptmainscreentitle3`, `imagejavascript5bgbigTitle`, `imagejavascriptbgsmallTitle`, `angularmainscreentitle`, `angularmainscreentitle1`, `imageangularbgbigTitle`, `imageangularbgsmallTitle`, `causesAngulartitle`, `worksexamplesAngulartitle`, `worksexamplesjavascripttitle`, `worksexamplespsd2html5title`) VALUES
@@ -495,7 +495,7 @@ INSERT INTO `content` (`pageId`, `lang`, `pTitle`, `Url`, `pDescription`, `pKeyW
 -- --------------------------------------------------------
 
 --
--- Table structure for table `filters`
+-- Структура таблицы `filters`
 --
 
 CREATE TABLE IF NOT EXISTS `filters` (
@@ -508,7 +508,7 @@ CREATE TABLE IF NOT EXISTS `filters` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `filters`
+-- Дамп данных таблицы `filters`
 --
 
 INSERT INTO `filters` (`id`, `show`, `url`, `order`) VALUES
@@ -519,7 +519,7 @@ INSERT INTO `filters` (`id`, `show`, `url`, `order`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `filters_content`
+-- Структура таблицы `filters_content`
 --
 
 CREATE TABLE IF NOT EXISTS `filters_content` (
@@ -530,7 +530,7 @@ CREATE TABLE IF NOT EXISTS `filters_content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `filters_content`
+-- Дамп данных таблицы `filters_content`
 --
 
 INSERT INTO `filters_content` (`idFilters`, `lang`, `title`) VALUES
@@ -547,7 +547,7 @@ INSERT INTO `filters_content` (`idFilters`, `lang`, `title`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `langs`
+-- Структура таблицы `langs`
 --
 
 CREATE TABLE IF NOT EXISTS `langs` (
@@ -561,7 +561,7 @@ CREATE TABLE IF NOT EXISTS `langs` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=5461 COMMENT='Языки сайта' AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `langs`
+-- Дамп данных таблицы `langs`
 --
 
 INSERT INTO `langs` (`id`, `sName`, `bName`, `code2`, `code3`, `fullName`) VALUES
@@ -572,7 +572,7 @@ INSERT INTO `langs` (`id`, `sName`, `bName`, `code2`, `code3`, `fullName`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `links`
+-- Структура таблицы `links`
 --
 
 CREATE TABLE IF NOT EXISTS `links` (
@@ -583,7 +583,7 @@ CREATE TABLE IF NOT EXISTS `links` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `links`
+-- Дамп данных таблицы `links`
 --
 
 INSERT INTO `links` (`id`, `idTextpages`, `order`) VALUES
@@ -596,7 +596,7 @@ INSERT INTO `links` (`id`, `idTextpages`, `order`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `links_content`
+-- Структура таблицы `links_content`
 --
 
 CREATE TABLE IF NOT EXISTS `links_content` (
@@ -607,7 +607,7 @@ CREATE TABLE IF NOT EXISTS `links_content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `links_content`
+-- Дамп данных таблицы `links_content`
 --
 
 INSERT INTO `links_content` (`idLinks`, `lang`, `title`) VALUES
@@ -630,7 +630,7 @@ INSERT INTO `links_content` (`idLinks`, `lang`, `title`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migration`
+-- Структура таблицы `migration`
 --
 
 CREATE TABLE IF NOT EXISTS `migration` (
@@ -640,7 +640,7 @@ CREATE TABLE IF NOT EXISTS `migration` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `migration`
+-- Дамп данных таблицы `migration`
 --
 
 INSERT INTO `migration` (`version`, `apply_time`) VALUES
@@ -649,7 +649,7 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pagegroup`
+-- Структура таблицы `pagegroup`
 --
 
 CREATE TABLE IF NOT EXISTS `pagegroup` (
@@ -666,10 +666,10 @@ CREATE TABLE IF NOT EXISTS `pagegroup` (
   `groupMark` varchar(50) NOT NULL COMMENT 'Отличительное имя',
   `ignoreMenu` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Не включать страницу в меню админки',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=2048 COMMENT='группы страниц для главного бокового меню' AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=2048 COMMENT='группы страниц для главного бокового меню' AUTO_INCREMENT=13 ;
 
 --
--- Dumping data for table `pagegroup`
+-- Дамп данных таблицы `pagegroup`
 --
 
 INSERT INTO `pagegroup` (`id`, `groupName`, `adminClass`, `cssKlass`, `addParam`, `groupLevel`, `idParentGroup`, `quickButton`, `picking`, `idTextPage`, `groupMark`, `ignoreMenu`) VALUES
@@ -680,15 +680,14 @@ INSERT INTO `pagegroup` (`id`, `groupName`, `adminClass`, `cssKlass`, `addParam`
 (7, 'Ссылки (для плашки сссылок в футере)', 'links/', 'links', 0, 1, 0, 0, 1, 0, 'Ссылки (для плашки сссылок в футере)', 1),
 (8, 'Сайты под ключ', 'text/', 'key', 0, 1, 0, 0, 20, 0, 'Сайты под ключ', 0),
 (9, 'Портфолио', 'works/', 'portfolio', 0, 1, 0, 0, 1, 0, 'Портфолио', 1),
-(10, 'Аутсорсинг', 'text/', 'external-link', 0, 1, 0, 0, 30, 0, 'Аутсорсинг', 0),
-(11, 'Наши преимущества PSTtoHTML', 'advantagepsdhmtl5/', 'advantagepsdhmtl5', 0, 1, 0, 0, 1, 0, 'Наши преимущества для PSTtoHTML', 1),
-(12, 'Наши преимущества javascript', 'advantagejavascript/', 'advantagejavascript', 0, 1, 0, 0, 1, 0, 'Наши преимущества для javascript', 1),
-(13, 'Аутсорсинг фронтенд', 'text/', 'frontendout', 0, 1, 0, 0, 1, 0, 'Аутсорсинг фронтенд', 1);
+(10, 'Аутсорсинг', 'text/', 'text', 0, 1, 0, 0, 1, 0, 'Аутсорсинг', 1),
+(11, 'Наши преимущества PSTtoHTML', 'advantagepsdhmtl5/', 'advantagepsdhmtl5', 0, 1, 0, 0, 1, 0, 'Наши преимущества для PSTtoHTML', 0),
+(12, 'Наши преимущества javascript', 'advantagejavascript/', 'advantagejavascript', 0, 1, 0, 0, 1, 0, 'Наши преимущества для javascript', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages`
+-- Структура таблицы `pages`
 --
 
 CREATE TABLE IF NOT EXISTS `pages` (
@@ -785,7 +784,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=1365 COMMENT='Таблица содержащая основные данныее о страницах сайта' AUTO_INCREMENT=12 ;
 
 --
--- Dumping data for table `pages`
+-- Дамп данных таблицы `pages`
 --
 
 INSERT INTO `pages` (`id`, `pShow`, `pUrl`, `pAdd`, `pEdit`, `pDel`, `class`, `adminClass`, `pageAdminType`, `parentId`, `level`, `pageMenuNum`, `m1`, `m2`, `pageOrder`, `priority`, `changefreq`, `idPageGroup`, `pAlias`, `urlMethod`, `pageMark`, `ignoreListTable`, `image`, `imageWidth`, `imageHeight`, `idFilters`, `idWorks`, `imagebgsbk`, `imagebgsbkWidth`, `imagebgsbkHeight`, `imagebgsbklp`, `imagebgsbklpWidth`, `imagebgsbklpHeight`, `imagebgsbkmb`, `imagebgsbkmbWidth`, `imagebgsbkmbHeight`, `idWorks1`, `idWorks2`, `idWorks3`, `idWorks4`, `idWorks5`, `idWorks6`, `idWorks7`, `sbkimgwork1`, `sbkimgwork1Width`, `sbkimgwork1Height`, `sbkimgwork2`, `sbkimgwork2Width`, `sbkimgwork2Height`, `sbkimgwork3`, `sbkimgwork3Width`, `sbkimgwork3Height`, `sbkimgwork4`, `sbkimgwork4Width`, `sbkimgwork4Height`, `sbkimgwork5`, `sbkimgwork5Width`, `sbkimgwork5Height`, `sbkimgwork6`, `sbkimgwork6Width`, `sbkimgwork6Height`, `sbkimgwork7`, `sbkimgwork7Width`, `sbkimgwork7Height`, `imagefrontoutbgbig`, `imagefrontoutbgbigWidth`, `imagefrontoutbgbigHeight`, `imagefrontoutbgsmall`, `imagefrontoutbgsmallWidth`, `imagefrontoutbgsmallHeight`, `imagepsd2html5bgbig`, `imagepsd2html5bgbigWidth`, `imagepsd2html5bgbigHeight`, `imagepsd2html5bgsmall`, `imagepsd2html5bgsmallWidth`, `imagepsd2html5bgsmallHeight`, `imagejavascript5bgbig`, `imagejavascript5bgbigWidth`, `imagejavascript5bgbigHeight`, `imagejavascriptbgsmall`, `imagejavascriptbgsmallWidth`, `imagejavascriptbgsmallHeight`, `imageangularbgbig`, `imageangularbgbigWidth`, `imageangularbgbigHeight`, `imageangularbgsmall`, `imageangularbgsmallWidth`, `imageangularbgsmallHeight`) VALUES
@@ -796,15 +795,15 @@ INSERT INTO `pages` (`id`, `pShow`, `pUrl`, `pAdd`, `pEdit`, `pDel`, `class`, `a
 (5, 1, 'contacts', 0, 1, 0, 'contacts', 'text/pages/contacts', 0, 0, 0, 1, 0, 0, 1, '0.0', 'monthly', 1, 'contacts', 'getContactsUrl', '', 0, '', 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0),
 (6, 1, 'landing-page', 0, 1, 0, 'sitesbykeys', 'text/pages/landingpage', 0, 0, 0, 1, 0, 0, 1, '0.0', 'monthly', 8, 'landingpage', 'getLandingpageUrl', '', 0, '', 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0),
 (7, 1, 'outsourcing', 0, 1, 0, 'outsourcing', 'text/pages/outsourcing', 0, 1, 1, 0, 0, 0, 0, '0.6', 'monthly', 1, 'outsourcing', 'getOutsourcingUrl', 'Аутсорсинг', 0, '', 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0),
-(8, 1, 'frontendout', 0, 1, 0, 'outsourcing', 'text/pages/frontendout', 0, 1, 1, 0, 0, 0, 0, '0.6', 'monthly', 10, 'frontendout', 'getFrontendoutUrl', 'Аутсорсинг фронтенд', 1, '', 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '8-imagefrontoutbgbig.jpg', 1920, 950, '8-imagefrontoutbgsmall.jpg', 1920, 950, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0),
-(9, 1, 'psd2html5', 0, 1, 0, 'outsourcing', 'text/pages/psd2html5', 0, 1, 1, 0, 0, 0, 0, '0.6', 'monthly', 13, 'psd2html5', 'getPsd2html5Url', 'Аутсорсинг - psd2html5', 0, '', 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '9-imagepsd2html5bgbig.jpg', 0, 0, '9-imagepsd2html5bgsmall.jpg', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0),
-(10, 1, 'javascript', 0, 1, 0, 'outsourcing', 'text/pages/javascript', 0, 1, 1, 0, 0, 0, 0, '0.6', 'monthly', 13, 'javascript', 'getJavascriptUrl', 'Аутсорсинг - javascript', 0, '', 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '10-imagejavascript5bgbig.jpg', 0, 0, '10-imagejavascriptbgsmall.jpg', 0, 0, '', 0, 0, '', 0, 0),
-(11, 1, 'angular', 0, 1, 0, 'outsourcing', 'text/pages/angular', 0, 1, 1, 0, 0, 0, 0, '0.6', 'monthly', 13, 'angular', 'getAngularUrl', 'Аутсорсинг - angular', 0, '', 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '11-imageangularbgbig.jpg', 0, 0, '11-imageangularbgsmall.jpg', 0, 0);
+(8, 1, 'frontendout', 0, 1, 0, 'outsourcing', 'text/pages/frontendout', 0, 1, 1, 0, 0, 0, 0, '0.6', 'monthly', 1, 'frontendout', 'getFrontendoutUrl', 'Аутсорсинг - front end разработка', 0, '', 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '8-imagefrontoutbgbig.jpg', 1920, 950, '8-imagefrontoutbgsmall.jpg', 1920, 950, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0),
+(9, 1, 'psd2html5', 0, 1, 0, 'outsourcing', 'text/pages/psd2html5', 0, 1, 1, 0, 0, 0, 0, '0.6', 'monthly', 1, 'psd2html5', 'getPsd2html5Url', 'Аутсорсинг - psd2html5', 0, '', 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '9-imagepsd2html5bgbig.jpg', 0, 0, '9-imagepsd2html5bgsmall.jpg', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0),
+(10, 1, 'javascript', 0, 1, 0, 'outsourcing', 'text/pages/javascript', 0, 1, 1, 0, 0, 0, 0, '0.6', 'monthly', 1, 'javascript', 'getJavascriptUrl', 'Аутсорсинг - javascript', 0, '', 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '10-imagejavascript5bgbig.jpg', 0, 0, '10-imagejavascriptbgsmall.jpg', 0, 0, '', 0, 0, '', 0, 0),
+(11, 1, 'angular', 0, 1, 0, 'outsourcing', 'text/pages/angular', 0, 1, 1, 0, 0, 0, 0, '0.6', 'monthly', 1, 'angular', 'getAngularUrl', 'Аутсорсинг - angular', 0, '', 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '', 0, 0, '11-imageangularbgbig.jpg', 0, 0, '11-imageangularbgsmall.jpg', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pagessbk_work`
+-- Структура таблицы `pagessbk_work`
 --
 
 CREATE TABLE IF NOT EXISTS `pagessbk_work` (
@@ -815,7 +814,7 @@ CREATE TABLE IF NOT EXISTS `pagessbk_work` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_causesangularlist`
+-- Структура таблицы `pages_causesangularlist`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_causesangularlist` (
@@ -828,7 +827,7 @@ CREATE TABLE IF NOT EXISTS `pages_causesangularlist` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
 
 --
--- Dumping data for table `pages_causesangularlist`
+-- Дамп данных таблицы `pages_causesangularlist`
 --
 
 INSERT INTO `pages_causesangularlist` (`id`, `idRel`, `lang`, `text`) VALUES
@@ -841,7 +840,7 @@ INSERT INTO `pages_causesangularlist` (`id`, `idRel`, `lang`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_causesangularlist1`
+-- Структура таблицы `pages_causesangularlist1`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_causesangularlist1` (
@@ -854,7 +853,7 @@ CREATE TABLE IF NOT EXISTS `pages_causesangularlist1` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
 
 --
--- Dumping data for table `pages_causesangularlist1`
+-- Дамп данных таблицы `pages_causesangularlist1`
 --
 
 INSERT INTO `pages_causesangularlist1` (`id`, `idRel`, `lang`, `text`) VALUES
@@ -867,7 +866,7 @@ INSERT INTO `pages_causesangularlist1` (`id`, `idRel`, `lang`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_frontendoutworks`
+-- Структура таблицы `pages_frontendoutworks`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_frontendoutworks` (
@@ -878,7 +877,7 @@ CREATE TABLE IF NOT EXISTS `pages_frontendoutworks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `pages_frontendoutworks`
+-- Дамп данных таблицы `pages_frontendoutworks`
 --
 
 INSERT INTO `pages_frontendoutworks` (`idPages`, `idFrontendoutworks`) VALUES
@@ -891,7 +890,7 @@ INSERT INTO `pages_frontendoutworks` (`idPages`, `idFrontendoutworks`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_garanties1list`
+-- Структура таблицы `pages_garanties1list`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_garanties1list` (
@@ -904,7 +903,7 @@ CREATE TABLE IF NOT EXISTS `pages_garanties1list` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
 
 --
--- Dumping data for table `pages_garanties1list`
+-- Дамп данных таблицы `pages_garanties1list`
 --
 
 INSERT INTO `pages_garanties1list` (`id`, `idRel`, `lang`, `text`) VALUES
@@ -915,7 +914,7 @@ INSERT INTO `pages_garanties1list` (`id`, `idRel`, `lang`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_garanties2list`
+-- Структура таблицы `pages_garanties2list`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_garanties2list` (
@@ -928,7 +927,7 @@ CREATE TABLE IF NOT EXISTS `pages_garanties2list` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=60 ;
 
 --
--- Dumping data for table `pages_garanties2list`
+-- Дамп данных таблицы `pages_garanties2list`
 --
 
 INSERT INTO `pages_garanties2list` (`id`, `idRel`, `lang`, `text`) VALUES
@@ -941,7 +940,7 @@ INSERT INTO `pages_garanties2list` (`id`, `idRel`, `lang`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_imageourclientslogo`
+-- Структура таблицы `pages_imageourclientslogo`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_imageourclientslogo` (
@@ -956,7 +955,7 @@ CREATE TABLE IF NOT EXISTS `pages_imageourclientslogo` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
--- Dumping data for table `pages_imageourclientslogo`
+-- Дамп данных таблицы `pages_imageourclientslogo`
 --
 
 INSERT INTO `pages_imageourclientslogo` (`id`, `idPages`, `img`, `imgWidth`, `imgHeight`, `order`) VALUES
@@ -974,7 +973,7 @@ INSERT INTO `pages_imageourclientslogo` (`id`, `idPages`, `img`, `imgWidth`, `im
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_imageourclientslogo_content`
+-- Структура таблицы `pages_imageourclientslogo_content`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_imageourclientslogo_content` (
@@ -985,7 +984,7 @@ CREATE TABLE IF NOT EXISTS `pages_imageourclientslogo_content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `pages_imageourclientslogo_content`
+-- Дамп данных таблицы `pages_imageourclientslogo_content`
 --
 
 INSERT INTO `pages_imageourclientslogo_content` (`idImg`, `lang`, `imgTitle`) VALUES
@@ -1056,7 +1055,7 @@ INSERT INTO `pages_imageourclientslogo_content` (`idImg`, `lang`, `imgTitle`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_imageourcompanieslogo`
+-- Структура таблицы `pages_imageourcompanieslogo`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_imageourcompanieslogo` (
@@ -1071,7 +1070,7 @@ CREATE TABLE IF NOT EXISTS `pages_imageourcompanieslogo` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
--- Dumping data for table `pages_imageourcompanieslogo`
+-- Дамп данных таблицы `pages_imageourcompanieslogo`
 --
 
 INSERT INTO `pages_imageourcompanieslogo` (`id`, `idPages`, `img`, `imgWidth`, `imgHeight`, `order`) VALUES
@@ -1094,7 +1093,7 @@ INSERT INTO `pages_imageourcompanieslogo` (`id`, `idPages`, `img`, `imgWidth`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_imageourcompanieslogo_content`
+-- Структура таблицы `pages_imageourcompanieslogo_content`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_imageourcompanieslogo_content` (
@@ -1105,7 +1104,7 @@ CREATE TABLE IF NOT EXISTS `pages_imageourcompanieslogo_content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `pages_imageourcompanieslogo_content`
+-- Дамп данных таблицы `pages_imageourcompanieslogo_content`
 --
 
 INSERT INTO `pages_imageourcompanieslogo_content` (`idImg`, `lang`, `imgTitle`) VALUES
@@ -1161,7 +1160,7 @@ INSERT INTO `pages_imageourcompanieslogo_content` (`idImg`, `lang`, `imgTitle`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_links`
+-- Структура таблицы `pages_links`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_links` (
@@ -1172,7 +1171,7 @@ CREATE TABLE IF NOT EXISTS `pages_links` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `pages_links`
+-- Дамп данных таблицы `pages_links`
 --
 
 INSERT INTO `pages_links` (`idPages`, `idLinks`) VALUES
@@ -1219,7 +1218,7 @@ INSERT INTO `pages_links` (`idPages`, `idLinks`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_ourclientslist`
+-- Структура таблицы `pages_ourclientslist`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_ourclientslist` (
@@ -1232,7 +1231,7 @@ CREATE TABLE IF NOT EXISTS `pages_ourclientslist` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=121 ;
 
 --
--- Dumping data for table `pages_ourclientslist`
+-- Дамп данных таблицы `pages_ourclientslist`
 --
 
 INSERT INTO `pages_ourclientslist` (`id`, `idRel`, `lang`, `text`) VALUES
@@ -1244,7 +1243,7 @@ INSERT INTO `pages_ourclientslist` (`id`, `idRel`, `lang`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_sbkpslist`
+-- Структура таблицы `pages_sbkpslist`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_sbkpslist` (
@@ -1257,7 +1256,7 @@ CREATE TABLE IF NOT EXISTS `pages_sbkpslist` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=578 ;
 
 --
--- Dumping data for table `pages_sbkpslist`
+-- Дамп данных таблицы `pages_sbkpslist`
 --
 
 INSERT INTO `pages_sbkpslist` (`id`, `idRel`, `lang`, `text`) VALUES
@@ -1271,7 +1270,7 @@ INSERT INTO `pages_sbkpslist` (`id`, `idRel`, `lang`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_sbkstagelist1`
+-- Структура таблицы `pages_sbkstagelist1`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_sbkstagelist1` (
@@ -1284,7 +1283,7 @@ CREATE TABLE IF NOT EXISTS `pages_sbkstagelist1` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=829 ;
 
 --
--- Dumping data for table `pages_sbkstagelist1`
+-- Дамп данных таблицы `pages_sbkstagelist1`
 --
 
 INSERT INTO `pages_sbkstagelist1` (`id`, `idRel`, `lang`, `text`) VALUES
@@ -1300,7 +1299,7 @@ INSERT INTO `pages_sbkstagelist1` (`id`, `idRel`, `lang`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_sbkstagelist2`
+-- Структура таблицы `pages_sbkstagelist2`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_sbkstagelist2` (
@@ -1313,7 +1312,7 @@ CREATE TABLE IF NOT EXISTS `pages_sbkstagelist2` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=705 ;
 
 --
--- Dumping data for table `pages_sbkstagelist2`
+-- Дамп данных таблицы `pages_sbkstagelist2`
 --
 
 INSERT INTO `pages_sbkstagelist2` (`id`, `idRel`, `lang`, `text`) VALUES
@@ -1328,7 +1327,7 @@ INSERT INTO `pages_sbkstagelist2` (`id`, `idRel`, `lang`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_sbkstagelist3`
+-- Структура таблицы `pages_sbkstagelist3`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_sbkstagelist3` (
@@ -1341,7 +1340,7 @@ CREATE TABLE IF NOT EXISTS `pages_sbkstagelist3` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=588 ;
 
 --
--- Dumping data for table `pages_sbkstagelist3`
+-- Дамп данных таблицы `pages_sbkstagelist3`
 --
 
 INSERT INTO `pages_sbkstagelist3` (`id`, `idRel`, `lang`, `text`) VALUES
@@ -1355,7 +1354,7 @@ INSERT INTO `pages_sbkstagelist3` (`id`, `idRel`, `lang`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_sbkstagelist4`
+-- Структура таблицы `pages_sbkstagelist4`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_sbkstagelist4` (
@@ -1368,7 +1367,7 @@ CREATE TABLE IF NOT EXISTS `pages_sbkstagelist4` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=822 ;
 
 --
--- Dumping data for table `pages_sbkstagelist4`
+-- Дамп данных таблицы `pages_sbkstagelist4`
 --
 
 INSERT INTO `pages_sbkstagelist4` (`id`, `idRel`, `lang`, `text`) VALUES
@@ -1384,7 +1383,7 @@ INSERT INTO `pages_sbkstagelist4` (`id`, `idRel`, `lang`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_sbkstagelist5`
+-- Структура таблицы `pages_sbkstagelist5`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_sbkstagelist5` (
@@ -1397,7 +1396,7 @@ CREATE TABLE IF NOT EXISTS `pages_sbkstagelist5` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=471 ;
 
 --
--- Dumping data for table `pages_sbkstagelist5`
+-- Дамп данных таблицы `pages_sbkstagelist5`
 --
 
 INSERT INTO `pages_sbkstagelist5` (`id`, `idRel`, `lang`, `text`) VALUES
@@ -1410,7 +1409,7 @@ INSERT INTO `pages_sbkstagelist5` (`id`, `idRel`, `lang`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_sbkstagelist6`
+-- Структура таблицы `pages_sbkstagelist6`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_sbkstagelist6` (
@@ -1423,7 +1422,7 @@ CREATE TABLE IF NOT EXISTS `pages_sbkstagelist6` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=471 ;
 
 --
--- Dumping data for table `pages_sbkstagelist6`
+-- Дамп данных таблицы `pages_sbkstagelist6`
 --
 
 INSERT INTO `pages_sbkstagelist6` (`id`, `idRel`, `lang`, `text`) VALUES
@@ -1436,7 +1435,7 @@ INSERT INTO `pages_sbkstagelist6` (`id`, `idRel`, `lang`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_works`
+-- Структура таблицы `pages_works`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_works` (
@@ -1449,7 +1448,7 @@ CREATE TABLE IF NOT EXISTS `pages_works` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_works_content`
+-- Структура таблицы `pages_works_content`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_works_content` (
@@ -1462,7 +1461,7 @@ CREATE TABLE IF NOT EXISTS `pages_works_content` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `settings`
+-- Структура таблицы `settings`
 --
 
 CREATE TABLE IF NOT EXISTS `settings` (
@@ -1476,7 +1475,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Настройки' AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `settings`
+-- Дамп данных таблицы `settings`
 --
 
 INSERT INTO `settings` (`id`, `emailCall`, `emailClaim`, `snVkontakte`, `snFacebook`, `snTwitter`) VALUES
@@ -1485,7 +1484,7 @@ INSERT INTO `settings` (`id`, `emailCall`, `emailClaim`, `snVkontakte`, `snFaceb
 -- --------------------------------------------------------
 
 --
--- Table structure for table `settings_content`
+-- Структура таблицы `settings_content`
 --
 
 CREATE TABLE IF NOT EXISTS `settings_content` (
@@ -1497,7 +1496,7 @@ CREATE TABLE IF NOT EXISTS `settings_content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Настройки (контент)';
 
 --
--- Dumping data for table `settings_content`
+-- Дамп данных таблицы `settings_content`
 --
 
 INSERT INTO `settings_content` (`idSettings`, `lang`, `address`, `copyright`) VALUES
@@ -1508,7 +1507,7 @@ INSERT INTO `settings_content` (`idSettings`, `lang`, `address`, `copyright`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `settings_pages`
+-- Структура таблицы `settings_pages`
 --
 
 CREATE TABLE IF NOT EXISTS `settings_pages` (
@@ -1520,7 +1519,7 @@ CREATE TABLE IF NOT EXISTS `settings_pages` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=1365 COMMENT='Таблица содержащая основные данныее о страницах настройках сайта' AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `settings_pages`
+-- Дамп данных таблицы `settings_pages`
 --
 
 INSERT INTO `settings_pages` (`id`, `settingsName`, `adminClass`, `pageAdminType`) VALUES
@@ -1533,7 +1532,7 @@ INSERT INTO `settings_pages` (`id`, `settingsName`, `adminClass`, `pageAdminType
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Структура таблицы `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
@@ -1553,7 +1552,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AVG_ROW_LENGTH=8192 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `user`
+-- Дамп данных таблицы `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `role`, `status`, `created_at`, `updated_at`, `name`, `surname`) VALUES
@@ -1562,7 +1561,7 @@ INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_res
 -- --------------------------------------------------------
 
 --
--- Table structure for table `works`
+-- Структура таблицы `works`
 --
 
 CREATE TABLE IF NOT EXISTS `works` (
@@ -1604,7 +1603,7 @@ CREATE TABLE IF NOT EXISTS `works` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
--- Dumping data for table `works`
+-- Дамп данных таблицы `works`
 --
 
 INSERT INTO `works` (`id`, `show`, `pUrl`, `dateCreated`, `idFilters`, `order`, `image`, `imageWidth`, `imageHeight`, `imageWidth2`, `imageHeight2`, `imageprtf`, `imageprtfWidth`, `imageprtfHeight`, `imagebg`, `imagebgWidth`, `imagebgHeight`, `imagebgWidth2`, `imagebgHeight2`, `imagebgWidth3`, `imagebgHeight3`, `mainpage`, `mainpageWidth`, `mainpageHeight`, `mainpageWidth2`, `mainpageHeight2`, `mainpageWidth3`, `mainpageHeight3`, `mainpageWidth4`, `mainpageHeight4`, `addpage`, `addpageWidth`, `addpageHeight`) VALUES
@@ -1618,7 +1617,7 @@ INSERT INTO `works` (`id`, `show`, `pUrl`, `dateCreated`, `idFilters`, `order`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `works_content`
+-- Структура таблицы `works_content`
 --
 
 CREATE TABLE IF NOT EXISTS `works_content` (
@@ -1652,7 +1651,7 @@ CREATE TABLE IF NOT EXISTS `works_content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `works_content`
+-- Дамп данных таблицы `works_content`
 --
 
 INSERT INTO `works_content` (`idWorks`, `lang`, `pTitle`, `pKeyWords`, `pDescription`, `pH1`, `pMenuName`, `pBreadCrumbs`, `pContent`, `description`, `imageTitle`, `imageprtfTitle`, `imagebgTitle`, `client`, `services`, `launch`, `aboutProject`, `task`, `descrofsolut`, `linkwork`, `mainpageTitle`, `add`, `addpageTitle`, `results`, `worksdesсsbk`, `solutions`) VALUES
@@ -1678,7 +1677,7 @@ INSERT INTO `works_content` (`idWorks`, `lang`, `pTitle`, `pKeyWords`, `pDescrip
 -- --------------------------------------------------------
 
 --
--- Table structure for table `works_links`
+-- Структура таблицы `works_links`
 --
 
 CREATE TABLE IF NOT EXISTS `works_links` (
@@ -1689,7 +1688,7 @@ CREATE TABLE IF NOT EXISTS `works_links` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `works_links`
+-- Дамп данных таблицы `works_links`
 --
 
 INSERT INTO `works_links` (`idWorks`, `idLinks`) VALUES
@@ -1705,7 +1704,7 @@ INSERT INTO `works_links` (`idWorks`, `idLinks`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `works_resultlist1`
+-- Структура таблицы `works_resultlist1`
 --
 
 CREATE TABLE IF NOT EXISTS `works_resultlist1` (
@@ -1718,7 +1717,7 @@ CREATE TABLE IF NOT EXISTS `works_resultlist1` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=664 ;
 
 --
--- Dumping data for table `works_resultlist1`
+-- Дамп данных таблицы `works_resultlist1`
 --
 
 INSERT INTO `works_resultlist1` (`id`, `idRel`, `lang`, `text`) VALUES
@@ -1734,42 +1733,42 @@ INSERT INTO `works_resultlist1` (`id`, `idRel`, `lang`, `text`) VALUES
 (663, 1, 'ru', '');
 
 --
--- Constraints for dumped tables
+-- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Constraints for table `access_list`
+-- Ограничения внешнего ключа таблицы `access_list`
 --
 ALTER TABLE `access_list`
   ADD CONSTRAINT `FK_access_list_user_id` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `claims_content`
+-- Ограничения внешнего ключа таблицы `claims_content`
 --
 ALTER TABLE `claims_content`
   ADD CONSTRAINT `claims_content_ibfk_1` FOREIGN KEY (`idClaims`) REFERENCES `claims` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `content`
+-- Ограничения внешнего ключа таблицы `content`
 --
 ALTER TABLE `content`
   ADD CONSTRAINT `content_ibfk_1` FOREIGN KEY (`pageId`) REFERENCES `pages` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `links_content`
+-- Ограничения внешнего ключа таблицы `links_content`
 --
 ALTER TABLE `links_content`
   ADD CONSTRAINT `links_content_ibfk_1` FOREIGN KEY (`idLinks`) REFERENCES `links` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `pages_links`
+-- Ограничения внешнего ключа таблицы `pages_links`
 --
 ALTER TABLE `pages_links`
   ADD CONSTRAINT `pages_links_ibfk_1` FOREIGN KEY (`idPages`) REFERENCES `pages` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `pages_links_ibfk_2` FOREIGN KEY (`idLinks`) REFERENCES `links` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `works_content`
+-- Ограничения внешнего ключа таблицы `works_content`
 --
 ALTER TABLE `works_content`
   ADD CONSTRAINT `works_content_ibfk_1` FOREIGN KEY (`idWorks`) REFERENCES `works` (`id`) ON DELETE CASCADE;

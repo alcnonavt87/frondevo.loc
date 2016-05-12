@@ -49,6 +49,9 @@ class JavascriptEditController extends \backend\controllers\AdminController {
 				$links = $myOthers->getChGrSourceIdsMultiLangs('links', 'title', $pageLang);
 				$linksIds = $myOthers->getChGrTargetIds('pages_links', 'idPages', 'idLinks', $idRecord);/* UpdateCode */
 
+                // Ссылка на преимущества
+                $advPageGroupData = $myOthers->getPageGroupDataByMarkI('Наши преимущества для javascript', ['id', 'groupName']);
+
                 $content = '';
                 $navMenu = '';
                 

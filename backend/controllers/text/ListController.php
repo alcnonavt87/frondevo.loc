@@ -39,8 +39,16 @@ class ListController extends \backend\controllers\AdminController
 			$listTableItem['pageGroup'] = 1;
 			$listTableItem['location'] = 'before';
 			$listTableItems['Сайты под ключ'][] = $listTableItem;
-			// Аутсорсинг
-			$listTableItems['Аутсорсинг'] = [];
+			// Аутсорсинг фронтенд
+			$listTableItem = [];
+			$listTableItem['id'] = 13;
+			$listTableItem['pShow'] = 1;
+			$listTableItem['pAlias'] = 'frontendout';
+			$listTableItem['pH1'] = 'Аутсорсинг фронтенд';
+			$listTableItem['pageGroup'] = 1;
+			$listTableItem['location'] = 'before';
+			$listTableItems['Аутсорсинг'][] = $listTableItem;
+			$listTableItems['Аутсорсинг фронтенд'] = [];
 			foreach ($listTableItems[$pageGroupData[0]['groupName']] as $listTableItem) {
 				$locateBefore = ($listTableItem['location'] == 'before');
 				if ($locateBefore) {
@@ -51,7 +59,11 @@ class ListController extends \backend\controllers\AdminController
 			}//echo '<pre>';print_r($allTextPages);echo '</pre>';exit;
 
 			// Для ссылки "Редактировать страницу"
-			$textPageIsset = ['Сайты под ключ', 'Аутсорсинг'];
+			$textPageIsset = [
+				'Сайты под ключ',
+				//'Аутсорсинг',
+				'Аутсорсинг фронтенд',
+			];
 			$textPageData = in_array($pageGroupData[0]['groupName'], $textPageIsset)
 				? $myOthers->getTextPageDataByMarkI($pageGroupData[0]['groupName'], ['id', 'idPageGroup'])
 				: null;

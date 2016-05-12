@@ -83,65 +83,6 @@ class EditController extends Controller
 			$menuItem['quickButton'] = 0;
 			$menuItem['picking'] = 60;
 			$menu[] = $menuItem;
-			// страница Аутсорсинг
-			$menuItem = [];
-			$menuItem['id'] = 1;
-			$menuItem['secondUri'] = 7;
-			$menuItem['groupName'] = 'Аутсорсинг';
-			$menuItem['cssKlass'] = 'external-link';
-			$menuItem['addParam'] = 0;
-			$menuItem['quickButton'] = 0;
-			$menuItem['picking'] = 300;
-			$menu[] = $menuItem;
-			// страница Аутсорсинг портфолио
-			$menuItem = [];
-			$menuItem['id'] = 111;
-			$menuItem['groupName'] = 'Аутсорсинг портфолио';
-			$menuItem['cssKlass'] = 'suitcase';
-			$menuItem['addParam'] = 0;
-			$menuItem['quickButton'] = 0;
-			$menuItem['picking'] = 301;
-			$menu[] = $menuItem;
-            // страница Аутсорсинг фронтенд
-            $menuItem = [];
-            $menuItem['id'] = 1;
-            $menuItem['secondUri'] = 8;
-            $menuItem['groupName'] = 'Аутсорсинг фронтенд';
-            $menuItem['cssKlass'] = 'suitcase';
-            $menuItem['addParam'] = 0;
-            $menuItem['quickButton'] = 0;
-            $menuItem['picking'] = 301;
-            $menu[] = $menuItem;
-
-            $menuItem = [];
-            $menuItem['id'] = 1;
-            $menuItem['secondUri'] = 9;
-            $menuItem['groupName'] = 'PSD2toHTML5';
-            $menuItem['cssKlass'] = 'suitcase';
-            $menuItem['addParam'] = 0;
-            $menuItem['quickButton'] = 0;
-            $menuItem['picking'] = 302;
-            $menu[] = $menuItem;
-
-            $menuItem = [];
-            $menuItem['id'] = 1;
-            $menuItem['secondUri'] = 10;
-            $menuItem['groupName'] = 'JavaScript';
-            $menuItem['cssKlass'] = 'suitcase';
-            $menuItem['addParam'] = 0;
-            $menuItem['quickButton'] = 0;
-            $menuItem['picking'] = 303;
-            $menu[] = $menuItem;
-
-            $menuItem = [];
-            $menuItem['id'] = 1;
-            $menuItem['secondUri'] = 11;
-            $menuItem['groupName'] = 'Angular';
-            $menuItem['cssKlass'] = 'suitcase';
-            $menuItem['addParam'] = 0;
-            $menuItem['quickButton'] = 0;
-            $menuItem['picking'] = 304;
-            $menu[] = $menuItem;
 
 
 
@@ -151,7 +92,7 @@ class EditController extends Controller
             $menuItem['cssKlass'] = 'link';
             $menuItem['addParam'] = 0;
             $menuItem['quickButton'] = 0;
-            $menuItem['picking'] = 70;
+            $menuItem['picking'] = 305;
             $menu[] = $menuItem;
 
             $menuItem = [];
@@ -160,7 +101,7 @@ class EditController extends Controller
             $menuItem['cssKlass'] = 'filter';
             $menuItem['addParam'] = 0;
             $menuItem['quickButton'] = 0;
-            $menuItem['picking'] = 80;
+            $menuItem['picking'] = 306;
             $menu[] = $menuItem;
 
 

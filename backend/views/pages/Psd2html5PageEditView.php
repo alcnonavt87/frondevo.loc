@@ -19,6 +19,9 @@ $content = '<ul class="crumbs">
             </ul>';
 //Хлебные крошки КОНЕЦ
 
+// Ссылка на преимущества
+$advLink = '<p><a data-href="formlist" href="/'.$advPageGroupData['id'].'/'.$defLang.'" class="link">'.$advPageGroupData['groupName'].'</a></p>';
+$content .= $advLink;
 
 
 // Вывод одного изображения "Изображение для background(desktop 1950x1100)" НАЧАЛО
