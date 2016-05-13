@@ -30,19 +30,17 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                 if ($AllActive) {
                     ?>
                     <li class="m-item active">
-                         <span> Все <span>
+                         <span><?php echo Yii::t('app', 'All'); ?><span>
                     </li>
                 <?php } else { ?>
                     <li class='m-item'>
                         <a href="<?php echo($textPagesUrlProvider->getPortfolioUrl()) ?>" target="_parent"
-                           rel="nofollow "><span>Все</span></a>
+                           rel="nofollow "><span><?php echo Yii::t('app', 'All'); ?></span></a>
                     </li>
                 <?php } ?>
                 <!-- m item -->
 
-
                 <!--/m item -->
-
 
                 <?php foreach ($filters as $filter) { ?>
                     <?php
@@ -100,7 +98,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                             <div>
                                 <!-- our works  descr -->
                                 <div class="our-works__descr">
-                                    <span> <?php echo $work['description']; ?></span>
+                                    <span> <?php echo $work['pDescription']; ?></span>
                                 </div>
                                 <!--/our works  descr -->
                             </div>
@@ -128,7 +126,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
             <!-- button -->
             <a href="<?php echo($textPagesUrlProvider->getCommercialUrl()) ?>" class="button dark">
-                <span>Заказать бесплатную консультацию и оценку вашего проекта</span>
+                <span><?php echo Yii::t('app', 'request a free consultation and estimate of your project'); ?></span>
             </a>
             <!--/button -->
 
@@ -140,56 +138,3 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
 </div>
 <!--/main wrap -->
-
-<?php
-//
-// Шаблон страницы для Портфолио
-//
-// Принимаемые переменные:
-// $alias - алиас страницы
-// $pH1 - заголовок h1
-// $works - список работ
-// $filters - список фильтров
-// $filterUri - uri текущего фильтра
-//
-/**/ ?><!--
-<?php
-/*use frontend\models\Common;
-use vendor\UrlProvider\SimpleModuleUrlProvider;
-use vendor\UrlProvider\TextPagesUrlProvider;
-
-$options['joinUris'] = 1;
-$simpleModuleUrlProvider = new SimpleModuleUrlProvider($lang, $options);
-$textPagesUrlProvider = new TextPagesUrlProvider($lang);
-*/ ?>
-template for page portfolio<br>
-<?php /*echo $pH1; */ ?>
-<ul>
-	<?php /*foreach ($filters as $filter) { */ ?>
-		<?php
-/*			$params['item'] = $filter;
-			$filterUrl = $textPagesUrlProvider->geteFilterUrl($params);
-		*/ ?>
-		<li>
-			<?php
-/*				$filterActive = ($filter['url'] == $filterUri);
-				if ($filterActive) {
-			*/ ?>
-				<?php /*echo $filter['title']; */ ?>
-			<?php /*} else { */ ?>
-				<a href="<?php /*echo $filterUrl; */ ?>"><?php /*echo $filter['title']; */ ?></a>
-			<?php /*} */ ?>
-		</li>
-	<?php /*} */ ?>
-</ul>
-<ul>
-	<?php /*foreach ($works as $work) { */ ?>
-
-		<?php
-/*			$params['item'] = $work;
-			$workUrl = $simpleModuleUrlProvider->geteWorksItemUrl($params);
-		*/ ?>
-		    <li><a href="<?php /*echo $workUrl; */ ?>"><?php /*echo $work['title']; */ ?><img src=" <?php /*echo $work['imgPath']; */ ?>" alt=" " width="<?php /*echo $work['imgW']*/ ?>" height="<?php /*echo $work['imgH'] */ ?>" </a> <?php /*echo $work['description']; */ ?>
-			 </li>
-	<?php /*} */ ?>
-</ul>-->

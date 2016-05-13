@@ -12,6 +12,7 @@ use frontend\models\AdvantagesJavascript;
 use frontend\models\Filters;
 use vendor\UrlProvider\TextPagesUrlProvider;
 use vendor\UrlProvider\SimpleModuleUrlProvider;
+use vendor\pagination\Pagination;
 /**
  * OutsourcingController controller
  */
@@ -358,7 +359,7 @@ class OutsourcingController extends CommonController
         $data = [];
         $forLayout = [];
         $params = [];
-        $forLayout['Angular'] = 1;
+        $forLayout['AngularPage'] = 1;
         $data = array_merge($this->data, $data);
         $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
         // Языковое меню
@@ -487,8 +488,9 @@ class OutsourcingController extends CommonController
     /**
      * Страница портфолио
      */
-    public function actionPortfolio()
+    public function actionPortfoliofrontout()
     {
+
         // Проверяем является ли uri третьего уровня uri фильтра
         $filterUri = $this->myFilters->isFilterUri($this->thirdUri);
 
@@ -500,7 +502,7 @@ class OutsourcingController extends CommonController
 
         $data = [];
         $forLayout = [];
-        $forLayout['portfolioPage'] = 1;
+        $forLayout['PortfoliofrontoutPage'] = 1;
         // Список фильтров
         $params = [];
         $filters = $this->myFilters->getList($params);
@@ -547,6 +549,7 @@ class OutsourcingController extends CommonController
         $data['works'] = $works;
 
 
+
         // Список ссылок для плашки сссылок в футере
         $links = $this->myWorks->getLinks($this->pageContent['alias']);
         $forLayout['links'] = $links;
@@ -563,7 +566,7 @@ class OutsourcingController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('ua');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ua', $options);
-        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->getPortfolioUrl();
+        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->getPortfolifrontoutUrl();
         $langMenu['ua'] = [
             'link' => $pageUaUrl,
             'text' => 'Укр'
@@ -573,7 +576,7 @@ class OutsourcingController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('en');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('en', $options);
-        $forLayout['PageLangEn'] = $pageEnUrl = $urlProvider->getPortfolioUrl();
+        $forLayout['PageLangEn'] = $pageEnUrl = $urlProvider->getPortfolifrontoutUrl();
         $langMenu['en'] = [
             'link' => $pageEnUrl,
             'text' => 'Eng'
@@ -582,30 +585,39 @@ class OutsourcingController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('ru');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ru', $options);
-        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->getPortfolioUrl();
+        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->getPortfolifrontoutUrl();
         $langMenu['ru'] = [
             'link' => $pageRuUrl,
             'text' => 'Рус'
         ];
+       //формируем ссылку для кнопок пагинации для разные языков
+       if ($this->lang == 'ru'){
+           $urlpage = $pageRuUrl;
+       }else if ($this->lang == 'ua'){
+           $urlpage = $pageUaUrl;
+       } else $urlpage = $pageEnUrl;
+        //передаем это значение в класс pagination, создавая новый обьет класса
+        $pagination = new Pagination($worksCount, $pageNum, $limit, '?page=', $urlpage);
+        $data['pagination'] = $pagination;
+
 
         $textPagesUrlProvider = new TextPagesUrlProvider($this->lang);
-
         //вывод тайла фильтара вместо тайтла страницы портфолио
         foreach ($filters as $filter) {
             $params['item'] = $filter;
             $filterUrl = $textPagesUrlProvider->geteFilterUrl($params);
             $filterActive = ($filter['url'] == $this->thirdUri);//echo '<pre>';print_r($filterUri);echo '</pre>';
             if ($filterActive)
-                $forLayout['pTitle'] = $filter['title'] . ' - ' . Yii::t('app', 'internet-agency Frondevo');
+                $forLayout['pTitle'] =  $filter['title'] .' - '. Yii::t('app', 'internet-agency Frondevo') ;
         }
 
 
         $forLayout['langMenu'] = $langMenu;
         $data = array_merge($this->data, $data);
-        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($data);echo '</pre>';exit;
+        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($forLayout);echo '</pre>';exit;
 
         return [
-            'view' => 'portfolio',
+            'view' => 'portfoliofrontout',
             'data' => $data,
             'layout' => $this->layout,
             'forLayout' => $forLayout,

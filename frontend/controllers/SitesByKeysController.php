@@ -241,16 +241,11 @@ class SitesByKeysController extends CommonController
         if ($filterUri) {
             $params['filter'] = $this->thirdUri;
         }
-        //$params['sorting'] = 'createdDesc';
-        $params['limit'] = $limit;
-        // смещение записей (в зависимости от страницы)
-        $offset = $limit * ($pageNum - 1);
-        $params['offset'] = $offset;
+
         $works = $this->myWorks->getListForPortfolio($params);//echo '<pre>';print_r($works);echo '</pre>';exit;
         $data['works'] = $works;
 
-        $pagination = new Pagination($worksCount, $pageNum, $limit, '?page=');
-        $data['pagination'] = $pagination;
+
 
         // Список ссылок для плашки сссылок в футере
         $links = $this->myWorks->getLinks($this->pageContent['alias']);

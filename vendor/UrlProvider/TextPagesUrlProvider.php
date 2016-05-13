@@ -144,6 +144,20 @@ class TextPagesUrlProvider extends UrlProvider
 		$url = $this->indexUrl.$OutsourcingUri.$AngularUri;
 		return $url;
 	}
+	/**
+	 * Get Portfolifrontout url.
+	 */
+	public function getPortfolifrontoutUrl($params=[]) {
+		$PortfolioFrontOutUri = $this->getPortfolioFrontOut();
+		$OutsourcingUri = $this->getOutsourcingUri();
+		$url = $this->indexUrl.$OutsourcingUri.$PortfolioFrontOutUri;
+
+		return $url;
+
+	}
+
+
+
 	////////////////////////////////////////////////////// URIS //////////////////////////////////////////////////////
 	
 	/**
@@ -199,10 +213,18 @@ class TextPagesUrlProvider extends UrlProvider
 		return $uri;
 	}
 	/**
-	 * Get FrontendOut uri.
+	 * Get Angular uri.
 	 */
 	public function getAngularUri($params=[]) {
 		$alias = 'angular';
+		$uri = '/'.$this->pagesUrls[$alias];
+		return $uri;
+	}
+	/**
+	 * Get portfoliofrontout uri.
+	 */
+	public function getPortfolioFrontOut($params=[]) {
+		$alias = 'portfoliofrontout';
 		$uri = '/'.$this->pagesUrls[$alias];
 		return $uri;
 	}

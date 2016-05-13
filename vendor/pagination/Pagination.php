@@ -3,6 +3,7 @@ namespace vendor\pagination;
 /*
  * Класс Pagination для генерации постраничной навигации
  */
+use vendor\UrlProvider\TextPagesUrlProvider;
 
 class Pagination
 {
@@ -43,8 +44,9 @@ class Pagination
      * @param type $currentPage <p>Номер текущей страницы</p>
      * @param type $limit <p>Количество записей на страницу</p>
      * @param type $index <p>Ключ для url</p>
+     * @param type $urlpage <p>Ссылка на страницу для формирования ссылок в кнопках</p>
      */
-    public function __construct($total, $currentPage, $limit, $index)
+    public function __construct($total, $currentPage, $limit, $index, $urlpage)
     {
         # Устанавливаем общее количество записей
         $this->total = $total;
@@ -52,6 +54,8 @@ class Pagination
         $this->limit = $limit;
         # Устанавливаем ключ в url
         $this->index = $index;
+        # Устанавливаем ссылку на страницу
+        $this->urlpage = $urlpage;
         # Устанавливаем количество страниц
         $this->amount = $this->amount();
 
@@ -75,7 +79,7 @@ class Pagination
         for ($page = $limits[0]; $page <= $limits[1]; $page++) {
             # Если текущая это текущая страница, ссылки нет и добавляется класс active
             if ($page == $this->current_page) {
-                $links .= '<li class="pager-item desk-only active"><a href="#">' . $page . '</a></li>';
+                $links .= '<li class="pager-item desk-only active"><a href="'.$_SERVER["REQUEST_URI"].'">' . $page . '</a></li>';
             } else {
                 # Иначе генерируем ссылку
                 $links .= $this->generateHtml($page);
@@ -109,7 +113,7 @@ class Pagination
         if (!$text)
             # Указываем, что текст - цифра страницы
             $text = $page;
-        $currentURI =  '';
+        $currentURI =  $this->urlpage;
         $currentURI = preg_replace('~/page-[0-9]+~', '', $currentURI);
         # Формируем HTML код ссылки и возвращаем
         return
