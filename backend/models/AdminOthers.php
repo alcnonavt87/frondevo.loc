@@ -107,7 +107,7 @@ class AdminOthers extends Model
     {
         $dbFields = array_map(array($this, 'wrapDBQuotes'), $fields);
 		$dbFields = implode(',', $dbFields);
-		
+
 		$query = Yii::$app->db->createCommand('SELECT
 			'.$dbFields.'
 		FROM	
