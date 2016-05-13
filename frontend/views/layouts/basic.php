@@ -211,7 +211,7 @@ $urlprovider = new \vendor\UrlProvider\UrlProvider($lang)
 
     <div title="Close" class="pop-btn-close"></div>
 </div>
-<?php if (!empty($sitesbykeysPage) || !empty($frontendoutPage)) {
+<?php if (!empty($sitesbykeysPage) || !empty($frontendoutPage) || !empty($Psd2html5Page)) {
     echo '<script src="markup/js/lib/site.lib.min.js"></script>
     <script src="markup/js/site.min.js"></script>';
 }
@@ -228,7 +228,7 @@ else if (!empty($commercialPage)){
         <script src="markup/js/lib/lib.min.js"></script>
         <script src="markup/js/form.min.js"></script>';
 }
-else if (!empty($contactsPage) || !empty($JavascriptPage)|| !empty($Psd2html5Page)|| !empty($AngularPage)){
+else if (!empty($contactsPage) || !empty($JavascriptPage)|| !empty($AngularPage)){
     echo '<script src="markup/js/lib/project.lib.min.js"></script>
     <script src="markup/js/project.min.js"></script>';
 }

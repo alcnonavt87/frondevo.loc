@@ -72,41 +72,32 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                 <!-- start screen cats list -->
                 <ul class="start-screen-cats-list">
+                    <!-- start screen cats items -->
+                    <li class="start-screen-cats-items">
+                        <div class="start-screen-cats-item-footer"><?php echo($pageData['psd2html5mainscreebtitle4'])?></div>
+                    </li>
+                    <!--/start screen cats items -->
+
+                    <!-- start screen cats items -->
+                    <li class="start-screen-cats-items">
+                        <div class="start-screen-cats-item-footer"><?php echo($pageData['psd2html5mainscreebtitle5'])?></div>
+                    </li>
+                    <!--/start screen cats items -->
+
+                    <!-- start screen cats items -->
+                    <li class="start-screen-cats-items">
+                        <div class="start-screen-cats-item-footer"><?php echo($pageData['psd2html5mainscreebtitle6'])?></div>
+                    </li>
+                    <!--/start screen cats items -->
 
                     <!-- start screen cats items -->
                     <li class="start-screen-cats-items">
                         <div
-                            class="start-screen-cats-item-footer"> <?php echo($pageData['psd2html5mainscreebtitle4']) ?></div>
+                            class="start-screen-cats-item-footer"><?php echo($pageData['psd2html5mainscreebtitle7'])?></div>
                     </li>
                     <!--/start screen cats items -->
-
-
-                    <!-- start screen cats items -->
-                    <li class="start-screen-cats-items">
-                        <div
-                            class="start-screen-cats-item-footer"> <?php echo($pageData['psd2html5mainscreebtitle5']) ?></div>
-                    </li>
-                    <!--/start screen cats items -->
-
-
-                    <!-- start screen cats items -->
-                    <li class="start-screen-cats-items">
-                        <div
-                            class="start-screen-cats-item-footer"> <?php echo($pageData['psd2html5mainscreebtitle6']) ?></div>
-                    </li>
-                    <!--/start screen cats items -->
-
-
-                    <!-- start screen cats items -->
-                    <li class="start-screen-cats-items">
-                        <div
-                            class="start-screen-cats-item-footer"> <?php echo($pageData['psd2html5mainscreebtitle7']) ?></div>
-                    </li>
-                    <!--/start screen cats items -->
-
                 </ul>
                 <!--/start screen cats list -->
-
             </div>
         </div>
         <!--/middle text -->

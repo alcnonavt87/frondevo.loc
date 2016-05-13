@@ -39,7 +39,7 @@ function FDWorkPreview(params) {
 
     self.workUrl = self.elems.$work.attr('data-fd-work-url');
 
-    console.log(self.workUrl);
+    //console.log(self.workUrl);
     if (self.workUrl) {
         self.getWorkData(self.workUrl, function () {
             //if (self.elems.$iframe.length) {
@@ -273,7 +273,7 @@ FDWorkPreview.prototype = {
             // here you can make the height, I delete it first, then I make it again
             iFrameID.height = "";
             iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + "px";
-            console.log(iFrameID.contentWindow.document.body.scrollHeight);
+            //console.log(iFrameID.contentWindow.document.body.scrollHeight);
         }
     },
     controls: function () {

@@ -167,7 +167,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                                 <!-- cooperation  item -->
                                 <div class="cooperation__item">
                                     <h3><?php echo($pageData1['othervariants2title']) ?></h3>
-                                    <p><?php echo($pageData1['othervariants1text']) ?></p>
+                                    <p><?php echo($pageData1['othervariants2text']) ?></p>
                                 </div>
                                 <!--/cooperation  item -->
 

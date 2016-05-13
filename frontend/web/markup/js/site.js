@@ -1,11 +1,11 @@
 /*
-    Scrollers Class
-    Version:
-    ---
-    Frondevo corp.
-    http://frondevo.com
-    Author: Andrew "Bikkuri" Kosyack
-*/
+ Scrollers Class
+ Version:
+ ---
+ Frondevo corp.
+ http://frondevo.com
+ Author: Andrew "Bikkuri" Kosyack
+ */
 function Scrollers(params) {
     'use strict';
     var self = this;
@@ -23,7 +23,7 @@ function Scrollers(params) {
     };
     $.extend(self.settings, params);
     self.cycleScroll = [];
-    self.isMobDevice = false;//frondevo.isMobDevice;
+    self.isMobDevice = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|touch|opera mini/i.test(navigator.userAgent.toLowerCase()));
     self.init(params);
 
     return this;
@@ -59,7 +59,6 @@ Scrollers.prototype = {
                 });
                 width += parseInt($items.eq(0).css('margin-left')) + parseInt($items.eq(0).css('padding-left'));
             }
-
             $scroller.css({
                 width: width
             });
@@ -73,8 +72,8 @@ Scrollers.prototype = {
 
             setTimeout(function () {
                 /*$(value).css({
-                    height: $scroller.height()
-                });*/
+                 height: $scroller.height()
+                 });*/
                 var dataInd = $(value).attr('data-indicators'),
                     $inds = dataInd ? $('#' + dataInd).find('.hor-ind') : [],
                     settings = {
@@ -179,10 +178,10 @@ Scrollers.prototype = {
         return this;
     }
 };
+$(document).ready(function () {
+    window.scrollers = new Scrollers();
+});
 
-window.addEventListener('DOMContentLoaded', function () {
-    window.scrollers = new Scrollers()
-}, false);
 /*
     Popup Class
     Version:
