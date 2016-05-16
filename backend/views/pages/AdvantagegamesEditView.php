@@ -35,7 +35,7 @@ $navMenu .= '<nav class="sidebar__menu">';
 $content .= '<ul class="crumbs">';
 	$content .= '<li class="crumbs__item"><a href="/'.$idPageGroup.'/'.$pageLang.'" data-href="formlist">Список записей</a></li>';
 	if ($idRecord) {
-		$content .= '<li class="crumbs__item crumbs__item-active">Редактирование записи('.$worksfrontoutItem['pH1'].')</li>';
+		$content .= '<li class="crumbs__item crumbs__item-active">Редактирование записи</li>';
 	} else {
 		$content .= '<li class="crumbs__item crumbs__item-active">Добавление записи</li>';
 	}
@@ -46,7 +46,7 @@ $content .= '</ul>';
 
 // Форма редактирования НАЧАЛО
 
-$showViz = $worksfrontoutItem['show'] > 0 ? 'checked="checked"' : '';/* UpdateCode */
+/* UpdateCode */
 
 
 
@@ -56,16 +56,33 @@ if ($idRecord) {
 	$content .= '<form action="formupdate/'.$idPageGroup.'?newDoc=1&pageLang='.$pageLang.'" method="post" id="form-edit-content">';
 }
 
-$content .= '<!-- sectionPageData --><fieldset class="catalog__section">
-	'.$this->createHeader('Основные данные страницы').'
+$content .= '<!-- /createFinish -->
+
+<!-- commonData --><fieldset class="catalog__section">
+	'.$this->createHeader('Основные данные').'
 	<div class="catalog__section-data">
-		<!-- pH1 -->'.$this->createInput(['id'=> 'pH1', 'text' => 'Заголовок H1', 'placeholder' => '', 'width' => 400, 'name' => 'content[pH1]', 'value' => $worksfrontoutItem['pH1'], 'attr' => 'required']).'<!-- /pH1 -->
-		<!-- pTitle -->'.$this->createInput(['id'=> 'pTitle', 'text' => 'Заголовок страницы', 'placeholder' => 'В поисковой выдаче видно 60 символов', 'width' => 400, 'name' => 'content[pTitle]', 'value' => $worksfrontoutItem['pTitle'], 'attr' => 'required data-count="60"', 'dataCopy' => 'pH1', 'titleCopy' => 'Копия заголовка H1']).'<!-- /pTitle -->
-		<!-- pUrl -->'.$this->createInput(['id' => 'pUrl', 'text' => 'Алиас страницы', 'width' => 400, 'name' => 'base[pUrl]', 'value' => $worksfrontoutItem['pUrl'], 'attr' => 'required', 'genUrl' => 'pH1', 'titleUrl' => 'Генерация с заголовка H1']).'<!-- /pUrl -->
-		<!-- pDescription -->'.$this->createTextArea(['id'=> 'pDescription', 'text' => 'Meta description', 'placeholder' => 'В поисковой выдаче видно 140 символов', 'width' => '400x100', 'name' => 'content[pDescription]', 'value' => $worksfrontoutItem['pDescription'], 'attr' => 'data-count="140"']).'<!-- /pDescription -->
-		<!-- show -->'.$this->createCheckBoxRow(['id' => 'show', 'text' => 'Отображать страницу', 'name' => 'base[show]', 'value' => 1, 'attr' => $showViz]).'
+		<!-- title -->'.$this->createTextArea(['id'=> 'title', 'text' => 'Заголовок', 'width' => '400x100', 'name' => 'content[title]', 'value' => $advantagegamesItem['title'], 'attr' => '']).'<!-- /title -->
+		<!-- paragraph -->'.$this->createTextArea(['id'=> 'paragraph', 'text' => 'Абзац', 'width' => '400x100', 'name' => 'content[paragraph]', 'value' => $advantagegamesItem['paragraph'], 'attr' => '']).'<!-- /paragraph -->
+		<!-- list --><div class="input-row__group-wrap">';
+			for ($i = 0; $i < count($list); $i++) {
+				if ($i == count($list)-1) {
+					$content .= '<div class="input-row input-wrap input-row__group">
+						<label class="input__label" for="' . $i . '">Пункт перечня</label>
+						<input placeholder="" id="' . $i . '" name="list[]" class="input catalog_input input-width_400" type="text" value="' . $this->getCodeStr($list[$i]['text']) . '" />
+						<div class="button button__block button_copy-block"></div>
+					</div>';
+					continue;
+				}
+				
+				$content .= '<div class="input-row input-wrap input-row__group">
+					<label class="input__label" for="' . $i . '">Пункт перечня</label>
+					<input placeholder="" id="' . $i . '" name="list[]" class="input catalog_input input-width_400" type="text" value="' . $this->getCodeStr($list[$i]['text']) . '" />
+					<div class="button button__block button_remove-block"></div>
+				</div>';
+			}
+		$content .= '</div><!-- /list -->
 	</div>
-</fieldset><!-- /sectionPageData --><!-- /createFinish -->
+</fieldset><!-- /commonData -->
 
 </form>';
 // Форма редактирования КОНЕЦ

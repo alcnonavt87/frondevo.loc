@@ -128,6 +128,23 @@ return [
                         'width' => 640,
                         'height' => 1171,
                     ],
+                    'imagegamesbgbig' => [
+                        'width' => 1920,
+                        'height' => 1100,
+                    ],
+                    'imagegamesbgsmall' => [
+                        'width' => 640,
+                        'height' => 1171,
+                    ],
+                    'imageanimationsbgbig' => [
+                        'width' => 1920,
+                        'height' => 1100,
+                    ],
+                    'imageanimationsbgsmall' => [
+                        'width' => 640,
+                        'height' => 1171,
+                    ],
+
                 ],
 
         ],

@@ -136,6 +136,26 @@ class TextPagesUrlProvider extends UrlProvider
 		return $url;
 	}
 	/**
+	 * Get Games url.
+	 */
+
+	public function getGamesUrl($params=[]) {
+		$GamesUri = $this->getGamesUri();
+		$OutsourcingUri = $this->getOutsourcingUri();
+		$url = $this->indexUrl.$OutsourcingUri.$GamesUri;
+		return $url;
+	}
+	/**
+	 * Get Javascript url.
+	 */
+
+	public function getAnimationsUrl($params=[]) {
+		$AnimationsUri = $this->getAnimationsUri();
+		$OutsourcingUri = $this->getOutsourcingUri();
+		$url = $this->indexUrl.$OutsourcingUri.$AnimationsUri;
+		return $url;
+	}
+	/**
 	 * Get Angular url.
 	 */
 	public function getAngularUrl($params=[]) {
@@ -155,6 +175,7 @@ class TextPagesUrlProvider extends UrlProvider
 		return $url;
 
 	}
+
 
 
 
@@ -209,6 +230,22 @@ class TextPagesUrlProvider extends UrlProvider
 	 */
 	public function getJavascriptUri($params=[]) {
 		$alias = 'javascript';
+		$uri = '/'.$this->pagesUrls[$alias];
+		return $uri;
+	}
+	/**
+	 * Get Games uri.
+	 */
+	public function getGamesUri($params=[]) {
+		$alias = 'games';
+		$uri = '/'.$this->pagesUrls[$alias];
+		return $uri;
+	}
+	/**
+	 * Get Animations uri.
+	 */
+	public function getAnimationsUri($params=[]) {
+		$alias = 'animations';
 		$uri = '/'.$this->pagesUrls[$alias];
 		return $uri;
 	}

@@ -9,6 +9,8 @@ use Yii\helpers\ArrayHelper;
 use frontend\models\Works;
 use frontend\models\AdvantagesPsdHtml;
 use frontend\models\AdvantagesJavascript;
+use frontend\models\AdvantagesAnimations;
+use frontend\models\AdvantagesGames;
 use frontend\models\Filters;
 use vendor\UrlProvider\TextPagesUrlProvider;
 use vendor\UrlProvider\SimpleModuleUrlProvider;
@@ -22,6 +24,8 @@ class OutsourcingController extends CommonController
     private $myFilters;
     private $myAdvantagePsdHtml;
     private $myAdvantageJavascript;
+    private $myAdvantageAnimations;
+    private $myAdvantageGames;
     public function init()
     {
         parent::init();
@@ -30,6 +34,8 @@ class OutsourcingController extends CommonController
         $this->myRoot = new Root($this->lang);
         $this->myAdvantagePsdHtml = new AdvantagesPsdHtml($this->lang);
         $this->myAdvantageJavascript = new AdvantagesJavascript($this->lang);
+        $this->myAdvantageAnimations = new AdvantagesAnimations($this->lang);
+        $this->myAdvantageGames = new AdvantagesGames($this->lang);
     }
 
     /**
@@ -69,8 +75,6 @@ class OutsourcingController extends CommonController
         $forLayout = [];
         $params = [];
         $forLayout['outsourcingPage'] = 1;
-        $data = array_merge($this->data, $data);
-        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
         // Языковое меню
         $langMenu = [];
         $options = [];
@@ -125,6 +129,9 @@ class OutsourcingController extends CommonController
         $works2 = $this->myWorks->getWorksForSitesByKeys();
         $data['works'] = $works;
         $data['works2'] = $works2;
+
+        $data = array_merge($this->data, $data);
+        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
 
         return [
             'view' => 'frontendout',
@@ -194,6 +201,11 @@ class OutsourcingController extends CommonController
         $links = $this->myWorks->getLinks($this->pageContent['alias']);
         $forLayout['links'] = $links;
         $data['pageData'] = $pageData; //echo '<pre>';print_r($pageData);echo '</pre>';exit;
+
+        $data = array_merge($this->data, $data);
+        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
+
+
         return [
             'view' => 'frontendout',
             'data' => $data,
@@ -209,8 +221,6 @@ class OutsourcingController extends CommonController
         $forLayout = [];
         $params = [];
         $forLayout['Psd2html5Page'] = 1;
-        $data = array_merge($this->data, $data);
-        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
         // Языковое меню
         $langMenu = [];
         $options = [];
@@ -252,7 +262,7 @@ class OutsourcingController extends CommonController
         $pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], ['imagepsd2html5bgbig','imagepsd2html5bgsmall','psd2html5mainscreebtitle',
         'psd2html5mainscreebtitle1','psd2html5mainscreebtitle2','psd2html5mainscreebtitle3','psd2html5mainscreebtitle4','psd2html5mainscreebtitle5','psd2html5mainscreebtitle6','psd2html5mainscreebtitle7','worksexamplespsd2html5title'], [], [],[]);
         $data['pageData'] = $pageData;
-        $pageData2 = $this->myRoot->getPageContentByAlias('frontendout', ['garantiesbgword','garanties1title','garanties2title'], [], ['ourclientslist','garanties1list','garanties2list']);
+        $pageData2 = $this->myRoot->getPageContentByAlias('frontendout', ['garantiesbgword','garanties1title','garanties2title'], [], ['garanties1list','garanties2list']);
         $data['pageData1'] = $pageData2;
         $pageData3 = $this->myAdvantagePsdHtml->getAdvantagesFromMultiField(['advantagepsdhmtl5']);
         $data['pageData2'] = $pageData3;
@@ -268,6 +278,9 @@ class OutsourcingController extends CommonController
         $links = $this->myWorks->getLinks($this->pageContent['alias']);
         $forLayout['links'] = $links;
 
+
+        $data = array_merge($this->data, $data);
+        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
         return [
             'view' => 'psd2tohtml5',
             'data' => $data,
@@ -283,8 +296,7 @@ class OutsourcingController extends CommonController
         $forLayout = [];
         $params = [];
         $forLayout['JavascriptPage'] = 1;
-        $data = array_merge($this->data, $data);
-        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
+
         // Языковое меню
         $langMenu = [];
         $options = [];
@@ -327,7 +339,7 @@ class OutsourcingController extends CommonController
         'javascriptmainscreentitle2','javascriptmainscreentitle3','worksexamplesjavascripttitle'], [], [],[]);
         $data['pageData'] = $pageData;
 
-        $pageData2 = $this->myRoot->getPageContentByAlias('frontendout', ['garantiesbgword','garanties1title','garanties2title'], [], ['ourclientslist','garanties1list','garanties2list']);
+        $pageData2 = $this->myRoot->getPageContentByAlias('frontendout', ['garantiesbgword','garanties1title','garanties2title'], [], ['garanties1list','garanties2list']);
         $data['pageData1'] = $pageData2;
 
         $pageData3 = $this->myAdvantageJavascript->getAdvantagesFromMultiField(['advantagejavascript']);
@@ -345,6 +357,9 @@ class OutsourcingController extends CommonController
         $links = $this->myWorks->getLinks($this->pageContent['alias']);
         $forLayout['links'] = $links;
 
+        $data = array_merge($this->data, $data);
+        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
+
         return [
             'view' => 'javascript',
             'data' => $data,
@@ -360,8 +375,7 @@ class OutsourcingController extends CommonController
         $forLayout = [];
         $params = [];
         $forLayout['AngularPage'] = 1;
-        $data = array_merge($this->data, $data);
-        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
+
         // Языковое меню
         $langMenu = [];
         $options = [];
@@ -396,14 +410,11 @@ class OutsourcingController extends CommonController
         ];
         $forLayout['langMenu'] = $langMenu;
 
-
-
-
         //Добираем статические данные со страницы
         $pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], ['imageangularbgbig','imageangularbgsmall','angularmainscreentitle','angularmainscreentitle1','causesAngulartitle','worksexamplesangulartitle'], [], ['causesAngularlist','causesAngularlist1'],[]);
         $data['pageData'] = $pageData;
 
-        $pageData2 = $this->myRoot->getPageContentByAlias('frontendout', ['garantiesbgword','garanties1title','garanties2title'], [], ['ourclientslist','garanties1list','garanties2list']);
+        $pageData2 = $this->myRoot->getPageContentByAlias('frontendout', ['garantiesbgword','garanties1title','garanties2title'], [], ['garanties1list','garanties2list']);
         $data['pageData1'] = $pageData2;
         // Работы отобаржаемые на текстовой странице
         // Работы отобаржаемые на текстовой странице
@@ -417,6 +428,9 @@ class OutsourcingController extends CommonController
         $links = $this->myWorks->getLinks($this->pageContent['alias']);
         $forLayout['links'] = $links;
 
+
+        $data = array_merge($this->data, $data);
+        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
         return [
             'view' => 'angular',
             'data' => $data,
@@ -425,16 +439,15 @@ class OutsourcingController extends CommonController
         ];
     }
     /*Посадочная страница*/
-    public function actionLandingPage()
+    public function actionGames()
     {
         $data = [];
         $forLayout = [];
         $params = [];
-        $data = array_merge($this->data, $data);
-        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($data);echo '</pre>';exit;
+        $forLayout['GamesPage'] = 1;
+
         // Языковое меню
         $langMenu = [];
-
         $options = [];
         $options['joinUris'] = 1;
 
@@ -442,7 +455,7 @@ class OutsourcingController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('ua');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ua', $options);
-        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->getLandingpageUrl();
+        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->getGamesUrl();
         $langMenu['ua'] = [
             'link' => $pageUaUrl,
             'text' => 'Укр'
@@ -451,7 +464,7 @@ class OutsourcingController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('en');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('en', $options);
-        $forLayout['PageLangEn'] = $pageEnUrl = $urlProvider->getLandingpageUrl();
+        $forLayout['PageLangEn'] = $pageEnUrl = $urlProvider->getGamesUrl();
         $langMenu['en'] = [
             'link' => $pageEnUrl,
             'text' => 'Eng'
@@ -460,30 +473,117 @@ class OutsourcingController extends CommonController
         $pagesContent = $this->myRoot->getPagesContent('ru');
         $options['items'] = $pagesContent;
         $urlProvider = new TextPagesUrlProvider('ru', $options);
-        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->getLandingpageUrl();
+        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->getGamesUrl();
         $langMenu['ru'] = [
             'link' => $pageRuUrl,
             'text' => 'Рус'
         ];
         $forLayout['langMenu'] = $langMenu;
-        // Добираем статические данные страницы
 
-        $pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], [
 
-        ], []);
+        //Добираем статические данные со страницы
+        $pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], ['imagegamesbgbig','imagegamesbgsmall','gamesmainscreentitle','gamesmainscreentitle1',
+            'gamesadvtitle','worksexamplesgamestitle'], [], [],[]);
+        $data['pageData'] = $pageData;
+
+        $pageData2 = $this->myRoot->getPageContentByAlias('frontendout', ['garantiesbgword','garanties1title','garanties2title'], [], ['garanties1list','garanties2list']);
+        $data['pageData1'] = $pageData2;
+
+        $pageData3 = $this->myAdvantageGames->getAdvantagesFromMultiField(['advantagegames']);
+        $data['pageData2'] = $pageData3;
+
+
+        // Работы отобаржаемые на текстовой странице
+        $works = $this->myWorks->getWorksForFrontendOut($this->pageContent['alias']);//echo '<pre>';print_r($works);echo '</pre>';exit;
+        $data['works'] = $works;
         // Список ссылок для плашки сссылок в футере
         $links = $this->myWorks->getLinks($this->pageContent['alias']);
         $forLayout['links'] = $links;
-        $data['pageData'] = $pageData; //echo '<pre>';print_r($pageData);echo '</pre>';exit;
+
+
+        $data = array_merge($this->data, $data);
+        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($data);echo '</pre>';exit;
 
         return [
-            'view' => 'angular',
+            'view' => 'games',
             'data' => $data,
             'layout' => $this->layout,
             'forLayout' => $forLayout,
         ];
     }
+    /*Посадочная страница*/
+    public function actionAnimations()
+    {
+        $data = [];
+        $forLayout = [];
+        $params = [];
+        $forLayout['GamesPage'] = 1;
 
+        // Языковое меню
+        $langMenu = [];
+        $options = [];
+        $options['joinUris'] = 1;
+
+        // укр
+        $pagesContent = $this->myRoot->getPagesContent('ua');
+        $options['items'] = $pagesContent;
+        $urlProvider = new TextPagesUrlProvider('ua', $options);
+        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->getAnimationsUrl();
+        $langMenu['ua'] = [
+            'link' => $pageUaUrl,
+            'text' => 'Укр'
+        ];
+        // eng
+        $pagesContent = $this->myRoot->getPagesContent('en');
+        $options['items'] = $pagesContent;
+        $urlProvider = new TextPagesUrlProvider('en', $options);
+        $forLayout['PageLangEn'] = $pageEnUrl = $urlProvider->getAnimationsUrl();
+        $langMenu['en'] = [
+            'link' => $pageEnUrl,
+            'text' => 'Eng'
+        ];
+        // рус
+        $pagesContent = $this->myRoot->getPagesContent('ru');
+        $options['items'] = $pagesContent;
+        $urlProvider = new TextPagesUrlProvider('ru', $options);
+        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->getAnimationsUrl();
+        $langMenu['ru'] = [
+            'link' => $pageRuUrl,
+            'text' => 'Рус'
+        ];
+        $forLayout['langMenu'] = $langMenu;
+
+
+        //Добираем статические данные со страницы
+        $pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], ['imageanimationsbgbig','imageanimationsbgsmall','animationssmainscreentitle','animationsmainscreentitle1',
+            'animationsadvtitle','worksexamplesanimationstitle'], [], [],[]);
+        $data['pageData'] = $pageData;
+
+        $pageData2 = $this->myRoot->getPageContentByAlias('frontendout', ['garantiesbgword','garanties1title','garanties2title'], [], ['garanties1list','garanties2list']);
+        $data['pageData1'] = $pageData2;
+
+        $pageData3 = $this->myAdvantageAnimations->getAdvantagesFromMultiField(['advantageanimations']);
+        $data['pageData2'] = $pageData3;
+
+
+        // Работы отобаржаемые на текстовой странице
+        $works = $this->myWorks->getWorksForFrontendOut($this->pageContent['alias']);//echo '<pre>';print_r($works);echo '</pre>';exit;
+        $data['works'] = $works;
+        // Список ссылок для плашки сссылок в футере
+        $links = $this->myWorks->getLinks($this->pageContent['alias']);
+        $forLayout['links'] = $links;
+
+
+        $data = array_merge($this->data, $data);
+        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($data);echo '</pre>';exit;
+
+        return [
+            'view' => 'animations',
+            'data' => $data,
+            'layout' => $this->layout,
+            'forLayout' => $forLayout,
+        ];
+    }
 
     /**
      * Страница портфолио
