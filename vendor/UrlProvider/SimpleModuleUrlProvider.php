@@ -45,15 +45,33 @@ class SimpleModuleUrlProvider extends UrlProvider
 
 		return $url;
 	}
-	
+	/**
+	 * Get worksfrontout item url.
+	 */
+	public function geteWorksFrontOutItemUrl($params=[]) {
+		$portfoliofrontoutUrl = $this->textPagesUrlProvider->getPortfolifrontoutUrl();
+		$worksItemUri = $this->getWorksFrontOutItemUri($params);
+		$url = $portfoliofrontoutUrl.$worksItemUri;
+
+		return $url;
+	}
 	
 	////////////////////////////////////////////////////// URIS //////////////////////////////////////////////////////
 	
 	/**
-	 * Get works item uri.
+	 * Get worksfrontout item uri.
 	 */
 	public function getWorksItemUri($params=[]) {
 		$uri = '/'.$params['item']['url'];
 		return $uri;
 	}
+
+	/**
+	 * Get worksfrontout item uri.
+	 */
+	public function getWorksFrontOutItemUri($params=[]) {
+		$uri = '/'.$params['item']['url'];
+		return $uri;
+	}
+
 }

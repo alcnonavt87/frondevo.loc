@@ -32,7 +32,13 @@ class EditController extends  \backend\controllers\AdminController
 			if (!empty($worksfrontoutItem)) {
 				//Навигационное меню
                 $langs = $myOthers->getAllLangs();
-				/* UpdateCode */
+				
+
+				// Множество текстовых полей "Перечень пунктов описания работы"
+				$descrworksfrontoutlist = $myOthers->getManyFieldsElementMultiLangs('worksfrontout_descrworksfrontoutlist', $idRecord, $pageLang);
+				if (!$descrworksfrontoutlist) {
+					$descrworksfrontoutlist = $myOthers->getManyFieldsElementEmpty();
+				}/* UpdateCode */
 
 
 				$content = '';

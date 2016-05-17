@@ -35,10 +35,10 @@ if ($pagesItem['imageanimationsbgbig'] <> '') {
 				</div>
 				<div class="fa__file-list">
 					<div class="fa__file">
-						<a href="/frontend/web/p/pages/bigamimationsbg-'.$pagesItem['imageanimationsbgbig'].'" title="'.$pagesItem['imageanimationsbgbigTitle'].'" class="cboxElement" rel="uploader0">
+						<a href="/frontend/web/p/pages/biganimationsbg-'.$pagesItem['imageanimationsbgbig'].'" title="'.$pagesItem['imageanimationsbgbigTitle'].'" class="cboxElement" rel="uploader0">
 							<span class="fa__file-img">
 								<span class="fa__file-cell">
-									<img src="/frontend/web/p/pages/bigamimationsbg-'.$pagesItem['imageanimationsbgbig'].'" width="100%" height="auto" alt="'.$pagesItem['imageanimationsbgbigTitle'].'">
+									<img src="/frontend/web/p/pages/biganimationsbg-'.$pagesItem['imageanimationsbgbig'].'" width="100%" height="auto" alt="'.$pagesItem['imageanimationsbgbigTitle'].'">
 								</span>
 								<input class="title-fld" type="hidden" name="images[imageanimationsbgbig-one][imgTitle]" value="'.$this->getCodeStr($pagesItem['imageanimationsbgbigTitle']).'">
 								<input class="item-deleted" type="hidden" name="images[imageanimationsbgbig-one][deleted]" value="0">
@@ -89,10 +89,10 @@ if ($pagesItem['imageanimationsbgsmall'] <> '') {
 				</div>
 				<div class="fa__file-list">
 					<div class="fa__file">
-						<a href="/frontend/web/p/pages/smallamimationsbg-'.$pagesItem['imageanimationsbgsmall'].'" title="'.$pagesItem['imageanimationsbgsmallTitle'].'" class="cboxElement" rel="uploader0">
+						<a href="/frontend/web/p/pages/smallanimationsbg-'.$pagesItem['imageanimationsbgsmall'].'" title="'.$pagesItem['imageanimationsbgsmallTitle'].'" class="cboxElement" rel="uploader0">
 							<span class="fa__file-img">
 								<span class="fa__file-cell">
-									<img src="/frontend/web/p/pages/smallamimationsbg-'.$pagesItem['imageanimationsbgsmall'].'" width="100%" height="auto" alt="'.$pagesItem['imageanimationsbgsmallTitle'].'">
+									<img src="/frontend/web/p/pages/smallanimationsbg-'.$pagesItem['imageanimationsbgsmall'].'" width="100%" height="auto" alt="'.$pagesItem['imageanimationsbgsmallTitle'].'">
 								</span>
 								<input class="title-fld" type="hidden" name="images[imageanimationsbgsmall-one][imgTitle]" value="'.$this->getCodeStr($pagesItem['imageanimationsbgsmallTitle']).'">
 								<input class="item-deleted" type="hidden" name="images[imageanimationsbgsmall-one][deleted]" value="0">

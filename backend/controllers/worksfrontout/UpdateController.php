@@ -84,26 +84,26 @@ class UpdateController extends  \backend\controllers\AdminController
 				$format = $item['format'];
 				
 				$uploader = explode('-', $uploader);
-				$pathToFolder = '../../frontend/web/';
+				$pathToFolder = $_SERVER['DOCUMENT_ROOT'].'/frontend/web/';
 
 				if ($uploader[0] == 'uploader0') { // одно изображение
 					// если после добавления тут же удалили, то не продолжаем
 					//if (isset($_POST['images'][$uploader[1].'-one-'.$name]) && $_POST['images'][$uploader[1].'-one-'.$name]['deleted']) continue;
 					
 					$fileName = $idRecord.'-'.$uploader[1].$fileExtension;//echo '<pre>';print_r($fileName);echo '</pre>';exit;
-					$fileNameOriginal = "p/worksfrontout/original-".$fileName;
-					$fileNameMedium = "p/worksfrontout/medium-".$fileName;
 
-					// Копируем файл оригинал
-					copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameOriginal);
 
-					if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1') {
-						copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameMedium);
-						$newRow = $myOthers->addImgOneMultiLangs('worksfrontout', $uploader[1], $fileName, $imgTitle, $imgWidth, $imgHeight, $idRecord, 'idWorksfrontout', $pageLang);
+
+					$fileNameGeneral = Yii::$app->params['pics']['worksfrontout']['path']."general-".$fileName;
+					$imgGeneralWidth = Yii::$app->params['pics']['worksfrontout']['sizes']['worksfrontout']['width'];
+					$imgGeneralHeight = Yii::$app->params['pics']['worksfrontout']['sizes']['worksfrontout']['height'];
+
+					if ($_SERVER['REMOTE_ADDR'] == '') {
+
 					} else {
-						/*// Загружаем как есть
-						copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameMedium);
-						$newRow = $myOthers->addImgOne('worksfrontout', $uploader[1], $fileName, $imgTitle, $imgWidth, $imgHeight, $idRecord);*/
+						$myImagick->makeResizeImageWithOptimalCrop($imgGeneralWidth, $imgGeneralHeight, $pathToFolder.$fileNameGeneral,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_LZW, 87);
+						$newRow = $myOthers->addImgOneMultiLangs('worksfrontout', $uploader[1], $fileName, $imgTitle, $imgGeneralWidth, $imgGeneralHeight,$idRecord, 'idWorksfrontout', $pageLang);
+
 						
 						/*// Создаём файл нужного размера по ширине
 						$h = $myImagick->makeResizeImageByWidth(200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
@@ -209,7 +209,11 @@ class UpdateController extends  \backend\controllers\AdminController
 						}
 					}
 				}
-			}/* UpdateCodeBottom */
+			}
+
+			// Множество текстовых полей "Перечень пунктов описания работы"
+			$descrworksfrontoutlist = ArrayHelper::getValue($_POST, 'descrworksfrontoutlist', []);
+			$myOthers->updateManyFieldsElementIMultiLangsSimple('worksfrontout_descrworksfrontoutlist', $idRecord, $descrworksfrontoutlist, $pageLang);/* UpdateCodeBottom */
 
 			exit($json_data);
 		} else {

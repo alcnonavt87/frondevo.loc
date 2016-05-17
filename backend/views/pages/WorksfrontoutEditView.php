@@ -46,7 +46,115 @@ $content .= '</ul>';
 
 // Форма редактирования НАЧАЛО
 
-$showViz = $worksfrontoutItem['show'] > 0 ? 'checked="checked"' : '';/* UpdateCode */
+$showViz = $worksfrontoutItem['show'] > 0 ? 'checked="checked"' : '';
+
+
+
+// Вывод одного изображения "Одиночное изображение для страницы портфолио (297x381)" НАЧАЛО
+$imageworksfrontoutOne = '<fieldset class="catalog__section">'.
+$this->createHeader('Одиночное изображение для страницы портфолио (297x381)');
+if ($worksfrontoutItem['imageworksfrontout'] <> '') {
+	$imageworksfrontoutOne .= '<div class="fa__uploader single" id="uploader0-imageworksfrontout" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">
+					<div class="fa__file">
+						<a href="/p/worksfrontout/original-'.$worksfrontoutItem['imageworksfrontout'].'" title="'.$worksfrontoutItem['imageworksfrontoutTitle'].'" class="cboxElement" rel="uploader0">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/p/worksfrontout/medium-'.$worksfrontoutItem['imageworksfrontout'].'" width="100%" height="auto" alt="'.$worksfrontoutItem['imageworksfrontoutTitle'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[imageworksfrontout-one][imgTitle]" value="'.$this->getCodeStr($worksfrontoutItem['imageworksfrontoutTitle']).'">
+								<input class="item-deleted" type="hidden" name="images[imageworksfrontout-one][deleted]" value="0">
+							</span>
+							<span class="fa__file-title">'.$worksfrontoutItem['imageworksfrontoutTitle'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>
+				</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+} else {
+	$imageworksfrontoutOne .= '<div class="fa__uploader single" id="uploader0-imageworksfrontout" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+}
+$imageworksfrontoutOne .= '</fieldset>';
+// Вывод одного изображения "Одиночное изображение для страницы портфолио (297x381)" КОНЕЦ
+
+
+
+// Вывод одного изображения "Одиночное изображение для страницы портфолио (297x381)" НАЧАЛО
+$imageworksfrontoutOne = '<fieldset class="catalog__section">'.
+$this->createHeader('Одиночное изображение для страницы портфолио (297x381)');
+if ($worksfrontoutItem['imageworksfrontout'] <> '') {
+	$imageworksfrontoutOne .= '<div class="fa__uploader single" id="uploader0-imageworksfrontout" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list">
+					<div class="fa__file">
+						<a href="/frontend/web/p/worksfrontout/general-'.$worksfrontoutItem['imageworksfrontout'].'" title="'.$worksfrontoutItem['imageworksfrontoutTitle'].'" class="cboxElement" rel="uploader0">
+							<span class="fa__file-img">
+								<span class="fa__file-cell">
+									<img src="/frontend/web/p/worksfrontout/general-'.$worksfrontoutItem['imageworksfrontout'].'" width="100%" height="auto" alt="'.$worksfrontoutItem['imageworksfrontoutTitle'].'">
+								</span>
+								<input class="title-fld" type="hidden" name="images[imageworksfrontout-one][imgTitle]" value="'.$this->getCodeStr($worksfrontoutItem['imageworksfrontoutTitle']).'">
+								<input class="item-deleted" type="hidden" name="images[imageworksfrontout-one][deleted]" value="0">
+							</span>
+							<span class="fa__file-title">'.$worksfrontoutItem['imageworksfrontoutTitle'].'</span>
+						</a>
+						<input class="button button_small button_edit" type="button" title="Редактировать" value="Редактировать">
+						<input class="button button_small button_delete" type="button" title="Удалить" value="Удалить">
+					</div>
+				</div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+} else {
+	$imageworksfrontoutOne .= '<div class="fa__uploader single" id="uploader0-imageworksfrontout" data-module="FAUploader" data-href="imgupload" data-action="/'.$idPageGroup.'">
+				<span class="content__menu-item content__menu-item_upload">
+					Загрузить файл
+					<input id="fileupload" type="file" name="files[]" multiple>
+				</span>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+				<div class="fa__file-list"></div>
+				<div class="fa__file-edit-wrap">
+					<h2 class="catalog__section-header-text" data-load="Загрузка" data-edit="Редактирование">Загрузка</h2>
+					<ul class="fa__file-edit-list"></ul>
+				</div>
+		</div>';
+}
+$imageworksfrontoutOne .= '</fieldset>';
+// Вывод одного изображения "Одиночное изображение для страницы портфолио (297x381)" КОНЕЦ/* UpdateCode */
 
 
 
@@ -63,9 +171,38 @@ $content .= '<!-- sectionPageData --><fieldset class="catalog__section">
 		<!-- pTitle -->'.$this->createInput(['id'=> 'pTitle', 'text' => 'Заголовок страницы', 'placeholder' => 'В поисковой выдаче видно 60 символов', 'width' => 400, 'name' => 'content[pTitle]', 'value' => $worksfrontoutItem['pTitle'], 'attr' => 'required data-count="60"', 'dataCopy' => 'pH1', 'titleCopy' => 'Копия заголовка H1']).'<!-- /pTitle -->
 		<!-- pUrl -->'.$this->createInput(['id' => 'pUrl', 'text' => 'Алиас страницы', 'width' => 400, 'name' => 'base[pUrl]', 'value' => $worksfrontoutItem['pUrl'], 'attr' => 'required', 'genUrl' => 'pH1', 'titleUrl' => 'Генерация с заголовка H1']).'<!-- /pUrl -->
 		<!-- pDescription -->'.$this->createTextArea(['id'=> 'pDescription', 'text' => 'Meta description', 'placeholder' => 'В поисковой выдаче видно 140 символов', 'width' => '400x100', 'name' => 'content[pDescription]', 'value' => $worksfrontoutItem['pDescription'], 'attr' => 'data-count="140"']).'<!-- /pDescription -->
-		<!-- show -->'.$this->createCheckBoxRow(['id' => 'show', 'text' => 'Отображать страницу', 'name' => 'base[show]', 'value' => 1, 'attr' => $showViz]).'
-	</div>
+		<!-- linkworksfrontout -->'.$this->createInput(['id'=> 'linkworksfrontout', 'text' => 'Ссылка (относительная) на директорию с работой ', 'placeholder' => '', 'width' => 400, 'name' => 'content[linkworksfrontout]', 'value' => $worksfrontoutItem['linkworksfrontout'], 'attr' => '']).'<!-- /linkworksfrontout -->
+                                   '.$this->createCheckBoxRow(['id' => 'show', 'text' => 'Отображать страницу', 'name' => 'base[show]', 'value' => 1, 'attr' => $showViz]).'
+
+
+
 </fieldset><!-- /sectionPageData --><!-- /createFinish -->
+<!-- commonData --><fieldset class="catalog__section">
+	'.$this->createHeader('Основные данные').'
+	<div class="catalog__section-data">
+		<!-- imageworksfrontout -->'.$imageworksfrontoutOne.'<!-- /imageworksfrontout -->
+		<!-- descrworksfrontoutlist --><div class="input-row__group-wrap">';
+			for ($i = 0; $i < count($descrworksfrontoutlist); $i++) {
+				if ($i == count($descrworksfrontoutlist)-1) {
+					$content .= '<div class="input-row input-wrap input-row__group">
+						<label class="input__label" for="' . $i . '">Пункт перечня</label>
+						<input placeholder="" id="' . $i . '" name="descrworksfrontoutlist[]" class="input catalog_input input-width_400" type="text" value="' . $this->getCodeStr($descrworksfrontoutlist[$i]['text']) . '" />
+						<div class="button button__block button_copy-block"></div>
+					</div>';
+					continue;
+				}
+				
+				$content .= '<div class="input-row input-wrap input-row__group">
+					<label class="input__label" for="' . $i . '">Пункт перечня</label>
+					<input placeholder="" id="' . $i . '" name="descrworksfrontoutlist[]" class="input catalog_input input-width_400" type="text" value="' . $this->getCodeStr($descrworksfrontoutlist[$i]['text']) . '" />
+					<div class="button button__block button_remove-block"></div>
+				</div>';
+			}
+		$content .= '</div><!-- /descrworksfrontoutlist -->
+	</div>
+</fieldset><!-- /commonData -->
+	</div>
+
 
 </form>';
 // Форма редактирования КОНЕЦ

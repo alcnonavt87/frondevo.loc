@@ -72,6 +72,17 @@ return [
             ],
 
         ],
+        'worksfrontout' => [ //работы фронтендаутсорсинг
+            'path' => 'p/worksfrontout/',
+            'sizes' => [
+                'worksfrontout' => [
+                    'width' => 297,
+                    'height' => 381,
+                ],
+
+            ],
+
+        ],
         'pages' => [
             'path' => 'p/pages/',
 

@@ -219,7 +219,7 @@ else if (!empty($portfolioPage)){
     echo '<script src="markup/js/lib/projects.lib.min.js"></script>
     <script src="markup/js/projects.min.js"></script>';
 }
-else if (!empty($workPage)){
+else if (!empty($workPage) || !empty($worksfrontoutPage)) {
     echo '<script src="markup/js/lib/works-view.lib.min.js"></script>
     <script src="markup/js/works-view.min.js"></script>';
 }

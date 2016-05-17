@@ -6,7 +6,7 @@ use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use Yii\helpers\ArrayHelper;
-use frontend\models\Works;
+use frontend\models\WorksFrontOut;
 use frontend\models\AdvantagesPsdHtml;
 use frontend\models\AdvantagesJavascript;
 use frontend\models\AdvantagesAnimations;
@@ -29,7 +29,7 @@ class OutsourcingController extends CommonController
     public function init()
     {
         parent::init();
-        $this->myWorks = new Works($this->lang);
+        $this->myWorks = new WorksFrontOut($this->lang);
         $this->myFilters = new Filters($this->lang);
         $this->myRoot = new Root($this->lang);
         $this->myAdvantagePsdHtml = new AdvantagesPsdHtml($this->lang);
@@ -123,13 +123,6 @@ class OutsourcingController extends CommonController
             'sbksmalltitle', 'sbkstagetitle1', 'sbkstagetitle2', 'sbkstagetitle3', 'sbkstagetitle4', 'sbkstagetitle5', 'sbkstagetitle6', 'section5', 'imagebgsbk', 'imagebgsbklp', 'imagebgsbkmb'
         ], [], ['sbkstagelist1', 'sbkstagelist2', 'sbkstagelist3', 'sbkstagelist4', 'sbkstagelist5', 'sbkstagelist6', 'sbkpslist']);
         $data['pageData1'] = $pageData2;
-        // Работы отобаржаемые на текстовой странице
-        // Работы отобаржаемые на текстовой странице
-        $works = $this->myWorks->getListForSitesByKeys($this->pageContent['alias']);//echo '<pre>';print_r($data);echo '</pre>';exit;
-        $works2 = $this->myWorks->getWorksForSitesByKeys();
-        $data['works'] = $works;
-        $data['works2'] = $works2;
-
         $data = array_merge($this->data, $data);
         $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
 
@@ -734,7 +727,7 @@ class OutsourcingController extends CommonController
         $data = [];
         $forLayout = [];
         $pUrl = '';
-        $forLayout['workPage'] = 1;
+        $forLayout['worksfrontoutPage'] = 1;
         $params = [];
 
         // Информация из таблицы множественных полей
@@ -759,21 +752,21 @@ class OutsourcingController extends CommonController
 
         // укр
         $urlProvider = new SimpleModuleUrlProvider('ua', $params);
-        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->geteWorksItemUrl($params);
+        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->geteWorksFrontOutItemUrl($params);
         $langMenu['ua'] = [
             'link' => $pageUaUrl,
             'text' => 'Укр'
         ];
         // eng
         $urlProvider = new SimpleModuleUrlProvider('en', $params);
-        $forLayout['PageLangEn'] = $pageEnUrl = $urlProvider->geteWorksItemUrl($params);
+        $forLayout['PageLangEn'] = $pageEnUrl = $urlProvider->geteWorksFrontOutItemUrl($params);
         $langMenu['en'] = [
             'link' => $pageEnUrl,
             'text' => 'Eng'
         ];
         // рус
         $urlProvider = new SimpleModuleUrlProvider('ru', $params);
-        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->geteWorksItemUrl($params);
+        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->geteWorksFrontOutItemUrl($params);
         $langMenu['ru'] = [
             'link' => $pageRuUrl,
             'text' => 'Рус'
@@ -781,54 +774,6 @@ class OutsourcingController extends CommonController
         $forLayout['langMenu'] = $langMenu;
         //Получаем pTitle для Layout  единцы работы
         $forLayout['pTitle'] = $data['worksItem']['pTitle'];
-
-
-        //Сниппеты для кнопки на странице работ
-        $workBtn = $worksItem['linkwork'];
-        $workLink = 'http://' . $worksItem['linkwork'];
-        $search[] = '//workBtn//';
-        $search[] = '//workLink//';
-        $replace[] = $workBtn;
-        $replace[] = $workLink;
-        $worksItem['solutions'] = str_replace($search, $replace, $worksItem['solutions']);
-        $search = [];
-        $replace = [];
-
-        // Функция для загрузки изображений с фреймом на странице работы
-        //$worksItem['solutions'] строка основного содержимого секции из базы данных
-        $pattern = '/<img src=.*?\/>/';//шаблон для нахождения всеx елементов  img в $worksItem['solutions']
-        $matched = preg_match_all($pattern, $worksItem['solutions'], $matches);//echo '<pre>';print_r($matches1);echo '</pre>';exit;
-        foreach ($matches as $match) {// перебираем массив что бы отделить каждый img по отдельности
-            foreach ($match as $pic) {
-                if (preg_match('/alt=""/', $pic)) {//если alt img пустой то берем весь img из  $worksItem['solutions'и заменяем его на наш $pattern
-                    $pattern = '<div class="align-center">' . $pic . '</div>';
-                    $worksItem['solutions'] = str_replace($pic, $pattern, $worksItem['solutions']);
-                } else if (preg_match('/alt=".*?"/', $pic)) {//если alt img не пустой то берем весь img из  $worksItem['solutions'и заменяем его на другой $pattern
-                    $pattern = '/alt="(.*?)"/';
-                    $matched = preg_match_all($pattern, $pic, $matches);//print_r ($matches[1]);exit();
-                    foreach ($matches[1] as $url) {
-                        $pattern1 = "<div class=\"image-frame\">
-                                <div>
-
-                                    <!-- frame controls -->
-                                    <div class=\"frame-controls\">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                    <!--/frame controls -->
-
-                                    <div class=\"frame-input\">" . "http://" . $url . "</div>
-                                    <div class=\"frame-face-input\"></div>
-
-                               </div>" . $pic . "</div>";
-
-                        $worksItem['solutions'] = str_replace($pic, $pattern1, $worksItem['solutions']);
-                    }
-                }
-            }
-        }
-
 
         $data['worksItem'] = $worksItem;
         //Получаем pTitle для Layout  единцы работы
@@ -843,7 +788,7 @@ class OutsourcingController extends CommonController
         $forLayout = array_merge($this->forLayout, $forLayout); //echo '<pre>';print_r($data);echo '</pre>';exit;
 
         return [
-            'view' => 'worksItem',
+            'view' => 'worksfrontoutitem',
             'data' => $data,
             'layout' => $this->layout,
             'forLayout' => $forLayout,

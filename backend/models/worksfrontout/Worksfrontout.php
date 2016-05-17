@@ -120,7 +120,7 @@ Class Worksfrontout extends Model
 	public function get($id, $lang) {
 		$query = Yii::$app->db->createCommand('SELECT
 			`id`, `pH1`, `pTitle`, `pUrl`, `pDescription`, `pKeyWords`, `pBreadCrumbs`, `show`, `pContent`
-			/*get*/
+			, `imageworksfrontout`, `imageworksfrontoutTitle`, `imageworksfrontout`, `imageworksfrontoutTitle`, `linkworksfrontout`, `linkworksfrontout`/*get*/
 		FROM
 			`worksfrontout`, `worksfrontout_content`
 		WHERE
@@ -136,7 +136,7 @@ Class Worksfrontout extends Model
 	public function getEmpty() {
 		$result = [
 			'pH1' => '', 'pTitle' => '', 'pUrl' => '', 'pDescription' => '', 'pKeyWords' => '', 'pBreadCrumbs' => '', 'show' => 0, 'pContent' => '',
-			/*getEmpty*/
+			 'imageworksfrontout' => '', 'imageworksfrontout' => '', 'linkworksfrontout' => '', 'linkworksfrontout' => '',/*getEmpty*/
 		];
 		
 		return $result;
@@ -174,7 +174,7 @@ Class Worksfrontout extends Model
 	public function delete($id) {
 		// удаляем с диска одиночные изображения
 		$imagesOne = [
-			/*deleteImagesOne*/
+			 '`imageworksfrontout`', '`imageworksfrontout`',/*deleteImagesOne*/
 		];
 		$imagesOne = array_unique($imagesOne);
 		if ($imagesOne) {

@@ -31,7 +31,10 @@ class AddController extends  \backend\controllers\AdminController
             $worksfrontoutItem = $myWorksfrontout->getEmpty();//echo '<pre>';print_r($worksfrontoutItem);echo '</pre>';exit;
 
 			//Навигационное меню
-			$langs = $myOthers->getAllLangs();/* UpdateCode */
+			$langs = $myOthers->getAllLangs();
+
+			// Множество текстовых полей "Перечень пунктов описания работы"
+			$descrworksfrontoutlist = $myOthers->getManyFieldsElementEmpty();/* UpdateCode */
 
 
 			$content = '';
