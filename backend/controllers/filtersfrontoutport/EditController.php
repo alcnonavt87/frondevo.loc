@@ -1,9 +1,9 @@
 <?php
-namespace backend\controllers\worksfrontout;
+namespace backend\controllers\filtersfrontoutport;
 
 use Yii;
 use backend\models\AdminOthers;
-use backend\models\worksfrontout\Worksfrontout;
+use backend\models\filtersfrontoutport\Filtersfrontoutport;
 
 class EditController extends  \backend\controllers\AdminController
 {
@@ -21,34 +21,25 @@ class EditController extends  \backend\controllers\AdminController
 			}
 
 			$myOthers = new AdminOthers();
-			$myWorksfrontout = new Worksfrontout();
+			$myFiltersfrontoutport = new Filtersfrontoutport();
 			
 			$myOthers->clearTempDir();
 			$_SESSION['images'] = [];
 
 			// Получаем запись
-            $worksfrontoutItem = $myWorksfrontout->get($idRecord, $pageLang);//echo '<pre>';print_r($worksfrontoutItem);echo '</pre>';exit;
+            $filtersfrontoutportItem = $myFiltersfrontoutport->get($idRecord, $pageLang);//echo '<pre>';print_r($filtersfrontoutportItem);echo '</pre>';exit;
 
-			if (!empty($worksfrontoutItem)) {
+			if (!empty($filtersfrontoutportItem)) {
 				//Навигационное меню
                 $langs = $myOthers->getAllLangs();
-				
-
-				// Множество текстовых полей "Перечень пунктов описания работы"
-				$descrworksfrontoutlist = $myOthers->getManyFieldsElementMultiLangs('worksfrontout_descrworksfrontoutlist', $idRecord, $pageLang);
-				if (!$descrworksfrontoutlist) {
-					$descrworksfrontoutlist = $myOthers->getManyFieldsElementEmpty();
-				}
-
-				// Селект "Фильтр для аутсорсинг-фронтенд-портфолио"
-				$filtersfrontoutport = $myOthers->getSelectOptionsMultiLangs('filtersfrontoutport', 'pTitle', $pageLang);/* UpdateCode */
+				/* UpdateCode */
 
 
 				$content = '';
                 $navMenu = '';
 
-                if (is_file(Yii::$app->basePath.'/views/pages/WorksfrontoutEditView.php')) {
-                    require Yii::$app->basePath.'/views/pages/WorksfrontoutEditView.php';
+                if (is_file(Yii::$app->basePath.'/views/pages/FiltersfrontoutportEditView.php')) {
+                    require Yii::$app->basePath.'/views/pages/FiltersfrontoutportEditView.php';
                 }
 
                 return json_encode(['code' => '0', 'message' => '', 'content' => $content, 'navMenu' => $navMenu]);

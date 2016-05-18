@@ -1,9 +1,9 @@
 <?php
-namespace backend\controllers\worksfrontout;
+namespace backend\controllers\filtersfrontoutport;
 
 use Yii;
 use backend\models\AdminOthers;
-use backend\models\worksfrontout\Worksfrontout;
+use backend\models\filtersfrontoutport\Filtersfrontoutport;
 
 class AddController extends  \backend\controllers\AdminController
 {
@@ -21,30 +21,24 @@ class AddController extends  \backend\controllers\AdminController
 			}
 
 			$myOthers = new AdminOthers();
-			$myWorksfrontout = new Worksfrontout();
+			$myFiltersfrontoutport = new Filtersfrontoutport();
 			
 			$myOthers->clearTempDir();
 			$_SESSION['images'] = [];
 			
 
 			// Получаем запись
-            $worksfrontoutItem = $myWorksfrontout->getEmpty();//echo '<pre>';print_r($worksfrontoutItem);echo '</pre>';exit;
+            $filtersfrontoutportItem = $myFiltersfrontoutport->getEmpty();//echo '<pre>';print_r($filtersfrontoutportItem);echo '</pre>';exit;
 
 			//Навигационное меню
-			$langs = $myOthers->getAllLangs();
-
-			// Множество текстовых полей "Перечень пунктов описания работы"
-			$descrworksfrontoutlist = $myOthers->getManyFieldsElementEmpty();
-
-			// Селект "Фильтр для аутсорсинг-фронтенд-портфолио"
-			$filtersfrontoutport = $myOthers->getSelectOptionsMultiLangs('filtersfrontoutport', 'pTitle', $pageLang);/* UpdateCode */
+			$langs = $myOthers->getAllLangs();/* UpdateCode */
 
 
 			$content = '';
 			$navMenu = '';
 
-			if (is_file(Yii::$app->basePath.'/views/pages/WorksfrontoutEditView.php')) {
-				require Yii::$app->basePath.'/views/pages/WorksfrontoutEditView.php';
+			if (is_file(Yii::$app->basePath.'/views/pages/FiltersfrontoutportEditView.php')) {
+				require Yii::$app->basePath.'/views/pages/FiltersfrontoutportEditView.php';
 			}
 
 			return json_encode(['code' => '0', 'message' => '', 'content' => $content, 'navMenu' => $navMenu]);

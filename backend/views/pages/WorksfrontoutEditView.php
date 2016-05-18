@@ -154,7 +154,20 @@ if ($worksfrontoutItem['imageworksfrontout'] <> '') {
 		</div>';
 }
 $imageworksfrontoutOne .= '</fieldset>';
-// Вывод одного изображения "Одиночное изображение для страницы портфолио (297x381)" КОНЕЦ/* UpdateCode */
+// Вывод одного изображения "Одиночное изображение для страницы портфолио (297x381)" КОНЕЦ
+
+
+
+// Селект "Фильтр для аутсорсинг-фронтенд-портфолио"
+$filtersfrontoutportOptions = '<option value="0">Выберите вариант</option>';
+foreach ($filtersfrontoutport as $item) {
+	if ($item['id'] == $worksfrontoutItem['idFiltersfrontoutport']) {
+		$filtersfrontoutportOptions .= '<option value="'.$item['id'].'"  selected>'.$item['pTitle'].'</option>';
+		continue;
+	}
+
+	$filtersfrontoutportOptions .= '<option value="'.$item['id'].'" >'.$item['pTitle'].'</option>';
+}/* UpdateCode */
 
 
 
@@ -172,7 +185,11 @@ $content .= '<!-- sectionPageData --><fieldset class="catalog__section">
 		<!-- pUrl -->'.$this->createInput(['id' => 'pUrl', 'text' => 'Алиас страницы', 'width' => 400, 'name' => 'base[pUrl]', 'value' => $worksfrontoutItem['pUrl'], 'attr' => 'required', 'genUrl' => 'pH1', 'titleUrl' => 'Генерация с заголовка H1']).'<!-- /pUrl -->
 		<!-- pDescription -->'.$this->createTextArea(['id'=> 'pDescription', 'text' => 'Meta description', 'placeholder' => 'В поисковой выдаче видно 140 символов', 'width' => '400x100', 'name' => 'content[pDescription]', 'value' => $worksfrontoutItem['pDescription'], 'attr' => 'data-count="140"']).'<!-- /pDescription -->
 		<!-- linkworksfrontout -->'.$this->createInput(['id'=> 'linkworksfrontout', 'text' => 'Ссылка (относительная) на директорию с работой ', 'placeholder' => '', 'width' => 400, 'name' => 'content[linkworksfrontout]', 'value' => $worksfrontoutItem['linkworksfrontout'], 'attr' => '']).'<!-- /linkworksfrontout -->
-                                   '.$this->createCheckBoxRow(['id' => 'show', 'text' => 'Отображать страницу', 'name' => 'base[show]', 'value' => 1, 'attr' => $showViz]).'
+		<!-- filtersfrontoutport -->'.$this->createSelect(['id'=> 'idFiltersfrontoutport', 'text' => 'Фильтр для аутсорсинг-фронтенд-портфолио', 'width' => 400,  'name' => 'base[idFiltersfrontoutport]', 'value' => $filtersfrontoutportOptions, 'attr' => '']).'<!-- /filtersfrontoutport -->
+ '.$this->createCheckBoxRow(['id' => 'show', 'text' => 'Отображать страницу', 'name' => 'base[show]', 'value' => 1, 'attr' => $showViz]).'
+	</div>
+
+
 
 
 

@@ -1,9 +1,9 @@
 <?php
-namespace backend\controllers\worksfrontout;
+namespace backend\controllers\filtersfrontoutport;
 
 use Yii;
 use backend\models\AdminOthers;
-use backend\models\worksfrontout\Worksfrontout;
+use backend\models\filtersfrontoutport\Filtersfrontoutport;
 use backend\models\Imagick;
 use Yii\helpers\ArrayHelper;
 
@@ -26,23 +26,12 @@ class UpdateController extends  \backend\controllers\AdminController
 			$_POST['content'] = isset($_POST['content']) ? $_POST['content'] : [];
 
 			$myOthers = new AdminOthers();
-            $myWorksfrontout = new Worksfrontout();
+            $myFiltersfrontoutport = new Filtersfrontoutport();
             $myImagick = new Imagick();
 			
             $hostName = Yii::$app->params['hostName'];
 			$admPanelUri = Yii::$app->homeUrl;
 
-
-			// Сортировка в list-таблице
-			if (!$id2Uri && isset($_POST['list'])) {
-				$listIndexes = $_POST['list'];
-				$newIndexes = json_decode($listIndexes);
-
-				$orderField = 'order';
-
-				$myOthers->sortTable('worksfrontout', 'id', $newIndexes, $orderField);
-				exit;
-			}
 
 			// Чекбокс "Отображать страницу"
 			$_POST['base']['show'] = isset($_POST['base']['show']) ? $_POST['base']['show'] : 0;
@@ -60,7 +49,7 @@ class UpdateController extends  \backend\controllers\AdminController
 			
 			if (!$newDoc) {
 				// Обновляем запись
-				$row = $myWorksfrontout->update($idRecord, $_POST['base'], $_POST['content'], $pageLang);
+				$row = $myFiltersfrontoutport->update($idRecord, $_POST['base'], $_POST['content'], $pageLang);
 
 				if ($row !== false) {
 					$json_data = json_encode(['code' => '0', 'message' => 'Запись успешно сохранена']);
@@ -69,7 +58,7 @@ class UpdateController extends  \backend\controllers\AdminController
 				}
 			} else {
 				// Добавляем запись
-				$row = $myWorksfrontout->add($_POST['base'], $_POST['content'], $pageLang);
+				$row = $myFiltersfrontoutport->add($_POST['base'], $_POST['content'], $pageLang);
 
 				if (isset($row[0]) && $row[0] >= 0) {
 					$json_data = json_encode(['code' => '0', 'message' => 'Запись успешно добавлена', 'id' => $hostName.$admPanelUri.'edit#formedit/'.$idPageGroup.'/'.$row[1].'/'.$pageLang]);
@@ -95,46 +84,46 @@ class UpdateController extends  \backend\controllers\AdminController
 				$format = $item['format'];
 				
 				$uploader = explode('-', $uploader);
-				$pathToFolder = $_SERVER['DOCUMENT_ROOT'].'/frontend/web/';
+				$pathToFolder = '../../frontend/web/';
 
 				if ($uploader[0] == 'uploader0') { // одно изображение
 					// если после добавления тут же удалили, то не продолжаем
 					//if (isset($_POST['images'][$uploader[1].'-one-'.$name]) && $_POST['images'][$uploader[1].'-one-'.$name]['deleted']) continue;
 					
 					$fileName = $idRecord.'-'.$uploader[1].$fileExtension;//echo '<pre>';print_r($fileName);echo '</pre>';exit;
+					$fileNameOriginal = "p/filtersfrontoutport/original-".$fileName;
+					$fileNameMedium = "p/filtersfrontoutport/medium-".$fileName;
 
+					// Копируем файл оригинал
+					copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameOriginal);
 
-
-					$fileNameGeneral = Yii::$app->params['pics']['worksfrontout']['path']."general-".$fileName;
-					$imgGeneralWidth = Yii::$app->params['pics']['worksfrontout']['sizes']['worksfrontout']['width'];
-					$imgGeneralHeight = Yii::$app->params['pics']['worksfrontout']['sizes']['worksfrontout']['height'];
-
-					if ($_SERVER['REMOTE_ADDR'] == '') {
-
+					if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1') {
+						copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameMedium);
+						$newRow = $myOthers->addImgOneMultiLangs('filtersfrontoutport', $uploader[1], $fileName, $imgTitle, $imgWidth, $imgHeight, $idRecord, 'idFiltersfrontoutport', $pageLang);
 					} else {
-						$myImagick->makeResizeImageWithOptimalCrop($imgGeneralWidth, $imgGeneralHeight, $pathToFolder.$fileNameGeneral,$tmp_dir.'/'.$name, $format, \imagick::FILTER_UNDEFINED, 1, 0, 0, \imagick::COMPRESSION_LZW, 87);
-						$newRow = $myOthers->addImgOneMultiLangs('worksfrontout', $uploader[1], $fileName, $imgTitle, $imgGeneralWidth, $imgGeneralHeight,$idRecord, 'idWorksfrontout', $pageLang);
-
+						/*// Загружаем как есть
+						copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameMedium);
+						$newRow = $myOthers->addImgOne('filtersfrontoutport', $uploader[1], $fileName, $imgTitle, $imgWidth, $imgHeight, $idRecord);*/
 						
 						/*// Создаём файл нужного размера по ширине
 						$h = $myImagick->makeResizeImageByWidth(200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
-						$newRow = $myOthers->addImgOne('worksfrontout', $uploader[1], $fileName, $imgTitle, 200, $h, $idRecord);*/
+						$newRow = $myOthers->addImgOne('filtersfrontoutport', $uploader[1], $fileName, $imgTitle, 200, $h, $idRecord);*/
 						
 						/*// Создаём файл нужного размера по высоте
 						$w = $myImagick->makeResizeImageByHeight(200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
-						$newRow = $myOthers->addImgOne('worksfrontout', $uploader[1], $fileName, $imgTitle, $w, 200, $idRecord);*/
+						$newRow = $myOthers->addImgOne('filtersfrontoutport', $uploader[1], $fileName, $imgTitle, $w, 200, $idRecord);*/
 						
 						/*// Создаём файл нужного размера по минимальной стороне
 						$sizes = $myImagick->makeResizeImageByMinSide(200, 200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
-						$newRow = $myOthers->addImgOne('worksfrontout', $uploader[1], $fileName, $imgTitle, $sizes[0], $sizes[1], $idRecord);*/
+						$newRow = $myOthers->addImgOne('filtersfrontoutport', $uploader[1], $fileName, $imgTitle, $sizes[0], $sizes[1], $idRecord);*/
 						
 						/*// Создаём файл нужного размера без обрезания
 						$myImagick->makeResizeImage(200, 200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
-						$newRow = $myOthers->addImgOne('worksfrontout', $uploader[1], $fileName, $imgTitle, 200, 200, $idRecord);*/
+						$newRow = $myOthers->addImgOne('filtersfrontoutport', $uploader[1], $fileName, $imgTitle, 200, 200, $idRecord);*/
 						
 						/*// Создаём файл нужного размера с оптимальным обрезанием
 						$myImagick->makeResizeImageWithOptimalCrop(200, 200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
-						$newRow = $myOthers->addImgOne('worksfrontout', $uploader[1], $fileName, $imgTitle, 200, 200, $idRecord);*/
+						$newRow = $myOthers->addImgOne('filtersfrontoutport', $uploader[1], $fileName, $imgTitle, 200, 200, $idRecord);*/
 					}
 
 					/*if ($newRow[1] >= 0)
@@ -151,39 +140,39 @@ class UpdateController extends  \backend\controllers\AdminController
 					//if (isset($_POST['images'][$uploader[1].'-'.$nextId.'-'.$name]) && $_POST['images'][$uploader[1].'-'.$nextId.'-'.$name]['deleted']) continue;
 					
 					$fileName = $idRecord.'-'.$uploader[1].'-'.microtime(true).$fileExtension;
-					$fileNameOriginal = "p/worksfrontout/original-".$fileName;
-					$fileNameMedium = "p/worksfrontout/medium-".$fileName;
+					$fileNameOriginal = "p/filtersfrontoutport/original-".$fileName;
+					$fileNameMedium = "p/filtersfrontoutport/medium-".$fileName;
 
 					// Копируем файл оригинал
 					copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameOriginal);
 
 					if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1') {
 						copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameMedium);
-						$newRow = $myOthers->addImgManyMultiLangs('worksfrontout_'.$uploader[1], 'idWorksfrontout', $idRecord, $fileName, $imgTitle, $imgWidth, $imgHeight, $pageLang);
+						$newRow = $myOthers->addImgManyMultiLangs('filtersfrontoutport_'.$uploader[1], 'idFiltersfrontoutport', $idRecord, $fileName, $imgTitle, $imgWidth, $imgHeight, $pageLang);
 					} else {
 						/*// Загружаем как есть
 						copy($tmp_dir.'/'.$name, $pathToFolder.$fileNameMedium);
-						$newRow = $myOthers->addImgMany('worksfrontout_'.$uploader[1], 'idWorksfrontout', $idRecord, $fileName, $imgTitle, $imgWidth, $imgHeight);*/
+						$newRow = $myOthers->addImgMany('filtersfrontoutport_'.$uploader[1], 'idFiltersfrontoutport', $idRecord, $fileName, $imgTitle, $imgWidth, $imgHeight);*/
 						
 						/*// Создаём файл нужного размера по ширине
 						$h = $myImagick->makeResizeImageByWidth(200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
-						$newRow = $myOthers->addImgMany('worksfrontout_'.$uploader[1], 'idWorksfrontout', $idRecord, $fileName, $imgTitle, 200, $h);*/
+						$newRow = $myOthers->addImgMany('filtersfrontoutport_'.$uploader[1], 'idFiltersfrontoutport', $idRecord, $fileName, $imgTitle, 200, $h);*/
 						
 						/*// Создаём файл нужного размера по высоте
 						$w = $myImagick->makeResizeImageByHeight(200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
-						$newRow = $myOthers->addImgMany('worksfrontout_'.$uploader[1], 'idWorksfrontout', $idRecord, $fileName, $imgTitle, $w, 200);*/
+						$newRow = $myOthers->addImgMany('filtersfrontoutport_'.$uploader[1], 'idFiltersfrontoutport', $idRecord, $fileName, $imgTitle, $w, 200);*/
 						
 						/*// Создаём файл нужного размера по минимальной стороне
 						$sizes = $myImagick->makeResizeImageByMinSide(200, 200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
-						$newRow = $myOthers->addImgMany('worksfrontout_'.$uploader[1], 'idWorksfrontout', $idRecord, $fileName, $imgTitle, $sizes[0], $sizes[1]);*/
+						$newRow = $myOthers->addImgMany('filtersfrontoutport_'.$uploader[1], 'idFiltersfrontoutport', $idRecord, $fileName, $imgTitle, $sizes[0], $sizes[1]);*/
 						
 						/*// Создаём файл нужного размера без обрезания
 						$myImagick->makeResizeImage(200, 200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
-						$newRow = $myOthers->addImgMany('worksfrontout_'.$uploader[1], 'idWorksfrontout', $idRecord, $fileName, $imgTitle, 200, 200);*/
+						$newRow = $myOthers->addImgMany('filtersfrontoutport_'.$uploader[1], 'idFiltersfrontoutport', $idRecord, $fileName, $imgTitle, 200, 200);*/
 						
 						/*// Создаём файл нужного размера с оптимальным обрезанием
 						$myImagick->makeResizeImageWithOptimalCrop(200, 200, $fileNameMedium, $tmp_dir.'/'.$name, $format, imagick::FILTER_HAMMING, 0.8, 0, 1, imagick::COMPRESSION_LZW, 87);
-						$newRow = $myOthers->addImgMany('worksfrontout_'.$uploader[1], 'idWorksfrontout', $idRecord, $fileName, $imgTitle, 200, 200);*/
+						$newRow = $myOthers->addImgMany('filtersfrontoutport_'.$uploader[1], 'idFiltersfrontoutport', $idRecord, $fileName, $imgTitle, 200, 200);*/
 					}
 
 					/*if ($newRow[1] >= 0)
@@ -208,23 +197,19 @@ class UpdateController extends  \backend\controllers\AdminController
 					
 					if ($key[1] == 'one') { // одно изображение
 						if (!$item['deleted']) {
-							$myOthers->updateImgOneMultiLangs('worksfrontout', $key[0], $item['imgTitle'], $idRecord, 'idWorksfrontout', $pageLang);
+							$myOthers->updateImgOneMultiLangs('filtersfrontoutport', $key[0], $item['imgTitle'], $idRecord, 'idFiltersfrontoutport', $pageLang);
 						} else {
-							$myOthers->deleteImgOneMultiLangs('worksfrontout', $key[0], $idRecord);
+							$myOthers->deleteImgOneMultiLangs('filtersfrontoutport', $key[0], $idRecord);
 						}
 					} else { // несколько изображений
 						if (!$item['deleted']) {
-							$myOthers->updateImgManyMultiLangs('worksfrontout_'.$key[0], $item['imgTitle'], $item['picking'], $key[1], $pageLang);
+							$myOthers->updateImgManyMultiLangs('filtersfrontoutport_'.$key[0], $item['imgTitle'], $item['picking'], $key[1], $pageLang);
 						} else {
-							$myOthers->deleteImgMany('worksfrontout_'.$key[0], $key[1]);
+							$myOthers->deleteImgMany('filtersfrontoutport_'.$key[0], $key[1]);
 						}
 					}
 				}
-			}
-
-			// Множество текстовых полей "Перечень пунктов описания работы"
-			$descrworksfrontoutlist = ArrayHelper::getValue($_POST, 'descrworksfrontoutlist', []);
-			$myOthers->updateManyFieldsElementIMultiLangsSimple('worksfrontout_descrworksfrontoutlist', $idRecord, $descrworksfrontoutlist, $pageLang);/* UpdateCodeBottom */
+			}/* UpdateCodeBottom */
 
 			exit($json_data);
 		} else {

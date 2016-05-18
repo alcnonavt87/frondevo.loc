@@ -13,7 +13,7 @@ Class Portfoliofrontout extends Model
     
     public function getPageByIdAndLang($id,$lang) {
         $query = Yii::$app->db->createCommand('SELECT
-            `a`.`id`, `a`.`pShow`, `a`.`pUrl`,
+            `a`.`id`, `a`.`pShow`, `b`.`Url`,
             `b`.`pTitle`, `b`.`pDescription`, `b`.`pKeyWords`, `b`.`pH1`,
             `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`
 			/*get*/
@@ -30,7 +30,7 @@ Class Portfoliofrontout extends Model
     public function getEmptyLangPageById($id)
     {
         $query = Yii::$app->db->createCommand('SELECT
-        `a`.`id`, `a`.`pShow`, `a`.`pUrl`,
+        `a`.`id`, `a`.`pShow`, `b`.`Url`,
          "" AS `pTitle`, "" AS `pDescription`, "" AS `pKeyWords`, "" AS `pH1`, "" AS `pMenuName`, "" AS `pBreadCrumbs`, "" AS `pContent`
 		FROM
             `pages` `a`
@@ -42,6 +42,32 @@ Class Portfoliofrontout extends Model
     }
 
 	public function editUpDatePage($pageId, $lang, $pTitle, $pDescription, $pKeyWords, $pH1, $pMenuName, $pBreadCrumbs, $pContent) {
+        $EMTypograph = new EMTypograph();
+        $EMTypograph->setup([
+            'Text.paragraphs' => 'off',
+            'OptAlign.oa_oquote' => 'off',
+            'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+            'OptAlign.all' => 'off',
+        ]);
+        $EMTypograph->set_text($pTitle);
+        $pTitle= $EMTypograph->apply();
+        $EMTypograph->setup([
+            'Text.paragraphs' => 'off',
+            'OptAlign.oa_oquote' => 'off',
+            'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+            'OptAlign.all' => 'off',
+        ]);
+        $EMTypograph->set_text($pDescription );
+        $pDescription = $EMTypograph->apply();
+
+        $EMTypograph->set_text($pH1 );
+        $EMTypograph->setup([
+            'Text.paragraphs' => 'off',
+            'OptAlign.oa_oquote' => 'off',
+            'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+            'OptAlign.all' => 'off',
+        ]);
+        $pH1 = $EMTypograph->apply();
         $query = Yii::$app->db->createCommand('UPDATE `content`
         SET `pTitle` = :pTitle, `pDescription` = :pDescription, `pKeyWords` = :pKeyWords, `pH1` = :pH1,
             `pMenuName` = :pMenuName, `pBreadCrumbs` = :pBreadCrumbs, `pContent` = :pContent

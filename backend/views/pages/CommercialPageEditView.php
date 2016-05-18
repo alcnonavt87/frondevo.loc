@@ -44,11 +44,16 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
                     <!-- pMenuName -->'.$this->createInput(['id'=> 'pMenuName', 'text' => 'Заголовок для главного меню', 'width' => 400, 'name' => 'pMenuName', 'value' => $page[0]['pMenuName'], 'attr' => 'required']).'<!-- /pMenuName -->
                     </div>
                 </fieldset>
-
-                <fieldset class="catalog__section">
-                '.$this->createHeader('Редактирование контента страницы').'
-                <!-- pContent -->'.$this->createTextArea(['id'=> 'pContent', 'text' => '', 'width' => '400x100', 'name' => 'pContent', 'value' => $page[0]['pContent'], 'attr' => 'data-module="tinymce"']).'<!-- /pContent -->
+<!-- commonData --><fieldset class="catalog__section">
+	'.$this->createHeader('Основные данные').'
+	<div class="catalog__section-data">
+		<!-- commercialtitle -->'.$this->createTextArea(['id'=> 'commercialtitle', 'text' => 'Title main', 'width' => '400x100', 'name' => 'content[commercialtitle]', 'value' => $pagesItem['commercialtitle'], 'attr' => '']).'<!-- /commercialtitle -->
+		<!-- commercialtitle1 -->'.$this->createTextArea(['id'=> 'commercialtitle1', 'text' => 'Title medium', 'width' => '400x100', 'name' => 'content[commercialtitle1]', 'value' => $pagesItem['commercialtitle1'], 'attr' => '']).'<!-- /commercialtitle1 -->
+	</div>
+</fieldset><!-- /commonData --><!-- /createFinish -->
 		'.$this->createHeader('Выбор ссылок отображаемых в футере').'
 		<!-- links -->'.$this->createCheckBoxGroup(['list' => $linksList]).'<!-- /links -->
-                </fieldset><!-- /sectionPageData --><!-- /createFinish -->'.
+                </fieldset><!-- /sectionPageData -->
+
+'.
             Html::endForm();

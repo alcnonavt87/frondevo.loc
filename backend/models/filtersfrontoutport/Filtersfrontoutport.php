@@ -1,11 +1,11 @@
 <?php
-namespace backend\models\worksfrontout;
+namespace backend\models\filtersfrontoutport;
 
 use yii\base\Model;
 use Yii;
 use backend\models\AdminOthers;
 
-Class Worksfrontout extends Model
+Class Filtersfrontoutport extends Model
 {
 	var $frontendPath;
 	var $myOthers;
@@ -28,16 +28,16 @@ Class Worksfrontout extends Model
 		
 		// основной запрос
 		$query = Yii::$app->db->createCommand('SELECT
-			`id`, `pH1`, `dateCreated`, `show`
+			`id`, `pTitle`, `show`
 			/*getManyListTableFields*/
 		FROM
-			`worksfrontout`, `worksfrontout_content`
+			`filtersfrontoutport`, `filtersfrontoutport_content`
 		WHERE
 			TRUE/*getManyFilterWhereClause*/ AND
-			`idWorksfrontout` = `id` AND
+			`idFiltersfrontoutport` = `id` AND
 			`lang` = :lang
 		ORDER BY
-			`order`,`dateCreated` ASC'
+			`order` ASC'
 		.$limit
 		.$offset)
 		->bindValue(':lang', $lang);
@@ -48,12 +48,12 @@ Class Worksfrontout extends Model
 	/*getFilterWhere*/
 
 	public function upDateProperty($id, $name, $value) {
-        $query = Yii::$app->db->createCommand()->update('worksfrontout', [$name => $value], 'id = :id', [':id' => $id]);
+        $query = Yii::$app->db->createCommand()->update('filtersfrontoutport', [$name => $value], 'id = :id', [':id' => $id]);
         return $query->execute();
     }
 
 	public function add($postBase, $postContent, $lang) {
-		if (empty($postBase)) return false;
+
 
 		$fields = [];
 		$values = [];
@@ -65,7 +65,7 @@ Class Worksfrontout extends Model
 		$values = implode(',', $values);
 		
 		$query = Yii::$app->db->createCommand('INSERT INTO
-			`worksfrontout`
+			`filtersfrontoutport`
 				('.$fields.')
 		VALUES
 			('.$values.')');
@@ -85,11 +85,11 @@ Class Worksfrontout extends Model
 			$values = !empty($values) ? ', '.implode(',', $values) : '';
 			
 			$query = Yii::$app->db->createCommand('INSERT INTO
-				`worksfrontout_content`
-					(`idWorksfrontout`, `lang`'.$fields.')
+				`filtersfrontoutport_content`
+					(`idFiltersfrontoutport`, `lang`'.$fields.')
 			VALUES
-				(:idWorksfrontout, :lang'.$values.')')
-			->bindValue(':idWorksfrontout', $rowId)
+				(:idFiltersfrontoutport, :lang'.$values.')')
+			->bindValue(':idFiltersfrontoutport', $rowId)
 			->bindValue(':lang', $lang)
 			->execute();
 			
@@ -102,12 +102,12 @@ Class Worksfrontout extends Model
 			array_splice($values, array_search($lang, $values), 1);
 			
 			$query = Yii::$app->db->createCommand('INSERT INTO
-				`worksfrontout_content`
-					(`idWorksfrontout`, `lang`)
+				`filtersfrontoutport_content`
+					(`idFiltersfrontoutport`, `lang`)
 			VALUES
-				(:idWorksfrontout, "'.$values[0].'"),
-				(:idWorksfrontout, "'.$values[1].'")')
-			->bindValue(':idWorksfrontout', $rowId)
+				(:idFiltersfrontoutport, "'.$values[0].'"),
+				(:idFiltersfrontoutport, "'.$values[1].'")')
+			->bindValue(':idFiltersfrontoutport', $rowId)
 			->execute();
 		}
 
@@ -119,13 +119,13 @@ Class Worksfrontout extends Model
 
 	public function get($id, $lang) {
 		$query = Yii::$app->db->createCommand('SELECT
-			`id`, `pH1`, `pTitle`, `pUrl`, `pDescription`, `pKeyWords`, `pBreadCrumbs`, `show`, `pContent`
-			, `imageworksfrontout`, `imageworksfrontoutTitle`, `imageworksfrontout`, `imageworksfrontoutTitle`, `linkworksfrontout`, `linkworksfrontout`, `idFiltersfrontoutport`, `idFiltersfrontoutport`/*get*/
+			`id`, `pTitle`, `show`,`url`
+			/*get*/
 		FROM
-			`worksfrontout`, `worksfrontout_content`
+			`filtersfrontoutport`, `filtersfrontoutport_content`
 		WHERE
 			`id` = :id AND
-			`idWorksfrontout` = `id` AND
+			`idFiltersfrontoutport` = `id` AND
 			`lang` = :lang')
 		->bindValue(':id', $id)
 		->bindValue(':lang', $lang);
@@ -135,8 +135,8 @@ Class Worksfrontout extends Model
 
 	public function getEmpty() {
 		$result = [
-			'pH1' => '', 'pTitle' => '', 'pUrl' => '', 'pDescription' => '', 'pKeyWords' => '', 'pBreadCrumbs' => '', 'show' => 0, 'pContent' => '',
-			 'imageworksfrontout' => '', 'imageworksfrontout' => '', 'linkworksfrontout' => '', 'linkworksfrontout' => '', 'idFiltersfrontoutport' => 0, 'idFiltersfrontoutport' => 0,/*getEmpty*/
+			 'pTitle' => '', 'url' => '', 'show' => 0,
+			/*getEmpty*/
 		];
 		
 		return $result;
@@ -158,12 +158,12 @@ Class Worksfrontout extends Model
 		$set = implode(',', $set);
 		
 		$query = Yii::$app->db->createCommand('UPDATE
-			`worksfrontout`, `worksfrontout_content`
+			`filtersfrontoutport`, `filtersfrontoutport_content`
 		SET
 			'.$set.'
 		WHERE
 			`id` = :id AND
-			`idWorksfrontout` = `id` AND
+			`idFiltersfrontoutport` = `id` AND
 			`lang` = :lang')
 		->bindValue(':id', $id)
 		->bindValue(':lang', $lang);
@@ -174,7 +174,7 @@ Class Worksfrontout extends Model
 	public function delete($id) {
 		// удаляем с диска одиночные изображения
 		$imagesOne = [
-			 '`imageworksfrontout`', '`imageworksfrontout`',/*deleteImagesOne*/
+			/*deleteImagesOne*/
 		];
 		$imagesOne = array_unique($imagesOne);
 		if ($imagesOne) {
@@ -183,7 +183,7 @@ Class Worksfrontout extends Model
 			$query = Yii::$app->db->createCommand('SELECT
 				'.$imagesOne.'
 			FROM
-				`worksfrontout`
+				`filtersfrontoutport`
 			WHERE
 				`id` = :id')
 			->bindValue(':id', $id);
@@ -191,10 +191,10 @@ Class Worksfrontout extends Model
 			$fileNames = $query->queryAll();
 			
 			foreach ($fileNames[0] as $item) {
-				$filePath = $_SERVER['DOCUMENT_ROOT'].$this->frontendPath.'p/worksfrontout/original-'.$item;
+				$filePath = $_SERVER['DOCUMENT_ROOT'].$this->frontendPath.'p/filtersfrontoutport/original-'.$item;
 				$this->myOthers->deleteImgFromDisk($filePath);
 				
-				$filePath = $_SERVER['DOCUMENT_ROOT'].$this->frontendPath.'p/worksfrontout/medium-'.$item;
+				$filePath = $_SERVER['DOCUMENT_ROOT'].$this->frontendPath.'p/filtersfrontoutport/medium-'.$item;
 				$this->myOthers->deleteImgFromDisk($filePath);
 			}
 		}
@@ -208,25 +208,25 @@ Class Worksfrontout extends Model
 			$query = Yii::$app->db->createCommand('SELECT
 				`img`
 			FROM
-				`worksfrontout_'.$item.'`
+				`filtersfrontoutport_'.$item.'`
 			WHERE
-				`idWorksfrontout` = :id')
+				`idFiltersfrontoutport` = :id')
 			->bindValue(':id', $id);
 			
 			$fileNames = $query->queryAll();
 			
 			foreach ($fileNames as $item) {
-				$filePath = $_SERVER['DOCUMENT_ROOT'].$this->frontendPath.'p/worksfrontout/original-'.$item['img'];
+				$filePath = $_SERVER['DOCUMENT_ROOT'].$this->frontendPath.'p/filtersfrontoutport/original-'.$item['img'];
 				$this->myOthers->deleteImgFromDisk($filePath);
 				
-				$filePath = $_SERVER['DOCUMENT_ROOT'].$this->frontendPath.'p/worksfrontout/medium-'.$item['img'];
+				$filePath = $_SERVER['DOCUMENT_ROOT'].$this->frontendPath.'p/filtersfrontoutport/medium-'.$item['img'];
 				$this->myOthers->deleteImgFromDisk($filePath);
 			}
 		}
 			
 		// удаляем запись
 		$query = Yii::$app->db->createCommand('DELETE FROM
-			`worksfrontout`
+			`filtersfrontoutport`
 		WHERE
 			`id` = :id')
 		->bindValue(':id', $id);

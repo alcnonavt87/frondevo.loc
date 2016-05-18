@@ -31,32 +31,31 @@ $content .= '<div id="content__table" class="content__table">';
 
 	$content .= '<!-- pagination -->';
 
-	$content .= '<table class="table" data-action="/'.$idPageGroup.'" data-method="post" data-module="table" data-dragsort-url="formupdate">';
+	$content .= '<table class="table" data-action="/'.$idPageGroup.'" data-method="post" data-module="table" data-href="formedit">';
 
 		$content .= '<thead>
 			<tr>
 				<!--<th>#</th>
 				<th class="table__col-left">Id</th>-->
 				<th class="table__col-left">Заголовок</th>
-				<th class="table__col-left">Дата публикации</th><!-- th -->
 				<th class="table__col-left">Показать/скрыть</th>
 				<th data-sorter="false" class="td__edit-cell2">&nbsp;</th>
 			</tr>
 		</thead>
-	<tbody data-module="drag_sort">';
+		<tbody>';
 
-$countRecords = count($worksfrontout);
+$countRecords = count($filtersfrontoutport);
 for($i = 0; $i < $countRecords; $i++)
 {
-	$content .= '<tr data-id = "'.$worksfrontout[$i]['id'].'/'.$pageLang.'" data-index="'.$worksfrontout[$i]['id'].'" draggable="draggable">';
+	$content .= '<tr data-id = "'.$filtersfrontoutport[$i]['id'].'/'.$pageLang.'">';
 				$content .= '<!--<td>'.($i + 1).'</td>
-				<td class="table__col-left"><b>'.$worksfrontout[$i]['id'].'</b></td>-->
-				<td class="table__col-left">'.$worksfrontout[$i]['pH1'].'</td>
-				<td class="table__col-left">'.$worksfrontout[$i]['dateCreated'].'</td><!-- td -->
+				<td class="table__col-left"><b>'.$filtersfrontoutport[$i]['id'].'</b></td>-->
+				<td class="table__col-left">'.$filtersfrontoutport[$i]['pTitle'].'</td>
+
 				<td class="table__action-disabled">
 					<div class="input__check-box-wrap">
-						<input type="checkbox" class="check-box" id="show'.$i.'" name="show" value="1" action="worksfrontout" http-type="PUT"';
-	if ($worksfrontout[$i]['show']) {
+						<input type="checkbox" class="check-box" id="show'.$i.'" name="show" value="1" action="filtersfrontoutport" http-type="PUT"';
+	if ($filtersfrontoutport[$i]['show']) {
 		$content .= ' checked';
 	}
 	$content .= '/>
@@ -65,7 +64,7 @@ for($i = 0; $i < $countRecords; $i++)
 				</td>
 				<td class="td__edit-cell2">
 					<div class="btn__wrap-inline">';
-						$content .= '<a title="Редактировать запись" href="/'.$idPageGroup.'/'.$worksfrontout[$i]['id'].'/'.$pageLang.'" data-href="formedit" class="btn__edit catalogue-list_edit"></a>';
+						$content .= '<a title="Редактировать запись" href="/'.$idPageGroup.'/'.$filtersfrontoutport[$i]['id'].'/'.$pageLang.'" data-href="formedit" class="btn__edit catalogue-list_edit"></a>';
 						$content .= '<div title="Удалить запись" class="btn__delete"></div>
 					</div>
 				</td>

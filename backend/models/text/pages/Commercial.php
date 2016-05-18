@@ -17,7 +17,7 @@ Class Commercial extends Model
             `a`.`id`, `a`.`pShow`, `b`.`Url`,
             `b`.`pTitle`, `b`.`pDescription`, `b`.`pKeyWords`, `b`.`pH1`,
             `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`
-			/*get*/
+			, `commercialtitle`, `commercialtitle1`/*get*/
         FROM
             `pages` `a`, `content` `b`
         WHERE
