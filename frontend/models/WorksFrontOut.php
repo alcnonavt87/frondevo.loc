@@ -33,7 +33,7 @@ class WorksFrontOut extends Model
         $query = Yii::$app->db->createCommand('SELECT
 			COUNT(`w`.`id`)
 		FROM
-			`works` `w`
+			`worksfrontout` `w`
 			'.$join.'
 		WHERE
 			`w`.`show` <> 0'.$where);
@@ -89,15 +89,15 @@ class WorksFrontOut extends Model
         // запрос
         $query = Yii::$app->db->createCommand('SELECT
             `w`.`id`, `w`.`pUrl` as url, `w`.`dateCreated`,
-            IF(`w`.`image` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'preview-", `w`.`image`), "") as imgPath,
+            IF(`w`.`image` <> "", CONCAT("'.Yii::$app->params['pics']['worksfrontout']['path'].'preview-", `w`.`image`), "") as imgPath,
 			`w`.`imageWidth2` as imgW, `w`.`imageHeight2` as imgH, `wc`.`imageTitle` as imgT,
 
 			`wc`.`pH1` as title, `wc`.`description`
 			'.$fields.'
 		FROM
-			`works` `w`
-			LEFT JOIN `works_content` `wc`
-				ON `wc`.`idWorks` = `w`.`id` AND `wc`.`lang` = :lang
+			`worksfrontout` `w`
+			LEFT JOIN `worksfrontout_content` `wc`
+				ON `wc`.`idWorksfrontout` = `w`.`id` AND `wc`.`lang` = :lang
 			'.$join.'
 		WHERE
 			`w`.`show` <> 0'.$where.'
@@ -128,8 +128,8 @@ class WorksFrontOut extends Model
 
         // работы в пределах фильтра
         if (isset($params['filter'])) {
-            $join .= ' JOIN `filters` `f`
-				ON `f`.`id` = `w`.`idFilters` AND `f`.`url` = :pUrl';
+            $join .= ' JOIN `filtersfrontoutport` `f`
+				ON `f`.`id` = `w`.`idFiltersfrontoutport` AND `f`.`url` = :pUrl';
             $pUrl = $params['filter'];
 
         }
@@ -163,47 +163,7 @@ class WorksFrontOut extends Model
 
         return $result;
     }
-    public function getWorksContentFromMultiField($alias,$multifields=[]) {
 
-
-        $query = Yii::$app->db->createCommand('SELECT
-			`id`
-		FROM
-			`works`,`works_content`
-		WHERE
-			`pUrl` = :alias AND
-			`lang` = :lang')
-            ->bindValue(':alias', $alias)
-            ->bindValue(':lang', $this->lang);
-
-        $result = $query->queryOne();
-
-        if ($result) {
-            // информация из множественных полей
-            foreach ($multifields as $multifield) {
-                $result[$multifield] = $this->getMultiFieldsData($multifield, $result['id']);
-            }
-        }
-        return $result;
-    }
-
-    public function getMultiFieldsData($entity, $itemId) {
-        $query = Yii::$app->db->createCommand('SELECT
-			`pe`.`id`, `pe`.`text`
-		FROM
-			`works_'.$entity.'` `pe`, `works` `p`
-		WHERE
-			`pe`.`idRel` = `p`.`id` AND
-			`p`.`id` = '.$itemId.' AND
-			`pe`.`lang` = :lang')
-            ->bindValue(':lang', $this->lang);
-
-        $result = $query->queryAll();
-
-        $emptyResult = (count($result) == 1 && $result[0]['text'] == '');
-        $result = !$emptyResult ? $result : [];
-        return $result;
-    }
     /**
      * Список ссылок (для плашки сссылок в футере)
      */
@@ -270,9 +230,9 @@ class WorksFrontOut extends Model
 			`wc`.`pTitle`
 
 		FROM
-			`works` `w`
-			LEFT JOIN `works_content` `wc`
-				ON `wc`.`idWorks` = `w`.`id` AND `wc`.`lang` = :lang
+			`worksfrontout` `w`
+			LEFT JOIN `worksfrontout_content` `wc`
+				ON `wc`.`idWorksfrontout` = `w`.`id` AND `wc`.`lang` = :lang
 			LEFT JOIN `pages_frontendoutworks` `p`
 				ON `p`.`idFrontendoutworks` = `w`.`id`
 			JOIN `pages` `p2`
@@ -287,74 +247,15 @@ class WorksFrontOut extends Model
 
         return $result;
     }
-    public function getWorksForSitesByKeys() {
-        // запрос
-        $query = Yii::$app->db->createCommand('SELECT
-		   `p`.`idWorks1`, `p`.`idWorks2`, `p`.`idWorks3`, `p`.`idWorks4`, `p`.`idWorks5`, `p`.`idWorks6`, `p`.`idWorks7`,
-		   `p`.`sbkimgwork1`,`p`.`sbkimgwork2`,`p`.`sbkimgwork3`,`p`.`sbkimgwork4`,`p`.`sbkimgwork5`,`p`.`sbkimgwork6`,`p`.`sbkimgwork7`,
-		    `c`.`sbkdeskwork1`,`c`.`sbkdeskwork2`,`c`.`sbkdeskwork3`,`c`.`sbkdeskwork4`,`c`.`sbkdeskwork5`,`c`.`sbkdeskwork6`,`c`.`sbkdeskwork7`,
-		    `w`.`pUrl` as url, `w2`.`pUrl` as url1,`w3`.`pUrl` as url2,`w4`.`pUrl` as url3,`w5`.`pUrl` as url4,`w6`.`pUrl` as url5,`w7`.`pUrl` as url6
-		FROM
-			`pages` `p`
-			JOIN `content` `c`
-				ON `c`.`pageid` = `p`.`id` AND `c`.`lang` = :lang
-		   JOIN `works` `w`
-				ON `w`.`id`=`p`.`idWorks1`
-		   LEFT JOIN  `works` `w2`
-			   ON `w2`.`id`=`p`.`idWorks2`
-			LEFT JOIN  `works` `w3`
-			   ON `w3`.`id`=`p`.`idWorks3`
-			LEFT JOIN `works` `w4`
-			   ON `w4`.`id`=`p`.`idWorks4`
-			LEFT JOIN `works` `w5`
-			   ON `w5`.`id`=`p`.`idWorks5`
-			LEFT JOIN `works` `w6`
-			   ON `w6`.`id`=`p`.`idWorks6`
-			LEFT JOIN `works` `w7`
-			   ON `w7`.`id`=`p`.`idWorks7`
-		  ')
-
-            ->bindValue(':lang', $this->lang);
-
-        //echo '<pre>';print_r($query);echo '</pre>';exit;
-        $result = $query->queryAll();
-
-        return $result;
-    }
 
 
-    /*Список работ для вывода на странице Sites by keys*/
-    public function getListForSitesByKeys($alias, $params=[]) {
-        // запрос
-        $query = Yii::$app->db->createCommand('SELECT
-		   `w`.`id`, `w`.`pUrl` as url,
-            IF(`w`.`image` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'mediumsbk-", `w`.`image`), "") as imgPath,
-			`w`.`imageWidth2` as imgW, `w`.`imageHeight2` as imgH, `wc`.`imageTitle` as imgT,`wc`.`worksdesсsbk`,
-
-			`wc`.`pH1` as title
-		FROM
-			`works` `w`
-			LEFT JOIN `works_content` `wc`
-				ON `wc`.`idWorks` = `w`.`id` AND `wc`.`lang` = :lang
-		    JOIN `pages_works` `pw`
-				ON `w`.`id`=`pw`.`idWorks`
-		    JOIN `pages` `p`
-				ON `p`.`id` = `pw`.`idPages`AND `p`.`pAlias` = :alias')
-            ->bindValue(':lang', $this->lang)
-            ->bindValue(':alias', $alias);
-        //echo '<pre>';print_r($query);echo '</pre>';exit;
-        $result = $query->queryAll();
-
-        return $result;
-    }
     /*Список работ для вывода на странице Portfolio*/
     public function getListForPortfolio($params=[]) {
         $fields = '';
         $join = '';
         $where = '';
-        $orderBy = '`w`.`order`';
+        $orderBy = '`w`.`order`,`w`.`dateCreated` DESC';
         $pUrl = '';
-
         // условия
         $criteria = $this->getCriteria($params);
         $fields .= $criteria['fields'];
@@ -386,15 +287,13 @@ class WorksFrontOut extends Model
         // запрос
         $query = Yii::$app->db->createCommand('SELECT
             `w`.`id`, `w`.`pUrl` as url, `w`.`dateCreated`,
-            IF(`w`.`imageprtf` <> "", CONCAT("'.Yii::$app->params['pics']['works']['path'].'generalprtf-", `w`.`imageprtf`), "") as imgPath,
-			`w`.`imageWidth2` as imgW, `w`.`imageHeight2` as imgH, `wc`.`imageTitle` as imgT,
-
+             IF(`w`.`imageworksfrontout` <> "", CONCAT("'.Yii::$app->params['pics']['worksfrontout']['path'].'general-", `w`.`imageworksfrontout`), "") as imgPath,
 			`wc`.`pH1` as title, `wc`.`pDescription`
 			'.$fields.'
 		FROM
-			`works` `w`
-			LEFT JOIN `works_content` `wc`
-				ON `wc`.`idWorks` = `w`.`id` AND `wc`.`lang` = :lang
+			`worksfrontout` `w`
+			LEFT JOIN `worksfrontout_content` `wc`
+				ON `wc`.`idWorksfrontout` = `w`.`id` AND `wc`.`lang` = :lang
 			'.$join.'
 		WHERE
 			`w`.`show` <> 0'.$where.'
@@ -411,31 +310,32 @@ class WorksFrontOut extends Model
         //echo '<pre>';print_r($query);echo '</pre>';exit;
         $result = $query->queryAll();
 
+        if ($result) {
+            // информация из множественных полей
+            foreach ($result as $key => $item) {
+                $data = $this->getMultiFieldsData($result[$key]['id']);
+                $result[$key]['desclist'] =  $data;
+            }
+        }
         return $result;
     }
 
-    /**
-     * Формирование условий
-     */
-    public function getCriteriaForPortfolio($params=[]) {
-        $fields = '';
-        $join = '';
-        $where = '';
-        $pUrl = '';
+    public function getMultiFieldsData($itemId) {
+        $query = Yii::$app->db->createCommand('SELECT
+			`pe`.`text`
+		FROM
+			`worksfrontout_descrworksfrontoutlist` `pe`, `worksfrontout` `p`
+		WHERE
+			`pe`.`idRel` = `p`.`id` AND
+			`p`.`id` = ' . $itemId . ' AND
+			`pe`.`lang` = :lang')
+            ->bindValue(':lang', $this->lang);
 
-        // работы в пределах фильтра
-        if (isset($params['filter'])) {
-            $join .= ' JOIN `filters` `f`
-				ON `f`.`id` = `w`.`idFilters` AND `f`.`url` = :pUrl';
-            $pUrl = $params['filter'];
+        $result = $query->queryAll();
 
-        }
-
-        return [
-            'fields' => $fields,
-            'join' => $join,
-            'where' => $where,
-            'pUrl' => $pUrl,
-        ];
+        $emptyResult = (count($result) == 1 && $result[0]['text'] == '');
+        $result = !$emptyResult ? $result : [];
+        return $result;
     }
+
 }

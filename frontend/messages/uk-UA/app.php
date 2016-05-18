@@ -51,7 +51,7 @@ return [
 	'Other news' => 'Інші новини',
 	'News full text' => 'Повний текст новини',
 	'Action full text' => 'Повний текст акції',
-	
+	'Frondevo — professional front end development' => 'Frondevo — професійна front end розробка',
     // сторінка "Контакти"
 	'Schedule' => 'Графік роботи',
 	'Address' => 'Адреса',

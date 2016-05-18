@@ -99,6 +99,7 @@ class TextPagesUrlProvider extends UrlProvider
 		return $url;
 	}
 
+
 	/**
 	 * Get outsourcing url.
 	 */
@@ -176,7 +177,16 @@ class TextPagesUrlProvider extends UrlProvider
 
 	}
 
-
+	/**
+	 * Get filterfrontout url.
+	 */
+	public function getFilterFrontOutUrl($params=[]) {
+		$otusorceUri = $this->getOutsourcingUri();
+		$portfoliofrontoutUri = $this->getPortfolioFrontOut();
+		$filterUri = $this->getFilterUri($params);
+		$url = $this->indexUrl.$otusorceUri.$portfoliofrontoutUri.$filterUri;
+		return $url;
+	}
 
 
 	////////////////////////////////////////////////////// URIS //////////////////////////////////////////////////////
@@ -295,6 +305,14 @@ class TextPagesUrlProvider extends UrlProvider
 	 * Get filter uri
 	 */
 	public function getFilterUri($params=[]) {
+		$uri = '/'.$params['item']['url'];
+		return $uri;
+	}
+
+	/**
+	 * Get filter uri
+	 */
+	public function getFilterFrontOutUri($params=[]) {
 		$uri = '/'.$params['item']['url'];
 		return $uri;
 	}

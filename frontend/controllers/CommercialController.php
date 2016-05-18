@@ -30,7 +30,7 @@ class CommercialController extends CommonController
         $forLayout['commercialPage'] = 1;
         // Добираем статические данные страницы
 
-        $pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], [], []);
+        $pageData = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], ['commercialtitle','commercialtitle1'], []);
         $data['pageData'] = $pageData;
 
 // Языковое меню

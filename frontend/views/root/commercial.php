@@ -9,8 +9,8 @@
 
             <!-- middle text -->
             <div class="middle-text">
-                <h1>путь к успеху в интернет </br>начинается здесь</h1>
-                <h2>запрос коммерческого предложения на разработку сайта</h2>
+                <h1><?php echo $pageData['commercialtitle']; ?></h1>
+                <h2><?php echo $pageData['commercialtitle1']; ?></h2>
 
                 <!-- action form -->
                 <form id="form-application" action="/email/commercial" method="post" autocomplete="on" data-ajax novalidate class="action-form">

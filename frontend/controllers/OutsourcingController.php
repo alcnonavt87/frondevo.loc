@@ -12,6 +12,7 @@ use frontend\models\AdvantagesJavascript;
 use frontend\models\AdvantagesAnimations;
 use frontend\models\AdvantagesGames;
 use frontend\models\Filters;
+use frontend\models\FiltersFrontOut;
 use vendor\UrlProvider\TextPagesUrlProvider;
 use vendor\UrlProvider\SimpleModuleUrlProvider;
 use vendor\pagination\Pagination;
@@ -30,7 +31,7 @@ class OutsourcingController extends CommonController
     {
         parent::init();
         $this->myWorks = new WorksFrontOut($this->lang);
-        $this->myFilters = new Filters($this->lang);
+        $this->myFilters = new FiltersFrontOut($this->lang);
         $this->myRoot = new Root($this->lang);
         $this->myAdvantagePsdHtml = new AdvantagesPsdHtml($this->lang);
         $this->myAdvantageJavascript = new AdvantagesJavascript($this->lang);
@@ -598,10 +599,11 @@ class OutsourcingController extends CommonController
         $forLayout['PortfoliofrontoutPage'] = 1;
         // Список фильтров
         $params = [];
-        $filters = $this->myFilters->getList($params);
+        $filters = $this->myFilters->getList($params);//echo '<pre>';print_r($filters);echo '</pre>';exit;
         $data['filters'] = $filters;
         $data['filterUri'] = $this->thirdUri;
-
+        $pageData = $this->myRoot->getPageContent($this->secondUri);//echo '<pre>';print_r($pageData);echo '</pre>';exit;
+        $data['$pageData'] = $pageData;
         // Пагинация
         // получаем из GET-массива номер страницы
         $pageNum = ArrayHelper::getValue($_GET, 'page', 1);
@@ -638,8 +640,9 @@ class OutsourcingController extends CommonController
         // смещение записей (в зависимости от страницы)
         $offset = $limit * ($pageNum - 1);
         $params['offset'] = $offset;
-        $works = $this->myWorks->getListForPortfolio($params);//echo '<pre>';print_r($works);echo '</pre>';exit;
+        $works = $this->myWorks->getListForPortfolio($params);//
         $data['works'] = $works;
+
 
 
 
@@ -683,25 +686,24 @@ class OutsourcingController extends CommonController
             'link' => $pageRuUrl,
             'text' => 'Рус'
         ];
-       //формируем ссылку для кнопок пагинации для разные языков
+       //формируем ссылку для кнопок пагинации для разных языков
        if ($this->lang == 'ru'){
            $urlpage = $pageRuUrl;
        }else if ($this->lang == 'ua'){
            $urlpage = $pageUaUrl;
        } else $urlpage = $pageEnUrl;
+
         //передаем это значение в класс pagination, создавая новый обьет класса
         $pagination = new Pagination($worksCount, $pageNum, $limit, '?page=', $urlpage);
         $data['pagination'] = $pagination;
-
-
         $textPagesUrlProvider = new TextPagesUrlProvider($this->lang);
         //вывод тайла фильтара вместо тайтла страницы портфолио
         foreach ($filters as $filter) {
             $params['item'] = $filter;
             $filterUrl = $textPagesUrlProvider->geteFilterUrl($params);
-            $filterActive = ($filter['url'] == $this->thirdUri);//echo '<pre>';print_r($filterUri);echo '</pre>';
+            $filterActive = ($filter['url'] == $this->thirdUri);
             if ($filterActive)
-                $forLayout['pTitle'] =  $filter['title'] .' - '. Yii::t('app', 'internet-agency Frondevo') ;
+                $forLayout['pTitle'] =  $filter['pTitle'] .' | '. Yii::t('app', 'Frondevo - professional front end development') ;
         }
 
 
@@ -729,9 +731,6 @@ class OutsourcingController extends CommonController
         $pUrl = '';
         $forLayout['worksfrontoutPage'] = 1;
         $params = [];
-
-        // Информация из таблицы множественных полей
-        $data['multifields'] = $this->myWorks->getWorksContentFromMultiField($this->thirdUri, ['resultlist1']);//echo '<pre>';print_r($worksItem);echo '</pre>';exit;
         // Информация о странице (единица работы)
         $pageContent = $worksItem = $this->myWorks->getItem($this->thirdUri);//echo '<pre>';print_r($worksItem);echo '</pre>';exit;
         // Проверка существования работы

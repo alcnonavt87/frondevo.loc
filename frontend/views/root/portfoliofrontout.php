@@ -16,7 +16,17 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
         <!-- middle text -->
         <div class="middle-text">
-            <h1>Портфолио front end разработок</h1>
+            <   <?php
+            if (Yii::$app->request->getAbsoluteUrl() == $textPagesUrlProvider->getPortfolifrontoutUrl()){
+                echo "<h1>".$pH1."</h1>";}
+            else foreach ($filters as $filter) {
+                $params['item'] = $filter;
+                $filterUrl = $textPagesUrlProvider->geteFilterUrl($params);
+                $filterActive = ($filter['url'] == $filterUri);
+                if ($filterActive)
+                    echo " <h1>" . $filter['pTitle'] . ' | '. Yii::t('app', 'Frondevo — professional front end development')."</h1>";
+            }
+            ?>
             <address>
                 <span>Украина, г. Киев</span>
                 <a href="tel:+380671702727">+38 067 170 27 27</a>
@@ -26,7 +36,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
             <!-- fd  menu -->
             <ul class="fd__menu fd__menu_line">
                 <?php
-                $AllActive = (Yii::$app->request->getAbsoluteUrl() == $textPagesUrlProvider->getPortfolioUrl());
+                $AllActive = (Yii::$app->request->getAbsoluteUrl() == $textPagesUrlProvider->getPortfolifrontoutUrl());
                 if ($AllActive) {
                     ?>
                     <li class="m-item active">
@@ -34,7 +44,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                     </li>
                 <?php } else { ?>
                     <li class='m-item'>
-                        <a href="<?php echo($textPagesUrlProvider->getPortfolioUrl()) ?>" target="_parent"
+                        <a href="<?php echo($textPagesUrlProvider->getPortfolifrontoutUrl()) ?>" target="_parent"
                            rel="nofollow "><span><?php echo Yii::t('app', 'All'); ?></span></a>
                     </li>
                 <?php } ?>
@@ -45,7 +55,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                 <?php foreach ($filters as $filter) { ?>
                     <?php
                     $params['item'] = $filter;
-                    $filterUrl = $textPagesUrlProvider->geteFilterUrl($params);
+                    $filterUrl = $textPagesUrlProvider->getFilterFrontOutUrl($params);
                     ?>
 
                     <?php
@@ -53,12 +63,12 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                     if ($filterActive) {
                         ?>
                         <li class="m-item active">
-                         <span><?php echo $filter['title']; ?><span>
+                         <span><?php echo $filter['pTitle']; ?><span>
                         </li>
                     <?php } else { ?>
                         <li class="m-item">
                             <a href="<?php echo $filterUrl; ?>" target="_parent"
-                               rel="nofollow "><?php echo $filter['title']; ?></a>
+                               rel="nofollow "><?php echo $filter['pTitle']; ?></a>
                         </li>
                     <?php } ?>
                 <?php } ?>
@@ -91,14 +101,17 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                     <li>
                         <?php
                         $params['item'] = $work;
-                        $workUrl = $simpleModuleUrlProvider->geteWorksItemUrl($params);
+                        $workUrl = $simpleModuleUrlProvider->geteWorksFrontOutItemUrl($params);
                         ?>
                         <a href="<?php echo $workUrl; ?>"><img src="<?php echo $work['imgPath']; ?>" alt="">
 
                             <div>
                                 <!-- our works  descr -->
                                 <div class="our-works__descr">
-                                    <span> <?php echo $work['pDescription']; ?></span>
+                                    <?php foreach ($work['desclist'] as $key => $item) { ?>
+                                         <span><?php echo($item['text']) ?></span>
+                                     <?php } ?>
+
                                 </div>
                                 <!--/our works  descr -->
                             </div>
