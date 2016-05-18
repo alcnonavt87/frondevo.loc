@@ -10,12 +10,25 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 <div class="full-height inner mesh">
 
     <!-- fs bg video -->
-    <picture>
-        <source srcset="<?php echo('p/pages/biggamesbg-'.$pageData['imagegamesbgbig']) ?>" media="(min-height: 900px)">
-        <source srcset="<?php echo('p/pages/smallgamesbg-'.$pageData['imagegamesbgsmall']) ?>" media="(min-height: 480px)">
-        <img src="<?php echo('p/pages/smallgamesbg-'.$pageData['imagegamesbgsmall']) ?>" alt="" data-fit="cover">
-    </picture>
-
+    <?php if (!empty($pageData['imagegamesbgbig'])) { ?>
+        <picture>
+            <source srcset="<?php echo('p/pages/biggamesbg-'.$pageData['imagegamesbgbig']) ?>" media="(min-height: 900px)">
+            <source srcset="<?php echo('p/pages/smallgamesbg-'.$pageData['imagegamesbgsmall']) ?>" media="(min-height: 480px)">
+            <img src="<?php echo('p/pages/smallgamesbg-'.$pageData['imagegamesbgsmall']) ?>" alt="" data-fit="cover">
+        </picture>
+     <?php }
+    else {?>
+    <video autoplay loop muted poster="video/poster.jpg" class="fs-bg-video">
+        <source src="markup/video/games.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2" media="(min-width: 1024px)">
+        <source src="markup/video/games-720.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2" media="(min-width: 768px)">
+        <source src="markup/video/games-640.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2" media="(min-width: 640px)">
+        <source src="markup/video/games-320.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
+        <source src="markup/video/games.webm" type="video/webm" codecs="vp8, vorbis" media="(min-width: 1280px)">
+        <source src="markup/video/games-720.webm" type="video/webm" codecs="vp8, vorbis" media="screen and (min-width: 992px)">
+        <source src="markup/video/games-640.webm" type="video/webm" codecs="vp8, vorbis" media="(min-width: 640px)">
+        <source src="markup/video/games-320.webm" type="video/webm" codecs="vp8, vorbis">
+    </video>
+    <?php } ?>
     <!-- full height  layout -->
     <div class="full-height__layout">
 

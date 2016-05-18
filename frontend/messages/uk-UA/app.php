@@ -81,7 +81,13 @@ return [
 	'Your comment' => 'Ваш коментар',
 	'Leave your wish' => 'Залиште своє побажання',
 	'Unsubscribed successfully' => 'Ви успішно відписались',
-	
+	'company name' => 'назва компанії',
+	'your email' => 'ваш email',
+	'contact person' => 'контактна особа',
+	'your phone number' => 'ваш номер телефону',
+	'how you see your future website?' => 'яким Ви бачите Ваш майбутній веб-сайт?',
+	'write briefly: in what area you work, what are your goals, what and why you want to see on your website?' => 'коротко напишіть: у якій сфері Ви працюєте, які Ваші цілі, що саме і чому Ви б хотіли бачити на своєму веб-сайті?',
+	'send' => 'відправити',
     // листи
 	'Name' => 'Ім’я',
 	'Object' => 'Об’єкт',

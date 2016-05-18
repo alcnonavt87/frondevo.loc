@@ -81,7 +81,13 @@ return [
 	'Your comment' => 'Ваш комментарий',
 	'Leave your wish' => 'Оставьте свое пожелание',
 	'Unsubscribed successfully' => 'Вы успешно отписались',
-	
+	'company name' => 'название компании',
+	'your email' => 'ваш email',
+	'contact person' => 'контактное лицо',
+	'your phone number' => 'ваш номер телефона',
+	'how you see your future website?' => 'каким вы видите свой будущий сайт?',
+	'write briefly: in what area you work, what are your goals, what and why you want to see on your website?' => 'кратко опишите в какой сфере работаете, какие цели ставите, что и почему хотелось бы видеть на своей сайте',
+	'send' => 'отправить',
     // письма
 	'Name' => 'Имя',
 	'Object' => 'Объект',
