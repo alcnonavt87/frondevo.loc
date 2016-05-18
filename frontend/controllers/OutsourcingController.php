@@ -771,12 +771,15 @@ class OutsourcingController extends CommonController
             'text' => 'Рус'
         ];
         $forLayout['langMenu'] = $langMenu;
-        //Получаем pTitle для Layout  единцы работы
-        $forLayout['pTitle'] = $data['worksItem']['pTitle'];
+       //Для формирования тайтла выбераем один из пунктов описания работы
+        //Рандомный ключ массива списка описания
+        $p = (array_rand($pageContent['desclist']));
 
-        $data['worksItem'] = $worksItem;
         //Получаем pTitle для Layout  единцы работы
-        $forLayout['pTitle'] = $data['worksItem']['pTitle'];
+        if (!empty($data['worksItem']['pTitle'])){
+            $forLayout['pTitle'] = $data['worksItem']['pTitle'].' | '.Yii::t('app', 'Frondevo - front end development').' '.mb_strtolower($pageContent['desclist'][$p]['text']);
+}
+
         $forLayout['pDescription'] = $data['worksItem']['pDescription'];
 
         $forLayout['pAlias'] = $worksItem['url'];
@@ -784,8 +787,7 @@ class OutsourcingController extends CommonController
         $links = $this->myWorks->getLinks($this->pageContent['alias']);
         $forLayout['links'] = $links;
         $data = array_merge($this->data, $data);
-        $forLayout = array_merge($this->forLayout, $forLayout); //echo '<pre>';print_r($data);echo '</pre>';exit;
-
+        $forLayout = array_merge($this->forLayout, $forLayout);$p = (array_rand($pageContent['desclist']));
         return [
             'view' => 'worksfrontoutitem',
             'data' => $data,

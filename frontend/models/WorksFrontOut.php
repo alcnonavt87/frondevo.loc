@@ -161,8 +161,17 @@ class WorksFrontOut extends Model
 
         $result = $query->queryOne();
 
+        if ($result) {
+            // информация из множественных полей
+            foreach ($result as $key => $item) {
+                $data = $this->getMultiFieldsData($result['id']);
+                $result['desclist'] =  $data;
+            }
+        }
         return $result;
     }
+
+
 
     /**
      * Список ссылок (для плашки сссылок в футере)

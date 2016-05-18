@@ -108,8 +108,10 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                             <div>
                                 <!-- our works  descr -->
                                 <div class="our-works__descr">
+                                    <span><?php echo Yii::t('app', 'Front end development:'); ?></span>
+                                    <span>
                                     <?php foreach ($work['desclist'] as $key => $item) { ?>
-                                         <span><?php echo($item['text']) ?></span>
+                                         <span><?php echo($item['text'])?></span>
                                      <?php } ?>
 
                                 </div>
