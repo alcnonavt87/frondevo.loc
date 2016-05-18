@@ -32,6 +32,17 @@ class UpdateController extends  \backend\controllers\AdminController
             $hostName = Yii::$app->params['hostName'];
 			$admPanelUri = Yii::$app->homeUrl;
 
+			// Сортировка в list-таблице
+			if (!$id2Uri && isset($_POST['list'])) {
+				$listIndexes = $_POST['list'];
+				$newIndexes = json_decode($listIndexes);
+
+				$orderField = 'order';
+
+				$myOthers->sortTable('filtersfrontoutport', 'id', $newIndexes, $orderField);
+				exit;
+			}
+
 
 			// Чекбокс "Отображать страницу"
 			$_POST['base']['show'] = isset($_POST['base']['show']) ? $_POST['base']['show'] : 0;
