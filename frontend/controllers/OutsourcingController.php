@@ -813,8 +813,9 @@ class OutsourcingController extends CommonController
         $p = (array_rand($pageContent['desclist']));
 
         //Получаем pTitle для Layout  единцы работы
-        if (!empty($data['worksItem']['pTitle'])){
-            $forLayout['pTitle'] = $data['worksItem']['pTitle'].' | '.Yii::t('app', 'Frondevo - front end development').' '.mb_strtolower($pageContent['desclist'][$p]['text']);
+
+        if (!empty($data['worksItem']['pH1'])){
+            $forLayout['pTitle'] = $data['worksItem']['pH1'].' | '.Yii::t('app', 'Frondevo - front end development').' '.mb_strtolower($pageContent['desclist'][$p]['text']);
 }
 
         $forLayout['pDescription'] = $data['worksItem']['pDescription'];
@@ -831,5 +832,6 @@ class OutsourcingController extends CommonController
             'layout' => $this->layout,
             'forLayout' => $forLayout,
         ];
+
     }
 }
