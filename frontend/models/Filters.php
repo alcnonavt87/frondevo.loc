@@ -78,7 +78,7 @@ class Filters extends Model
 		
 		return $result;
     }
-	
+
 	/**
 	 * Формирование условий
 	 */

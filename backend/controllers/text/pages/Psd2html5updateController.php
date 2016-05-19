@@ -234,8 +234,20 @@ class Psd2html5updateController extends \backend\controllers\AdminController {
 
 			// Группа чекбоксов "Выбор ссылок отображаемых в футере"
 			$linksIds = ArrayHelper::getValue($_POST, 'linksIds', []);
-			$myOthers->updateChGrIds('pages_links', 'idPages', 'idLinks', $idRecord, $linksIds);/* UpdateCodeBottom */
-            
+			$myOthers->updateChGrIds('pages_links', 'idPages', 'idLinks', $idRecord, $linksIds);
+
+//сохранение работа в секции для 1 го фильтра
+			$worksfrontoutIds = ArrayHelper::getValue($_POST, '100_worksfrontoutIds', []);
+			$myOthers->updateChGrIds('pages_worksfrontout', 'idPages', 'idWorksfrontout', 100, $worksfrontoutIds);
+//сохранение работа в секции для 2 го фильтра
+			$worksfrontoutIds = ArrayHelper::getValue($_POST, '101_worksfrontoutIds', []);
+			$myOthers->updateChGrIds('pages_worksfrontout', 'idPages', 'idWorksfrontout', 101, $worksfrontoutIds);
+//сохранение работа в секции для 3 го фильтра
+			$worksfrontoutIds = ArrayHelper::getValue($_POST, '102_worksfrontoutIds', []);
+			$myOthers->updateChGrIds('pages_worksfrontout', 'idPages', 'idWorksfrontout', 102, $worksfrontoutIds);
+//сохранение работа в секции для 4 го фильтра
+			$worksfrontoutIds = ArrayHelper::getValue($_POST, '103_worksfrontoutIds', []);
+			$myOthers->updateChGrIds('pages_worksfrontout', 'idPages', 'idWorksfrontout', 103, $worksfrontoutIds);/* UpdateCodeBottom */
 			// отправляем ответ
             echo $json_data;
         }

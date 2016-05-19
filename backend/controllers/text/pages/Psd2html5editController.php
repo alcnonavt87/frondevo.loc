@@ -48,7 +48,14 @@ class Psd2html5EditController extends \backend\controllers\AdminController {
 
 				// Группа чекбоксов "Выбор ссылок отображаемых в футере"
 				$links = $myOthers->getChGrSourceIdsMultiLangs('links', 'title', $pageLang);
-				$linksIds = $myOthers->getChGrTargetIds('pages_links', 'idPages', 'idLinks', $idRecord);/* UpdateCode */
+				$linksIds = $myOthers->getChGrTargetIds('pages_links', 'idPages', 'idLinks', $idRecord);
+
+				// Группа чекбоксов "Выбор работ отображаемых на странице"
+				$worksfrontout = $myOthers->getChGrSourceIdsMultiLangs('worksfrontout', 'pH1', $pageLang);
+				$worksfrontoutIds_100 = $myOthers->getChGrTargetIds('pages_worksfrontout', 'idPages', 'idWorksfrontout', 100);
+                $worksfrontoutIds_101 = $myOthers->getChGrTargetIds('pages_worksfrontout', 'idPages', 'idWorksfrontout', 101);
+                $worksfrontoutIds_102 = $myOthers->getChGrTargetIds('pages_worksfrontout', 'idPages', 'idWorksfrontout', 102);
+                $worksfrontoutIds_103 = $myOthers->getChGrTargetIds('pages_worksfrontout', 'idPages', 'idWorksfrontout', 103);/* UpdateCode */
 
                 // Ссылка на преимущества
                 $advPageGroupData = $myOthers->getPageGroupDataByMarkI('Наши преимущества для PSTtoHTML', ['id', 'groupName']);

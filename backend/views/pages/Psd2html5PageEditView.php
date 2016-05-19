@@ -142,6 +142,54 @@ foreach ($links as $key => $item) {
 	}
 	
 	$linksList[] = ['id'=> 'links'.$key, 'text' => $item['title'], 'width' => 400, 'name' => 'linksIds[]', 'value' => $item['id'], 'attr' => $checked];
+}
+
+
+
+// Группа чекбоксов "Выбор работ отображаемых на странице"
+
+
+$worksfrontoutList_100 = [];
+foreach ($worksfrontout as $key => $item) {
+	$checked = '';
+
+	if (in_array($item['id'], $worksfrontoutIds_100)) {
+		$checked = 'checked="checked"';
+	}
+
+	$worksfrontoutList_100[] = ['id'=> 'worksfrontout'.$key, 'text' => $item['pH1'], 'width' => 400, 'name' => '100_worksfrontoutIds[]', 'value' => $item['id'], 'attr' => $checked];
+}
+
+$worksfrontoutList_101 = [];
+foreach ($worksfrontout as $key => $item) {
+	$checked = '';
+
+	if (in_array($item['id'], $worksfrontoutIds_101)) {
+		$checked = 'checked="checked"';
+	}
+
+	$worksfrontoutList_101[] = ['id'=> 'worksfrontout_101'.$key, 'text' => $item['pH1'], 'width' => 400, 'name' => '101_worksfrontoutIds[]', 'value' => $item['id'], 'attr' => $checked];
+}
+
+$worksfrontoutList_102 = [];
+foreach ($worksfrontout as $key => $item) {
+	$checked = '';
+
+	if (in_array($item['id'], $worksfrontoutIds_102)) {
+		$checked = 'checked="checked"';
+	}
+
+	$worksfrontoutList_102[] = ['id'=> 'worksfrontout_102'.$key, 'text' => $item['pH1'], 'width' => 400, 'name' => '102_worksfrontoutIds[]', 'value' => $item['id'], 'attr' => $checked];
+}
+$worksfrontoutList_103 = [];
+foreach ($worksfrontout as $key => $item) {
+	$checked = '';
+
+	if (in_array($item['id'], $worksfrontoutIds_103)) {
+		$checked = 'checked="checked"';
+	}
+
+	$worksfrontoutList_103[] = ['id'=> 'worksfrontout_103'.$key, 'text' => $item['pH1'], 'width' => 400, 'name' => '103_worksfrontoutIds[]', 'value' => $item['id'], 'attr' => $checked];
 }/* UpdateCode */
 
 $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'].'/'.$pageLang, 'post', ['id'=>"form-edit-content"]).
@@ -174,6 +222,33 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 	'.$this->createHeader('Примеры работ').'
 	<div class="catalog__section-data">
 		<!-- worksexamplespsd2html5title -->'.$this->createInput(['id'=> 'worksexamplespsd2html5title', 'text' => 'Title', 'placeholder' => '', 'width' => 400, 'name' => 'content[worksexamplespsd2html5title]', 'value' => $pagesItem['worksexamplespsd2html5title'], 'attr' => '']).'<!-- /worksexamplespsd2html5title -->
+<!-- worksexamplespsd2html5filter1 --><fieldset class="catalog__section">
+	'.$this->createHeader('Выбор работ для фильтра Адаптивность').'
+	<div class="catalog__section-data">
+		<!-- worksfrontout -->'.$this->createCheckBoxGroup(['list' => $worksfrontoutList_100]).'<!-- /worksfrontout -->
+	</div>
+</fieldset><!-- /worksexamplespsd2html5filter1 -->
+<!-- worksexamplespsd2html5filter2 --><fieldset class="catalog__section">
+	'.$this->createHeader('Выбор работ для фильтра Landing pages').'
+	<div class="catalog__section-data">
+	<!-- worksfrontout -->'.$this->createCheckBoxGroup(['list' => $worksfrontoutList_101]).'<!-- /worksfrontout -->
+	</div>
+</fieldset><!-- /worksexamplespsd2html5filter2 -->
+
+<!-- worksexamplespsd2html5filter4 --><fieldset class="catalog__section">
+	'.$this->createHeader('Выбор работ для фильтра Сложные дизайны').'
+	<div class="catalog__section-data">
+	<!-- worksfrontout -->'.$this->createCheckBoxGroup(['list' => $worksfrontoutList_102]).'<!-- /worksfrontout -->
+	</div>
+</fieldset><!-- /worksexamplespsd2html5filter4 -->
+
+<!-- worksexamplespsd2html5filter3 --><fieldset class="catalog__section">
+	'.$this->createHeader('Выбор работ для фильтра E-commerce').'
+	<div class="catalog__section-data">
+	<!-- worksfrontout -->'.$this->createCheckBoxGroup(['list' => $worksfrontoutList_103]).'<!-- /worksfrontout -->
+	</div>
+</fieldset><!-- /worksexamplespsd2html5filter3 -->
+
 		'.$this->createHeader('Выбор ссылок отображаемых в футере').'
 		<!-- links -->'.$this->createCheckBoxGroup(['list' => $linksList]).'<!-- /links -->
 	</div>

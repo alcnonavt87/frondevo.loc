@@ -216,6 +216,15 @@ class OutsourcingController extends CommonController
 
     public function actionPsd2html5()
     {
+        // Проверяем является ли uri третьего уровня uri фильтра
+        $filterUri = $this->myFilters->isFilterUriPdshtml($this->thirdUri);
+
+        // Если строка запроса содержит uri третьего уровня и этот uri не равен фильтру,
+        // переход на единицу работы
+        if ($this->thirdUri && $this->thirdUri != $filterUri) {
+            return $this->actionItem();
+        }
+
         $data = [];
         $forLayout = [];
         $params = [];
@@ -224,7 +233,14 @@ class OutsourcingController extends CommonController
         $langMenu = [];
         $options = [];
         $options['joinUris'] = 1;
-
+        // Список фильтров
+        $params = [];
+        if ($filterUri) {
+            $params['filter'] = $this->thirdUri;
+        }
+        $filters = $this->myFilters->getListforPsdHtml($params);//echo '<pre>';print_r($filters);echo '</pre>';exit;
+        $data['filters'] = $filters;
+        $data['filterUri'] = $this->thirdUri;
         // укр
         $pagesContent = $this->myRoot->getPagesContent('ua');
         $options['items'] = $pagesContent;
@@ -268,8 +284,8 @@ class OutsourcingController extends CommonController
 
 
         // Работы отобаржаемые на текстовой странице
-        $works = $this->myWorks->getWorksForFrontendOut($this->pageContent['alias']);//echo '<pre>';print_r($works);echo '</pre>';exit;
 
+        $works = $this->myWorks->getWorksForPsdhtmlPage($this->thirdUri);
         $data['works'] = $works;
 
         //количество работ в таблице для фронтендаутсорсинг

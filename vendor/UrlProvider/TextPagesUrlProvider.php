@@ -187,7 +187,16 @@ class TextPagesUrlProvider extends UrlProvider
 		$url = $this->indexUrl.$otusorceUri.$portfoliofrontoutUri.$filterUri;
 		return $url;
 	}
-
+	/**
+	 * Get filterfrontout psdhtml.
+	 */
+	public function getFilterPsdhtmlUrl($params=[]) {
+		$otusorceUri = $this->getOutsourcingUri();
+		$psdhtmlUri = $this->getPsd2html5Uri();
+		$filterUri = $this->getFilterUri($params);
+		$url = $this->indexUrl.$otusorceUri.$psdhtmlUri.$filterUri;
+		return $url;
+	}
 
 	////////////////////////////////////////////////////// URIS //////////////////////////////////////////////////////
 	

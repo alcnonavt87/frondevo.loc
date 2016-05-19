@@ -162,33 +162,29 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
             <!-- our works menu list -->
             <ul data-fd-works-menu-list="works" data-fd-works-action="server/works.json" class="our-works-menu-list">
+                <?php foreach ($filters as $filter) { ?>
+                    <?php
+                    $params['item'] = $filter;
+                    $filterUrl = $textPagesUrlProvider->getFilterPsdhtmlUrl($params);
+                    ?>
 
-                <!-- our works menu item -->
-                <li data-fd-works-menu-item class="our-works-menu-item active">
-                    <a href="#" data-fd-works-filter="adaptive">Адаптивность</a>
-                </li>
-                <!--/our works menu item -->
+                    <?php
 
+                    $filterActive = ($filter['url'] == $filterUri);
+                    if ($filterActive && !empty($works)) {
+                        ?>
+                        <li data-fd-works-menu-item class="our-works-menu-item active">
+                            <a href="<?php echo $filterUrl; ?>" target="_parent"
+                               rel="nofollow "><?php echo $filter['title']; ?></a>
+                        </li>
+                    <?php } else { ?>
+                        <li data-fd-works-menu-item class="our-works-menu-item">
+                            <a href="<?php echo $filterUrl; ?>" target="_parent"
+                               rel="nofollow "><?php echo $filter['title']; ?></a>
+                        </li>
+                    <?php } ?>
+                <?php } ?>
 
-                <!-- our works menu item -->
-                <li data-fd-works-menu-item class="our-works-menu-item">
-                    <a href="#" data-fd-works-filter="landing">Landing pages</a>
-                </li>
-                <!--/our works menu item -->
-
-
-                <!-- our works menu item -->
-                <li data-fd-works-menu-item class="our-works-menu-item">
-                    <a href="#" data-fd-works-filter="ecommerce">E-commerce</a>
-                </li>
-                <!--/our works menu item -->
-
-
-                <!-- our works menu item -->
-                <li data-fd-works-menu-item class="our-works-menu-item">
-                    <a href="#" data-fd-works-filter="complex">Сложные дизайны</a>
-                </li>
-                <!--/our works menu item -->
 
             </ul>
             <!--/our works menu list -->
@@ -200,278 +196,36 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
         <!-- our works  wrap -->
         <div class="our-works__wrap">
 
-            <!-- "works" -->
-            <div data-fd-works-list="works">
+            <ul>
 
-                <!-- static works -->
-                <div data-fd-static-works class="static_works">
-                    <ul>
+                <?php foreach ($works as $key => $work) { ?>
+                    <?php if ($key%5 == 0)echo('</ul> <ul>') ?>
+                    <li>
+                        <?php
+                        $params['item'] = $work;
+                        $workUrl = $simpleModuleUrlProvider->geteWorksFrontOutItemUrl($params);
+                        ?>
+                        <a href="<?php echo $workUrl; ?>"><img src="<?php echo $work['imgPath']; ?>" alt="">
 
-                        <!-- tEndElement2 -->
-                        <li data-fd-works-item class="tEndElement2">
-
-                            <!-- # -->
-                            <a href="#"><img src="pic/our-works-front/work1.jpg" alt="">
-
-                                <div>
-
-                                    <!-- our works  descr -->
-                                    <div class="our-works__descr">
-                                        <span>Responsive</span>
-                                        <span>Animations</span>
-                                        <span>Landing page</span>
-                                        <span>Promo</span>
-                                    </div>
-                                    <!--/our works  descr -->
+                            <div>
+                                <!-- our works  descr -->
+                                <div class="our-works__descr">
+                                    <span><?php echo Yii::t('app', 'Front end development:'); ?></span>
+                                    <span>
+                                    <?php foreach ($work['desclist'] as $key => $item) { ?>
+                                        <span><?php echo($item['text'])?></span>
+                                    <?php } ?>
 
                                 </div>
-                            </a>
-                            <!--/# -->
-
-                        </li>
-                        <!--/tEndElement2 -->
-
-
-                        <!-- tEndElement2 -->
-                        <li data-fd-works-item class="tEndElement2">
-
-                            <!-- # -->
-                            <a href="#"><img src="pic/our-works-front/work2.jpg" alt="">
-
-                                <div>
-
-                                    <!-- our works  descr -->
-                                    <div class="our-works__descr">
-                                        <span>Responsive</span>
-                                        <span>Animations</span>
-                                        <span>Landing page</span>
-                                        <span>Promo</span>
-                                    </div>
-                                    <!--/our works  descr -->
-
-                                </div>
-                            </a>
-                            <!--/# -->
-
-                        </li>
-                        <!--/tEndElement2 -->
-
-
-                        <!-- tEndElement2 -->
-                        <li data-fd-works-item class="tEndElement2">
-
-                            <!-- # -->
-                            <a href="#"><img src="pic/our-works-front/work3.jpg" alt="">
-
-                                <div>
-
-                                    <!-- our works  descr -->
-                                    <div class="our-works__descr">
-                                        <span>Responsive</span>
-                                        <span>Animations</span>
-                                    </div>
-                                    <!--/our works  descr -->
-
-                                </div>
-                            </a>
-                            <!--/# -->
-
-                        </li>
-                        <!--/tEndElement2 -->
-
-
-                        <!-- tEndElement2 -->
-                        <li data-fd-works-item class="tEndElement2">
-
-                            <!-- # -->
-                            <a href="#"><img src="pic/our-works-front/work4.jpg" alt="">
-
-                                <div>
-
-                                    <!-- our works  descr -->
-                                    <div class="our-works__descr">
-                                        <span>Responsive</span>
-                                        <span>Animations</span>
-                                        <span>Landing page</span>
-                                    </div>
-                                    <!--/our works  descr -->
-
-                                </div>
-                            </a>
-                            <!--/# -->
-
-                        </li>
-                        <!--/tEndElement2 -->
-
-
-                        <!-- tEndElement2 -->
-                        <li data-fd-works-item class="tEndElement2">
-
-                            <!-- # -->
-                            <a href="#"><img src="pic/our-works-front/work5.jpg" alt="">
-
-                                <div>
-
-                                    <!-- our works  descr -->
-                                    <div class="our-works__descr">
-                                        <span>Responsive</span>
-                                    </div>
-                                    <!--/our works  descr -->
-
-                                </div>
-                            </a>
-                            <!--/# -->
-
-                        </li>
-                        <!--/tEndElement2 -->
-
-                    </ul>
-                    <ul>
-
-                        <!-- tEndElement2 -->
-                        <li data-fd-works-item class="tEndElement2">
-
-                            <!-- # -->
-                            <a href="#"><img src="pic/our-works-front/work3.jpg" alt="">
-
-                                <div>
-
-                                    <!-- our works  descr -->
-                                    <div class="our-works__descr">
-                                        <span>Responsive</span>
-                                        <span>Animations</span>
-                                        <span>Landing page</span>
-                                        <span>Promo</span>
-                                    </div>
-                                    <!--/our works  descr -->
-
-                                </div>
-                            </a>
-                            <!--/# -->
-
-                        </li>
-                        <!--/tEndElement2 -->
-
-
-                        <!-- tEndElement2 -->
-                        <li data-fd-works-item class="tEndElement2">
-
-                            <!-- # -->
-                            <a href="#"><img src="pic/our-works-front/work5.jpg" alt="">
-
-                                <div>
-
-                                    <!-- our works  descr -->
-                                    <div class="our-works__descr">
-                                        <span>Responsive</span>
-                                        <span>Animations</span>
-                                        <span>Landing page</span>
-                                        <span>Promo</span>
-                                    </div>
-                                    <!--/our works  descr -->
-
-                                </div>
-                            </a>
-                            <!--/# -->
-
-                        </li>
-                        <!--/tEndElement2 -->
-
-
-                        <!-- tEndElement2 -->
-                        <li data-fd-works-item class="tEndElement2">
-
-                            <!-- # -->
-                            <a href="#"><img src="pic/our-works-front/work4.jpg" alt="">
-
-                                <div>
-
-                                    <!-- our works  descr -->
-                                    <div class="our-works__descr">
-                                        <span>Responsive</span>
-                                        <span>Animations</span>
-                                    </div>
-                                    <!--/our works  descr -->
-
-                                </div>
-                            </a>
-                            <!--/# -->
-
-                        </li>
-                        <!--/tEndElement2 -->
-
-
-                        <!-- tEndElement2 -->
-                        <li data-fd-works-item class="tEndElement2">
-
-                            <!-- # -->
-                            <a href="#"><img src="pic/our-works-front/work2.jpg" alt="">
-
-                                <div>
-
-                                    <!-- our works  descr -->
-                                    <div class="our-works__descr">
-                                        <span>Responsive</span>
-                                        <span>Animations</span>
-                                        <span>Landing page</span>
-                                    </div>
-                                    <!--/our works  descr -->
-
-                                </div>
-                            </a>
-                            <!--/# -->
-
-                        </li>
-                        <!--/tEndElement2 -->
-
-
-                        <!-- tEndElement2 -->
-                        <li data-fd-works-item class="tEndElement2">
-
-                            <!-- # -->
-                            <a href="#"><img src="pic/our-works-front/work1.jpg" alt="">
-
-                                <div>
-
-                                    <!-- our works  descr -->
-                                    <div class="our-works__descr">
-                                        <span>Responsive</span>
-                                    </div>
-                                    <!--/our works  descr -->
-
-                                </div>
-                            </a>
-                            <!--/# -->
-
-                        </li>
-                        <!--/tEndElement2 -->
-
-                    </ul>
-                </div>
-                <!--/static works -->
-
-            </div>
-            <!--/"works" -->
-
-
-            <!-- our works footer -->
-            <div class="our-works-footer">
-                <div>
-
-                    <!-- button -->
-                    <a href="#" class="button light">
-                        <span>посмотреть front end портфолио</span>
-                    </a>
-                    <!--/button -->
-
-                </div>
-                <p>256 работ</p>
-            </div>
-            <!--/our works footer -->
+                                <!--/our works  descr -->
+                            </div>
+                        </a>
+                    </li>
+                <?php } ?>
+            </ul>
 
         </div>
         <!--/our works  wrap -->
-
     </div>
     <!--/our works -->
 

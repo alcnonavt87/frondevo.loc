@@ -207,7 +207,38 @@ class WorksFrontOut extends Model
 
     }
 
+    public function getWorksForPsdhtmlPage($alias, $params=[]) {
+        // запрос
+        $query = Yii::$app->db->createCommand('SELECT
+            `w`.`id`, `w`.`pUrl` as url, `w`.`dateCreated`,
+             IF(`w`.`imageworksfrontout` <> "", CONCAT("'.Yii::$app->params['pics']['worksfrontout']['path'].'general-", `w`.`imageworksfrontout`), "") as imgPath,
+			`wc`.`pH1` as title, `wc`.`pDescription`
+		FROM
+			`worksfrontout` `w`
+			LEFT JOIN `worksfrontout_content` `wc`
+				ON `wc`.`idWorksfrontout` = `w`.`id` AND `wc`.`lang` = :lang
+			JOIN `pages_worksfrontout` `pw`
+				ON `pw`.`idWorksfrontout` = `w`.`id`
+			JOIN `filterspsdhtml` `p2`
+				ON `p2`.`id` = `pw`.`idPages` AND `p2`.`url` = :alias
+		ORDER BY
+			`w`.`order`')
+            ->bindValue(':lang', $this->lang)
+            ->bindValue(':alias', $alias);
 
+        //echo '<pre>';print_r($query);echo '</pre>';exit;
+        $result = $query->queryAll();
+
+        if ($result) {
+            // информация из множественных полей
+            foreach ($result as $key => $item) {
+                $data = $this->getMultiFieldsData($result[$key]['id']);
+                $result[$key]['desclist'] =  $data;
+            }
+        }
+        return $result;
+
+    }
     /**
      * Список ссылок (для плашки сссылок в футере)
      */
