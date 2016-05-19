@@ -222,7 +222,11 @@ class GamesupdateController extends \backend\controllers\AdminController {
 
 			// Группа чекбоксов "Выбор ссылок отображаемых в футере"
 			$linksIds = ArrayHelper::getValue($_POST, 'linksIds', []);
-			$myOthers->updateChGrIds('pages_links', 'idPages', 'idLinks', $idRecord, $linksIds);/* UpdateCodeBottom */
+			$myOthers->updateChGrIds('pages_links', 'idPages', 'idLinks', $idRecord, $linksIds);
+
+			// Группа чекбоксов "Выбор работ отображаемых на странице"
+			$worksfrontoutIds = ArrayHelper::getValue($_POST, 'worksfrontoutIds', []);
+			$myOthers->updateChGrIds('pages_worksfrontout', 'idPages', 'idWorksfrontout', $idRecord, $worksfrontoutIds);/* UpdateCodeBottom */
             
 			// отправляем ответ
             echo $json_data;

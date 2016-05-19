@@ -153,6 +153,20 @@ foreach ($links as $key => $item) {
 	}
 	
 	$linksList[] = ['id'=> 'links'.$key, 'text' => $item['title'], 'width' => 400, 'name' => 'linksIds[]', 'value' => $item['id'], 'attr' => $checked];
+}
+
+
+
+// Группа чекбоксов "Выбор работ отображаемых на странице"
+$worksfrontoutList = [];
+foreach ($worksfrontout as $key => $item) {
+	$checked = '';
+	
+	if (in_array($item['id'], $worksfrontoutIds)) {
+		$checked = 'checked="checked"';
+	}
+	
+	$worksfrontoutList[] = ['id'=> 'worksfrontout'.$key, 'text' => $item['pH1'], 'width' => 400, 'name' => 'worksfrontoutIds[]', 'value' => $item['id'], 'attr' => $checked];
 }/* UpdateCode */
 
 $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'].'/'.$pageLang, 'post', ['id'=>"form-edit-content"]).
@@ -184,6 +198,8 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 	'.$this->createHeader('Примеры работ').'
 	<div class="catalog__section-data">
 		<!-- worksexamplesgamestitle -->'.$this->createInput(['id'=> 'worksexamplesgamestitle', 'text' => 'Title', 'placeholder' => '', 'width' => 400, 'name' => 'content[worksexamplesgamestitle]', 'value' => $pagesItem['worksexamplesgamestitle'], 'attr' => '']).'<!-- /worksexamplesgamestitle -->
+		'.$this->createHeader('Выбор работ отображаемых на странице').'
+		<!-- worksfrontout -->'.$this->createCheckBoxGroup(['list' => $worksfrontoutList]).'<!-- /worksfrontout -->
 		'.$this->createHeader('Выбор ссылок отображаемых в футере').'
 		<!-- links -->'.$this->createCheckBoxGroup(['list' => $linksList]).'<!-- /links -->
 

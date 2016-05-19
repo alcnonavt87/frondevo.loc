@@ -16,6 +16,8 @@ return [
 	'Company news' => 'Новини компанії',
 	'All news' => 'Всі новини',
 	'All' => 'Всі',
+	'to see a front end portfolio' => 'переглянути front end портфоліо',
+	'works' => 'робіт',
     // об'єкти
 	'All objects' => 'Усі об’єкти',
 	'Leave request' => 'Залишити заявку',
@@ -85,8 +87,8 @@ return [
 	'your email' => 'ваш email',
 	'contact person' => 'контактна особа',
 	'your phone number' => 'ваш номер телефону',
-	'how you see your future website?' => 'яким Ви бачите Ваш майбутній веб-сайт?',
-	'write briefly: in what area you work, what are your goals, what and why you want to see on your website?' => 'коротко напишіть: у якій сфері Ви працюєте, які Ваші цілі, що саме і чому Ви б хотіли бачити на своєму веб-сайті?',
+	'how do you see your future website?' => 'яким Ви бачите Ваш майбутній веб-сайт?',
+	'write briefly: in what area do you work, what are your goals, what and why do you want see on your website?' => 'коротко напишіть: у якій сфері Ви працюєте, які Ваші цілі, що саме і чому Ви б хотіли бачити на своєму веб-сайті?',
 	'send' => 'відправити',
     // листи
 	'Name' => 'Ім’я',

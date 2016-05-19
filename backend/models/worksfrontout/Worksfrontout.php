@@ -37,7 +37,7 @@ Class Worksfrontout extends Model
 			`idWorksfrontout` = `id` AND
 			`lang` = :lang
 		ORDER BY
-			`order`,`dateCreated` ASC'
+			`order`ASC,`id` DESC '
 		.$limit
 		.$offset)
 		->bindValue(':lang', $lang);

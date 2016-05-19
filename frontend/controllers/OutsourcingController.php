@@ -180,16 +180,21 @@ class OutsourcingController extends CommonController
         $pageData = $this->myRoot->getPageContent($this->firstUri);
         $data['pageData'] = $pageData;
         $pageData2 = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], ['titlefrontout','titlemiddlefrontout',
-            'titlesmallfrontout','linkvideobgfrnout','titlesmallfrontout2','imagefrontoutbgbig','imagefrontoutbgsmall','frndoutsect2title','frndoutsect2data','frndoutsect3title',
+            'titlesmallfrontout','worksexamplesfrontendouttitle','linkvideobgfrnout','titlesmallfrontout2','imagefrontoutbgbig','imagefrontoutbgsmall','frndoutsect2title','frndoutsect2data','frndoutsect3title',
         'othervariantstitle','othervariants1title','othervariants1text','othervariants2title','othervariants2text','frontendoutworkstitle','ourcompaniestitle','garantiesbgword','garanties1title','garanties2title'], [], ['ourclientslist','garanties1list','garanties2list'],['imageourclientslogo','imageourcompanieslogo']);
         $data['pageData1'] = $pageData2;
-        // Работы отобаржаемые на текстовой странице
+
+
         // Работы отобаржаемые на текстовой странице
 
-        $works = $this->myWorks->getWorksForFrontendOut($this->pageContent['alias']);//echo '<pre>';print_r($works);echo '</pre>';exit;
-
+        $works = $this->myWorks->getWorksForTextPages($this->pageContent['alias']);
         $data['works'] = $works;
 
+
+        //количество работ в таблице для фронтендаутсорсинг
+
+        $workscount = $this->myWorks->getListCount();
+        $data['workscount'] = $workscount;
 
         // Список ссылок для плашки сссылок в футере
         $links = $this->myWorks->getLinks($this->pageContent['alias']);
@@ -267,6 +272,11 @@ class OutsourcingController extends CommonController
 
         $data['works'] = $works;
 
+        //количество работ в таблице для фронтендаутсорсинг
+
+        $workscount = $this->myWorks->getListCount();
+        $data['workscount'] = $workscount;
+
 
         // Список ссылок для плашки сссылок в футере
         $links = $this->myWorks->getLinks($this->pageContent['alias']);
@@ -342,10 +352,13 @@ class OutsourcingController extends CommonController
 
         // Работы отобаржаемые на текстовой странице
 
-        $works = $this->myWorks->getWorksForFrontendOut($this->pageContent['alias']);//echo '<pre>';print_r($works);echo '</pre>';exit;
-
+        $works = $this->myWorks->getWorksForTextPages($this->pageContent['alias']);
         $data['works'] = $works;
 
+        //количество работ в таблице для фронтендаутсорсинг
+
+        $workscount = $this->myWorks->getListCount();
+        $data['workscount'] = $workscount;
 
         // Список ссылок для плашки сссылок в футере
         $links = $this->myWorks->getLinks($this->pageContent['alias']);
@@ -410,12 +423,17 @@ class OutsourcingController extends CommonController
 
         $pageData2 = $this->myRoot->getPageContentByAlias('frontendout', ['garantiesbgword','garanties1title','garanties2title'], [], ['garanties1list','garanties2list']);
         $data['pageData1'] = $pageData2;
-        // Работы отобаржаемые на текстовой странице
+
         // Работы отобаржаемые на текстовой странице
 
-        $works = $this->myWorks->getWorksForFrontendOut($this->pageContent['alias']);//echo '<pre>';print_r($pageData);echo '</pre>';exit;
-
+        $works = $this->myWorks->getWorksForTextPages($this->pageContent['alias']);
         $data['works'] = $works;
+
+        //количество работ в таблице для фронтендаутсорсинг
+
+        $workscount = $this->myWorks->getListCount();
+        $data['workscount'] = $workscount;
+
 
 
         // Список ссылок для плашки сссылок в футере
@@ -488,8 +506,15 @@ class OutsourcingController extends CommonController
 
 
         // Работы отобаржаемые на текстовой странице
-        $works = $this->myWorks->getWorksForFrontendOut($this->pageContent['alias']);//echo '<pre>';print_r($works);echo '</pre>';exit;
+
+        $works = $this->myWorks->getWorksForTextPages($this->pageContent['alias']);
         $data['works'] = $works;
+
+        //количество работ в таблице для фронтендаутсорсинг
+
+        $workscount = $this->myWorks->getListCount();
+        $data['workscount'] = $workscount;
+
         // Список ссылок для плашки сссылок в футере
         $links = $this->myWorks->getLinks($this->pageContent['alias']);
         $forLayout['links'] = $links;
@@ -561,8 +586,15 @@ class OutsourcingController extends CommonController
 
 
         // Работы отобаржаемые на текстовой странице
-        $works = $this->myWorks->getWorksForFrontendOut($this->pageContent['alias']);//echo '<pre>';print_r($works);echo '</pre>';exit;
+
+        $works = $this->myWorks->getWorksForTextPages($this->pageContent['alias']);
         $data['works'] = $works;
+
+        //количество работ в таблице для фронтендаутсорсинг
+
+        $workscount = $this->myWorks->getListCount();
+        $data['workscount'] = $workscount;
+
         // Список ссылок для плашки сссылок в футере
         $links = $this->myWorks->getLinks($this->pageContent['alias']);
         $forLayout['links'] = $links;
@@ -643,6 +675,11 @@ class OutsourcingController extends CommonController
         $works = $this->myWorks->getListForPortfolio($params);//
         $data['works'] = $works;
 
+
+        //количество работ в таблице для фронтендаутсорсинг
+
+        $workscount = $this->myWorks->getListCount();
+        $data['workscount'] = $workscount;
 
 
 

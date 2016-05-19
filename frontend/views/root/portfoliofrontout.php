@@ -94,10 +94,11 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
         <!-- our works  wrap -->
         <div class="our-works__wrap">
+
             <ul>
 
-                <?php foreach ($works as $work) { ?>
-
+                <?php foreach ($works as $key => $work) { ?>
+                    <?php if ($key%5 == 0)echo('</ul> <ul>') ?>
                     <li>
                         <?php
                         $params['item'] = $work;
@@ -121,7 +122,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                     </li>
                 <?php } ?>
             </ul>
-            -->
+
         </div>
         <!--/our works  wrap -->
 

@@ -47,7 +47,11 @@ class AnimationsEditController extends \backend\controllers\AdminController {
 
 				// Группа чекбоксов "Выбор ссылок отображаемых в футере"
 				$links = $myOthers->getChGrSourceIdsMultiLangs('links', 'title', $pageLang);
-				$linksIds = $myOthers->getChGrTargetIds('pages_links', 'idPages', 'idLinks', $idRecord);/* UpdateCode */
+				$linksIds = $myOthers->getChGrTargetIds('pages_links', 'idPages', 'idLinks', $idRecord);
+
+				// Группа чекбоксов "Выбор работ отображаемых на странице"
+				$worksfrontout = $myOthers->getChGrSourceIdsMultiLangs('worksfrontout', 'pH1', $pageLang);
+				$worksfrontoutIds = $myOthers->getChGrTargetIds('pages_worksfrontout', 'idPages', 'idWorksfrontout', $idRecord);/* UpdateCode */
 
                 $content = '';
                 $navMenu = '';

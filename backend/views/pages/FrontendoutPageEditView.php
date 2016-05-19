@@ -252,21 +252,6 @@ $imageourcompanieslogoMany .= '</fieldset>';
 // Вывод нескольких изображеий "Лого компаний" КОНЕЦ
 
 
-
-// Группа чекбоксов "Выбор работ отображаемых на странице"
-$frontendoutworksList = [];
-foreach ($links as $key => $item) {
-	$checked = '';
-
-	if (in_array($item['id'], $linksIds)) {
-		$checked = 'checked="checked"';
-	}
-
-	$frontendoutworksList[] = ['id'=> 'frontendoutworks'.$key, 'text' => $item['title'], 'width' => 400, 'name' => 'frontendoutworksIds[]', 'value' => $item['id'], 'attr' => $checked];
-}
-
-
-
 // Группа чекбоксов "Выбор ссылок отображаемых в футере"
 $linksList = [];
 foreach ($links as $key => $item) {
@@ -277,6 +262,20 @@ foreach ($links as $key => $item) {
 	}
 	
 	$linksList[] = ['id'=> 'links'.$key, 'text' => $item['title'], 'width' => 400, 'name' => 'linksIds[]', 'value' => $item['id'], 'attr' => $checked];
+}
+
+
+
+// Группа чекбоксов "Выбор работ отображаемых на странице"
+$worksfrontoutList = [];
+foreach ($worksfrontout as $key => $item) {
+	$checked = '';
+	
+	if (in_array($item['id'], $worksfrontoutIds)) {
+		$checked = 'checked="checked"';
+	}
+	
+	$worksfrontoutList[] = ['id'=> 'worksfrontout'.$key, 'text' => $item['pH1'], 'width' => 400, 'name' => 'worksfrontoutIds[]', 'value' => $item['id'], 'attr' => $checked];
 }/* UpdateCode */
 
 $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'].'/'.$pageLang, 'post', ['id'=>"form-edit-content"]).
@@ -353,15 +352,14 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 		<!-- ourcompaniestitle -->'.$this->createTextArea(['id'=> 'ourcompaniestitle', 'text' => 'Компанни title', 'width' => '400x100', 'name' => 'content[ourcompaniestitle]', 'value' => $pagesItem['ourcompaniestitle'], 'attr' => '']).'<!-- /ourcompaniestitle -->
 		<!-- imageourcompanieslogo -->'.$imageourcompanieslogoMany.'<!-- /imageourcompanieslogo -->
 
-<!-- frontendoutworks --><fieldset class="catalog__section">
-	'.$this->createHeader('Примеры работ frontend').'
+<!-- worksexamplesfrontendout --><fieldset class="catalog__section">
+	'.$this->createHeader('Примеры работ').'
 	<div class="catalog__section-data">
-
-		<!-- frontendoutworkstitle -->'.$this->createTextArea(['id'=> 'frontendoutworkstitle', 'text' => 'title', 'width' => '400x100', 'name' => 'content[frontendoutworkstitle]', 'value' => $pagesItem['frontendoutworkstitle'], 'attr' => '']).'<!-- /frontendoutworkstitle -->
+		<!-- worksexamplesfrontendouttitle -->'.$this->createInput(['id'=> 'worksexamplesfrontendouttitle', 'text' => 'Title', 'placeholder' => '', 'width' => 400, 'name' => 'content[worksexamplesfrontendouttitle]', 'value' => $pagesItem['worksexamplesfrontendouttitle'], 'attr' => '']).'<!-- /worksexamplesfrontendouttitle -->
 		'.$this->createHeader('Выбор работ отображаемых на странице').'
-		<!-- frontendoutworks -->'.$this->createCheckBoxGroup(['list' => $frontendoutworksList]).'<!-- /frontendoutworks -->
+		<!-- worksfrontout -->'.$this->createCheckBoxGroup(['list' => $worksfrontoutList]).'<!-- /worksfrontout -->
 	</div>
-</fieldset><!-- /frontendoutworks -->
+</fieldset><!-- /worksexamplesfrontendout -->
 
 <!-- garanties --><fieldset class="catalog__section">
 	'.$this->createHeader('Гарантии').'

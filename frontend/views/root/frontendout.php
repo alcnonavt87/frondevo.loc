@@ -226,202 +226,38 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                 <!-- our works -->
                 <div class="our-works our-works_type2 our-works_vert">
                     <h2>
-                        <?php echo($pageData1['frontendoutworkstitle']) ?>
+                        <span><?php echo($pageData1['worksexamplesfrontendouttitle']) ?></span>
                     </h2>
 
                     <!-- our works  wrap -->
                     <div class="our-works__wrap">
                         <ul>
-                            <li>
 
-                                <!-- # -->
-                                <a href="#"><img src="pic/our-works-front/work1.jpg" alt="">
-                                    <div>
+                            <?php foreach ($works as $key =>$work) { ?>
+                                <?php if ($key%5 == 0)echo('</ul> <ul>') ?>
+                                <li>
+                                    <?php
+                                    $params['item'] = $work;
+                                    $workUrl = $simpleModuleUrlProvider->geteWorksFrontOutItemUrl($params);
+                                    ?>
+                                    <a href="<?php echo $workUrl; ?>"><img src="<?php echo $work['imgPath']; ?>" alt="">
 
-                                        <!-- our works  descr -->
-                                        <div class="our-works__descr">
-                                            <span>Responsive</span>
-                                            <span>Animations</span>
-                                            <span>Landing page</span>
-                                            <span>Promo</span>
+                                        <div>
+                                            <!-- our works  descr -->
+                                            <div class="our-works__descr">
+                                                <span><?php echo Yii::t('app', 'Front end development:'); ?></span>
+                                    <span>
+                                    <?php foreach ($work['desclist'] as $key => $item) { ?>
+                                        <span><?php echo($item['text'])?></span>
+                                    <?php } ?>
+
+                                            </div>
+                                            <!--/our works  descr -->
                                         </div>
-                                        <!--/our works  descr -->
+                                    </a>
+                                </li>
 
-                                    </div>
-                                </a>
-                                <!--/# -->
-
-                            </li>
-                            <li>
-
-                                <!-- # -->
-                                <a href="#"><img src="pic/our-works-front/work2.jpg" alt="">
-                                    <div>
-
-                                        <!-- our works  descr -->
-                                        <div class="our-works__descr">
-                                            <span>Responsive</span>
-                                            <span>Animations</span>
-                                            <span>Landing page</span>
-                                            <span>Promo</span>
-                                        </div>
-                                        <!--/our works  descr -->
-
-                                    </div>
-                                </a>
-                                <!--/# -->
-
-                            </li>
-                            <li>
-
-                                <!-- # -->
-                                <a href="#"><img src="pic/our-works-front/work3.jpg" alt="">
-                                    <div>
-
-                                        <!-- our works  descr -->
-                                        <div class="our-works__descr">
-                                            <span>Responsive</span>
-                                            <span>Animations</span>
-                                        </div>
-                                        <!--/our works  descr -->
-
-                                    </div>
-                                </a>
-                                <!--/# -->
-
-                            </li>
-                            <li>
-
-                                <!-- # -->
-                                <a href="#"><img src="pic/our-works-front/work4.jpg" alt="">
-                                    <div>
-
-                                        <!-- our works  descr -->
-                                        <div class="our-works__descr">
-                                            <span>Responsive</span>
-                                            <span>Animations</span>
-                                            <span>Landing page</span>
-                                        </div>
-                                        <!--/our works  descr -->
-
-                                    </div>
-                                </a>
-                                <!--/# -->
-
-                            </li>
-                            <li>
-
-                                <!-- # -->
-                                <a href="#"><img src="pic/our-works-front/work5.jpg" alt="">
-                                    <div>
-
-                                        <!-- our works  descr -->
-                                        <div class="our-works__descr">
-                                            <span>Responsive</span>
-                                        </div>
-                                        <!--/our works  descr -->
-
-                                    </div>
-                                </a>
-                                <!--/# -->
-
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-
-                                <!-- # -->
-                                <a href="#"><img src="pic/our-works-front/work3.jpg" alt="">
-                                    <div>
-
-                                        <!-- our works  descr -->
-                                        <div class="our-works__descr">
-                                            <span>Responsive</span>
-                                            <span>Animations</span>
-                                            <span>Landing page</span>
-                                            <span>Promo</span>
-                                        </div>
-                                        <!--/our works  descr -->
-
-                                    </div>
-                                </a>
-                                <!--/# -->
-
-                            </li>
-                            <li>
-
-                                <!-- # -->
-                                <a href="#"><img src="pic/our-works-front/work5.jpg" alt="">
-                                    <div>
-
-                                        <!-- our works  descr -->
-                                        <div class="our-works__descr">
-                                            <span>Responsive</span>
-                                            <span>Animations</span>
-                                            <span>Landing page</span>
-                                            <span>Promo</span>
-                                        </div>
-                                        <!--/our works  descr -->
-
-                                    </div>
-                                </a>
-                                <!--/# -->
-
-                            </li>
-                            <li>
-
-                                <!-- # -->
-                                <a href="#"><img src="pic/our-works-front/work4.jpg" alt="">
-                                    <div>
-
-                                        <!-- our works  descr -->
-                                        <div class="our-works__descr">
-                                            <span>Responsive</span>
-                                            <span>Animations</span>
-                                        </div>
-                                        <!--/our works  descr -->
-
-                                    </div>
-                                </a>
-                                <!--/# -->
-
-                            </li>
-                            <li>
-
-                                <!-- # -->
-                                <a href="#"><img src="pic/our-works-front/work2.jpg" alt="">
-                                    <div>
-
-                                        <!-- our works  descr -->
-                                        <div class="our-works__descr">
-                                            <span>Responsive</span>
-                                            <span>Animations</span>
-                                            <span>Landing page</span>
-                                        </div>
-                                        <!--/our works  descr -->
-
-                                    </div>
-                                </a>
-                                <!--/# -->
-
-                            </li>
-                            <li>
-
-                                <!-- # -->
-                                <a href="#"><img src="pic/our-works-front/work1.jpg" alt="">
-                                    <div>
-
-                                        <!-- our works  descr -->
-                                        <div class="our-works__descr">
-                                            <span>Responsive</span>
-                                        </div>
-                                        <!--/our works  descr -->
-
-                                    </div>
-                                </a>
-                                <!--/# -->
-
-                            </li>
+                            <?php } ?>
                         </ul>
 
                         <!-- our works footer -->
@@ -429,18 +265,19 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                             <div>
 
                                 <!-- button -->
-                                <a href="#" class="button light">
-                                    <span>посмотреть front end портфолио</span>
+                                <a href="<?php echo $textPagesUrlProvider->getPortfolifrontoutUrl();?>" class="button light">
+                                    <span><?php echo Yii::t('app', 'to see a front end portfolio');?></span>
                                 </a>
                                 <!--/button -->
 
                             </div>
-                            <p>256 работ</p>
+                            <p><?php echo $workscount .' '. Yii::t('app', 'works');?></p>
                         </div>
                         <!--/our works footer -->
 
                     </div>
                     <!--/our works  wrap -->
+
 
                 </div>
                 <!--/our works -->

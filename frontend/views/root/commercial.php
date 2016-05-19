@@ -64,8 +64,8 @@
 
                         <!-- input wrap -->
                         <div class="input-wrap text">
-                            <label for="input-desk"><?php echo Yii::t('app', 'how you see your future website?').'*'; ?></label>
-                            <textarea placeholder="<?php echo Yii::t('app', 'write briefly: in what area you work, what are your goals, what and why you want to see on your website?'); ?>" name="desc"></textarea>
+                            <label for="input-desk"><?php echo Yii::t('app', 'how do you see your future website?').'*'; ?></label>
+                            <textarea placeholder="<?php echo Yii::t('app', 'write briefly: in what area do you work, what are your goals, what and why do you want see on your website?'); ?>" name="desc"></textarea>
                         </div>
                         <!--/input wrap -->
 
