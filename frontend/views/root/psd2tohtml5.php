@@ -171,7 +171,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                     <?php
 
                     $filterActive = ($filter['url'] == $filterUri);
-                    if ($filterActive && !empty($works)) {
+                    if ($filterActive) {
                         ?>
                         <li data-fd-works-menu-item class="our-works-menu-item active">
                             <a href="<?php echo $filterUrl; ?>" target="_parent"

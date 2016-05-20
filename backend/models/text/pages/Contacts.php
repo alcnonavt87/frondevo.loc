@@ -17,7 +17,7 @@ Class Contacts extends Model
             `a`.`id`, `a`.`pShow`, `b`.`Url`,
             `b`.`pTitle`, `b`.`pDescription`, `b`.`pKeyWords`, `b`.`pH1`,
             `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`
-			, `snVkontakte`, `snFacebook`, `snTwitter`, `snBahance`, `snInstagram`, `snBall`, `snPinterest`/*get*/
+			, `snVkontakte`, `snFacebook`, `snTwitter`, `snBahance`, `snInstagram`, `snBall`, `snPinterest`, `titlecontacts`, `adresscontacts`, `telcontacts`, `emailcontacts`/*get*/
         FROM
             `pages` `a`, `content` `b`
         WHERE

@@ -46,8 +46,9 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
                 </fieldset>
 
                 <fieldset class="catalog__section">
-                '.$this->createHeader('Редактирование контента страницы').'
-                <!-- pContent -->'.$this->createTextArea(['id'=> 'pContent', 'text' => '', 'width' => '400x100', 'name' => 'pContent', 'value' => $page[0]['pContent'], 'attr' => 'data-module="tinymce"']).'<!-- /pContent -->
+		<!-- adresscontacts -->'.$this->createInput(['id'=> 'adresscontacts', 'text' => 'Адрес', 'placeholder' => '', 'width' => 400, 'name' => 'content[adresscontacts]', 'value' => $pagesItem['adresscontacts'], 'attr' => '']).'<!-- /adresscontacts -->
+		<!-- telcontacts -->'.$this->createInput(['id'=> 'telcontacts', 'text' => 'Телефон', 'placeholder' => '', 'width' => 400, 'name' => 'content[telcontacts]', 'value' => $pagesItem['telcontacts'], 'attr' => '']).'<!-- /telcontacts -->
+		<!-- emailcontacts -->'.$this->createInput(['id'=> 'emailcontacts', 'text' => 'Email', 'width' => '400', 'name' => 'content[emailcontacts]', 'value' => $pagesItem['emailcontacts'], 'attr' => '']).'<!-- /emailcontacts -->
 		'.$this->createHeader('Выбор ссылок отображаемых в футере').'
 		<!-- links -->'.$this->createCheckBoxGroup(['list' => $linksList]).'<!-- /links -->
 
