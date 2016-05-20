@@ -79,6 +79,9 @@ class UpdateController extends  \backend\controllers\AdminController
 				
 				$idRecord = $row[1];
 			}
+// автоматическое добавление alias работы котрый состоит из front-end-work- и id работы
+			$calculate = 'front-end-work-'.$idRecord;
+			$row = $myWorksfrontout->update($idRecord, ['pUrl' => $calculate],[], $pageLang);
 
 			//$justAddedImages = array();
 			// Изображения
