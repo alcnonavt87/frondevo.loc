@@ -181,7 +181,6 @@ $content .= '<!-- sectionPageData --><fieldset class="catalog__section">
 	'.$this->createHeader('Основные данные страницы').'
 	<div class="catalog__section-data">
 		<!-- pH1 -->'.$this->createInput(['id'=> 'pH1', 'text' => 'Заголовок H1', 'placeholder' => '', 'width' => 400, 'name' => 'content[pH1]', 'value' => $worksfrontoutItem['pH1'], 'attr' => 'required']).'<!-- /pH1 -->
-		<!-- pUrl -->'.$this->createInput(['id' => 'pUrl', 'text' => 'Алиас страницы', 'width' => 400, 'name' => 'base[pUrl]', 'value' => $worksfrontoutItem['pUrl'], 'attr' => 'required', 'genUrl' => 'pH1', 'titleUrl' => 'Генерация с заголовка H1']).'<!-- /pUrl -->
 		<!-- linkworksfrontout -->'.$this->createInput(['id'=> 'linkworksfrontout', 'text' => 'Ссылка (относительная) на директорию с работой ', 'placeholder' => '', 'width' => 400, 'name' => 'content[linkworksfrontout]', 'value' => $worksfrontoutItem['linkworksfrontout'], 'attr' => '']).'<!-- /linkworksfrontout -->
 		<!-- filtersfrontoutport -->'.$this->createSelect(['id'=> 'idFiltersfrontoutport', 'text' => 'Фильтр для аутсорсинг-фронтенд-портфолио', 'width' => 400,  'name' => 'base[idFiltersfrontoutport]', 'value' => $filtersfrontoutportOptions, 'attr' => '']).'<!-- /filtersfrontoutport -->
  '.$this->createCheckBoxRow(['id' => 'show', 'text' => 'Отображать страницу', 'name' => 'base[show]', 'value' => 1, 'attr' => $showViz]).'

@@ -71,7 +71,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
      //если поле ссылка на сайт не пустое выводим кнопку
                 <?php if (!empty($worksItem['linkwork'])) {
               echo '<div class="align-center">
-                                <p>посетить веб-сайт</p>
+                                <p>'.Yii::t('app', 'visit website').'</p>
 
                                 <!-- button -->
                                 <a href="'.'http://'.$worksItem['linkwork'].'" target="_blank" rel="nofollow" class="button light">

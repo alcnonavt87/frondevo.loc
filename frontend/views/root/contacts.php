@@ -1,20 +1,16 @@
-<!-- full height -->
 <div class="full-height contacts">
 
-    <!-- full height  layout -->
     <div class="full-height__layout">
 
-        <!-- middle text -->
         <div class="middle-text">
             <h1> <?php echo $pH1 ?></h1>
 
             <address>
                 <span> <?php echo $pageData1['adresscontacts'] ?></span>
-                <a href="<?php echo'tel:'.str_replace(" ","",$pageData1['telcontacts'])?>"><?php echo $pageData1['telcontacts'] ?></a>
-                <a href="<?php echo 'mailto:'. $pageData1['emailcontacts'] ?>"><?php echo $pageData1['emailcontacts'] ?></a>
+                <a href="<?php echo 'tel:' . str_replace(" ", "", $pageData1['telcontacts']) ?>"><?php echo $pageData1['telcontacts'] ?></a>
+                <a href="<?php echo 'mailto:' . $pageData1['emailcontacts'] ?>"><?php echo $pageData1['emailcontacts'] ?></a>
             </address>
 
-            <!-- social network -->
             <ul class="social-network">
                 <?php
 
@@ -37,10 +33,8 @@
 
                         <?php echo "" ?>
 
-
-
-
-                    <?php } if ($key == $lang && !empty($pagesData[$lang]['snTwitter'])) { ?>
+                    <?php }
+                    if ($key == $lang && !empty($pagesData[$lang]['snTwitter'])) { ?>
                         <li class="tw">
                             <a href="<?php echo $pagesData[$lang]['snTwitter'] ?>" target="_blank" rel="nofollow"></a>
                         </li>
@@ -53,10 +47,8 @@
 
                         <?php echo "" ?>
 
-
-
-
-                    <?php } if ($key == $lang && !empty($pagesData[$lang]['snVkontakte'])) { ?>
+                    <?php }
+                    if ($key == $lang && !empty($pagesData[$lang]['snVkontakte'])) { ?>
                         <li class="b">
                             <a href="<?php echo $pagesData[$lang]['snVkontakte'] ?>" target="_blank" rel="nofollow"></a>
                         </li>
@@ -69,10 +61,8 @@
 
                         <?php echo "" ?>
 
-
-
-
-                    <?php }  if ($key == $lang && !empty($pagesData[$lang]['snBahance'])) { ?>
+                    <?php }
+                    if ($key == $lang && !empty($pagesData[$lang]['snBahance'])) { ?>
                         <li class="be">
                             <a href="<?php echo $pagesData[$lang]['snBahance'] ?>" target="_blank" rel="nofollow"></a>
                         </li>
@@ -85,11 +75,8 @@
 
                         <?php echo "" ?>
 
-
-
-
-
-                    <?php }  if ($key == $lang && !empty($pagesData[$lang]['snInstagram'])) { ?>
+                    <?php }
+                    if ($key == $lang && !empty($pagesData[$lang]['snInstagram'])) { ?>
                         <li class="in">
                             <a href="<?php echo $pagesData[$lang]['snInstagram'] ?>" target="_blank" rel="nofollow"></a>
                         </li>
@@ -102,12 +89,8 @@
 
                         <?php echo "" ?>
 
-
-
-
-
-
-                    <?php } if ($key == $lang && !empty($pagesData[$lang]['snBall'])) { ?>
+                    <?php }
+                    if ($key == $lang && !empty($pagesData[$lang]['snBall'])) { ?>
                         <li class="ball">
                             <a href="<?php echo $pagesData[$lang]['snBall'] ?>" target="_blank" rel="nofollow"></a>
                         </li>
@@ -120,11 +103,8 @@
 
                         <?php echo "" ?>
 
-
-
-
-
-                    <?php } if ($key == $lang && !empty($pagesData[$lang]['snPinterest'])) { ?>
+                    <?php }
+                    if ($key == $lang && !empty($pagesData[$lang]['snPinterest'])) { ?>
                         <li class="pin">
                             <a href="<?php echo $pagesData[$lang]['snPinterest'] ?>" target="_blank" rel="nofollow"></a>
                         </li>
@@ -145,24 +125,12 @@
             </ul>
 
         </div>
-        <!--/middle text -->
+
 
     </div>
-    <!--/full height  layout -->
+    >
 
 </div>
-<!--/full height -->
 
-
-<!-- main wrap -->
 <div class="main-wrap">
 </div>
-<!--/main wrap -->
-<?php
-//
-// Шаблон страницы для Сайты под ключ
-//
-// Принимаемые переменные:
-// $alias - алиас страницы
-// $pH1 - заголовок h1
-//

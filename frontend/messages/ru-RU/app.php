@@ -108,5 +108,6 @@ return [
 	'Request from frondevo.com' =>'Запрос от frondevo.com',
 
 	'Short description' => 'Краткое описание',
-
+	'Details' => 'Детали',
+	'visit website' => 'посетить веб-сайт',
 ];

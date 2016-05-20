@@ -107,5 +107,7 @@ return [
 	'The contact person' => 'Контактна особа',
 	'Short description' => 'Короткий опис',
 	'Request from frondevo.com' =>'Запит від frondevo.com',
+	'Details' => 'Деталі',
+	'visit website' => 'відвідати веб-сайт',
 
 ];
