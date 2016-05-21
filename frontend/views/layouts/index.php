@@ -17,7 +17,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="description" content="<?php echo Root::getCodeStr($pDescription); ?>">
     <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
-    <base href="<?= Yii::$app->request->hostInfo.'/frontend/web/'?>"
+    <base href="<?= Yii::$app->request->hostInfo.'/frontend/web/'?>">
     <link rel="shortcut icon" href="markup/img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0'">
     <meta name="apple-mobile-web-app-capable" content="yes">

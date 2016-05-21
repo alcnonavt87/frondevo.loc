@@ -14,7 +14,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
 
         <div class="middle-text">
-            < <?php
+             <?php
             if (Yii::$app->request->getAbsoluteUrl() == $textPagesUrlProvider->getPortfolifrontoutUrl()) {
                 echo "<h1>" . $pH1 . "</h1>";
             } else foreach ($filters as $filter) {
@@ -22,7 +22,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                 $filterUrl = $textPagesUrlProvider->geteFilterUrl($params);
                 $filterActive = ($filter['url'] == $filterUri);
                 if ($filterActive)
-                    echo " <h1>" . $filter['pTitle'] . ' | ' . Yii::t('app', 'Frondevo — professional front end development') . "</h1>";
+                    echo " <h1>" . $filter['pTitle'] . "</h1>";
             }
             ?>
 
@@ -55,7 +55,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                     if ($filterActive) {
                         ?>
                         <li class="m-item active">
-                         <span><?php echo $filter['pTitle']; ?><span>
+                         <span><?php echo $filter['pTitle']; ?></span>
                         </li>
                     <?php } else { ?>
                         <li class="m-item">
@@ -87,7 +87,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
             <ul>
 
                 <?php foreach ($works as $key => $work) { ?>
-                    <?php if ($key % 5 == 0) echo('</ul> <ul>') ?>
+                    <?php if ($key !=0 && $key % 5 == 0) echo('</ul> <ul>') ?>
                     <li>
                         <?php
                         $params['item'] = $work;
@@ -98,8 +98,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                             <div>
 
                                 <div class="our-works__descr">
-                                    <span><?php echo Yii::t('app', 'Front end development:'); ?></span>
-                                    <span>
+
                                     <?php foreach ($work['desclist'] as $key => $item) { ?>
                                         <span><?php echo($item['text']) ?></span>
                                     <?php } ?>

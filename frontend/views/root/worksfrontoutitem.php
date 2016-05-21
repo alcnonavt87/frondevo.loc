@@ -12,11 +12,11 @@
 
     </div>
     <ul class="pager pager_short" data-fd-project-pager="">
-        <li class="pager-item active">
-            <span><</span>
+       <li class="pager-item active">
+        <span>&lt;</span>
         </li>
         <li class="pager-item">
-            <a href="#">></a>
+            <a href="#">&gt;</a>
         </li>
     </ul>
 
@@ -26,7 +26,7 @@
 <div class="main-wrap">
 
     <div class="white-layout">
-
+        <div class="responsive-menu"></div>
         <div class="screens">
 
 

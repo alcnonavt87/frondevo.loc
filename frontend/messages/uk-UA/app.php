@@ -56,6 +56,8 @@ return [
 	'Frondevo — professional front end development' => 'Frondevo — професійна front end розробка',
 	'Frondevo - front end development' => 'Frondevo - front end розробка',
 	'Front end development:' => 'Front end розробка:',
+	'Professional front end development' => 'Професійна front end розробка',
+	'Examples of our work' => 'Приклади наших робіт',
 
 
     // сторінка "Контакти"

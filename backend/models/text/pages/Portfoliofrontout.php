@@ -3,6 +3,7 @@ namespace backend\models\text\pages;
 
 use Yii;
 use yii\base\Model;
+use corpsepk\yii2emt\EMTypograph;
 
 /**
  * Portfoliofrontout

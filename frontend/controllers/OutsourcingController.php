@@ -756,9 +756,18 @@ class OutsourcingController extends CommonController
             $filterUrl = $textPagesUrlProvider->geteFilterUrl($params);
             $filterActive = ($filter['url'] == $this->thirdUri);
             if ($filterActive)
-                $forLayout['pTitle'] =  $filter['pTitle'] .' | '. Yii::t('app', 'Frondevo - professional front end development') ;
-        }
+                $forLayout['pTitle'] =  $filter['pTitle'] .' | '. Yii::t('app', 'Professional front end development') ;
 
+        }
+        foreach ($filters as $filter) {
+            $params['item'] = $filter;
+            $filterUrl = $textPagesUrlProvider->geteFilterUrl($params);
+            $filterActive = ($filter['url'] == $this->thirdUri);
+            if ($filterActive) {
+                $forLayout['pDescription'] = $filter['pTitle'] . '. ' . Yii::t('app', 'Examples of our work');
+            }
+
+        }
 
         $forLayout['langMenu'] = $langMenu;
         $data = array_merge($this->data, $data);
@@ -834,7 +843,22 @@ class OutsourcingController extends CommonController
             $forLayout['pTitle'] = $data['worksItem']['pH1'].' | '.Yii::t('app', 'Frondevo - front end development').' '.mb_strtolower($pageContent['desclist'][$p]['text']);
 }
 
-        $forLayout['pDescription'] = $data['worksItem']['pDescription'];
+//для формирования мета дискрипшин полученные двумерный массив преобразовываем в одномерный
+        if(!empty($data['worksItem']['desclist'])) {
+            foreach ($data['worksItem']['desclist'] as $key => $item) {
+                $desclist[$key] = $item['text'];
+            }
+//преборазовываем одномерный массив в строку
+            $descstring = implode(',', $desclist);
+            $fulldescstring = Yii::t('app', 'Front end development:') . $descstring;
+
+
+            $forLayout['pDescription'] = $fulldescstring;
+        }
+            else
+            $forLayout['pDescription'] = Yii::t('app', 'Front end development:');
+
+
 
         $forLayout['pAlias'] = $worksItem['url'];
         // Список ссылок для плашки сссылок в футере

@@ -57,7 +57,8 @@ return [
 	'Frondevo — professional front end development' => 'Frondevo — профессиональная front end разработка',
 	'Frondevo - front end development' => 'Frondevo - front end разработка',
 	'Front end development:' => 'Front end разработка:',
-	
+	'Professional front end development' => 'Профессиональная front end разработка',
+	'Examples of our work' => 'Примеры наших работ',
     // страница "Контакты"
 	'Schedule' => 'График работы',
 	'Address' => 'Адрес',

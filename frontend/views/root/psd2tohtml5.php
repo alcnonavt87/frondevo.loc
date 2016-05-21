@@ -176,7 +176,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
             <ul>
 
                 <?php foreach ($works as $key => $work) { ?>
-                    <?php if ($key%5 == 0)echo('</ul> <ul>') ?>
+                    <?php if ($key !=0 && $key % 5 == 0) echo('</ul> <ul>') ?>
                     <li>
                         <?php
                         $params['item'] = $work;
@@ -185,16 +185,15 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                         <a href="<?php echo $workUrl; ?>"><img src="<?php echo $work['imgPath']; ?>" alt="">
 
                             <div>
-                               
+
                                 <div class="our-works__descr">
-                                    <span><?php echo Yii::t('app', 'Front end development:'); ?></span>
-                                    <span>
+
                                     <?php foreach ($work['desclist'] as $key => $item) { ?>
-                                        <span><?php echo($item['text'])?></span>
+                                        <span><?php echo($item['text']) ?></span>
                                     <?php } ?>
 
                                 </div>
-                               
+
                             </div>
                         </a>
                     </li>
