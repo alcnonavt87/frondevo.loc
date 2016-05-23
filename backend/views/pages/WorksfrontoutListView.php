@@ -18,12 +18,26 @@ if (is_file(Yii::$app->basePath.'/views/parts/PagesLimitView.php'))
 
 
 // Кнопка "Добавить" НАЧАЛО
-$content .= '<div class="content__filter">';
-$content .= '<a href="/'.$idPageGroup.'/'.$pageLang.'" data-href="formadd" class="button btn__add" action="" http-type="POST">Добавить запись</a>';
-	$content .= '<!-- filter -->';
-$content .= '</div>';
-// Кнопка "Добавить" КОНЕЦ
+$content .= '<div class="button-menu">';
+$content .= $this->createLink([
+				'text' => 'Добавить запись',
+				'href' => '/'.$idPageGroup.'/'.$pageLang,
+				'type' => 'btnAdd',
+				'attrs' => [
+						'data-href' => 'formadd',
+				],
+		])."\n";
+$content .= '<!-- filter -->';
 
+$content .= $this->createLink([
+				'text' => 'Редактировать страницу',
+				'href' => '/'.$textPageData['idPageGroup'].'/'.$textPageData['id'].'/'.$pageLang,
+				'type' => 'linkGray',
+				'attrs' => [
+						'data-href' => 'formedit',
+				],
+		])."\n";
+// Кнопка "Добавить" КОНЕЦ
 
 
 // Таблица записей НАЧАЛО
