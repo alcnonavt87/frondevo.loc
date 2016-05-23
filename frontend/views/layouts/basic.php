@@ -89,12 +89,14 @@ $urlprovider = new \vendor\UrlProvider\UrlProvider($lang)
 
             <div class="layout">
                 <?php if (!empty($links)) { ?>
+                    <ul>
                     <?php foreach ($links as $link) { ?>
                         <?php
                         $linkUrl = $textPagesUrlProvider->{$link['urlMethod']}();
                         ?>
                         <li><a href="<?php echo $linkUrl; ?>"><?php echo $link['title']; ?></a></li>
                     <?php } ?>
+                     </ul>
                 <?php } ?>
 
             </div>
@@ -111,7 +113,6 @@ $urlprovider = new \vendor\UrlProvider\UrlProvider($lang)
                    </span>
                         <span>
                             <span>  <?php echo $settings['address']; ?></span>
-                            <a href="tel:+380671702727">+38 067 170 27 27</a>
                             <a href="mailto:welcome@frondevo.com">welcome@frondevo.com</a>
                         </span>
             </address>

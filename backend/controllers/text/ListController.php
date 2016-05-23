@@ -58,6 +58,25 @@ class ListController extends \backend\controllers\AdminController
 			$listTableItem['pageGroup'] = 1;
 			$listTableItem['location'] = 'after';
 			$listTableItems['Аутсорсинг фронтенд'][] = $listTableItem;
+// фильтры сайты под ключ фронтенд портфолио
+			$listTableItem = [];
+			$listTableItem['id'] = 4;
+			$listTableItem['pShow'] = 1;
+			$listTableItem['pAlias'] = 'filters';
+			$listTableItem['pH1'] = 'Фильтры для стриницы портфолио';
+			$listTableItem['pageGroup'] = 1;
+			$listTableItem['location'] = 'after';
+			$listTableItems['Сайты под ключ'][] = $listTableItem;
+
+// фильтры сайты под ключ фронтенд портфолио
+			$listTableItem = [];
+			$listTableItem['id'] = 17;
+			$listTableItem['pShow'] = 1;
+			$listTableItem['pAlias'] = 'filters';
+			$listTableItem['pH1'] = 'Фильтры для стриницы портфолио';
+			$listTableItem['pageGroup'] = 1;
+			$listTableItem['location'] = 'after';
+			$listTableItems['Аутсорсинг фронтенд'][] = $listTableItem;
 
 			foreach ($listTableItems[$pageGroupData[0]['groupName']] as $listTableItem) {
 				$locateBefore = ($listTableItem['location'] == 'before');

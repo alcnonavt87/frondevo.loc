@@ -95,23 +95,7 @@ class EditController extends Controller
             $menuItem['picking'] = 305;
             $menu[] = $menuItem;
 
-            $menuItem = [];
-            $menuItem['id'] = 4;
-            $menuItem['groupName'] = 'Фильтры для Портфолио под ключ';
-            $menuItem['cssKlass'] = 'filter';
-            $menuItem['addParam'] = 0;
-            $menuItem['quickButton'] = 0;
-            $menuItem['picking'] = 306;
-            $menu[] = $menuItem;
 
-            $menuItem = [];
-            $menuItem['id'] = 17;
-            $menuItem['groupName'] = 'Фильтры аутсорсинг фронтенд портфолио';
-            $menuItem['cssKlass'] = 'filter';
-            $menuItem['addParam'] = 0;
-            $menuItem['quickButton'] = 0;
-            $menuItem['picking'] = 307;
-            $menu[] = $menuItem;
 
             // Еще раз сортируем (с учетом добавленных вручную пунктов)
 			usort($menu, function ($a, $b) {
