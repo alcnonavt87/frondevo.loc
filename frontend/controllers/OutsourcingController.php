@@ -48,6 +48,11 @@ class OutsourcingController extends CommonController
         // переход на маршрутизацию второго уровня
         if ($this->secondUri) {
             $pageData = $this->myRoot->getPageContent($this->secondUri);
+
+            if (!$pageData){
+                $controller = Yii::$app->createControllerByID('error');
+                return $controller->runAction('404');
+            }
             // Функция для преобразования alias страницы в нужный action
             $action1 = explode("-", $pageData['alias']);
             $action2 = implode(" ", $action1);
@@ -58,82 +63,12 @@ class OutsourcingController extends CommonController
 
             return $this->$action5();
 
+
         }
-        $pageData = $this->myRoot->getPageContent($this->firstUri);
-        // Функция для преобразования alias страницы в нужный action
-        $action1 = explode("-", $pageData['alias']);
-        $action2 = implode(" ", $action1);
-        $action3 = ucwords($action2);
-        $action4 = str_replace(" ", "", $action3);
-        $action5 = 'action' . $action4;
-        return $this->$action5();
+
     }
 
 
-    public function actionOutsourcing()
-    {
-        $data = [];
-        $forLayout = [];
-        $params = [];
-        $forLayout['outsourcingPage'] = 1;
-        // Языковое меню
-        $langMenu = [];
-        $options = [];
-        $options['joinUris'] = 1;
-
-        // укр
-        $pagesContent = $this->myRoot->getPagesContent('ua');
-        $options['items'] = $pagesContent;
-        $urlProvider = new TextPagesUrlProvider('ua', $options);
-        $forLayout['PageLangUa'] = $pageUaUrl = $urlProvider->getOutsourcingUrl();
-        $langMenu['ua'] = [
-            'link' => $pageUaUrl,
-            'text' => 'Укр'
-        ];
-        // eng
-        $pagesContent = $this->myRoot->getPagesContent('en');
-        $options['items'] = $pagesContent;
-        $urlProvider = new TextPagesUrlProvider('en', $options);
-        $forLayout['PageLangEn'] = $pageEnUrl = $urlProvider->getOutsourcingUrl();
-        $langMenu['en'] = [
-            'link' => $pageEnUrl,
-            'text' => 'Eng'
-        ];
-        // рус
-        $pagesContent = $this->myRoot->getPagesContent('ru');
-        $options['items'] = $pagesContent;
-        $urlProvider = new TextPagesUrlProvider('ru', $options);
-        $forLayout['PageLangRu'] = $pageRuUrl = $urlProvider->getOutsourcingUrl();
-        $langMenu['ru'] = [
-            'link' => $pageRuUrl,
-            'text' => 'Рус'
-        ];
-        $forLayout['langMenu'] = $langMenu;
-        // Список ссылок для плашки сссылок в футере
-        $links = $this->myWorks->getLinks($this->pageContent['alias']);
-        $forLayout['links'] = $links;
-
-        // Добираем статические данные страницы
-
-        //Добираем статические данные со страницы
-        $pageData = $this->myRoot->getPageContent($this->firstUri);
-        $data['pageData'] = $pageData;
-        $pageData2 = $this->myRoot->getPageContentByAlias($this->pageContent['alias'], [
-            'sbkdescription', 'textforbackground', 'section1', 'section2', 'sbkworkstext', 'section3', 'sbksmalltitle3', 'sbktitlestep1', 'sbkdeskstep1', 'sbktitlestep2', 'sbkdeskstep2',
-            'sbktitlestep3', 'sbkdeskstep3', 'sbktitlestep4', 'sbkdeskstep4', 'sbktitlestep5', 'sbkdeskstep5', 'sbktitlestep6', 'sbkdeskstep6', 'sbktitlestep7', 'sbkdeskstep7', 'section4',
-            'sbksmalltitle', 'sbkstagetitle1', 'sbkstagetitle2', 'sbkstagetitle3', 'sbkstagetitle4', 'sbkstagetitle5', 'sbkstagetitle6', 'section5', 'imagebgsbk', 'imagebgsbklp', 'imagebgsbkmb'
-        ], [], ['sbkstagelist1', 'sbkstagelist2', 'sbkstagelist3', 'sbkstagelist4', 'sbkstagelist5', 'sbkstagelist6', 'sbkpslist']);
-        $data['pageData1'] = $pageData2;
-        $data = array_merge($this->data, $data);
-        $forLayout = array_merge($this->forLayout, $forLayout);//echo '<pre>';print_r($this->forLayout);echo '</pre>';exit;
-
-        return [
-            'view' => 'frontendout',
-            'data' => $data,
-            'layout' => $this->layout,
-            'forLayout' => $forLayout,
-        ];
-    }
     public function actionFrontendOut()
     {
         $data = [];
@@ -146,6 +81,14 @@ class OutsourcingController extends CommonController
         $langMenu = [];
         $options = [];
         $options['joinUris'] = 1;
+
+
+
+        if ($this->thirdUri) {
+            $controller = Yii::$app->createControllerByID('error');
+            return $controller->runAction('404');
+        }
+
 
         // укр
         $pagesContent = $this->myRoot->getPagesContent('ua');
@@ -312,6 +255,10 @@ class OutsourcingController extends CommonController
 
     public function actionJavascript()
     {
+        // Если строка запроса содержит uri третьего уровня переход на единицу работы
+        if ($this->thirdUri) {
+            return $this->actionItem();
+        }
         $data = [];
         $forLayout = [];
         $params = [];
@@ -394,6 +341,12 @@ class OutsourcingController extends CommonController
 
     public function actionAngular()
     {
+
+        // Если строка запроса содержит uri третьего уровня переход на единицу работы
+        if ($this->thirdUri) {
+            return $this->actionItem();
+        }
+
         $data = [];
         $forLayout = [];
         $params = [];
@@ -469,6 +422,11 @@ class OutsourcingController extends CommonController
     /*Посадочная страница*/
     public function actionGames()
     {
+        // Если строка запроса содержит uri третьего уровня переход на единицу работы
+        if ($this->thirdUri) {
+            return $this->actionItem();
+        }
+
         $data = [];
         $forLayout = [];
         $params = [];
@@ -549,6 +507,11 @@ class OutsourcingController extends CommonController
     /*Посадочная страница*/
     public function actionAnimations()
     {
+        // Если строка запроса содержит uri третьего уровня переход на единицу работы
+        if ($this->thirdUri) {
+            return $this->actionItem();
+        }
+
         $data = [];
         $forLayout = [];
         $params = [];
@@ -638,7 +601,9 @@ class OutsourcingController extends CommonController
 
         // Если строка запроса содержит uri третьего уровня и этот uri не равен фильтру,
         // переход на единицу работы
+
         if ($this->thirdUri && $this->thirdUri != $filterUri) {
+
             return $this->actionItem();
         }
 
