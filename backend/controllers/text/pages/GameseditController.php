@@ -53,6 +53,8 @@ class GamesEditController extends \backend\controllers\AdminController {
 				$worksfrontout = $myOthers->getChGrSourceIdsMultiLangs('worksfrontout', 'pH1', $pageLang);
 				$worksfrontoutIds = $myOthers->getChGrTargetIds('pages_worksfrontout', 'idPages', 'idWorksfrontout', $idRecord);/* UpdateCode */
 
+                // Ссылка на преимущества
+                $advPageGroupData = $myOthers->getPageGroupDataByMarkI('Наши преимущества для games', ['id', 'groupName']);
                 $content = '';
                 $navMenu = '';
                 

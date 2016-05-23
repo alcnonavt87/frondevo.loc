@@ -122,11 +122,11 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
 
 
-               >
+
                     <div class="queue-wrap popup-column">
                         <div class="fd__stripe fd__stripe2 tEndElement"></div>
                     </div>
-              >
+
 
                 </div>
 
@@ -134,7 +134,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
             </div>
 
         </div>
- >
+
 
         <div title="Close" class="pop-btn-close"></div>
     </div>

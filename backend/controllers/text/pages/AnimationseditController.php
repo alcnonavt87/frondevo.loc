@@ -53,9 +53,12 @@ class AnimationsEditController extends \backend\controllers\AdminController {
 				$worksfrontout = $myOthers->getChGrSourceIdsMultiLangs('worksfrontout', 'pH1', $pageLang);
 				$worksfrontoutIds = $myOthers->getChGrTargetIds('pages_worksfrontout', 'idPages', 'idWorksfrontout', $idRecord);/* UpdateCode */
 
+                // Ссылка на преимущества
+                $advPageGroupData = $myOthers->getPageGroupDataByMarkI('Наши преимущества для animations', ['id', 'groupName']);
+
                 $content = '';
                 $navMenu = '';
-                
+
                 if (is_file(Yii::$app->basePath.'/views/pages/AnimationsPageEditView.php')) {
                     require Yii::$app->basePath.'/views/pages/AnimationsPageEditView.php';
                 }

@@ -49,16 +49,19 @@ class FiltersFrontOut extends Model
 
         // запрос
         $query = Yii::$app->db->createCommand('SELECT
-            `f`.`id`, `f`.`url`,
+            `pw`.`idPages`, `f`.`id`, `f`.`url`,
 			`fc`.`title`
 			'.$fields.'
 		FROM
-			`filterspsdhtml` `f`
+			`pages_worksfrontout` `pw`
+			LEFT JOIN `filterspsdhtml` `f`
+			ON `f`.`id` = `pw`.`idPages`
 			LEFT JOIN `filterspsdhtml_content` `fc`
 				ON `fc`.`idFilterspsdhtml` = `f`.`id` AND `fc`.`lang` = :lang
 			'.$join.'
 		WHERE
 			`f`.`show` <> 0'.$where.'
+		GROUP BY `idPages`
 		ORDER BY
 			'.$orderBy
             .$limit

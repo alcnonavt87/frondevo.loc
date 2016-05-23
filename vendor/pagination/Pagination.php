@@ -74,12 +74,15 @@ class Pagination
         # Получаем ограничения для цикла
         $limits = $this->limits();
 
-        $html = '<ul class="pager">';
+        $html = '<ul class="pager"
+<li class="pager-item mob-only active">
+                            <span>&lt;</span>
+                        </li>>';
         # Генерируем ссылки
         for ($page = $limits[0]; $page <= $limits[1]; $page++) {
             # Если текущая это текущая страница, ссылки нет и добавляется класс active
             if ($page == $this->current_page) {
-                $links .= '<li class="pager-item desk-only active"><a href="'.$_SERVER["REQUEST_URI"].'">' . $page . '</a></li>';
+                $links .= '<li class="pager-item desk-only active"><span>' . $page . '</span></li>';
             } else {
                 # Иначе генерируем ссылку
                 $links .= $this->generateHtml($page);
@@ -96,7 +99,9 @@ class Pagination
                 # Создаём ссылку "На последнюю"
                 $links .= $this->generateHtml($this->amount, '&gt;');
         }
-        $html .= $links . '</ul>';
+        $html .= $links . '<li class="pager-item mob-only">
+                            <a href="#">&gt;</a>
+                        </li> </ul>';
         # Возвращаем html
         return $html;
     }

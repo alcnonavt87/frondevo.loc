@@ -18,6 +18,10 @@ $content = '<ul class="crumbs">
                 <li class="crumbs__item crumbs__item-active">'.$textPageHeader.'</li>
             </ul>';
 //Хлебные крошки КОНЕЦ
+// Ссылка на преимущества
+
+$advLink = '<p><a data-href="formlist" href="/'.$advPageGroupData['id'].'/'.$defLang.'" class="link">'.$advPageGroupData['groupName'].'</a></p>';
+$content .= $advLink;
 
 
 
