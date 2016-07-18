@@ -227,7 +227,7 @@ class UpdateController extends  \backend\controllers\AdminController
 
 			// Множество текстовых полей "Перечень пунктов описания работы"
 			$descrworksfrontoutlist = ArrayHelper::getValue($_POST, 'descrworksfrontoutlist', []);
-			$myOthers->updateManyFieldsElementIMultiLangsSimple('worksfrontout_descrworksfrontoutlist', $idRecord, $descrworksfrontoutlist, $pageLang);/* UpdateCodeBottom */
+			$myOthers->updateManyFieldsElementIMultiLangsSimpleworkfrontout('worksfrontout_descrworksfrontoutlist', $idRecord, $descrworksfrontoutlist, $pageLang);/* UpdateCodeBottom */
 
 			exit($json_data);
 		} else {

@@ -2,7 +2,7 @@
 
 // Навигационное меню НАЧАЛО
 $navMenu .= '<nav class="sidebar__menu">';
-	$countLangs = count($langs);
+	/*$countLangs = count($langs);
 	if($countLangs) {
 		$navMenu .= '<fieldset class="select-wrap sidebar_select"><select class="select" name="language" data-module="select">';
 		for ($i = 0; $i < $countLangs; $i++) {
@@ -18,8 +18,8 @@ $navMenu .= '<nav class="sidebar__menu">';
 			}
 		}
 		$navMenu .= '</select></fieldset>';
-	}
-	
+	}*/
+
 	$navMenu .= '<ul class="sidebar-menu__list">
 		<li class="sidebar-menu__item sidebar-menu__item-save">Сохранить</li>';
 		if ($idRecord) {

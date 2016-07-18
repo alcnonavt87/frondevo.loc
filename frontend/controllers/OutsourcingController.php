@@ -27,6 +27,7 @@ class OutsourcingController extends CommonController
     private $myAdvantageJavascript;
     private $myAdvantageAnimations;
     private $myAdvantageGames;
+
     public function init()
     {
         parent::init();
@@ -58,13 +59,14 @@ class OutsourcingController extends CommonController
             $action2 = implode(" ", $action1);
             $action3 = ucwords($action2);
             $action4 = str_replace(" ", "", $action3);
-
             $action5 = 'action' . $action4;
-
             return $this->$action5();
 
 
         }
+        $controller = Yii::$app->createControllerByID('error');
+        return $controller->runAction('404');
+
 
     }
 

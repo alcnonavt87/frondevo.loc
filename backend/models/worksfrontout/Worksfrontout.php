@@ -90,25 +90,26 @@ Class Worksfrontout extends Model
 			VALUES
 				(:idWorksfrontout, :lang'.$values.')')
 			->bindValue(':idWorksfrontout', $rowId)
-			->bindValue(':lang', $lang)
+			->bindValue(':lang','ru')
 			->execute();
-			
-			// пустые записи для оставшихся языков
-			$allLangs = $this->myOthers->getAllLangs();
-			$values = [];
-			foreach ($allLangs as $item) {
-				$values[] = $item['sName'];
-			}
-			array_splice($values, array_search($lang, $values), 1);
-			
+
 			$query = Yii::$app->db->createCommand('INSERT INTO
 				`worksfrontout_content`
-					(`idWorksfrontout`, `lang`)
+					(`idWorksfrontout`, `lang`'.$fields.')
 			VALUES
-				(:idWorksfrontout, "'.$values[0].'"),
-				(:idWorksfrontout, "'.$values[1].'")')
-			->bindValue(':idWorksfrontout', $rowId)
-			->execute();
+				(:idWorksfrontout, :lang'.$values.')')
+					->bindValue(':idWorksfrontout', $rowId)
+					->bindValue(':lang', 'en')
+					->execute();
+			$query = Yii::$app->db->createCommand('INSERT INTO
+				`worksfrontout_content`
+					(`idWorksfrontout`, `lang`'.$fields.')
+			VALUES
+				(:idWorksfrontout, :lang'.$values.')')
+					->bindValue(':idWorksfrontout', $rowId)
+					->bindValue(':lang', 'ua')
+					->execute();
+
 		}
 
 		return [
@@ -163,10 +164,8 @@ Class Worksfrontout extends Model
 			'.$set.'
 		WHERE
 			`id` = :id AND
-			`idWorksfrontout` = `id` AND
-			`lang` = :lang')
-		->bindValue(':id', $id)
-		->bindValue(':lang', $lang);
+			`idWorksfrontout` = `id`')
+		->bindValue(':id', $id);
 		
 		return $query->execute();
 	}

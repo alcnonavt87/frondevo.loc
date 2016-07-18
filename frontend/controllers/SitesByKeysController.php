@@ -36,8 +36,14 @@ class SitesByKeysController extends CommonController
     {
         // Если строка запроса содержит uri второго уровня,
         // переход на маршрутизацию второго уровня
+
         if ($this->secondUri) {
-            return $this->actionInner();
+            $pageData = $this->myRoot->getPageContent($this->secondUri);
+            if ($pageData ['alias'] == 'portfolio'){
+                return $this->actionInner();
+            }
+            $controller = Yii::$app->createControllerByID('error');
+            return $controller->runAction('404');
         }
         $pageData = $this->myRoot->getPageContent($this->firstUri);//echo '<pre>';print_r($pageData);echo '</pre>';exit;
         // Функция для преобразования alias страницы в нужный action

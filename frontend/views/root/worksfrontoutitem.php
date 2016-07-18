@@ -1,5 +1,5 @@
 
-<div data-fd-work data-fd-work-url="<?php echo $worksItem['linkworksfrontout'] ?>" class="black-layout work-layout">
+<div data-fd-work data-fd-work-url="<?php echo 'demo/frontend/'.$worksItem['linkworksfrontout'].'/' ?>" class="black-layout work-layout">
 
 
     <div class="full-height__layout">

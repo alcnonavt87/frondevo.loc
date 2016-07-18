@@ -83,7 +83,7 @@ class RootController extends Controller
         }//echo '<pre>';print_r($pageIdAndClassName);echo '</pre>';exit;
 		
 		if (isset($pageIdAndClassName['id'])) {
-            $controllerID = $pageIdAndClassName['class'];
+            $controllerID = $pageIdAndClassName['class'];//echo '<pre>';print_r($controllerID);echo '</pre>';exit;
             $controller = Yii::$app->createControllerByID($controllerID);
             $ret = $controller->runAction('index');
         } else {

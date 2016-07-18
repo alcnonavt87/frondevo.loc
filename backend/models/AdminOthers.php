@@ -1113,6 +1113,46 @@ class AdminOthers extends Model
 			->bindValue(':lang', $lang)
             ->execute();
     }
+    public function updateManyFieldsElementIMultiLangsSimpleworkfrontout($table, $idRel, $fields, $lang) {
+            // удаляем
+            Yii::$app->db->createCommand('DELETE FROM
+					`'.$table.'`
+			WHERE
+					`idRel` = '.$idRel.' AND
+					`lang` = :lang')
+			->bindValue(':lang', $lang)
+             ->execute();
+
+            // обновляем
+            $values = array();
+            foreach ($fields as $field) {
+                    $values[] = '('.$idRel.', :lang, \''.addslashes($field).'\')';
+            }
+            $values = implode(', ', $values);
+
+            if (!$values) return;
+
+            Yii::$app->db->createCommand('INSERT INTO `'.$table.'`
+                    (`idRel`, `lang`, `text`)
+            VALUES
+                    '.$values)
+			->bindValue(':lang', 'en')
+            ->execute();
+
+            Yii::$app->db->createCommand('INSERT INTO `'.$table.'`
+                    (`idRel`, `lang`, `text`)
+            VALUES
+                    '.$values)
+			->bindValue(':lang', 'ru')
+            ->execute();
+
+            Yii::$app->db->createCommand('INSERT INTO `'.$table.'`
+                    (`idRel`, `lang`, `text`)
+            VALUES
+                    '.$values)
+			->bindValue(':lang', 'ua')
+            ->execute();
+    }
     public function updateManyFieldsElementIMultiLangsTags($table, $idRel, $fields, $lang) {
             // удаляем
             Yii::$app->db->createCommand('DELETE FROM
