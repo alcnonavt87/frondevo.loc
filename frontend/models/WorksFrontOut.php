@@ -157,7 +157,7 @@ class WorksFrontOut extends Model
 			`wc`.`idWorksfrontout` = `w`.`id` AND
 			`wc`.`lang` = :lang')
             ->bindValue(':pUrl', $pUrl)
-            ->bindValue(':lang', $this->lang);
+            ->bindValue(':lang', 'ru');
 
         $result = $query->queryOne();
 
@@ -379,7 +379,7 @@ class WorksFrontOut extends Model
 			`pe`.`idRel` = `p`.`id` AND
 			`p`.`id` = ' . $itemId . ' AND
 			`pe`.`lang` = :lang')
-            ->bindValue(':lang', $this->lang);
+            ->bindValue(':lang', 'ru');
 
         $result = $query->queryAll();
 

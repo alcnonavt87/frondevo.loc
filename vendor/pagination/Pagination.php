@@ -114,6 +114,20 @@ class Pagination
      */
     private function generateHtml($page, $text = null)
     {
+        if($page==1 && !$text){
+            $text = $page;
+            $currentURI =  $this->urlpage;
+            $currentURI = preg_replace('~/page-[0-9]+~', '', $currentURI);
+            # Формируем HTML код ссылки и возвращаем
+            return
+                '<li class="pager-item desk-only"><a href="' . $currentURI.'">' . $text . '</a></li>';
+        }elseif($page==1 && $text){
+            $currentURI =  $this->urlpage;
+            $currentURI = preg_replace('~/page-[0-9]+~', '', $currentURI);
+            # Формируем HTML код ссылки и возвращаем
+            return
+                '<li class="pager-item desk-only"><a href="' . $currentURI.'">' . $text . '</a></li>';
+        }
         # Если текст ссылки не указан
         if (!$text)
             # Указываем, что текст - цифра страницы

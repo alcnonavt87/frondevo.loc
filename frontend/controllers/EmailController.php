@@ -31,7 +31,7 @@ class EmailController extends CommonController
 		parent::init();
 		$this->myClaims = new Claims($this->lang);
 		$this->hostName = $this->myCommon->getHostName();
-		$this->from = Yii::$app->params['emails']['from'];
+		$this->from = [Yii::$app->params['emails']['from'] => "Frondevo"];
 		$this->myEmails = explode(";",$this->myClaims->getEmails()[0]['emailClaim']);
 		$this->to = $this->myEmails;
 		$this->inputData = $_POST;

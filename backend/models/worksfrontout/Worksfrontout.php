@@ -90,7 +90,7 @@ Class Worksfrontout extends Model
 			VALUES
 				(:idWorksfrontout, :lang'.$values.')')
 			->bindValue(':idWorksfrontout', $rowId)
-			->bindValue(':lang','ru')
+			->bindValue(':lang','')
 			->execute();
 
 			$query = Yii::$app->db->createCommand('INSERT INTO
@@ -99,7 +99,7 @@ Class Worksfrontout extends Model
 			VALUES
 				(:idWorksfrontout, :lang'.$values.')')
 					->bindValue(':idWorksfrontout', $rowId)
-					->bindValue(':lang', 'en')
+					->bindValue(':lang', $lang)
 					->execute();
 			$query = Yii::$app->db->createCommand('INSERT INTO
 				`worksfrontout_content`
@@ -107,7 +107,7 @@ Class Worksfrontout extends Model
 			VALUES
 				(:idWorksfrontout, :lang'.$values.')')
 					->bindValue(':idWorksfrontout', $rowId)
-					->bindValue(':lang', 'ua')
+					->bindValue(':lang', $lang)
 					->execute();
 
 		}

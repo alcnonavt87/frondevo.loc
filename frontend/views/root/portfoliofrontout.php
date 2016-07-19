@@ -15,7 +15,8 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
         <div class="middle-text">
              <?php
-            if (Yii::$app->request->getAbsoluteUrl() == $textPagesUrlProvider->getPortfolifrontoutUrl()) {
+            $string = explode('?',Yii::$app->request->getAbsoluteUrl());
+            if ($string[0] == $textPagesUrlProvider->getPortfolifrontoutUrl()) {
                 echo "<h1>" . $pH1 . "</h1>";
             } else foreach ($filters as $filter) {
                 $params['item'] = $filter;

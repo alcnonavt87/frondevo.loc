@@ -19,7 +19,7 @@ class ListController extends \backend\controllers\AdminController
 				$pageLang = Yii::$app->params['defLang'];
 			}
 
-			$limit = Yii::$app->getRequest()->get('limit', 20);
+			$limit = Yii::$app->getRequest()->get('limit', 100);
 			$offset = 0;// limit
 			$filters = Yii::$app->getRequest()->get('filters', [
 				// filter
