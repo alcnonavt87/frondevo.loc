@@ -357,7 +357,7 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 	<div class="catalog__section-data">
 		<!-- worksexamplesfrontendouttitle -->'.$this->createInput(['id'=> 'worksexamplesfrontendouttitle', 'text' => 'Title', 'placeholder' => '', 'width' => 400, 'name' => 'content[worksexamplesfrontendouttitle]', 'value' => $pagesItem['worksexamplesfrontendouttitle'], 'attr' => '']).'<!-- /worksexamplesfrontendouttitle -->
 		'.$this->createHeader('Выбор работ отображаемых на странице').'
-		<!-- worksfrontout -->'.$this->createCheckBoxGroup(['list' => $worksfrontoutList]).'<!-- /worksfrontout -->
+		<!-- worksfrontout -->'.$this->createCheckBoxGroup(['list' => $worksfrontoutList,'scroll' => 1]).'<!-- /worksfrontout -->
 	</div>
 </fieldset><!-- /worksexamplesfrontendout -->
 

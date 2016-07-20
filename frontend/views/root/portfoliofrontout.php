@@ -29,7 +29,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
             <ul class="fd__menu fd__menu_line">
                 <?php
-                $AllActive = (Yii::$app->request->getAbsoluteUrl() == $textPagesUrlProvider->getPortfolifrontoutUrl());
+                $AllActive = (empty($filterUri));
                 if ($AllActive) {
                     ?>
                     <li class="m-item active">

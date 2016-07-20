@@ -90,25 +90,9 @@ Class Worksfrontout extends Model
 			VALUES
 				(:idWorksfrontout, :lang'.$values.')')
 			->bindValue(':idWorksfrontout', $rowId)
-			->bindValue(':lang','')
+			->bindValue(':lang','ru')
 			->execute();
 
-			$query = Yii::$app->db->createCommand('INSERT INTO
-				`worksfrontout_content`
-					(`idWorksfrontout`, `lang`'.$fields.')
-			VALUES
-				(:idWorksfrontout, :lang'.$values.')')
-					->bindValue(':idWorksfrontout', $rowId)
-					->bindValue(':lang', $lang)
-					->execute();
-			$query = Yii::$app->db->createCommand('INSERT INTO
-				`worksfrontout_content`
-					(`idWorksfrontout`, `lang`'.$fields.')
-			VALUES
-				(:idWorksfrontout, :lang'.$values.')')
-					->bindValue(':idWorksfrontout', $rowId)
-					->bindValue(':lang', $lang)
-					->execute();
 
 		}
 

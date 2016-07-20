@@ -1248,6 +1248,20 @@ class AdminOthers extends Model
 
             return $query->queryAll();
     }
+    public function getChGrSourceIdsMultiLangsforFrontout($table, $field) {
+            $query = Yii::$app->db->createCommand('SELECT
+                    `id`, `'.$field.'`
+            FROM
+                    `'.$table.'`, `'.$table.'_content`
+			WHERE
+					`id'.ucfirst($table).'` = `id` AND
+					`lang` = :lang
+			ORDER BY
+					`id`')
+			->bindValue(':lang', 'ru');
+
+            return $query->queryAll();
+    }
 
     public function getChGrTargetIds($table, $fieldTargetName, $fieldSourceName, $fieldTargetVal) {
             $query = Yii::$app->db->createCommand('SELECT

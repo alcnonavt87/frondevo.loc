@@ -45,8 +45,9 @@ class Pagination
      * @param type $limit <p>Количество записей на страницу</p>
      * @param type $index <p>Ключ для url</p>
      * @param type $urlpage <p>Ссылка на страницу для формирования ссылок в кнопках</p>
+     * @param type $filterUri <p>Uri фильтра</p>
      */
-    public function __construct($total, $currentPage, $limit, $index, $urlpage)
+    public function __construct($total, $currentPage, $limit, $index, $urlpage, $filterUri = '')
     {
         # Устанавливаем общее количество записей
         $this->total = $total;
@@ -58,9 +59,10 @@ class Pagination
         $this->urlpage = $urlpage;
         # Устанавливаем количество страниц
         $this->amount = $this->amount();
-
         # Устанавливаем номер текущей страницы
         $this->setCurrentPage($currentPage);
+        # Uri фильтра
+        $this->filterUri = $filterUri;
     }
 
     /**
@@ -120,13 +122,13 @@ class Pagination
             $currentURI = preg_replace('~/page-[0-9]+~', '', $currentURI);
             # Формируем HTML код ссылки и возвращаем
             return
-                '<li class="pager-item desk-only"><a href="' . $currentURI.'">' . $text . '</a></li>';
+                '<li class="pager-item desk-only"><a href="' . $currentURI.'/'.$this->filterUri.'">' . $text . '</a></li>';
         }elseif($page==1 && $text){
             $currentURI =  $this->urlpage;
             $currentURI = preg_replace('~/page-[0-9]+~', '', $currentURI);
             # Формируем HTML код ссылки и возвращаем
             return
-                '<li class="pager-item desk-only"><a href="' . $currentURI.'">' . $text . '</a></li>';
+                '<li class="pager-item desk-only"><a href="' . $currentURI.'/'.$this->filterUri.'">' . $text . '</a></li>';
         }
         # Если текст ссылки не указан
         if (!$text)
@@ -136,7 +138,7 @@ class Pagination
         $currentURI = preg_replace('~/page-[0-9]+~', '', $currentURI);
         # Формируем HTML код ссылки и возвращаем
         return
-            '<li class="pager-item desk-only"><a href="' . $currentURI . $this->index . $page . '">' . $text . '</a></li>';
+            '<li class="pager-item desk-only"><a href="' . $currentURI .'/'.$this->filterUri. $this->index . $page . '">' . $text . '</a></li>';
     }
 
     /**

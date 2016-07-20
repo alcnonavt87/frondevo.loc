@@ -597,7 +597,12 @@ class OutsourcingController extends CommonController
      */
     public function actionPortfoliofrontout()
     {
-
+        $urlProvider = new TextPagesUrlProvider($this->lang);
+        $Porfoliofrontout = $urlProvider->getPortfolifrontoutUrl();
+        if( preg_match_all('/page=1/', Yii::$app->request->absoluteUrl) && empty($this->thirdUri))  {
+            header("HTTP/1.1 301 Moved Permanently");
+            header("Location:".$Porfoliofrontout);
+        }
         // Проверяем является ли uri третьего уровня uri фильтра
         $filterUri = $this->myFilters->isFilterUri($this->thirdUri);
 
@@ -714,7 +719,7 @@ class OutsourcingController extends CommonController
        } else $urlpage = $pageEnUrl;
 
         //передаем это значение в класс pagination, создавая новый обьет класса
-        $pagination = new Pagination($worksCount, $pageNum, $limit, '?page=', $urlpage);
+        $pagination = new Pagination($worksCount, $pageNum, $limit, '?page=', $urlpage,$this->thirdUri);
         $data['pagination'] = $pagination;
         $textPagesUrlProvider = new TextPagesUrlProvider($this->lang);
         //вывод тайла фильтара вместо тайтла страницы портфолио

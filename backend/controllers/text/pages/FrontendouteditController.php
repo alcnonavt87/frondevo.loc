@@ -75,7 +75,7 @@ class FrontendoutEditController extends \backend\controllers\AdminController {
 				$linksIds = $myOthers->getChGrTargetIds('pages_links', 'idPages', 'idLinks', $idRecord);
 
 				// Группа чекбоксов "Выбор работ отображаемых на странице"
-				$worksfrontout = $myOthers->getChGrSourceIdsMultiLangs('worksfrontout', 'pH1', $pageLang);
+				$worksfrontout = $myOthers->getChGrSourceIdsMultiLangsforFrontout('worksfrontout', 'pH1', $pageLang);
 				$worksfrontoutIds = $myOthers->getChGrTargetIds('pages_worksfrontout', 'idPages', 'idWorksfrontout', $idRecord);/* UpdateCode */
 
 
