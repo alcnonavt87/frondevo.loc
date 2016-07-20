@@ -13,7 +13,8 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="white">
         <meta name="apple-mobile-web-app-title" content="">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/main.min.css">
+        <link rel="stylesheet" href="css/lib/swiper.min.css">
     </head>
     <body>
 
@@ -44,27 +45,69 @@
                             </h1>
                             <!--/fd  index title -->
 
+                            <!-- sections column wrap -->
+                            <div class="fd__index-column-wrap">
+                            <div class="swiper-wrapper">
 
-                            <!-- align center -->
-                            <div class="align-center">
+                                <!-- website dev wrap -->
+                                <div class="fd__index-column-item swiper-slide">
+                                    <!-- align center -->
+                                    <div class="align-center">
 
-                                <!-- button wrap -->
-                                <div class="button-wrap">
+                                        <!-- button wrap -->
+                                        <div class="button-wrap">
 
-                                    <!-- # -->
-                                    <a href="#" class="button dark hidden">
-                                        <span>разработка сайтов</span>
-                                    </a>
-                                    <!--/# -->
+                                            <!-- # -->
+                                            <a href="#" class="button dark hidden">
+                                                <span>разработка сайтов</span>
+                                            </a>
+                                            <!--/# -->
 
-                                    <canvas width="100" height="100" data-stroke="true"></canvas>
+                                            <canvas width="100" height="100" data-stroke="true"></canvas>
+                                        </div>
+                                        <!--/button wrap -->
+
+                                    </div>
+                                    <!--/align center -->
+
+                                    <div class="footer__text">Комплексный подход по разработке эффективных решений <br>для амбициозных интернет-проектов</div>
+
                                 </div>
-                                <!--/button wrap -->
+                                <!-- /website dev wrap -->
+
+                                <!-- website dev wrap -->
+                                <div class="fd__index-column-item swiper-slide">
+                                    <!-- align center -->
+                                    <div class="align-center">
+
+                                        <!-- button wrap -->
+                                        <div class="button-wrap">
+
+                                            <!-- # -->
+                                            <a href="#" class="button dark hidden">
+                                                <span>front end аутсорсинг</span>
+                                            </a>
+                                            <!--/# -->
+
+                                            <canvas width="100" height="100" data-stroke="true"></canvas>
+                                        </div>
+                                        <!--/button wrap -->
+
+                                    </div>
+                                    <!--/align center -->
+
+                                    <!--<div class="footer__text">Решение задач различной сложности.<br> Современные методы разработки.</div>-->
+                                    <div class="footer__text">Грамотная архитектура проекта и красивый код.<br>Гибкость. Масштабируемость. Производительность.</div>
+
+                                </div>
+                                <!-- /website dev wrap -->
+
 
                             </div>
-                            <!--/align center -->
+                                <div class="swiper-pagination"></div>
+                            </div>
+                            <!-- /sections column wrap -->
 
-                            <div class="footer__text">Комплексный подход по разработке эффективных решений <br>для амбициозных интернет-проектов</div>
                         </div>
                     </div>
                     <!--/middle text -->
@@ -220,6 +263,7 @@
 
         <script src="js/lib/lib.min.js"></script>
         <script src="js/main.min.js"></script>
+        <script src="js/lib/swiper.jquery.min.js"></script>
     </body>
 </html>
 <!--/ru -->

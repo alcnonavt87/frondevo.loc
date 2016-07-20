@@ -34,8 +34,10 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 
                 <fieldset class="catalog__section">
                 '.$this->createHeader('Редактирование контента страницы').'
-                '.$this->createTextArea(['id'=> 'pContent', 'text' => '', 'width' => '400x100', 'name' => 'pContent', 'value' => $page[0]['pContent'],]).'
-                 '.$this->createInput(['id'=> 'indexTextButton', 'text' => 'Текст в кнопке', 'width' => 400, 'name' => 'indexTextButton', 'value' => $page[0]['indexTextButton'], 'attr' => '']).'
-                 '.$this->createInput(['id'=> 'indexAltName', 'text' => 'Текст alt названия', 'width' => 400, 'name' => 'indexAltName', 'value' => $page[0]['indexAltName'], 'attr' => '']).'
+                 '.$this->createInput(['id'=> 'indexTextButton', 'text' => 'Текст в левой кнопке', 'width' => 400, 'name' => 'indexTextButton', 'value' => $page[0]['indexTextButton'], 'attr' => '']).'
+                '.$this->createTextArea(['id'=> 'pContent', 'text' => 'Текст под левой кнопкой', 'width' => '400x100', 'name' => 'pContent', 'value' => $page[0]['pContent'],]).'
+		        <!-- indexTextButton2 -->'.$this->createInput(['id'=> 'indexTextButton2', 'text' => 'Текст в провой кнопке', 'placeholder' => '', 'width' => 400, 'name' => 'indexTextButton2', 'value' => $page[0]['indexTextButton2'], 'attr' => '']).'<!-- /indexTextButton2 -->
+                <!-- pContentbutton2 -->'.$this->createTextArea(['id'=> 'pContentbutton2', 'text' => 'Текст под правой кнопкой', 'width' => '400x100', 'name' => 'pContentbutton2', 'value' => $page[0]['pContentbutton2'], 'attr' => '']).'<!-- /pContentbutton2 -->
+                '.$this->createInput(['id'=> 'indexAltName', 'text' => 'Текст alt названия', 'width' => 400, 'name' => 'indexAltName', 'value' => $page[0]['indexAltName'], 'attr' => '']).'
                 </fieldset>'.
             Html::endForm();

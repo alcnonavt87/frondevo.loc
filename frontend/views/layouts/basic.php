@@ -26,7 +26,7 @@ $urlprovider = new \vendor\UrlProvider\UrlProvider($lang)
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang=<?= $lang ?>>
 <head>
     <title><?= $pTitle ?></title>
     <meta charset="<?= Yii::$app->charset ?>">
@@ -40,7 +40,7 @@ $urlprovider = new \vendor\UrlProvider\UrlProvider($lang)
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
     <meta name="apple-mobile-web-app-title" content="">
-    <link rel="stylesheet" href="markup/css/main.css">
+    <link rel="stylesheet" href="markup/css/main.min.css">
     <?php if (!empty($worksfrontoutPage)) {
         echo '   <link rel="stylesheet" href="markup/css/lib/highlight/railscasts.css">';
     }

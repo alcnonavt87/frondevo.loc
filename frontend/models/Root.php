@@ -62,7 +62,7 @@ class Root extends Model
 
         $query = Yii::$app->db->createCommand('SELECT
 			`id`, `pTitle`, `pDescription`, `pKeyWords`, `pH1`, `pMenuName`, `pBreadCrumbs`, `pContent`,
-			`pAlias` as alias,`indexTextButton`,indexAltName
+			`pAlias` as alias,`indexTextButton`,indexAltName,`indexTextButton2`,`pContentbutton2`
 			' . $fields . '
 		FROM
 			`pages`, `content`

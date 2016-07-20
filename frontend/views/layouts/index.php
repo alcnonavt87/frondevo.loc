@@ -11,7 +11,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang=<?= $lang ?>>
 <head>
     <title><?=$pTitle?></title>
     <meta charset="<?= Yii::$app->charset ?>">
@@ -25,7 +25,8 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
     <meta name="apple-mobile-web-app-title" content="">
-    <link rel="stylesheet" href="markup/css/main.css">
+    <link rel="stylesheet" href="markup/css/main.min.css">
+    <link rel="stylesheet" href="markup/css/lib/swiper.min.css">
     <?php if (!empty($PageLangEn) && !empty($PageLangUa)) {
         if ($lang == 'ru'){
             echo '<link href="'.$PageLangEn.'" hreflang="en" rel="alternate">
@@ -141,6 +142,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
     <script src="markup/js/lib/lib.min.js"></script>
     <script src="markup/js/main.min.js"></script>
+    <script src="markup/js/lib/swiper.jquery.min.js"></script>
     <?php $this->endBody() ?>
 </body>
 </html>

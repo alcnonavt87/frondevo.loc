@@ -15,7 +15,7 @@ Class Index extends Model
         $query = Yii::$app->db->createCommand('SELECT
             `a`.`id`, `a`.`pShow`, `b`.`Url`,
             `b`.`pTitle`, `b`.`pDescription`, `b`.`pKeyWords`, `b`.`pH1`,
-            `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`,`b`.`indexTextButton`,`b`.`indexAltName`
+            `b`.`pMenuName`, `b`.`pBreadCrumbs`, `b`.`pContent`,`b`.`indexTextButton`,`b`.`indexAltName`,`b`.`pContentbutton2`,`b`.`indexTextButton2`
         FROM
             `pages` `a`, `content` `b`
         WHERE
@@ -30,7 +30,7 @@ Class Index extends Model
     {
         $query = Yii::$app->db->createCommand('SELECT
         `a`.`id`, `a`.`pShow`, `b`.`Url`,
-         "" AS `pTitle`, "" AS `pDescription`, "" AS `pKeyWords`, "" AS `pH1`, "" AS `pMenuName`, "" AS `pBreadCrumbs`, "" AS `pContent`
+         "" AS `pTitle`, "" AS `pDescription`, "" AS `pKeyWords`, "" AS `pH1`, "" AS `pMenuName`, "" AS `pBreadCrumbs`, "" AS `pContent`, "" AS `pContentbutton2`, "" AS `indexTextButton2`
         FROM
              `pages` `a`, `content` `b`
         WHERE
@@ -40,7 +40,7 @@ Class Index extends Model
         return $query->queryAll();
     }
     
-    public function editUpDatePage($pageId, $lang, $pTitle, $pDescription, $pKeyWords, $pH1, $pMenuName, $pBreadCrumbs, $pContent,$indexTextButton,$indexAltName) {
+    public function editUpDatePage($pageId, $lang, $pTitle, $pDescription, $pKeyWords, $pH1, $pMenuName, $pBreadCrumbs, $pContent,$indexTextButton,$indexAltName,$indexTextButton2,$pContentbutton2) {
         $EMTypograph = new EMTypograph();
         $EMTypograph->setup([
             'Text.paragraphs' => 'off',
@@ -85,9 +85,18 @@ Class Index extends Model
             'OptAlign.all' => 'off',
         ]);
         $pContent = $EMTypograph->apply();
+
+        $EMTypograph->set_text($pContentbutton2);
+        $EMTypograph->setup([
+            'Text.paragraphs' => 'off',
+            'OptAlign.oa_oquote' => 'off',
+            'Nobr.spaces_nobr_in_surname_abbr' => 'off',
+            'OptAlign.all' => 'off',
+        ]);
+        $pContentbutton2 = $EMTypograph->apply();
         $query = Yii::$app->db->createCommand('UPDATE `content`
         SET `pTitle` = :pTitle, `pDescription` = :pDescription, `pKeyWords` = :pKeyWords, `pH1` = :pH1,
-            `pMenuName` = :pMenuName, `pBreadCrumbs` = :pBreadCrumbs, `pContent` = :pContent,`indexTextButton` = :indexTextButton,`indexAltName` = :indexAltName
+            `pMenuName` = :pMenuName, `pBreadCrumbs` = :pBreadCrumbs, `pContent` = :pContent,`indexTextButton` = :indexTextButton,`indexTextButton2` = :indexTextButton2,`indexAltName` = :indexAltName,`pContentbutton2` = :pContentbutton2
         WHERE `pageId` = :pageId AND `lang` = :lang')
         ->bindValue(':pageId', $pageId)
         ->bindValue(':lang', $lang)
@@ -99,7 +108,9 @@ Class Index extends Model
         ->bindValue(':pBreadCrumbs', $pBreadCrumbs)        
         ->bindValue(':pContent', $pContent)
         ->bindValue(':indexTextButton', $indexTextButton)
-        ->bindValue(':indexAltName', $indexAltName);
+        ->bindValue(':indexTextButton2', $indexTextButton2)
+        ->bindValue(':indexAltName', $indexAltName)
+        ->bindValue(':pContentbutton2', $pContentbutton2);
         return $query->execute();
     }
     
