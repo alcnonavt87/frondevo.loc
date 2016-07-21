@@ -599,7 +599,9 @@ class OutsourcingController extends CommonController
     {
         $urlProvider = new TextPagesUrlProvider($this->lang);
         $Porfoliofrontout = $urlProvider->getPortfolifrontoutUrl();
-        if( preg_match_all('/page=1/', Yii::$app->request->absoluteUrl) && empty($this->thirdUri))  {
+
+        //Если строка get запроса равна первой странице редирект на страницу
+        if(isset($_GET['page']) && $_GET['page']== 1 && empty($this->thirdUri))  {
             header("HTTP/1.1 301 Moved Permanently");
             header("Location:".$Porfoliofrontout);
         }

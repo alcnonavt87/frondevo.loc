@@ -11,6 +11,9 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
+<?php if ($lang == 'ua'){
+    $lang = 'uk';
+}?>
 <html lang=<?= $lang ?>>
 <head>
     <title><?=$pTitle?></title>

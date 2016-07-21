@@ -27,10 +27,10 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
             <div class="start-screen-cats start-screen-cats_triple start-screen-cats_mob-block">
 
-               
+
                 <ul class="start-screen-cats-list">
 
-                   
+
                     <li class="start-screen-cats-items">
                         <?php echo($pageData['psd2html5mainscreebtitle1']) ?>
 
@@ -47,61 +47,61 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                         <?php echo($pageData['psd2html5mainscreebtitle3']) ?>
 
                     </li>
-                   
+
 
                 </ul>
-               
+
 
             </div>
             <div class="start-screen-cats start-screen-cats_tetra">
 
-               
+
                 <ul class="start-screen-cats-list">
-                   
+
                     <li class="start-screen-cats-items">
                         <div class="start-screen-cats-item-footer"><?php echo($pageData['psd2html5mainscreebtitle4'])?></div>
                     </li>
-                   
 
-                   
+
+
                     <li class="start-screen-cats-items">
                         <div class="start-screen-cats-item-footer"><?php echo($pageData['psd2html5mainscreebtitle5'])?></div>
                     </li>
-                   
 
-                   
+
+
                     <li class="start-screen-cats-items">
                         <div class="start-screen-cats-item-footer"><?php echo($pageData['psd2html5mainscreebtitle6'])?></div>
                     </li>
-                   
 
-                   
+
+
                     <li class="start-screen-cats-items">
                         <div
                             class="start-screen-cats-item-footer"><?php echo($pageData['psd2html5mainscreebtitle7'])?></div>
                     </li>
-                   
+
                 </ul>
-               
+
             </div>
         </div>
-       
+
 
         <div class="direct-line hide hide-mob"></div>
         <div class="arrow"></div>
     </div>
-   
+
 
 </div>
 
 <div class="main-wrap">
 
-   
+
     <section class="article light why2">
 
         <div class="layout">
 
-           
+
             <div class="why-dl">
                 <?php foreach ($pageData2 as $advantages) { ?>
                     <div class="why-dl-row">
@@ -119,44 +119,42 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                 <?php } ?>
 
             </div>
-           
+
 
         </div>
-       
+
 
     </section>
-   
 
 
-   
+
+
     <div class="our-works our-works_type2 our-works_vert">
         <h2>
             <span><?php echo($pageData['worksexamplespsd2html5title']) ?></span>
         </h2>
 
-       
+
         <div class="our-works-menu">
 
-           
-            <ul data-fd-works-menu-list="works" data-fd-works-action="server/works.json" class="our-works-menu-list">
-                <?php foreach ($filters as $filter) { ?>
+
+            <ul data-fd-works-menu-list="works" data-fd-works-action="../web/markup/server/works.json" class="our-works-menu-list">
+                <?php foreach ($filters as $key => $filter) { ?>
                     <?php
                     $params['item'] = $filter;
                     $filterUrl = $textPagesUrlProvider->getFilterPsdhtmlUrl($params);
                     ?>
 
                     <?php
-
-                    $filterActive = ($filter['url'] == $filterUri);
-                    if ($filterActive) {
+                    if ($key == 0) {
                         ?>
                         <li data-fd-works-menu-item class="our-works-menu-item active">
-                            <a href="<?php echo $filterUrl; ?>" target="_parent"
+                            <a href="<?php echo $filterUrl; ?>" data-fd-works-filter="<?php echo $filter['url']; ?>" target="_parent"
                                rel="nofollow "><?php echo $filter['title']; ?></a>
                         </li>
                     <?php } else { ?>
                         <li data-fd-works-menu-item class="our-works-menu-item">
-                            <a href="<?php echo $filterUrl; ?>" target="_parent"
+                            <a href="<?php echo $filterUrl; ?>" data-fd-works-filter="<?php echo $filter['url']; ?>" target="_parent"
                                rel="nofollow "><?php echo $filter['title']; ?></a>
                         </li>
                     <?php } ?>
@@ -164,61 +162,84 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
 
             </ul>
-           
+
 
         </div>
-       
 
 
-       
+
+
+        <!-- our works  wrap -->
         <div class="our-works__wrap">
 
-            <ul>
+            <!-- "works" -->
+            <div data-fd-works-list="works">
 
-                <?php foreach ($works as $key => $work) { ?>
-                    <?php if ($key !=0 && $key % 5 == 0) echo('</ul> <ul>') ?>
-                    <li>
-                        <?php
-                        $params['item'] = $work;
-                        $workUrl = $simpleModuleUrlProvider->geteWorksFrontOutItemUrl($params);
-                        ?>
-                        <a href="<?php echo $workUrl; ?>"><img src="<?php echo $work['imgPath']; ?>" alt="">
+                <!-- static works -->
+                <div data-fd-static-works class="static_works">
+                    <ul>
 
-                            <div>
+                        <?php foreach ($works as $key => $work) { ?>
+                            <?php if ($key !=0 && $key % 5 == 0) echo('</ul> <ul>') ?>
+                            <li>
+                                <?php
+                                $params['item'] = $work;
+                                $workUrl = $simpleModuleUrlProvider->geteWorksFrontOutItemUrl($params);
+                                ?>
+                                <a href="<?php echo $workUrl; ?>"><img src="<?php echo $work['imgPath']; ?>" alt="">
 
-                                <div class="our-works__descr">
+                                    <div>
 
-                                    <?php foreach ($work['desclist'] as $key => $item) { ?>
-                                        <span><?php echo($item['text']) ?></span>
-                                    <?php } ?>
+                                        <div class="our-works__descr">
 
-                                </div>
+                                            <?php foreach ($work['desclist'] as $key => $item) { ?>
+                                                <span><?php echo($item['text']) ?></span>
+                                            <?php } ?>
 
-                            </div>
-                        </a>
-                    </li>
-                <?php } ?>
-            </ul>
+                                        </div>
+
+                                    </div>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                </div>
+                <!--/static works -->
+
+            </div>
+            <!--/"works" -->
+
+
+            <div class="our-works-footer">
+                <div>
+                    <a href="<?php echo $textPagesUrlProvider->getPortfolifrontoutUrl();?>" class="button light">
+                        <span><?php echo Yii::t('app', 'to see a front end portfolio');?></span>
+                    </a>
+
+                </div>
+                <p><?php echo $workscount .' '. \frontend\models\Common::amountToWordEnding('work', $workscount, $lang )?></p>
+            </div>
 
         </div>
-       
-    </div>
-   
+        <!--/our works  wrap -->
 
-   
+    </div>
+
+
+
     <section class="article light warranty">
 
-       
+
         <div class="warranty__background-text">
             <span><?php echo($pageData1['garantiesbgword']) ?></span>
         </div>
-       
 
 
-       
+
+
         <div class="layout">
 
-           
+
             <div class="warranty-item">
                 <h2><?php echo($pageData1['garanties1title']) ?></h2>
                 <ul>
@@ -230,10 +251,10 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                 </ul>
             </div>
-           
 
 
-           
+
+
             <div class="warranty-item">
                 <h2><?php echo($pageData1['garanties2title']) ?></h2>
                 <ul>
@@ -245,31 +266,31 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                 </ul>
             </div>
-           
+
 
         </div>
-       
+
 
     </section>
-   
 
-   
+
+
     <div class="offer mesh">
 
-       
+
         <div class="layout fd_align-center">
 
-           
+
             <a href="<?php echo($textPagesUrlProvider->getCommercialUrl()) ?>" class="button dark">
                 <span><?php echo Yii::t('app', 'request a free consultation and estimate of your project'); ?></span>
             </a>
-           
+
 
         </div>
-       
+
 
     </div>
-   
+
 
 
 </div>
