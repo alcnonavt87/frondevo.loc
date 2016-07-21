@@ -111,6 +111,80 @@ class Common extends Model
         return 'index';
     }
 	/**
+	 * Окончание слова в зависимости от численности
+	 */
+	public static function amountToWordEnding($word, $number=0, $lang='ru') {
+		$number = $number % 100;
+
+		if ($number > 10 && $number < 20) {
+			$formNumber = '3';
+		} else {
+			$number = $number % 10;
+
+			if ($number == 1) {
+				$formNumber = '1';
+			} else if ($number == 2 || $number == 3 || $number == 4) {
+				$formNumber = '2';
+			} else {
+				$formNumber = '3';
+			}
+		}
+
+		return self::getWordForm($word, $formNumber, $lang);
+	}
+
+	/**
+	 * Склонение по падежам некоторых терминов на сайте
+	 */
+	public static function getWordForm($word='product', $formNumber='1', $lang='ru') {
+		$wordForms = [
+				'product' => [
+						'1' => [
+								'ru' => 'товар',
+								'ua' => 'товар',
+								'en' => 'product',
+						],
+						'2' => [
+								'ru' => 'товара',
+								'ua' => 'товари',
+								'en' => 'products',
+						],
+						'3' => [
+								'ru' => 'товаров',
+								'ua' => 'товарів',
+								'en' => 'products',
+						],
+				],
+				'work' => [
+						'1' => [
+								'ru' => 'работа',
+								'ua' => 'робота',
+								'en' => 'work',
+						],
+						'2' => [
+								'ru' => 'работы',
+								'ua' => 'роботи',
+								'en' => 'works',
+						],
+						'3' => [
+								'ru' => 'работ',
+								'ua' => 'робіт',
+								'en' => 'works',
+						],
+				],
+		];
+
+		if (!isset($wordForms[$word])) {
+			$word = 'product';
+		}
+
+		if (!isset($wordForms[$word][$formNumber])) {
+			$formNumber = '1';
+		}
+
+		return $wordForms[$word][$formNumber][$lang];
+	}
+	/**
 	 * Получить настройки
 	 */
 	public function getSettings($lang) {

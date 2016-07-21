@@ -269,7 +269,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                                 
 
                             </div>
-                            <p><?php echo $workscount .' '. Yii::t('app', 'works');?></p>
+                            <p><?php echo $workscount .' '. \frontend\models\Common::amountToWordEnding('work',$workscount, $lang )?></p>
                         </div>
                         
 
