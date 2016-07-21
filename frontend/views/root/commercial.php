@@ -6,8 +6,8 @@
             <h1><?php echo $pageData['commercialtitle']; ?></h1>
 
             <h2><?php echo $pageData['commercialtitle1']; ?></h2>
-
-            <form id="form-application" action="/email/commercial" method="post" autocomplete="on" data-ajax novalidate
+             $adr =
+            <form id="form-application" action=<?php echo "/email".$langUri."/commercial" ?> method="post" autocomplete="on" data-ajax novalidate
                   class="action-form">
 
                 <div class="row">
@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="input-wrap">
-                        <label for="input-phone"><?php echo Yii::t('app', 'your phone number') . '*'; ?></label>
+                        <label for="input-phone"><?php echo Yii::t('app', 'your phone number'); ?></label>
                         <input id="input-phone" type="tel" name="tel" class="input">
                     </div>
                 </div>

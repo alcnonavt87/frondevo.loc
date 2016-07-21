@@ -92,6 +92,7 @@ return [
 	'how do you see your future website?' => 'яким Ви бачите Ваш майбутній веб-сайт?',
 	'write briefly: in what area do you work, what are your goals, what and why do you want see on your website?' => 'коротко напишіть: у якій сфері Ви працюєте, які Ваші цілі, що саме і чому Ви б хотіли бачити на своєму веб-сайті?',
 	'send' => 'відправити',
+	'Commercial request sent successfully.' => 'Комерційний запит відправлено успішно.',
     // листи
 	'Name' => 'Ім’я',
 	'Object' => 'Об’єкт',

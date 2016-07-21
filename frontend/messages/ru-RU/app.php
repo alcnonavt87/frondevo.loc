@@ -107,6 +107,7 @@ return [
 	'Action delivery done successfully.' => 'Рассылка акции завершилась успешно.',
 	'The contact person' => 'Контактное лицо',
 	'Request from frondevo.com' =>'Запрос от frondevo.com',
+	'Commercial request sent successfully.' => 'Комерческий запрос отрправлен успешно',
 
 	'Short description' => 'Краткое описание',
 	'Details' => 'Детали',
