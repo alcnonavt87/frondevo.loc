@@ -138,7 +138,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
         <div class="our-works-menu">
 
 
-            <ul data-fd-works-menu-list="works" data-fd-works-action="../web/markup/server/works.json" class="our-works-menu-list">
+            <ul data-fd-works-menu-list="works" data-fd-works-action=<?php echo "/api".$langUri."/index" ?> class="our-works-menu-list">
                 <?php foreach ($filters as $key => $filter) { ?>
                     <?php
                     $params['item'] = $filter;
@@ -148,14 +148,14 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
                     <?php
                     if ($key == 0) {
                         ?>
+                        <!-- our works menu item -->
                         <li data-fd-works-menu-item class="our-works-menu-item active">
-                            <a href="<?php echo $filterUrl; ?>" data-fd-works-filter="<?php echo $filter['url']; ?>" target="_parent"
-                               rel="nofollow "><?php echo $filter['title']; ?></a>
+                            <a href="#" data-fd-works-filter="<?php echo $filter['url']; ?>"><?php echo $filter['title']; ?></a>
                         </li>
+                        <!--/our works menu item -->
                     <?php } else { ?>
                         <li data-fd-works-menu-item class="our-works-menu-item">
-                            <a href="<?php echo $filterUrl; ?>" data-fd-works-filter="<?php echo $filter['url']; ?>" target="_parent"
-                               rel="nofollow "><?php echo $filter['title']; ?></a>
+                            <a href="#" data-fd-works-filter="<?php echo $filter['url']; ?>">  <?php echo $filter['title']; ?></a>
                         </li>
                     <?php } ?>
                 <?php } ?>
@@ -165,9 +165,6 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
 
         </div>
-
-
-
 
         <!-- our works  wrap -->
         <div class="our-works__wrap">
@@ -181,7 +178,7 @@ $textPagesUrlProvider = new TextPagesUrlProvider($lang);
 
                         <?php foreach ($works as $key => $work) { ?>
                             <?php if ($key !=0 && $key % 5 == 0) echo('</ul> <ul>') ?>
-                            <li>
+                            <li data-fd-works-item class="tEndElement2">
                                 <?php
                                 $params['item'] = $work;
                                 $workUrl = $simpleModuleUrlProvider->geteWorksFrontOutItemUrl($params);

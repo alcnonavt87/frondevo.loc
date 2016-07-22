@@ -236,14 +236,14 @@ $content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$page[0]['id'
 </fieldset><!-- /worksexamplespsd2html5filter2 -->
 
 <!-- worksexamplespsd2html5filter4 --><fieldset class="catalog__section">
-	'.$this->createHeader('Выбор работ для фильтра Сложные дизайны').'
+	'.$this->createHeader('Выбор работ для фильтра E-commerce').'
 	<div class="catalog__section-data">
 	<!-- worksfrontout -->'.$this->createCheckBoxGroup(['list' => $worksfrontoutList_102]).'<!-- /worksfrontout -->
 	</div>
 </fieldset><!-- /worksexamplespsd2html5filter4 -->
 
 <!-- worksexamplespsd2html5filter3 --><fieldset class="catalog__section">
-	'.$this->createHeader('Выбор работ для фильтра E-commerce').'
+	'.$this->createHeader('Выбор работ для фильтра Сложные дизайны').'
 	<div class="catalog__section-data">
 	<!-- worksfrontout -->'.$this->createCheckBoxGroup(['list' => $worksfrontoutList_103]).'<!-- /worksfrontout -->
 	</div>

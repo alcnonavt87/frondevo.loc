@@ -230,7 +230,7 @@ class OutsourcingController extends CommonController
 
         // Работы отобаржаемые на текстовой странице
 
-        $works = $this->myWorks->getWorksForPsdhtmlPage($this->thirdUri);
+        $works = $this->myWorks->getWorksForPsdhtmlPage('adaptive');//echo '<pre>';print_r($works);echo '</pre>';exit;
         $data['works'] = $works;
 
         //количество работ в таблице для фронтендаутсорсинг
