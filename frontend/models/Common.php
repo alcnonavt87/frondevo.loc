@@ -24,7 +24,7 @@ class Common extends Model
         // определяем условия для языка по-умолчанию
         $firstUri = Yii::$app->request->get('id', '');
 		$defaultLang = !in_array($firstUri, Yii::$app->params['siteLangs']);
-		
+
 		$lang = $defaultLang ? Yii::$app->params['defLang'] : $firstUri;
         return $lang;
     }

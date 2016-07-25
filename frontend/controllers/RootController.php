@@ -42,17 +42,17 @@ class RootController extends Controller
 		// Хост
         $hostName = $myCommon->getHostName();
 		$forLayout['hostName'] = $hostName;
-		
+
 		// Язык
         $lang = $myCommon->getLang();
 		$forLayout['lang'] = $lang;
-		
+
 		$myRoot = new Root($lang);
 		
 		// Uris
         $uris = $myCommon->getUris($lang);
 		list($firstUri, $secondUri, $thirdUri) = $uris;
-		
+
 		// Настройка языкового окружения
 		switch ($lang) {
             case 'en':

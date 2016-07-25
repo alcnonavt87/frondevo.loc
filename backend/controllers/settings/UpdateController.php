@@ -25,7 +25,7 @@ class UpdateController extends \backend\controllers\AdminController {
 
             $settingsPageAdminClass = $mySettings->getSettingsPageAdminClass($idSettingsPage);
 
-            if($settingsPageAdminClass) {   
+            if($settingsPageAdminClass) {
                 $controller = Yii::$app->createControllerByID($settingsPageAdminClass.'update');
                 $ret = $controller->runAction('index');
                 echo $ret;

@@ -16,7 +16,7 @@ $content = '<ul class="crumbs">
             </ul>';
 //Хлебные крошки КОНЕЦ
 
-$content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$defLang, 'post', ['id'=>"form-edit-content"]).
+$content .= Html::beginForm($admPanelUri.'formupdate/'.$id1Uri.'/'.$settingsPageUri.'/'.$defLang, 'post', ['id'=>"form-edit-content"]).
                 '<fieldset class="catalog__section">
                 '.$this->createHeader('Данные пользователя').'
                     <div class="catalog__section-data">

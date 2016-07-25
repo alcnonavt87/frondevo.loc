@@ -3,7 +3,8 @@ return [
     'adminEmail' => 'admin@example.com',
     'supportEmail' => 'support@example.com',
     'user.passwordResetTokenExpire' => 3600,
-
+    'site1' => 'https://frondevo.com',
+    'site2' => 'https://frondevo.kiev.ua',
     'defLang' => 'ru',
     'hostProtocol' => 'http://',
 

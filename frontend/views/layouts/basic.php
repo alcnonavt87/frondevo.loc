@@ -94,9 +94,11 @@ $urlprovider = new \vendor\UrlProvider\UrlProvider($lang)
                 <?php if (!empty($links)) { ?>
                     <ul>
                     <?php foreach ($links as $link) { ?>
-                        <?php
-                        $linkUrl = $textPagesUrlProvider->{$link['urlMethod']}();
-                        ?>
+                        <?php if (!empty($link['urlMethod'])){
+                            $linkUrl = $textPagesUrlProvider->{$link['urlMethod']}();
+                        } else {
+                            $linkUrl = '';
+                        } ?>
                         <li><a href="<?php echo $linkUrl; ?>"><?php echo $link['title']; ?></a></li>
                     <?php } ?>
                      </ul>

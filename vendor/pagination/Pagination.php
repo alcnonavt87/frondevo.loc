@@ -100,10 +100,17 @@ class Pagination
             if ($this->current_page < $this->amount)
                 # Создаём ссылку "На последнюю"
                 $links .= $this->generateHtml($this->amount, '&gt;');
+            # Если текущая страница не первая
+            if ($this->current_page != 1)
+                # Создаём ссылку "На первую"
+                $links = $this->generateHtml(1, '&lt;','mob') . $links;
+            # Если текущая страница не первая
+            if ($this->current_page != $this->amount)
+                # Создаём ссылку "На последнюю"
+                $links .= $this->generateHtml($this->amount, '&gt;','mob');
+
         }
-        $html .= $links . '<li class="pager-item mob-only">
-                            <a href="#">&gt;</a>
-                        </li> </ul>';
+        $html .= $links;
         # Возвращаем html
         return $html;
     }
@@ -114,8 +121,54 @@ class Pagination
      *
      * @return
      */
-    private function generateHtml($page, $text = null)
-    {
+    private function generateHtml($page, $text = null,$device = null)
+    {   if($text == '&gt;'&& $device == null){
+        if (!$text)
+            # Указываем, что текст - цифра страницы
+            $text = $page;
+        $currentURI =  $this->urlpage;
+        $currentURI = preg_replace('~/page-[0-9]+~', '', $currentURI);
+        # Формируем HTML код ссылки и возвращаем
+        $_GET['page'] = isset($_GET['page'])?$_GET['page']:1;
+        $page = $_GET['page'] + 1 ;
+        return
+            '<li class="pager-item desk-only"><a href="' . $currentURI .'/'.$this->filterUri. $this->index . $page . '">' . $text . '</a></li>';
+    }
+        if($text == '&lt;'&& $device == null){
+            if (!$text)
+                # Указываем, что текст - цифра страницы
+                $text = $page;
+            $currentURI =  $this->urlpage;
+            $currentURI = preg_replace('~/page-[0-9]+~', '', $currentURI);
+            # Формируем HTML код ссылки и возвращаем
+            $page = $_GET['page'] - 1 ;
+            return
+                '<li class="pager-item desk-only"><a href="' . $currentURI .'/'.$this->filterUri. $this->index . $page . '">' . $text . '</a></li>';
+        }
+        if($text == '&gt;' && $device == 'mob'){
+        if (!$text)
+            # Указываем, что текст - цифра страницы
+            $text = $page;
+        $currentURI =  $this->urlpage;
+        $currentURI = preg_replace('~/page-[0-9]+~', '', $currentURI);
+        # Формируем HTML код ссылки и возвращаем
+        $_GET['page'] = isset($_GET['page'])?$_GET['page']:1;
+        $page = $_GET['page'] + 1 ;
+        return
+            '<li class="pager-item mob-only"><a href="' . $currentURI .'/'.$this->filterUri. $this->index . $page . '">' . $text . '</a></li>';
+        }
+        if($text == '&lt;'&& $device == 'mob'){
+            if (!$text)
+                # Указываем, что текст - цифра страницы
+                $text = $page;
+            $currentURI =  $this->urlpage;
+            $currentURI = preg_replace('~/page-[0-9]+~', '', $currentURI);
+            # Формируем HTML код ссылки и возвращаем
+            $page = $_GET['page'] - 1 ;
+            return
+                '<li class="pager-item mob-only"><a href="' . $currentURI .'/'.$this->filterUri. $this->index . $page . '">' . $text . '</a></li>';
+        }
+
         if($page==1 && !$text){
             $text = $page;
             $currentURI =  $this->urlpage;
